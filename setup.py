@@ -31,7 +31,14 @@ setup(
     ],
     python_requires=">=3.8",
     install_requires=[
-        # Core dependencies
+        "requests>=2.31.0",
+        "numpy>=1.24.3",
+        "pandas>=2.1.3",
+        "fastapi>=0.104.0",
+        "uvicorn[standard]>=0.24.0",
+        "pydantic>=2.5.0",
+        "click>=8.1.7",
+        "rich>=13.7.0",
     ],
     entry_points={
         "console_scripts": [
