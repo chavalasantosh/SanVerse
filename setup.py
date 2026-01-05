@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="soma",
-    version="1.0.1",
+    version="1.0.3",
     author="Santosh Chavala",
     author_email="chavalasantosh@gmail.com",
     description="SOMA - Advanced Tokenization & Intelligence Framework",
@@ -32,8 +32,8 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "requests>=2.31.0",
-        "numpy>=1.24.3",
-        "pandas>=2.1.3",
+        "numpy>=1.24.0",
+        "pandas>=2.0.0",
         "fastapi>=0.104.0",
         "uvicorn[standard]>=0.24.0",
         "pydantic>=2.5.0",
