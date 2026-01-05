@@ -3,7 +3,7 @@ SOMA Package
 A comprehensive text tokenization system with mathematical analysis and statistical features
 """
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 __author__ = "Santosh Chavala"
 __email__ = "chavalasantosh@example.com"
 

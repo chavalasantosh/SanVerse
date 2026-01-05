@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="somaya",
-    version="1.0.4",
+    version="1.0.5",
     author="Santosh Chavala",
     author_email="chavalasantosh@gmail.com",
     description="SOMA - Advanced Tokenization & Intelligence Framework",
