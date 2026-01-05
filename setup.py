@@ -12,7 +12,7 @@ setup(
     name="santok",
     version="1.0.0",
     author="Santosh Chavala",
-    author_email="chavalasantosh@example.com",
+    author_email="chavalasantosh@hotmail.com",
     description="SanTOK - A comprehensive text tokenization system with mathematical analysis and statistical features",
     long_description=long_description,
     long_description_content_type="text/markdown",
