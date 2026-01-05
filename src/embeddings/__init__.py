@@ -1,12 +1,12 @@
 """
-SanTOK Embedding Generation System
+SOMA Embedding Generation System
 
-This module provides embedding generation from SanTOK tokens,
+This module provides embedding generation from soma tokens,
 enabling inference-ready vector representations.
 """
 
-from .embedding_generator import SanTOKEmbeddingGenerator
-from .vector_store import SanTOKVectorStore, ChromaVectorStore, FAISSVectorStore
+from .embedding_generator import somaEmbeddingGenerator
+from .vector_store import somaVectorStore, ChromaVectorStore, FAISSVectorStore
 
 # Try importing WeaviateVectorStore (optional dependency)
 try:
@@ -16,14 +16,14 @@ except ImportError:
     WeaviateVectorStore = None
     WEAVIATE_AVAILABLE = False
 
-from .inference_pipeline import SanTOKInferencePipeline
+from .inference_pipeline import somaInferencePipeline
 
 __all__ = [
-    "SanTOKEmbeddingGenerator",
-    "SanTOKVectorStore",
+    "SOMAEmbeddingGenerator",
+    "SOMAVectorStore",
     "ChromaVectorStore",
     "FAISSVectorStore",
-    "SanTOKInferencePipeline",
+    "SOMAInferencePipeline",
 ]
 
 # Conditionally add WeaviateVectorStore to __all__ if available

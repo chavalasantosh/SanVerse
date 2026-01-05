@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test SanTOK reconstruction accuracy
+Test SOMA reconstruction accuracy
 """
 
 import sys
@@ -33,7 +33,7 @@ def test_reconstruction_accuracy():
     # Available tokenizers
     tokenizers = ['space', 'word', 'char', 'grammar', 'subword', 'bpe', 'syllable', 'frequency', 'byte']
 
-    print('Testing SanTOK reconstruction accuracy...')
+    print('Testing SOMA reconstruction accuracy...')
     print('=' * 60)
 
     results = {}

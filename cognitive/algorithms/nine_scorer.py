@@ -1,11 +1,11 @@
 """
-SanTOK 9-Scorer - 9-Centric Confidence Propagation
+SOMA 9-Scorer - 9-Centric Confidence Propagation
 ==================================================
 
-SANTOK-ORIGINAL ALGORITHM. Based on SanTOK's 9-centric numerology.
+SOMA-ORIGINAL ALGORITHM. Based on SOMA's 9-centric numerology.
 
 The 9-Centric Philosophy:
-    In SanTOK, 9 represents completeness and cyclic return.
+    In SOMA, 9 represents completeness and cyclic return.
     All scores, confidences, and weights are folded through digital root.
     
     Digital Root: dr(n) = 1 + ((n - 1) mod 9)
@@ -44,11 +44,11 @@ class Score9:
         return f"Score9(raw={self.raw:.4f}, dr={self.digital_root}, cycle={self.cycle})"
 
 
-class SanTOK9Scorer:
+class SOMA9Scorer:
     """
     9-Centric Scoring System.
     
-    UNIQUE TO SANTOK. All operations use 9-centric math.
+    UNIQUE TO soma. All operations use 9-centric math.
     
     Key Operations:
     - to_9: Convert any number to 9-scale
@@ -57,7 +57,7 @@ class SanTOK9Scorer:
     - decay_9: Apply 9-centric decay
     
     Example:
-        scorer = SanTOK9Scorer()
+        scorer = SOMA9Scorer()
         
         # Convert to 9-scale
         score = scorer.to_9(0.85)
@@ -73,7 +73,7 @@ class SanTOK9Scorer:
     MAX_CONFIDENCE = 1.0
     MIN_CONFIDENCE = 0.0
     
-    # Digital root meanings (SanTOK numerology)
+    # Digital root meanings (SOMA numerology)
     ROOT_MEANINGS = {
         1: "origin",       # Beginning, source
         2: "duality",      # Opposition, comparison
@@ -230,7 +230,7 @@ class SanTOK9Scorer:
         """
         Convert digital root back to confidence estimate.
         
-        Mapping (SanTOK convention):
+        Mapping (SOMA convention):
             9 -> 1.0 (complete)
             8 -> 0.9 (strong)
             7 -> 0.8
@@ -291,5 +291,5 @@ class SanTOK9Scorer:
         )
     
     def __repr__(self) -> str:
-        return f"SanTOK9Scorer(precision={self.precision})"
+        return f"SOMA9Scorer(precision={self.precision})"
 

@@ -1,8 +1,8 @@
 """
-Train Semantic Embeddings from SanTOK Tokens
+Train Semantic Embeddings from soma Tokens
 
 This script trains NLP-understandable embeddings WITHOUT using pretrained models.
-It learns semantic relationships from SanTOK's structure.
+It learns semantic relationships from soma's structure.
 """
 
 import sys
@@ -11,13 +11,13 @@ import os
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 
 def train_semantic_embeddings(
     text_corpus: str,
-    output_model_path: str = "santok_semantic_model.pkl",
+    output_model_path: str = "SOMA_semantic_model.pkl",
     embedding_dim: int = 768,
     window_size: int = 5,
     epochs: int = 10
@@ -33,7 +33,7 @@ def train_semantic_embeddings(
         epochs: Training epochs
     """
     print("=" * 60)
-    print("SanTOK Semantic Embedding Training")
+    print("SOMA Semantic Embedding Training")
     print("=" * 60)
     print(f"Corpus length: {len(text_corpus)} characters")
     print(f"Embedding dimension: {embedding_dim}")
@@ -41,8 +41,8 @@ def train_semantic_embeddings(
     print(f"Epochs: {epochs}")
     print()
     
-    # Step 1: Tokenize with SanTOK
-    print("Step 1: Tokenizing with SanTOK...")
+    # Step 1: Tokenize with SOMA
+    print("Step 1: Tokenizing with soma...")
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
     streams = tokenizer.build(text_corpus)
     
@@ -58,7 +58,7 @@ def train_semantic_embeddings(
     
     # Step 2: Initialize trainer
     print("Step 2: Initializing semantic trainer...")
-    trainer = SanTOKSemanticTrainer(
+    trainer = SOMASemanticTrainer(
         embedding_dim=embedding_dim,
         window_size=window_size,
         epochs=epochs
@@ -72,7 +72,7 @@ def train_semantic_embeddings(
     print()
     
     # Step 4: Build co-occurrence matrix
-    print("Step 4: Building co-occurrence matrix from SanTOK structure...")
+    print("Step 4: Building co-occurrence matrix from soma structure...")
     trainer.build_cooccurrence(all_tokens)
     print()
     
@@ -110,7 +110,7 @@ def main():
     print("Training on sample text...")
     trainer = train_semantic_embeddings(
         text_corpus=sample_text,
-        output_model_path="santok_semantic_model.pkl",
+        output_model_path="SOMA_semantic_model.pkl",
         embedding_dim=768,
         epochs=5  # Use more epochs (10-20) for better results
     )

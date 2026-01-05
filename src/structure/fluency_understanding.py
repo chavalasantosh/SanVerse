@@ -1,5 +1,5 @@
 """
-SanTOK Fluency and Understanding System
+SOMA Fluency and Understanding System
 =======================================
 
 Deep understanding of data, patterns, and structure for EXCELLENT fluency:

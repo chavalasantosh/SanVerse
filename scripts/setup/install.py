@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-SanTOK Installation Script
-Automated setup and installation for the SanTOK framework
+SOMA Installation Script
+Automated setup and installation for the SOMA framework
 """
 
 import os
@@ -131,7 +131,7 @@ def run_tests():
 
 def main():
     """Main installation function"""
-    print("[START] SanTOK Installation Script")
+    print("[START] SOMA Installation Script")
     print("=" * 40)
     
     # Check prerequisites

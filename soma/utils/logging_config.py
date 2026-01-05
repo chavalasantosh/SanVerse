@@ -1,5 +1,5 @@
 """
-Logging Configuration for SanTOK
+Logging Configuration for SOMA
 Provides structured logging instead of print statements
 """
 
@@ -15,7 +15,7 @@ def setup_logging(
     format_string: Optional[str] = None
 ) -> None:
     """
-    Set up logging configuration for SanTOK
+    Set up logging configuration for SOMA
     
     Args:
         level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)

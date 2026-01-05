@@ -1,11 +1,11 @@
 """
-Example: Using SanTOK with Pretrained Transformer Models
+Example: Using SOMA with Pretrained Transformer Models
 
-This example demonstrates how to use SanTOK tokenization with pretrained
+This example demonstrates how to use SOMA tokenization with pretrained
 models (BERT, GPT, T5, etc.) despite vocabulary ID mismatches.
 
-The critical issue: SanTOK's IDs don't match pretrained model vocabularies.
-Solution: Use vocabulary adapter to map SanTOK tokens to model vocabulary IDs.
+The critical issue: SOMA's IDs don't match pretrained model vocabularies.
+Solution: Use vocabulary adapter to map SOMA tokens to model vocabulary IDs.
 """
 
 import sys
@@ -16,9 +16,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.core.core_tokenizer import run_once, TextTokenizer
 from src.integration.vocabulary_adapter import (
-    SanTOKToModelConverter,
+    SOMAToModelConverter,
     VocabularyAdapter,
-    quick_convert_santok_to_model_ids
+    quick_convert_SOMA_to_model_ids
 )
 
 # Check if transformers is available
@@ -33,25 +33,25 @@ except ImportError:
 
 
 def example_1_basic_mapping():
-    """Example 1: Basic SanTOK → Model ID mapping"""
+    """Example 1: Basic SOMA → Model ID mapping"""
     print("=" * 60)
-    print("Example 1: Basic SanTOK → Model ID Mapping")
+    print("Example 1: Basic SOMA → Model ID Mapping")
     print("=" * 60)
     
-    text = "Hello world! SanTOK provides superior tokenization."
+    text = "Hello world! SOMA provides superior tokenization."
     
-    # Step 1: Tokenize with SanTOK
-    print(f"\n1. Tokenizing with SanTOK:")
+    # Step 1: Tokenize with SOMA
+    print(f"\n1. Tokenizing with SOMA:")
     print(f"   Text: {text}")
-    santok_result = run_once(text, seed=42, embedding_bit=False)
+    SOMA_result = run_once(text, seed=42, embedding_bit=False)
     
     # Extract word tokens
-    word_tokens = [rec["text"] for rec in santok_result["word"]["records"]]
-    print(f"   SanTOK tokens: {word_tokens}")
+    word_tokens = [rec["text"] for rec in SOMA_result["word"]["records"]]
+    print(f"   SOMA tokens: {word_tokens}")
     
     # Step 2: Map to model vocabulary IDs
     print(f"\n2. Mapping to BERT vocabulary IDs:")
-    model_ids = quick_convert_santok_to_model_ids(word_tokens, model_name="bert-base-uncased")
+    model_ids = quick_convert_SOMA_to_model_ids(word_tokens, model_name="bert-base-uncased")
     print(f"   Model IDs: {model_ids}")
     
     # Decode back to verify
@@ -71,32 +71,32 @@ def example_2_full_conversion():
     
     text = "The quick brown fox jumps over the lazy dog."
     
-    # Tokenize with SanTOK
-    print(f"\n1. SanTOK Tokenization:")
+    # Tokenize with SOMA
+    print(f"\n1. SOMA Tokenization:")
     print(f"   Text: {text}")
-    santok_result = run_once(text, seed=42, embedding_bit=False)
+    SOMA_result = run_once(text, seed=42, embedding_bit=False)
     
-    word_data = santok_result["word"]
+    word_data = SOMA_result["word"]
     print(f"   Tokens: {[rec['text'] for rec in word_data['records']]}")
     print(f"   Frontend digits: {word_data['digits']}")
     print(f"   Backend scaled: {word_data['scaled']}")
     
     # Convert to model format
     print(f"\n2. Converting to BERT format:")
-    converter = SanTOKToModelConverter(model_name="bert-base-uncased")
-    converted = converter.convert_santok_result(santok_result, tokenizer_type="word")
+    converter = SOMAToModelConverter(model_name="bert-base-uncased")
+    converted = converter.convert_SOMA_result(SOMA_result, tokenizer_type="word")
     
     print(f"   Model input IDs: {converted['model_input_ids']}")
     print(f"   Model tokens: {converted['model_tokens']}")
-    print(f"   SanTOK tokens preserved: {converted['santok_tokens']}")
-    print(f"   SanTOK frontend digits preserved: {converted['santok_frontend_digits']}")
+    print(f"   SOMA tokens preserved: {converted['SOMA_tokens']}")
+    print(f"   SOMA frontend digits preserved: {converted['SOMA_frontend_digits']}")
     
     # Show token mapping
-    print(f"\n3. Token Mapping (SanTOK index → Model indices):")
-    for santok_idx, model_indices in converted['token_mapping'].items():
-        santok_token = converted['santok_tokens'][santok_idx]
+    print(f"\n3. Token Mapping (SOMA index → Model indices):")
+    for SOMA_idx, model_indices in converted['token_mapping'].items():
+        SOMA_token = converted['SOMA_tokens'][SOMA_idx]
         model_tokens = [converted['model_tokens'][mid] for mid in model_indices]
-        print(f"   SanTOK[{santok_idx}] '{santok_token}' → Model{model_indices} {model_tokens}")
+        print(f"   SOMA[{SOMA_idx}] '{SOMA_token}' → Model{model_indices} {model_tokens}")
     
     print()
 
@@ -111,21 +111,21 @@ def example_3_model_inference():
         return
     
     print("=" * 60)
-    print("Example 3: Using SanTOK with Pretrained Model")
+    print("Example 3: Using SOMA with Pretrained Model")
     print("=" * 60)
     
-    text = "SanTOK solves the vocabulary compatibility issue."
+    text = "SOMA solves the vocabulary compatibility issue."
     
-    # Tokenize with SanTOK
-    print(f"\n1. Tokenizing with SanTOK:")
+    # Tokenize with SOMA
+    print(f"\n1. Tokenizing with SOMA:")
     print(f"   Text: {text}")
-    santok_result = run_once(text, seed=42, embedding_bit=False)
+    SOMA_result = run_once(text, seed=42, embedding_bit=False)
     
     # Convert to model format
     print(f"\n2. Preparing for model inference:")
-    converter = SanTOKToModelConverter(model_name="bert-base-uncased")
+    converter = SOMAToModelConverter(model_name="bert-base-uncased")
     model_inputs = converter.prepare_for_inference(
-        santok_result,
+        SOMA_result,
         tokenizer_type="word",
         return_tensors="pt"
     )
@@ -143,22 +143,22 @@ def example_3_model_inference():
         outputs = model(**model_inputs)
     
     print(f"   Output shape: {outputs.last_hidden_state.shape}")
-    print(f"   [OK] Successfully used SanTOK tokenization with pretrained BERT!")
+    print(f"   [OK] Successfully used SOMA tokenization with pretrained BERT!")
     
     print()
 
 
 def example_4_multiple_models():
-    """Example 4: Using SanTOK with different models"""
+    """Example 4: Using SOMA with different models"""
     print("=" * 60)
-    print("Example 4: SanTOK with Different Pretrained Models")
+    print("Example 4: SOMA with Different Pretrained Models")
     print("=" * 60)
     
-    text = "SanTOK works with any HuggingFace model."
+    text = "SOMA works with any HuggingFace model."
     
-    # Tokenize with SanTOK
-    santok_result = run_once(text, seed=42, embedding_bit=False)
-    tokens = [rec["text"] for rec in santok_result["word"]["records"]]
+    # Tokenize with SOMA
+    SOMA_result = run_once(text, seed=42, embedding_bit=False)
+    tokens = [rec["text"] for rec in SOMA_result["word"]["records"]]
     
     models_to_test = [
         "bert-base-uncased",
@@ -169,13 +169,13 @@ def example_4_multiple_models():
         models_to_test.extend(["gpt2", "roberta-base"])
     
     print(f"\nText: {text}")
-    print(f"SanTOK tokens: {tokens}\n")
+    print(f"SOMA tokens: {tokens}\n")
     
     for model_name in models_to_test:
         try:
             print(f"Model: {model_name}")
             adapter = VocabularyAdapter(model_name)
-            result = adapter.map_santok_tokens_to_model_ids(tokens)
+            result = adapter.map_SOMA_tokens_to_model_ids(tokens)
             print(f"  Vocab size: {result['vocab_size']}")
             print(f"  Input IDs: {result['input_ids']}")
             if TRANSFORMERS_AVAILABLE:
@@ -188,7 +188,7 @@ def example_4_multiple_models():
 
 
 def example_5_tokenization_strategies():
-    """Example 5: Comparing different SanTOK tokenization strategies"""
+    """Example 5: Comparing different SOMA tokenization strategies"""
     print("=" * 60)
     print("Example 5: Different Tokenization Strategies")
     print("=" * 60)
@@ -201,14 +201,14 @@ def example_5_tokenization_strategies():
     
     for strategy in strategies:
         print(f"Strategy: {strategy}")
-        santok_result = run_once(text, seed=42, embedding_bit=False)
+        SOMA_result = run_once(text, seed=42, embedding_bit=False)
         
-        if strategy in santok_result:
-            tokens = [rec["text"] for rec in santok_result[strategy]["records"]]
-            print(f"  SanTOK tokens: {tokens}")
+        if strategy in SOMA_result:
+            tokens = [rec["text"] for rec in SOMA_result[strategy]["records"]]
+            print(f"  SOMA tokens: {tokens}")
             
             # Convert to BERT IDs
-            model_ids = quick_convert_santok_to_model_ids(
+            model_ids = quick_convert_SOMA_to_model_ids(
                 tokens, 
                 model_name="bert-base-uncased"
             )
@@ -221,9 +221,9 @@ def example_5_tokenization_strategies():
 def main():
     """Run all examples"""
     print("\n" + "=" * 60)
-    print("SanTOK ↔ Pretrained Models Integration Examples")
+    print("SOMA ↔ Pretrained Models Integration Examples")
     print("=" * 60)
-    print("\nThis demonstrates how to use SanTOK tokenization with")
+    print("\nThis demonstrates how to use SOMA tokenization with")
     print("pretrained transformer models despite vocabulary ID mismatches.\n")
     
     try:
@@ -237,10 +237,10 @@ def main():
         print("[OK] All examples completed!")
         print("=" * 60)
         print("\nKey Takeaways:")
-        print("1. SanTOK tokenizes text into token strings")
+        print("1. SOMA tokenizes text into token strings")
         print("2. Vocabulary adapter maps token strings to model vocabulary IDs")
         print("3. Model IDs can be used with pretrained models")
-        print("4. SanTOK metadata (digits, backend numbers) is preserved")
+        print("4. SOMA metadata (digits, backend numbers) is preserved")
         print("\nSee docs/VOCABULARY_COMPATIBILITY_ISSUE.md for details.\n")
         
     except Exception as e:

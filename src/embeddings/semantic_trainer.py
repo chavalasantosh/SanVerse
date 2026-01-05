@@ -1,8 +1,8 @@
 """
-SanTOK Semantic Embedding Trainer
+SOMA Semantic Embedding Trainer
 
-Trains semantic embeddings from SanTOK tokens WITHOUT using pretrained models.
-Uses self-supervised learning on SanTOK's mathematical features to capture
+Trains semantic embeddings from soma tokens WITHOUT using pretrained models.
+Uses self-supervised learning on SOMA's mathematical features to capture
 semantic relationships.
 """
 
@@ -22,15 +22,15 @@ except ImportError:
     pass
 
 
-class SanTOKSemanticTrainer:
+class SOMASemanticTrainer:
     """
-    Trains semantic embeddings from SanTOK tokens using:
+    Trains semantic embeddings from soma tokens using:
     - Co-occurrence patterns (which tokens appear together)
     - Context windows (neighbor relationships)
     - Content similarity (content_id relationships)
     - Global patterns (global_id relationships)
     
-    NO pretrained models - learns from SanTOK's structure itself.
+    NO pretrained models - learns from soma's structure itself.
     """
     
     def __init__(
@@ -81,7 +81,7 @@ class SanTOKSemanticTrainer:
         Args:
             token_streams: List of TokenRecord objects
         """
-        print("Building vocabulary from SanTOK tokens...")
+        print("Building vocabulary from soma tokens...")
         
         # Count token frequencies
         for token in token_streams:
@@ -122,7 +122,7 @@ class SanTOKSemanticTrainer:
     
     def build_cooccurrence(self, token_streams: List) -> None:
         """
-        Build co-occurrence matrix from SanTOK's neighbor relationships.
+        Build co-occurrence matrix from soma's neighbor relationships.
         
         Uses:
         - prev_uid, next_uid (immediate neighbors)
@@ -131,7 +131,7 @@ class SanTOKSemanticTrainer:
         
         For large vocabularies (>50k), uses sparse representation.
         """
-        print("Building co-occurrence matrix from SanTOK features...")
+        print("Building co-occurrence matrix from soma features...")
         
         vocab_size = len(self.vocab)
         
@@ -153,7 +153,7 @@ class SanTOKSemanticTrainer:
             if uid in self.vocab:
                 stream_tokens[stream].append(token)
         
-        # Build co-occurrence from SanTOK's neighbor structure
+        # Build co-occurrence from soma's neighbor structure
         for stream, tokens in stream_tokens.items():
             for i, token in enumerate(tokens):
                 uid = getattr(token, 'uid', 0)
@@ -184,7 +184,7 @@ class SanTOKSemanticTrainer:
                         self.cooccurrence_matrix[token_idx, next_idx] += 1.0
                         self.cooccurrence_matrix[next_idx, token_idx] += 1.0
                 
-                # Context window (using SanTOK's index) - limit for large vocabularies
+                # Context window (using SOMA's index) - limit for large vocabularies
                 start = max(0, i - self.window_size)
                 end = min(len(tokens), i + self.window_size + 1)
                 
@@ -246,7 +246,7 @@ class SanTOKSemanticTrainer:
         
         Learns from:
         - Co-occurrence patterns
-        - SanTOK's neighbor structure
+        - SOMA's neighbor structure
         - Content similarity
         """
         if self.token_embeddings is None:
@@ -359,7 +359,7 @@ class SanTOKSemanticTrainer:
         Get trained embedding for a token UID.
         
         Args:
-            token_uid: SanTOK token UID
+            token_uid: SOMA token UID
             
         Returns:
             Embedding vector or None if not in vocabulary

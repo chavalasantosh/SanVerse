@@ -1,5 +1,5 @@
 """
-Test script for Small SanTOK SLM
+Test script for Small SOMA SLM
 """
 
 import sys
@@ -8,7 +8,7 @@ import os
 # Add paths
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../'))
 
-from santok_cognitive.slm import SmallSanTOKSLM, SLMConfig
+from soma_cognitive.slm import SmallSOMASLM, SLMConfig
 
 
 def test_basic_generation():
@@ -24,7 +24,7 @@ def test_basic_generation():
         vocab_size=1000
     )
     
-    slm = SmallSanTOKSLM(config)
+    slm = SmallSOMASLM(config)
     
     # Simple facts
     facts = [
@@ -49,7 +49,7 @@ def test_constraint_enforcement():
     print("=" * 60)
     
     config = SLMConfig(d_model=64, n_layers=1, vocab_size=1000)
-    slm = SmallSanTOKSLM(config)
+    slm = SmallSOMASLM(config)
     
     # Facts about Python only
     facts = [
@@ -74,7 +74,7 @@ def test_fact_addition():
     print("=" * 60)
     
     config = SLMConfig(d_model=64, n_layers=1, vocab_size=1000)
-    slm = SmallSanTOKSLM(config)
+    slm = SmallSOMASLM(config)
     
     # Initial facts
     initial_facts = ["Python is a language"]
@@ -97,7 +97,7 @@ def test_different_temperatures():
     print("=" * 60)
     
     config = SLMConfig(d_model=64, n_layers=1, vocab_size=1000)
-    slm = SmallSanTOKSLM(config)
+    slm = SmallSOMASLM(config)
     
     facts = [
         "Python is a language",
@@ -119,7 +119,7 @@ def test_different_temperatures():
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
-    print("SanTOK Small SLM - Test Suite")
+    print("SOMA Small SLM - Test Suite")
     print("=" * 60 + "\n")
     
     try:

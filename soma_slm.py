@@ -1,27 +1,27 @@
 """
-SanTOK SLM - Neural Transformer-Based Small Language Model
+SOMA SLM - Neural Transformer-Based Small Language Model
 
 This is a REAL neural network SLM using transformer architecture.
 NOT rule-based - uses multi-head attention, feed-forward networks, embeddings.
 
 Usage:
-    from santok_slm import SanTOKSLM
+    from soma_slm import somaSLM
     
-    slm = SanTOKSLM()
+    slm = SOMASLM()
     slm.load_facts(["Python is a language", "Python is popular"])
     result = slm.generate("What is Python?")
     print(result)
 """
 
-from santok_cognitive.slm import (
-    SanTOKConstrainedSLM,
-    SanTOKSequenceConfig,
+from soma_cognitive.slm import (
+    SOMAConstrainedSLM,
+    SOMASequenceConfig,
 )
 
 
-class SanTOKSLM:
+class SOMASLM:
     """
-    Neural Transformer-Based SanTOK Small Language Model.
+    Neural Transformer-Based SOMA Small Language Model.
     
     This uses REAL neural networks:
     - Multi-head attention (transformer)
@@ -32,7 +32,7 @@ class SanTOKSLM:
     NOT rule-based - this is a proper neural language model.
     
     Example:
-        slm = SanTOKSLM()
+        slm = SOMASLM()
         slm.load_facts(["Python is a language"])
         print(slm.generate("What is Python?"))
     """
@@ -46,7 +46,7 @@ class SanTOKSLM:
         """
         if use_tiny:
             # Tiny model for low-resource
-            config = SanTOKSequenceConfig(
+            config = SOMASequenceConfig(
                 vocab_size=5000,
                 d_model=64,
                 n_layers=2,
@@ -55,7 +55,7 @@ class SanTOKSLM:
             )
         else:
             # Standard model
-            config = SanTOKSequenceConfig(
+            config = SOMASequenceConfig(
                 vocab_size=10000,
                 d_model=128,
                 n_layers=2,
@@ -63,7 +63,7 @@ class SanTOKSLM:
                 d_ff=512,
             )
         
-        self._slm = SanTOKConstrainedSLM(config)
+        self._slm = SOMAConstrainedSLM(config)
         self._facts = []
     
     def load_facts(self, facts):
@@ -111,7 +111,7 @@ class SanTOKSLM:
         self._facts = []
         # Recreate with same config
         config = self._slm.sequence_optimizer.config
-        self._slm = SanTOKConstrainedSLM(config)
+        self._slm = SOMAConstrainedSLM(config)
     
     def get_stats(self):
         """Get statistics about the neural model."""
@@ -135,7 +135,7 @@ class SanTOKSLM:
             epochs: Number of training epochs
             learning_rate: Learning rate for training
         """
-        from santok_cognitive.slm import SLMTrainer, TrainingConfig
+        from soma_cognitive.slm import SLMTrainer, TrainingConfig
         
         trainer = SLMTrainer(
             transformer=self._slm.sequence_optimizer,
@@ -147,7 +147,7 @@ class SanTOKSLM:
         )
         
         # Generate training data from facts
-        from santok_cognitive.slm import create_training_data
+        from soma_cognitive.slm import create_training_data
         training_data = create_training_data(self._facts)
         
         # Train
@@ -157,18 +157,18 @@ class SanTOKSLM:
 # Make it even simpler - just a function
 def create_slm():
     """
-    Create a new SanTOK SLM.
+    Create a new SOMA SLM.
     
     Returns:
-        SanTOKSLM instance
+        SOMASLM instance
     
     Example:
         slm = create_slm()
         slm.load_facts(["Python is a language"])
         print(slm.generate("What is Python?"))
     """
-    return SanTOKSLM()
+    return SOMASLM()
 
 
 # For direct import
-__all__ = ['SanTOKSLM', 'create_slm']
+__all__ = ['SOMASLM', 'create_slm']

@@ -1,15 +1,15 @@
 """
-SanTOK Structure-Enhanced Tokenizer
+SOMA Structure-Enhanced Tokenizer
 ====================================
 
-Enhances SanTOK tokenization with structure information.
+Enhances SOMA tokenization with structure information.
 
 Uses your structure idea to improve tokenization:
 - Symbols inform tokenization
 - Patterns guide token boundaries
 - Structure hierarchy provides context
 
-This makes SanTOK tokenization smarter using your structure foundation!
+This makes SOMA tokenization smarter using your structure foundation!
 """
 
 import sys

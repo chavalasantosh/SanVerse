@@ -8,12 +8,12 @@ import sys
 
 # Try to use config utilities if available
 try:
-    from santok.utils.config import Config
-    from santok.utils.logging_config import setup_logging, get_logger
-    SANTOK_UTILS_AVAILABLE = True
+    from soma.utils.config import Config
+    from soma.utils.logging_config import setup_logging, get_logger
+    SOMA_UTILS_AVAILABLE = True
     logger = get_logger(__name__)
 except ImportError:
-    SANTOK_UTILS_AVAILABLE = False
+    SOMA_UTILS_AVAILABLE = False
     logger = None
 from typing import NoReturn
 
@@ -22,9 +22,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def get_port() -> int:
     """Get PORT from environment variable with validation"""
-    if SANTOK_UTILS_AVAILABLE:
+    if SOMA_UTILS_AVAILABLE:
         try:
-            from santok.utils.validation import validate_port
+            from soma.utils.validation import validate_port
             port_str = os.environ.get("PORT", "8000")
             return validate_port(int(port_str), param_name="PORT")
         except Exception:
@@ -46,12 +46,12 @@ def get_port() -> int:
 def main() -> NoReturn:
     """Main function to start the server"""
     # Set up logging if available
-    if SANTOK_UTILS_AVAILABLE:
+    if SOMA_UTILS_AVAILABLE:
         log_level = Config.get_log_level()
         log_file = Config.get_log_file()
         setup_logging(level=log_level, log_file=log_file)
         if logger:
-            logger.info("Starting SanTOK API Server")
+            logger.info("Starting SOMA API Server")
     
     port = get_port()
     
@@ -60,7 +60,7 @@ def main() -> NoReturn:
         logger.info(f"Server will be available at: http://0.0.0.0:{port}")
         logger.info(f"API Documentation at: http://0.0.0.0:{port}/docs")
     else:
-        print(f"[START] Starting SanTOK API Server on port {port}...")
+        print(f"[START] Starting SOMA API Server on port {port}...")
         print(f"[INFO] Server will be available at: http://0.0.0.0:{port}")
         print(f"[INFO] API Documentation at: http://0.0.0.0:{port}/docs")
         print(f"[INFO] Python path: {sys.path}")

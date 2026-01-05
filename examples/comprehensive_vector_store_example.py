@@ -1,5 +1,5 @@
 """
-Comprehensive SanTOK Vector Store Example
+Comprehensive SOMA Vector Store Example
 ==========================================
 
 This is a unified example combining ALL vector store capabilities:
@@ -65,13 +65,13 @@ Embedding Alignment (NEW):
   ✓ train_embedding_alignment() - Train alignment using labeled pairs (contrastive + MSE)
   ✓ apply_alignment() - Apply learned alignment transformation to embeddings
 
-SanTOK-Native Context Fusion (NEW - 1000% SanTOK Way):
-  ✓ build_context_fusion_embeddings() - Context-aware embeddings using SanTOK's native mechanisms
+SOMA-Native Context Fusion (NEW - 1000% SOMA Way):
+  ✓ build_context_fusion_embeddings() - Context-aware embeddings using SOMA's native mechanisms
     - Uses prev_uid/next_uid for positional dependency
     - Uses content_id for semantic grouping
     - Uses global_id for full context signatures
     - Uses neighbor-aware backend numbers
-    - Positional encoding from SanTOK's deterministic index
+    - Positional encoding from soma's deterministic index
   ✓ search_with_context_fusion() - Semantic search with context-aware embeddings
 
 VECTOR STORES SUPPORTED:
@@ -80,8 +80,8 @@ VECTOR STORES SUPPORTED:
   ✓ ChromaDB - Persistent disk-based storage
 
 EMBEDDING STRATEGIES:
-  ✓ feature_based (default) - Pure SanTOK features, fast, no external dependencies
-  ✓ hybrid - User-selectable: Combines SanTOK features + sentence-transformers (better semantics)
+  ✓ feature_based (default) - Pure SOMA features, fast, no external dependencies
+  ✓ hybrid - User-selectable: Combines SOMA features + sentence-transformers (better semantics)
     - User can choose at runtime whether to use sentence-transformers
     - Falls back to feature_based if sentence-transformers not available
 
@@ -110,8 +110,8 @@ warnings.filterwarnings('ignore', message='.*sentence-transformers not available
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.core.core_tokenizer import TextTokenizer
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 
 # Try importing vector stores
 try:
@@ -359,7 +359,7 @@ class UnifiedVectorStoreExample:
             # User chose feature_based, so suppress any hybrid-related warnings
             warnings.filterwarnings('ignore', message='.*sentence-transformers.*', category=UserWarning)
         
-        self.embedding_gen = SanTOKEmbeddingGenerator(strategy=strategy, embedding_dim=768)
+        self.embedding_gen = SOMAEmbeddingGenerator(strategy=strategy, embedding_dim=768)
         
         # Vector stores
         self.weaviate_store = None
@@ -719,7 +719,7 @@ class UnifiedVectorStoreExample:
             try:
                 print("\n[INFO] Initializing Weaviate...")
                 self.weaviate_store = WeaviateVectorStore(
-                    collection_name="SanTOK_Token",
+                    collection_name="SOMA_Token",
                     embedding_dim=768
                 )
                 print("[OK] Weaviate initialized!")
@@ -749,7 +749,7 @@ class UnifiedVectorStoreExample:
                 print("\n[INFO] Initializing ChromaDB...")
                 persist_dir = os.path.join(self.output_dir, "chroma_db")
                 self.chroma_store = ChromaVectorStore(
-                    collection_name="santok_embeddings",
+                    collection_name="SOMA_embeddings",
                     persist_directory=persist_dir,
                     embedding_dim=768
                 )
@@ -762,7 +762,7 @@ class UnifiedVectorStoreExample:
                 print("[WARNING] ChromaDB not available. Install: pip install chromadb")
     
     def tokenize_text(self, text: str, show_detailed: bool = False):
-        """Tokenize text with SanTOK."""
+        """Tokenize text with soma."""
         print("\n" + "=" * 80)
         print("TOKENIZATION")
         print("=" * 80)
@@ -858,9 +858,9 @@ class UnifiedVectorStoreExample:
         if strategy == "semantic":
             # Try semantic embeddings
             try:
-                semantic_model_path = os.path.join(self.output_dir, "santok_semantic_model.pkl")
+                semantic_model_path = os.path.join(self.output_dir, "SOMA_semantic_model.pkl")
                 if os.path.exists(semantic_model_path):
-                    self.embedding_gen = SanTOKEmbeddingGenerator(
+                    self.embedding_gen = SOMAEmbeddingGenerator(
                         strategy="semantic",
                         embedding_dim=768,
                         semantic_model_path=semantic_model_path
@@ -874,17 +874,17 @@ class UnifiedVectorStoreExample:
                 strategy = "feature_based"
         
         if strategy == "feature_based":
-            self.embedding_gen = SanTOKEmbeddingGenerator(strategy="feature_based", embedding_dim=768)
+            self.embedding_gen = SOMAEmbeddingGenerator(strategy="feature_based", embedding_dim=768)
         
         if strategy == "hybrid" and self.use_hybrid_embeddings:
             # Reinitialize with hybrid strategy
             try:
-                self.embedding_gen = SanTOKEmbeddingGenerator(strategy="hybrid", embedding_dim=768)
+                self.embedding_gen = SOMAEmbeddingGenerator(strategy="hybrid", embedding_dim=768)
                 print("[INFO] Using hybrid embeddings (sentence-transformers)")
             except Exception as e:
                 print(f"[WARNING] Could not use hybrid embeddings: {e}")
                 print("   Falling back to feature_based.")
-                self.embedding_gen = SanTOKEmbeddingGenerator(strategy="feature_based", embedding_dim=768)
+                self.embedding_gen = SOMAEmbeddingGenerator(strategy="feature_based", embedding_dim=768)
                 self.use_hybrid_embeddings = False
         
         print("Generating embeddings...")
@@ -1506,7 +1506,7 @@ class UnifiedVectorStoreExample:
         print("RETRIEVAL BEFORE PROCESSING (Context Memory)")
         print("=" * 80)
         print(f"Query: '{query_text}'")
-        print("This makes SanTOK recall similar embeddings from memory before processing new input.")
+        print("This makes SOMA recall similar embeddings from memory before processing new input.")
         
         # Generate embedding for query
         query_streams = self.tokenizer.build(query_text)
@@ -1542,7 +1542,7 @@ class UnifiedVectorStoreExample:
                     print(f"[WARNING] {store_name} retrieval failed: {e}")
         
         if all_results:
-            print("\n→ SanTOK can recall similar embeddings from its memory!")
+            print("\n→ SOMA can recall similar embeddings from its memory!")
         else:
             print("\n→ No similar tokens found in memory (this is a new context)")
         
@@ -1776,7 +1776,7 @@ class UnifiedVectorStoreExample:
     
     def evaluate_semantic_alignment(self, test_pairs: Optional[List[Tuple[str, str, float]]] = None):
         """
-        Evaluate how well SanTOK embeddings align with human semantic similarity.
+        Evaluate how well SOMA embeddings align with human semantic similarity.
         
         Args:
             test_pairs: Optional list of (text1, text2, human_similarity_score) tuples
@@ -1789,7 +1789,7 @@ class UnifiedVectorStoreExample:
         print("\n" + "=" * 80)
         print("EVALUATING SEMANTIC ALIGNMENT")
         print("=" * 80)
-        print("Testing how well SanTOK embeddings match human semantic judgments...")
+        print("Testing how well SOMA embeddings match human semantic judgments...")
         
         if test_pairs is None or not test_pairs:
             # Default test pairs demonstrating the misalignment problem
@@ -1804,7 +1804,7 @@ class UnifiedVectorStoreExample:
         
         print(f"\nTesting {len(test_pairs)} text pairs...")
         
-        santok_similarities = []
+        SOMA_similarities = []
         human_similarities = []
         errors = []
         
@@ -1817,42 +1817,42 @@ class UnifiedVectorStoreExample:
                 print(f"  [WARNING] Could not generate embeddings for pair {i}")
                 continue
             
-            # Calculate SanTOK cosine similarity
-            santok_sim = np.dot(emb1, emb2) / (np.linalg.norm(emb1) * np.linalg.norm(emb2))
-            santok_sim = max(0.0, min(1.0, (santok_sim + 1.0) / 2.0))  # Normalize to 0-1
+            # Calculate SOMA cosine similarity
+            SOMA_sim = np.dot(emb1, emb2) / (np.linalg.norm(emb1) * np.linalg.norm(emb2))
+            SOMA_sim = max(0.0, min(1.0, (SOMA_sim + 1.0) / 2.0))  # Normalize to 0-1
             
-            santok_similarities.append(santok_sim)
+            SOMA_similarities.append(SOMA_sim)
             human_similarities.append(human_sim)
-            error = abs(santok_sim - human_sim)
+            error = abs(SOMA_sim - human_sim)
             errors.append(error)
             
             status = "✓" if error < 0.2 else "✗"
             print(f"  {status} Pair {i}: '{text1[:30]}...' vs '{text2[:30]}...'")
-            print(f"      Human: {human_sim:.2f} | SanTOK: {santok_sim:.2f} | Error: {error:.2f}")
+            print(f"      Human: {human_sim:.2f} | SOMA: {SOMA_sim:.2f} | Error: {error:.2f}")
         
         # Calculate metrics
         mean_error = np.mean(errors)
         max_error = np.max(errors)
-        correlation = np.corrcoef(santok_similarities, human_similarities)[0, 1] if len(santok_similarities) > 1 else 0.0
+        correlation = np.corrcoef(SOMA_similarities, human_similarities)[0, 1] if len(SOMA_similarities) > 1 else 0.0
         
         print(f"\n📊 Alignment Metrics:")
         print(f"  Mean Absolute Error: {mean_error:.3f}")
         print(f"  Max Error: {max_error:.3f}")
-        print(f"  Correlation (SanTOK vs Human): {correlation:.3f}")
+        print(f"  Correlation (SOMA vs Human): {correlation:.3f}")
         
         if mean_error > 0.3:
-            print(f"\n⚠️  HIGH MISALIGNMENT: SanTOK embeddings don't match human semantics well.")
+            print(f"\n⚠️  HIGH MISALIGNMENT: SOMA embeddings don't match human semantics well.")
             print(f"   Consider training embedding alignment (see train_embedding_alignment)")
         elif mean_error > 0.2:
             print(f"\n⚠️  MODERATE MISALIGNMENT: Some improvement needed.")
         else:
-            print(f"\n✓ GOOD ALIGNMENT: SanTOK embeddings align well with human semantics.")
+            print(f"\n✓ GOOD ALIGNMENT: SOMA embeddings align well with human semantics.")
         
         return {
             'mean_error': mean_error,
             'max_error': max_error,
             'correlation': correlation,
-            'santok_similarities': santok_similarities,
+            'SOMA_similarities': SOMA_similarities,
             'human_similarities': human_similarities,
             'errors': errors
         }
@@ -1896,7 +1896,7 @@ class UnifiedVectorStoreExample:
         print("\n" + "=" * 80)
         print("TRAINING EMBEDDING ALIGNMENT")
         print("=" * 80)
-        print("Learning to align SanTOK embeddings with human semantic similarity...")
+        print("Learning to align SOMA embeddings with human semantic similarity...")
         print(f"Training pairs: {len(labeled_pairs)}")
         print(f"Epochs: {epochs}, Learning rate: {learning_rate}")
         print(f"Loss functions: Contrastive={use_contrastive}, MSE={use_mse}")
@@ -1931,7 +1931,7 @@ class UnifiedVectorStoreExample:
         print(f"[OK] {len(valid_pairs)} valid pairs for training")
         
         # Initialize alignment projection matrix
-        # This matrix will transform SanTOK embeddings to better match semantic space
+        # This matrix will transform SOMA embeddings to better match semantic space
         embedding_dim = len(list(text_embeddings.values())[0])
         alignment_matrix = np.eye(embedding_dim)  # Start with identity
         bias = np.zeros(embedding_dim)
@@ -2019,7 +2019,7 @@ class UnifiedVectorStoreExample:
         Apply learned alignment transformation to an embedding.
         
         Args:
-            embedding: SanTOK embedding vector
+            embedding: SOMA embedding vector
             alignment_model: Alignment model dict (if None, loads from disk)
         
         Returns:
@@ -2051,16 +2051,16 @@ class UnifiedVectorStoreExample:
         min_similarity_threshold: float = 0.3  # Filter out noisy neighbors/content
     ):
         """
-        SanTOK-Native Context Fusion: Build context-aware embeddings using SanTOK's own mechanisms.
+        SOMA-Native Context Fusion: Build context-aware embeddings using SOMA's own mechanisms.
         
-        Uses SanTOK's native context signals:
+        Uses SOMA's native context signals:
         - prev_uid/next_uid: Positional dependency (tokens know their neighbors)
         - content_id: Semantic grouping (same content = same ID)
         - global_id: Full context signature (uid + content + position + stream)
         - Backend numbers: Already include neighbor context in hash
         - Index-based positional encoding: Deterministic position awareness
         
-        This is the "SanTOK way" to solve semantic context loss - leveraging what SanTOK
+        This is the "SOMA way" to solve semantic context loss - leveraging what SOMA
         already tracks mathematically, not adding external models.
         
         Args:
@@ -2074,9 +2074,9 @@ class UnifiedVectorStoreExample:
             Context-fused embeddings array
         """
         print("\n" + "=" * 80)
-        print("SANTOK-NATIVE CONTEXT FUSION")
+        print("SOMA-NATIVE CONTEXT FUSION")
         print("=" * 80)
-        print("Building context-aware embeddings using SanTOK's own mechanisms...")
+        print("Building context-aware embeddings using SOMA's own mechanisms...")
         print(f"Context window: {context_window}")
         print(f"Positional encoding: {use_positional}")
         print(f"Neighbor attention: {use_neighbor_attention}")
@@ -2087,7 +2087,7 @@ class UnifiedVectorStoreExample:
             print("[ERROR] No tokens or embeddings available")
             return None
         
-        # Build token lookup maps using SanTOK's native IDs
+        # Build token lookup maps using SOMA's native IDs
         uid_to_idx = {}
         content_id_to_indices = {}
         prev_next_map = {}
@@ -2129,10 +2129,10 @@ class UnifiedVectorStoreExample:
             context_components.append(base_emb)
             weights.append(1.0)
             
-            # 2. Positional encoding (using SanTOK's index)
+            # 2. Positional encoding (using SOMA's index)
             if use_positional:
                 # Create deterministic positional encoding from index
-                # Use sine/cosine like transformers, but based on SanTOK's index
+                # Use sine/cosine like transformers, but based on SOMA's index
                 pos_encoding = np.zeros(embedding_dim)
                 for dim in range(embedding_dim):
                     if dim % 2 == 0:
@@ -2377,14 +2377,14 @@ class UnifiedVectorStoreExample:
             plt.annotate(token_text, (x, y), fontsize=7, alpha=0.8,
                         bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.6))
         
-        plt.title("SanTOK Embedding Space - Semantic Map", fontsize=14, fontweight='bold')
+        plt.title("SOMA Embedding Space - Semantic Map", fontsize=14, fontweight='bold')
         plt.xlabel("t-SNE Dimension 1", fontsize=12)
         plt.ylabel("t-SNE Dimension 2", fontsize=12)
         plt.grid(True, alpha=0.3)
         plt.colorbar(scatter, label='Token Index')
         
         # Save
-        output_file = os.path.join(self.output_dir, "santok_embeddings_visualization.png")
+        output_file = os.path.join(self.output_dir, "SOMA_embeddings_visualization.png")
         plt.savefig(output_file, dpi=200, bbox_inches='tight')
         print(f"[OK] Visualization saved to: {output_file}")
         plt.close()
@@ -2415,7 +2415,7 @@ class UnifiedVectorStoreExample:
 def main():
     """Main function demonstrating comprehensive vector store usage."""
     print("=" * 80)
-    print("COMPREHENSIVE SANTOK VECTOR STORE EXAMPLE")
+    print("COMPREHENSIVE SOMA VECTOR STORE EXAMPLE")
     print("=" * 80)
     print("\nThis unified example combines ALL features from:")
     print("  - search_examples.py (semantic search, concept exploration, filtering)")
@@ -2438,8 +2438,8 @@ def main():
         print("EMBEDDING STRATEGY SELECTION")
         print("=" * 80)
         print("Choose embedding strategy:")
-        print("  1. feature_based (default) - Pure SanTOK features, fast, no external dependencies")
-        print("  2. hybrid - Combines SanTOK features + sentence-transformers (better semantics)")
+        print("  1. feature_based (default) - Pure SOMA features, fast, no external dependencies")
+        print("  2. hybrid - Combines SOMA features + sentence-transformers (better semantics)")
         print("     Note: Requires sentence-transformers (pip install sentence-transformers)")
         
         choice = input("\nEnter choice (1 or 2) [default: 1]: ").strip()
@@ -2447,7 +2447,7 @@ def main():
             use_hybrid = True
             print("[INFO] Selected: hybrid embeddings (sentence-transformers)")
         else:
-            print("[INFO] Selected: feature_based embeddings (pure SanTOK)")
+            print("[INFO] Selected: feature_based embeddings (pure SOMA)")
     except (KeyboardInterrupt, EOFError):
         print("\n[INFO] Using default: feature_based embeddings")
         use_hybrid = False
@@ -2467,7 +2467,7 @@ def main():
     Embeddings represent tokens as dense vectors.
     Semantic embeddings capture meaning and relationships.
     Vector databases store embeddings for fast similarity search.
-    SanTOK provides perfect tokenization for any language.
+    SOMA provides perfect tokenization for any language.
     """ * 10  # Repeat for more tokens
     
     # Show menu for selecting features to run FIRST (before checking for existing data)
@@ -2500,7 +2500,7 @@ def main():
         print("      p. Semantic Alignment Evaluation")
         print("      q. Train Embedding Alignment")
         print("  6.  Advanced Features:")
-        print("      r. SanTOK-Native Context Fusion")
+        print("      r. SOMA-Native Context Fusion")
         print("      s. Visualization (t-SNE)")
         print("  7.  Interactive Mode:")
         print("      t. Interactive Search Mode")
@@ -2663,7 +2663,7 @@ def main():
                     print("\n" + "=" * 80)
                     print("DETAILED EMBEDDING VIEW")
                     print("=" * 80)
-                    example.show_detailed_embeddings("Hello world, this is SanTOK!", max_tokens_per_stream=5)
+                    example.show_detailed_embeddings("Hello world, this is SOMA!", max_tokens_per_stream=5)
                 
                 # Step 2-4: Tokenize, generate embeddings, store - if selected
                 if 'a' in features_to_run or 'c' in features_to_run:
@@ -2758,9 +2758,9 @@ def main():
         
         if 'r' in features_to_run:
             print("\n" + "=" * 80)
-            print("SANTOK-NATIVE CONTEXT FUSION")
+            print("SOMA-NATIVE CONTEXT FUSION")
             print("=" * 80)
-            print("Solving semantic context loss using SanTOK's own mechanisms...")
+            print("Solving semantic context loss using SOMA's own mechanisms...")
             context_embeddings = example.build_context_fusion_embeddings(
                 context_window=5,
                 use_positional=True,

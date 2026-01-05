@@ -1,5 +1,5 @@
 """
-SanTOK Cognitive - Memory Module
+SOMA Cognitive - Memory Module
 ================================
 
 Unified memory that links:

@@ -1,5 +1,5 @@
 """
-SanTOK Advanced Pattern Analysis
+SOMA Advanced Pattern Analysis
 ================================
 
 Advanced pattern analysis for the structure system:

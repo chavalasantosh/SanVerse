@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "santok"
+name = "soma"
 version = "1.0.0"
 authors = [
     { name = "Santosh Chavala", email = "chavalasantosh@gmail.com" }
 ]
-description = "SanTOK - Advanced AI Tokenization Framework with semantic embeddings and mathematical analysis"
+description = "SOMA - Advanced AI Tokenization & Intelligence Framework (Shiva's Moon)"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.8"
@@ -19,35 +19,14 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Text Processing :: Linguistic",
-    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-keywords = ["tokenization", "nlp", "embeddings", "ai", "machine-learning", "text-processing"]
+keywords = ["soma", "tokenization", "ai", "nlp", "embeddings", "intelligence"]
 dependencies = []
 
-[project.optional-dependencies]
-full = [
-    "numpy>=1.20.0",
-    "fastapi>=0.68.0",
-    "uvicorn>=0.15.0",
-]
-dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "black>=23.0",
-    "flake8>=6.0",
-    "build>=0.10.0",
-    "twine>=4.0",
-]
-
 [project.scripts]
-santok = "santok.cli:main"
+soma = "soma_cli:main"
 
 [project.urls]
 Homepage = "https://github.com/chavalasantosh/SanVerse"
@@ -57,11 +36,7 @@ Issues = "https://github.com/chavalasantosh/SanVerse/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["santok*", "src*", "cognitive*", "santek_core*", "semantic_trainer*"]
-
-[tool.black]
-line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = ["soma*", "src*", "cognitive*", "santek_core*", "semantic_trainer*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

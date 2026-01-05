@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SanTOK Tokenization Engine - A Complete Text Tokenization Module
+SOMA Tokenization Engine - A Complete Text Tokenization Module
 Convert your tokenizer into a reusable Python module
 """
 
@@ -526,7 +526,7 @@ def generate_text_summary(text: str) -> Dict[str, Any]:
 # Example usage
 if __name__ == "__main__":
     # Example usage
-    print("SanTOK Tokenization Engine Module Example")
+    print("SOMA Tokenization Engine Module Example")
     print("=" * 50)
     
     # Create tokenization engine instance

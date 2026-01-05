@@ -1,5 +1,5 @@
 """
-SanTOK Structure Optimizer
+SOMA Structure Optimizer
 ==========================
 
 Optimizes structure system for better performance:

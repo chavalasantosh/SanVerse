@@ -1,8 +1,8 @@
 """
-SanTOK Cognitive - Reasoning Module
+SOMA Cognitive - Reasoning Module
 ===================================
 
-100% SanTOK-native symbolic reasoning.
+100% SOMA-native symbolic reasoning.
 NO GPT. NO TRANSFORMERS. NO NEURAL NETWORKS. NO EXTERNAL AI.
 
 Core Components:
@@ -15,9 +15,9 @@ Symbolic Reasoning:
 - RuleBase: Inference rules (IS_A, PART_OF, CAUSES transitivity)
 - ContradictionDetector: Find conflicts in knowledge
 
-PURE SANTOK (RECOMMENDED):
-- SanTOKReasoner: Complete reasoning + verbalization
-- SanTOKVerbalizer: Template-based text generation (NO neural)
+PURE SOMA (RECOMMENDED):
+- SOMAReasoner: Complete reasoning + verbalization
+- SOMAVerbalizer: Template-based text generation (NO neural)
 
 Optional External Integration:
 - HybridReasoner: For those who want LLM integration
@@ -46,9 +46,9 @@ from .hybrid_reasoner import (
     ContextType,
 )
 
-# PURE SANTOK (NO external AI)
-from .santok_verbalizer import SanTOKVerbalizer, VerbalizationResult
-from .santok_reasoner import SanTOKReasoner, SanTOKAnswer, StructuredKnowledge
+# PURE SOMA (NO external AI)
+from .SOMA_verbalizer import somaVerbalizer, VerbalizationResult
+from .SOMA_reasoner import somaReasoner, SOMAAnswer, StructuredKnowledge
 
 __all__ = [
     # Core
@@ -78,10 +78,10 @@ __all__ = [
     "StructuredContext",
     "ContextType",
     
-    # PURE SANTOK (NO external AI) - RECOMMENDED
-    "SanTOKVerbalizer",
+    # PURE SOMA (NO external AI) - RECOMMENDED
+    "SOMAVerbalizer",
     "VerbalizationResult",
-    "SanTOKReasoner",
-    "SanTOKAnswer",
+    "SOMAReasoner",
+    "SOMAAnswer",
     "StructuredKnowledge",
 ]

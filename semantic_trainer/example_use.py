@@ -8,7 +8,7 @@ import os
 # Add parent directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from enhanced_semantic_trainer import EnhancedSanTOKSemanticTrainer
+from enhanced_semantic_trainer import EnhancedSOMASemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 import numpy as np
 
@@ -21,7 +21,7 @@ def main():
         return
     
     print(f"Loading model from {model_path}...")
-    trainer = EnhancedSanTOKSemanticTrainer()
+    trainer = EnhancedSOMASemanticTrainer()
     trainer.load(model_path)
     
     print(f"Model loaded:")
@@ -30,7 +30,7 @@ def main():
     print(f"  Streams: {list(trainer.stream_vocabs.keys())}")
     
     # Tokenize new text
-    text = "SanTOK generates deterministic UIDs for every token."
+    text = "SOMA generates deterministic UIDs for every token."
     print(f"\nTokenizing: {text}")
     
     tokenizer = TextTokenizer(seed=42, embedding_bit=16)

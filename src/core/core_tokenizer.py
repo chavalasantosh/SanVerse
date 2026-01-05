@@ -1,7 +1,7 @@
 """
 Self-contained Text Tokenization System (no imports, no third-party).
 
-Run: python SanTOK_tokenizer.py
+Run: python SOMA_tokenizer.py
 
 Features:
 - Tokenizers: space, word, char, grammar, subword(3), byte-like (ord digits)
@@ -677,7 +677,7 @@ def _add_source_tags_to_tokens(tokens, source_tag, algorithm_id=None):
         List of tokens with added source metadata
     """
     try:
-        from src.santok_sources import get_source_map
+        from src.SOMA_sources import get_source_map
         source_map = get_source_map()
         source_metadata = source_map.get_source_metadata(source_tag)
         
@@ -2410,7 +2410,7 @@ def _write_text_file(file_path, content):
 def _write_formatted_txt_file(file_path, tokens, tokenizer_name):
     """Write tokens in a clean, readable format"""
     with open(file_path, "w", encoding="utf-8") as f:
-        f.write(f"SanTOK TOKENIZER - {tokenizer_name.upper()} TOKENS\n")
+        f.write(f"SOMA TOKENIZER - {tokenizer_name.upper()} TOKENS\n")
         f.write("=" * 60 + "\n\n")
         
         f.write(f"Total Tokens: {len(tokens)}\n")
@@ -3195,7 +3195,7 @@ def main():
     print("  ✓ UNIVERSAL FILE OUTPUT - Produces ANY format (JSON, CSV, XML, TXT, etc.)")
     print("  ✓ PRODUCTION READY - Fast, efficient, and robust")
     print()
-    print("The SanTOK Tokenizer is UNIVERSAL and working perfectly!")
+    print("The SOMA Tokenizer is UNIVERSAL and working perfectly!")
     # End of output
 
 

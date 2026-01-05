@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Start the SanTOK Tokenizer Backend Server
+Start the SOMA Tokenizer Backend Server
 """
 
 import subprocess
@@ -20,7 +20,7 @@ def install_requirements():
 
 def start_server():
     """Start the FastAPI server"""
-    print("🚀 Starting SanTOK Tokenizer Backend Server...")
+    print("🚀 Starting SOMA Tokenizer Backend Server...")
     print("📡 Server will be available at: http://localhost:8000")
     print("📚 API Documentation at: http://localhost:8000/docs")
     print("🔄 Press Ctrl+C to stop the server")
@@ -34,7 +34,7 @@ def start_server():
         print(f"[ERROR] Error starting server: {e}")
 
 if __name__ == "__main__":
-    print("[START] SanTOK Tokenizer Backend Setup")
+    print("[START] SOMA Tokenizer Backend Setup")
     print("=" * 40)
     
     # Check if we're in the right directory

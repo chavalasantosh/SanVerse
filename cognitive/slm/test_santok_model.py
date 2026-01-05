@@ -1,17 +1,17 @@
 """
-Test Script for SanTOK SLM Model
+Test Script for SOMA SLM Model
 ================================
 
-This script tests if SanTOK is working correctly.
+This script tests if SOMA is working correctly.
 
 Run this to verify:
-- SanTOK tokenization works
-- SanTOK constraints work
+- SOMA tokenization works
+- SOMA constraints work
 - Hallucination is prevented
 - Facts are grounded
 """
 
-from santok_slm_model import SanTOKSLMModel, create_santok_slm_model
+from soma_slm_model import somaSLMModel, create_soma_slm_model
 
 
 def test_basic_functionality():
@@ -21,7 +21,7 @@ def test_basic_functionality():
     print("=" * 60)
     
     # Create model
-    model = create_santok_slm_model()
+    model = create_soma_slm_model()
     
     # Facts about Python
     facts = [
@@ -54,7 +54,7 @@ def test_hallucination_prevention():
     print("Test 2: Hallucination Prevention")
     print("=" * 60)
     
-    model = create_santok_slm_model()
+    model = create_soma_slm_model()
     
     # Only facts about Python (no Java, no C++)
     facts = [
@@ -86,7 +86,7 @@ def test_constraint_enforcement():
     print("Test 3: Constraint Enforcement")
     print("=" * 60)
     
-    model = create_santok_slm_model()
+    model = create_soma_slm_model()
     
     # Specific facts
     facts = [
@@ -118,28 +118,28 @@ def test_constraint_enforcement():
     print()
 
 
-def test_santok_integration():
-    """Test SanTOK integration"""
+def test_SOMA_integration():
+    """Test SOMA integration"""
     print("=" * 60)
-    print("Test 4: SanTOK Integration")
+    print("Test 4: SOMA Integration")
     print("=" * 60)
     
-    model = create_santok_slm_model(use_cognitive=True)
+    model = create_soma_slm_model(use_cognitive=True)
     
     facts = [
-        "SanTOK is a tokenization system",
-        "SanTOK has custom embeddings",
-        "SanTOK uses 9-centric numerology",
-        "SanTOK has deterministic UIDs"
+        "SOMA is a tokenization system",
+        "SOMA has custom embeddings",
+        "SOMA uses 9-centric numerology",
+        "SOMA has deterministic UIDs"
     ]
     
     model.train(facts)
     
     # Test generation
     queries = [
-        "What is SanTOK?",
-        "How does SanTOK work?",
-        "What makes SanTOK unique?"
+        "What is SOMA?",
+        "How does SOMA work?",
+        "What makes SOMA unique?"
     ]
     
     for query in queries:
@@ -148,19 +148,19 @@ def test_santok_integration():
         print(f"Generated: {result}")
         print()
     
-    # Check if SanTOK Cognitive is being used
+    # Check if SOMA Cognitive is being used
     stats = model.get_stats()
-    if stats.get("santok_cognitive"):
-        print("✅ SanTOK Cognitive is integrated")
+    if stats.get("SOMA_cognitive"):
+        print("✅ SOMA Cognitive is integrated")
     else:
-        print("⚠️ SanTOK Cognitive not available")
+        print("⚠️ SOMA Cognitive not available")
     print()
 
 
 def run_all_tests():
     """Run all tests"""
     print("\n" + "=" * 60)
-    print("SanTOK SLM Model - Complete Test Suite")
+    print("SOMA SLM Model - Complete Test Suite")
     print("=" * 60)
     print()
     
@@ -168,13 +168,13 @@ def run_all_tests():
         test_basic_functionality()
         test_hallucination_prevention()
         test_constraint_enforcement()
-        test_santok_integration()
+        test_SOMA_integration()
         
         print("=" * 60)
         print("✅ All Tests Completed!")
         print("=" * 60)
         print()
-        print("If all tests passed, SanTOK is working correctly!")
+        print("If all tests passed, SOMA is working correctly!")
         print("The model can only generate tokens from your facts.")
         print("Hallucination is structurally impossible.")
         

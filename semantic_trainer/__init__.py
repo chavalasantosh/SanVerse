@@ -1,8 +1,8 @@
 """
-Enhanced SanTOK Semantic Trainer
-God-tier semantic embedding system leveraging all SanTOK unique features
+Enhanced SOMA Semantic Trainer
+God-tier semantic embedding system leveraging all SOMA unique features
 """
 
-from .enhanced_trainer import EnhancedSanTOKSemanticTrainer
+from .enhanced_trainer import EnhancedSOMASemanticTrainer
 
-__all__ = ['EnhancedSanTOKSemanticTrainer']
+__all__ = ['EnhancedSOMASemanticTrainer']

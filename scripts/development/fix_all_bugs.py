@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Automated Bug Fixer for SanTOK
+Automated Bug Fixer for SOMA
 Fixes all detected bugs automatically
 """
 
@@ -18,7 +18,7 @@ class BugFixer:
         self.exclude_dirs = {
             '__pycache__', '.git', 'node_modules',
             'venv', '.venv', 'archive',
-            'python_code_collection', 'demo_santok',
+            'python_code_collection', 'demo_SOMA',
             '.pytest_cache', '.vscode'
         }
     

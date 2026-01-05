@@ -1,8 +1,8 @@
 """
-SanTOK Symbol Structures - Core Foundation
+SOMA Symbol Structures - Core Foundation
 ==========================================
 
-Defines the basic building blocks for ALL of SanTOK:
+Defines the basic building blocks for ALL of SOMA:
 - Symbols and their classes (A-Z, 0-9, math symbols, special chars)
 - Symbol structures (constraints, not meanings)
 - Combination rules
@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 class SymbolClass:
     """
-    Symbol classification system for SanTOK.
+    Symbol classification system for soma.
     
     All symbols are classified into these categories.
     This is syntax, not semantics!
@@ -110,7 +110,7 @@ class SymbolRegistry:
     """
     Global registry of all symbols and their structures.
     
-    This is the foundation of SanTOK's structure system.
+    This is the foundation of SOMA's structure system.
     All symbols (A-Z, 0-9, math symbols, special chars) are registered here.
     """
     
@@ -279,7 +279,7 @@ def get_registry() -> SymbolRegistry:
     return _registry
 
 
-# Helper functions for SanTOK integration
+# Helper functions for SOMA integration
 def classify_symbol(symbol: str) -> str:
     """Classify a symbol into its class."""
     return get_registry().get_class(symbol)

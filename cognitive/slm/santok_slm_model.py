@@ -1,17 +1,17 @@
 """
-SanTOK SLM - Complete Usable Model
+SOMA SLM - Complete Usable Model
 ===================================
 
-A complete, ready-to-use Small Language Model built entirely with SanTOK infrastructure.
+A complete, ready-to-use Small Language Model built entirely with SOMA infrastructure.
 
-This is the ACTUAL MODEL you can use to test SanTOK.
+This is the ACTUAL MODEL you can use to test soma.
 
-100% SANTOK-NATIVE - NO THIRD-PARTY AI DEPENDENCIES:
-- ✅ Uses ONLY SanTOK tokenization (custom implementation)
-- ✅ Uses ONLY SanTOK embeddings (custom implementation)
-- ✅ Uses ONLY SanTOK semantic processing (custom implementation)
-- ✅ Uses ONLY SanTOK trees and graphs (custom implementation)
-- ✅ Uses ONLY SanTOK training/testing (custom implementation)
+100% SOMA-NATIVE - NO THIRD-PARTY AI DEPENDENCIES:
+- ✅ Uses ONLY SOMA tokenization (custom implementation)
+- ✅ Uses ONLY SOMA embeddings (custom implementation)
+- ✅ Uses ONLY SOMA semantic processing (custom implementation)
+- ✅ Uses ONLY SOMA trees and graphs (custom implementation)
+- ✅ Uses ONLY SOMA training/testing (custom implementation)
 - ✅ Constraint-grounded (CG-SLM)
 - ✅ No hallucination possible
 
@@ -27,10 +27,10 @@ DEPENDENCIES:
 - ❌ NO other AI/ML frameworks
 
 Usage:
-    from santok_cognitive.slm import SanTOKSLMModel
+    from soma_cognitive.slm import somaSLMModel
     
     # Create model
-    model = SanTOKSLMModel()
+    model = SOMASLMModel()
     
     # Train on your facts
     facts = [
@@ -51,50 +51,50 @@ import math
 import sys
 import os
 
-# SanTOK imports
+# SOMA imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../../'))
 
-# Import SanTOK SLM components
+# import soma SLM components
 from .small_slm import (
-    SmallSanTOKSLM,
+    SmallSOMASLM,
     SLMConfig,
     ConstraintEngine,
-    SanTOKSequenceOptimizer,
+    SOMASequenceOptimizer,
     ConstrainedDecoder,
-    SanTOKTokenizerWrapper
+    SOMATokenizerWrapper
 )
 
-# Import SanTOK Cognitive (for facts)
+# import soma Cognitive (for facts)
 try:
     from ..memory import UnifiedMemory
     from ..graph import GraphStore, RelationType
-    SANTOK_COGNITIVE_AVAILABLE = True
+    SOMA_COGNITIVE_AVAILABLE = True
 except ImportError:
     try:
-        from santok_cognitive.memory import UnifiedMemory
-        from santok_cognitive.graph import GraphStore, RelationType
-        SANTOK_COGNITIVE_AVAILABLE = True
+        from soma_cognitive.memory import UnifiedMemory
+        from soma_cognitive.graph import GraphStore, RelationType
+        SOMA_COGNITIVE_AVAILABLE = True
     except ImportError:
-        SANTOK_COGNITIVE_AVAILABLE = False
-        print("Warning: SanTOK Cognitive not available, using simple facts")
+        SOMA_COGNITIVE_AVAILABLE = False
+        print("Warning: SOMA Cognitive not available, using simple facts")
 
-# Import SanTOK embeddings (optional)
-SANTOK_EMBEDDINGS_AVAILABLE = False  # Disabled by default to avoid TF
+# import soma embeddings (optional)
+SOMA_EMBEDDINGS_AVAILABLE = False  # Disabled by default to avoid TF
 try:
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-    SANTOK_EMBEDDINGS_AVAILABLE = True
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
+    SOMA_EMBEDDINGS_AVAILABLE = True
 except ImportError:
     try:
-        from embeddings.embedding_generator import SanTOKEmbeddingGenerator
-        SANTOK_EMBEDDINGS_AVAILABLE = True
+        from embeddings.embedding_generator import somaEmbeddingGenerator
+        SOMA_EMBEDDINGS_AVAILABLE = True
     except ImportError:
         pass
 
 
 @dataclass
 class ModelConfig:
-    """Configuration for SanTOK SLM Model"""
+    """Configuration for SOMA SLM Model"""
     # Model size
     vocab_size: int = 10000
     d_model: int = 128
@@ -103,12 +103,12 @@ class ModelConfig:
     d_ff: int = 512
     max_seq_len: int = 256
     
-    # SanTOK integration
-    use_santok_tokenizer: bool = True
-    use_santok_embeddings: bool = False  # Disabled to avoid TF
-    use_santok_semantic: bool = True
-    use_santok_graph: bool = True
-    use_santok_cognitive: bool = True
+    # SOMA integration
+    use_SOMA_tokenizer: bool = True
+    use_SOMA_embeddings: bool = False  # Disabled to avoid TF
+    use_SOMA_semantic: bool = True
+    use_SOMA_graph: bool = True
+    use_SOMA_cognitive: bool = True
     
     # Training
     learning_rate: float = 0.001
@@ -121,17 +121,17 @@ class ModelConfig:
     top_k: int = 50
 
 
-class SanTOKSLMModel:
+class SOMASLMModel:
     """
-    Complete SanTOK SLM Model - Ready to Use
+    Complete SOMA SLM Model - Ready to Use
     
-    This is the ACTUAL MODEL you can use to test SanTOK.
-    It integrates all SanTOK components into a working language model.
+    This is the ACTUAL MODEL you can use to test soma.
+    It integrates all SOMA components into a working language model.
     """
     
     def __init__(self, config: Optional[ModelConfig] = None):
         """
-        Initialize the SanTOK SLM Model.
+        Initialize the SOMA SLM Model.
         
         Args:
             config: Model configuration (optional)
@@ -139,32 +139,32 @@ class SanTOKSLMModel:
         self.config = config or ModelConfig()
         
         # Core components
-        self.tokenizer = SanTOKTokenizerWrapper()
+        self.tokenizer = SOMATokenizerWrapper()
         self.constraint_engine: Optional[ConstraintEngine] = None
-        self.optimizer: Optional[SanTOKSequenceOptimizer] = None
+        self.optimizer: Optional[SOMASequenceOptimizer] = None
         self.decoder: Optional[ConstrainedDecoder] = None
         self.vocab: Optional[Dict[str, int]] = None
         
-        # SanTOK Cognitive integration
+        # SOMA Cognitive integration
         self.memory: Optional[UnifiedMemory] = None
         self.graph: Optional[GraphStore] = None
         
-        if self.config.use_santok_cognitive and SANTOK_COGNITIVE_AVAILABLE:
+        if self.config.use_SOMA_cognitive and SOMA_COGNITIVE_AVAILABLE:
             try:
                 self.memory = UnifiedMemory()
                 self.graph = GraphStore()
-                print("✅ SanTOK Cognitive initialized")
+                print("✅ SOMA Cognitive initialized")
             except Exception as e:
-                print(f"Warning: Could not initialize SanTOK Cognitive: {e}")
+                print(f"Warning: Could not initialize SOMA Cognitive: {e}")
         
-        # SanTOK embeddings (optional)
+        # SOMA embeddings (optional)
         self.embedding_generator = None
-        if self.config.use_santok_embeddings and SANTOK_EMBEDDINGS_AVAILABLE:
+        if self.config.use_SOMA_embeddings and SOMA_EMBEDDINGS_AVAILABLE:
             try:
-                self.embedding_generator = SanTOKEmbeddingGenerator(strategy="feature_based")
-                print("✅ SanTOK Embeddings initialized")
+                self.embedding_generator = SOMAEmbeddingGenerator(strategy="feature_based")
+                print("✅ SOMA Embeddings initialized")
             except Exception as e:
-                print(f"Warning: Could not initialize SanTOK Embeddings: {e}")
+                print(f"Warning: Could not initialize SOMA Embeddings: {e}")
         
         # Training state
         self.trained = False
@@ -174,8 +174,8 @@ class SanTOKSLMModel:
         """
         Train the model on facts.
         
-        This is where you test if SanTOK is working:
-        - Facts are tokenized with SanTOK
+        This is where you test if SOMA is working:
+        - Facts are tokenized with SOMA
         - Constraints are built from facts
         - Model learns to generate only from facts
         
@@ -184,24 +184,24 @@ class SanTOKSLMModel:
             texts: Optional training texts (defaults to facts)
         """
         print("=" * 60)
-        print("Training SanTOK SLM Model")
+        print("Training SOMA SLM Model")
         print("=" * 60)
         
         # Use facts as texts if not provided
         if texts is None:
             texts = facts
         
-        # Add facts to SanTOK Cognitive if available
+        # Add facts to SOMA Cognitive if available
         if self.memory:
-            print(f"Adding {len(facts)} facts to SanTOK Cognitive...")
+            print(f"Adding {len(facts)} facts to SOMA Cognitive...")
             for fact in facts:
                 try:
                     self.memory.add(fact, "fact", auto_link_graph=True)
                 except Exception as e:
                     print(f"Warning: Could not add fact to memory: {e}")
         
-        # Build vocabulary using SanTOK tokenizer
-        print("Building vocabulary with SanTOK tokenizer...")
+        # Build vocabulary using SOMA tokenizer
+        print("Building vocabulary with SOMA tokenizer...")
         self.vocab = self.tokenizer.build_vocab(texts)
         print(f"✅ Vocabulary size: {len(self.vocab)}")
         
@@ -211,7 +211,7 @@ class SanTOKSLMModel:
         print(f"✅ Allowed tokens: {len(self.constraint_engine.get_allowed_tokens())}")
         
         # Initialize sequence optimizer
-        print("Initializing SanTOK Sequence Optimizer...")
+        print("Initializing SOMA Sequence Optimizer...")
         slm_config = SLMConfig(
             vocab_size=len(self.vocab),
             d_model=self.config.d_model,
@@ -220,7 +220,7 @@ class SanTOKSLMModel:
             d_ff=self.config.d_ff,
             max_seq_len=self.config.max_seq_len
         )
-        self.optimizer = SanTOKSequenceOptimizer(slm_config, self.vocab)
+        self.optimizer = SOMASequenceOptimizer(slm_config, self.vocab)
         try:
             param_count = self.optimizer.count_parameters()
             print(f"✅ Optimizer parameters: {param_count:,}")
@@ -249,7 +249,7 @@ class SanTOKSLMModel:
         """
         Generate text from prompt.
         
-        This is where you TEST if SanTOK is working:
+        This is where you TEST if SOMA is working:
         - Output should ONLY contain tokens from facts
         - No hallucination possible
         - All tokens traceable to source facts
@@ -278,9 +278,9 @@ class SanTOKSLMModel:
         # Join tokens
         return " ".join(result)
     
-    def test_santok(self, test_cases: List[Tuple[str, List[str]]]) -> Dict:
+    def test_SOMA(self, test_cases: List[Tuple[str, List[str]]]) -> Dict:
         """
-        Test if SanTOK is working correctly.
+        Test if SOMA is working correctly.
         
         This runs comprehensive tests to verify:
         - Tokenization works
@@ -295,7 +295,7 @@ class SanTOKSLMModel:
             Test results dictionary
         """
         print("=" * 60)
-        print("Testing SanTOK SLM")
+        print("Testing SOMA SLM")
         print("=" * 60)
         
         results = {
@@ -358,8 +358,8 @@ class SanTOKSLMModel:
             "allowed_tokens": len(self.constraint_engine.get_allowed_tokens()) if self.constraint_engine else 0,
             "model_parameters": self.optimizer.count_parameters() if self.optimizer else 0,
             "model_size_mb": (self.optimizer.count_parameters() * 4) / (1024 * 1024) if self.optimizer else 0,
-            "santok_cognitive": self.memory is not None,
-            "santok_embeddings": self.embedding_generator is not None,
+            "SOMA_cognitive": self.memory is not None,
+            "SOMA_embeddings": self.embedding_generator is not None,
             "config": {
                 "d_model": self.config.d_model,
                 "n_layers": self.config.n_layers,
@@ -397,7 +397,7 @@ class SanTOKSLMModel:
         
         explanation = []
         explanation.append("=" * 60)
-        explanation.append("SanTOK SLM Explanation")
+        explanation.append("SOMA SLM Explanation")
         explanation.append("=" * 60)
         explanation.append(f"Query: {query}")
         explanation.append(f"Query tokens: {query_tokens}")
@@ -419,42 +419,42 @@ class SanTOKSLMModel:
 
 
 # Convenience function
-def create_santok_slm_model(
+def create_soma_slm_model(
     vocab_size: int = 10000,
     d_model: int = 128,
     n_layers: int = 2,
     use_cognitive: bool = True
-) -> SanTOKSLMModel:
+) -> SOMASLMModel:
     """
-    Create a SanTOK SLM Model with default settings.
+    Create a SOMA SLM Model with default settings.
     
     Args:
         vocab_size: Vocabulary size
         d_model: Model dimension
         n_layers: Number of layers
-        use_cognitive: Use SanTOK Cognitive integration
+        use_cognitive: Use SOMA Cognitive integration
         
     Returns:
-        SanTOKSLMModel instance
+        SOMASLMModel instance
     """
     config = ModelConfig(
         vocab_size=vocab_size,
         d_model=d_model,
         n_layers=n_layers,
-        use_santok_cognitive=use_cognitive
+        use_SOMA_cognitive=use_cognitive
     )
-    return SanTOKSLMModel(config)
+    return SOMASLMModel(config)
 
 
 # Example usage
 if __name__ == "__main__":
     print("=" * 60)
-    print("SanTOK SLM Model - Complete Usable Model")
+    print("SOMA SLM Model - Complete Usable Model")
     print("=" * 60)
     print()
     
     # Create model
-    model = create_santok_slm_model()
+    model = create_soma_slm_model()
     
     # Your facts (this is what you test)
     facts = [
@@ -485,9 +485,9 @@ if __name__ == "__main__":
         result = model.generate(query, max_tokens=20)
         print(f"Generated: {result}")
     
-    # Test SanTOK
+    # Test SOMA
     print("\n" + "=" * 60)
-    print("Testing SanTOK (Hallucination Prevention)")
+    print("Testing SOMA (Hallucination Prevention)")
     print("=" * 60)
     
     test_cases = [
@@ -495,7 +495,7 @@ if __name__ == "__main__":
         ("Who created Python?", ["python", "was", "created", "by", "guido", "van", "rossum"]),
     ]
     
-    results = model.test_santok(test_cases)
+    results = model.test_SOMA(test_cases)
     
     # Show stats
     print("\n" + "=" * 60)
@@ -506,5 +506,5 @@ if __name__ == "__main__":
         print(f"{key}: {value}")
     
     print("\n" + "=" * 60)
-    print("✅ SanTOK SLM Model Ready!")
+    print("✅ SOMA SLM Model Ready!")
     print("=" * 60)

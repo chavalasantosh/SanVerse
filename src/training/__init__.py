@@ -1,18 +1,18 @@
 """
-SanTOK Training Module
+SOMA Training Module
 ======================
 
-End-to-end training pipeline for building SanTOK language models.
-Uses ONLY SanTOK - no external models or algorithms.
+End-to-end training pipeline for building SOMA language models.
+Uses ONLY SOMA - no external models or algorithms.
 """
 
-from .dataset_downloader import SanTOKDatasetDownloader
-from .vocabulary_builder import SanTOKVocabularyBuilder
-from .language_model_trainer import SanTOKLanguageModel, SanTOKLanguageModelTrainer
+from .dataset_downloader import somaDatasetDownloader
+from .vocabulary_builder import somaVocabularyBuilder
+from .language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
 
 __all__ = [
-    'SanTOKDatasetDownloader',
-    'SanTOKVocabularyBuilder',
-    'SanTOKLanguageModel',
-    'SanTOKLanguageModelTrainer',
+    'SOMADatasetDownloader',
+    'SOMAVocabularyBuilder',
+    'SOMALanguageModel',
+    'SOMALanguageModelTrainer',
 ]

@@ -1,5 +1,5 @@
 """
-evaluate_semantics.py - SanTOK Evaluation Utility
+evaluate_semantics.py - SOMA Evaluation Utility
 --------------------------------------------------
 Compares Feature-Based vs Hybrid embeddings
 to verify if semantic relationships have improved.
@@ -19,8 +19,8 @@ if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
 from src.embeddings.vector_store import FAISSVectorStore
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.core.core_tokenizer import tokenize_text
 
 
@@ -408,7 +408,7 @@ def pretty_print(title, items):
 
 def main():
     print("=" * 80)
-    print("SanTOK Semantic Evaluation Utility")
+    print("SOMA Semantic Evaluation Utility")
     print("=" * 80)
 
     if not os.path.exists(tokens_path):
@@ -434,7 +434,7 @@ def main():
         return
 
     # Create embedding generators
-    feature_generator = SanTOKEmbeddingGenerator(strategy="feature_based")
+    feature_generator = SOMAEmbeddingGenerator(strategy="feature_based")
 
     # Evaluate across test terms
     results = []

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive Bug Checker for SanTOK
+Comprehensive Bug Checker for SOMA
 Checks syntax errors, import errors, and common bugs
 """
 
@@ -20,7 +20,7 @@ class SyntaxChecker:
         self.exclude_dirs = {
             '__pycache__', '.git', 'node_modules',
             'venv', '.venv', 'archive',
-            'python_code_collection', 'demo_santok',
+            'python_code_collection', 'demo_SOMA',
             '.pytest_cache', '.vscode'
         }
     
@@ -92,7 +92,7 @@ class ImportChecker:
         self.exclude_dirs = {
             '__pycache__', '.git', 'node_modules',
             'venv', '.venv', 'archive',
-            'python_code_collection', 'demo_santok',
+            'python_code_collection', 'demo_SOMA',
             '.pytest_cache', '.vscode'
         }
     

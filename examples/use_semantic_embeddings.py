@@ -10,13 +10,13 @@ import os
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.embeddings import SanTOKEmbeddingGenerator
+from src.embeddings import somaEmbeddingGenerator
 from src.core.core_tokenizer import TextTokenizer
 
 
 def use_semantic_embeddings(
     text: str,
-    model_path: str = "santok_semantic_model.pkl",
+    model_path: str = "SOMA_semantic_model.pkl",
     embedding_dim: int = 768
 ):
     """
@@ -42,7 +42,7 @@ def use_semantic_embeddings(
     
     # Initialize embedding generator with semantic strategy
     print("Loading semantic model...")
-    generator = SanTOKEmbeddingGenerator(
+    generator = SOMAEmbeddingGenerator(
         strategy="semantic",
         embedding_dim=embedding_dim,
         semantic_model_path=model_path
@@ -87,7 +87,7 @@ def use_semantic_embeddings(
     return results
 
 
-def compare_embeddings(text1: str, text2: str, model_path: str = "santok_semantic_model.pkl"):
+def compare_embeddings(text1: str, text2: str, model_path: str = "SOMA_semantic_model.pkl"):
     """
     Compare semantic similarity between two texts.
     """
@@ -128,7 +128,7 @@ def main():
     text = "Natural language processing and machine learning"
     results = use_semantic_embeddings(
         text=text,
-        model_path="santok_semantic_model.pkl"
+        model_path="SOMA_semantic_model.pkl"
     )
     
     # Example 2: Compare similarity
@@ -136,7 +136,7 @@ def main():
     compare_embeddings(
         text1="machine learning",
         text2="artificial intelligence",
-        model_path="santok_semantic_model.pkl"
+        model_path="SOMA_semantic_model.pkl"
     )
 
 

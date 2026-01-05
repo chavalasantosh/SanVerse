@@ -7,19 +7,19 @@ import argparse
 import json
 import sys
 from typing import Dict, Any, List
-from .santok import TextTokenizationEngine
+from .SOMA import TextTokenizationEngine
 
 def main() -> None:
     """Main CLI function"""
     parser = argparse.ArgumentParser(
-        description='SanTOK - Comprehensive Text Tokenization Framework',
+        description='SOMA - Comprehensive Text Tokenization Framework',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  santok "Hello World" --method whitespace
-  santok "Hello World" --method word --features
-  santok "Hello World" --analyze --output results.json
-  santok --file input.txt --method character
+  SOMA "Hello World" --method whitespace
+  SOMA "Hello World" --method word --features
+  SOMA "Hello World" --analyze --output results.json
+  SOMA --file input.txt --method character
         """
     )
     
@@ -129,7 +129,7 @@ def format_results(results: Dict[str, Dict[str, Any]], quiet: bool = False) -> s
     output: List[str] = []
     
     if not quiet:
-        output.append("SanTOK Results")
+        output.append("SOMA Results")
         output.append("=" * 50)
     
     for tokenization_method, result in results.items():

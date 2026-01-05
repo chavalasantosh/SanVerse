@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple HTTP Server for SanTOK (No FastAPI dependencies)
+Simple HTTP Server for SOMA (No FastAPI dependencies)
 Uses only standard library for maximum compatibility
 """
 
@@ -25,8 +25,8 @@ except ImportError as e:
     print(f"[ERROR] Error importing core modules: {e}")
     sys.exit(1)
 
-class SanTOKHandler(http.server.BaseHTTPRequestHandler):
-    """HTTP request handler for SanTOK API"""
+class SOMAHandler(http.server.BaseHTTPRequestHandler):
+    """HTTP request handler for SOMA API"""
     
     def do_OPTIONS(self):
         """Handle CORS preflight requests"""
@@ -58,7 +58,7 @@ class SanTOKHandler(http.server.BaseHTTPRequestHandler):
         """Send health check response"""
         response = {
             "status": "healthy",
-            "service": "SanTOK Tokenizer",
+            "service": "SOMA Tokenizer",
             "version": "1.0.0",
             "timestamp": time.time()
         }
@@ -67,7 +67,7 @@ class SanTOKHandler(http.server.BaseHTTPRequestHandler):
     def send_welcome_response(self):
         """Send welcome message"""
         response = {
-            "message": "Welcome to SanTOK Tokenizer API",
+            "message": "Welcome to SOMA Tokenizer API",
             "version": "1.0.0",
             "endpoints": {
                 "POST /tokenize": "Tokenize text",
@@ -170,7 +170,7 @@ def main():
     """Main server function"""
     PORT = 8000
     
-    print("🚀 SanTOK Simple HTTP Server")
+    print("🚀 SOMA Simple HTTP Server")
     print("=" * 40)
     print(f"📡 Starting server on port {PORT}")
     print(f"🌐 Server will be available at: http://localhost:{PORT}")
@@ -178,7 +178,7 @@ def main():
     print("=" * 40)
     
     try:
-        with socketserver.TCPServer(("", PORT), SanTOKHandler) as httpd:
+        with socketserver.TCPServer(("", PORT), SOMAHandler) as httpd:
             print(f"✅ Server running at http://localhost:{PORT}")
             httpd.serve_forever()
     except KeyboardInterrupt:

@@ -1,12 +1,12 @@
 """
-SanTOK Structure System
+SOMA Structure System
 =======================
 
-Complete structure system for SanTOK:
+Complete structure system for SOMA:
 - Symbol structures (foundation)
 - Pattern building (combinations)
 - Hierarchical structure (symbols → patterns → units → meaning)
-- SanTOK integration
+- SOMA integration
 - Advanced pattern analysis
 - Structure optimization
 
@@ -27,19 +27,19 @@ from .symbol_structures import (
 from .pattern_builder import (
     Pattern,
     PatternBuilder,
-    build_patterns_from_santok_tokens
+    build_patterns_from_SOMA_tokens
 )
 
 from .structure_hierarchy import (
     StructureLevel,
     StructureNode,
     StructureHierarchy,
-    build_hierarchy_from_santok
+    build_hierarchy_from_SOMA
 )
 
-from .santok_integration import (
-    SanTOKStructureIntegrator,
-    integrate_structure_with_santok_tokens,
+from .SOMA_integration import (
+    SOMAStructureIntegrator,
+    integrate_structure_with_SOMA_tokens,
     get_structure_priorities
 )
 
@@ -105,17 +105,17 @@ __all__ = [
     # Pattern building
     "Pattern",
     "PatternBuilder",
-    "build_patterns_from_santok_tokens",
+    "build_patterns_from_SOMA_tokens",
     
     # Hierarchy
     "StructureLevel",
     "StructureNode",
     "StructureHierarchy",
-    "build_hierarchy_from_santok",
+    "build_hierarchy_from_SOMA",
     
-    # SanTOK integration
-    "SanTOKStructureIntegrator",
-    "integrate_structure_with_santok_tokens",
+    # SOMA integration
+    "SOMAStructureIntegrator",
+    "integrate_structure_with_SOMA_tokens",
     "get_structure_priorities",
     
     # Advanced patterns

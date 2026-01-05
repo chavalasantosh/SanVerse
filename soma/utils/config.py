@@ -1,5 +1,5 @@
 """
-Configuration Management for SanTOK
+Configuration Management for SOMA
 Handles environment variables and configuration
 """
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 class Config:
-    """Configuration class for SanTOK"""
+    """Configuration class for SOMA"""
     
     # Default values
     DEFAULT_PORT = 8000
@@ -33,7 +33,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_PORT
         
-        port_str = os.getenv('PORT') or os.getenv('SANTOK_PORT')
+        port_str = os.getenv('PORT') or os.getenv('SOMA_PORT')
         if port_str:
             try:
                 port = int(port_str)
@@ -58,7 +58,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_HOST
         
-        return os.getenv('HOST') or os.getenv('SANTOK_HOST') or default
+        return os.getenv('HOST') or os.getenv('SOMA_HOST') or default
     
     @staticmethod
     def get_log_level(default: Optional[str] = None) -> str:
@@ -74,7 +74,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_LOG_LEVEL
         
-        return os.getenv('LOG_LEVEL') or os.getenv('SANTOK_LOG_LEVEL') or default
+        return os.getenv('LOG_LEVEL') or os.getenv('SOMA_LOG_LEVEL') or default
     
     @staticmethod
     def get_data_dir(default: Optional[str] = None) -> Path:
@@ -90,7 +90,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_DATA_DIR
         
-        dir_str = os.getenv('DATA_DIR') or os.getenv('SANTOK_DATA_DIR') or default
+        dir_str = os.getenv('DATA_DIR') or os.getenv('SOMA_DATA_DIR') or default
         return Path(dir_str).expanduser().resolve()
     
     @staticmethod
@@ -107,7 +107,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_MODELS_DIR
         
-        dir_str = os.getenv('MODELS_DIR') or os.getenv('SANTOK_MODELS_DIR') or default
+        dir_str = os.getenv('MODELS_DIR') or os.getenv('SOMA_MODELS_DIR') or default
         return Path(dir_str).expanduser().resolve()
     
     @staticmethod
@@ -124,7 +124,7 @@ class Config:
         if default is None:
             default = Config.DEFAULT_OUTPUT_DIR
         
-        dir_str = os.getenv('OUTPUT_DIR') or os.getenv('SANTOK_OUTPUT_DIR') or default
+        dir_str = os.getenv('OUTPUT_DIR') or os.getenv('SOMA_OUTPUT_DIR') or default
         return Path(dir_str).expanduser().resolve()
     
     @staticmethod
@@ -135,7 +135,7 @@ class Config:
         Returns:
             Log file path or None
         """
-        return os.getenv('LOG_FILE') or os.getenv('SANTOK_LOG_FILE')
+        return os.getenv('LOG_FILE') or os.getenv('SOMA_LOG_FILE')
 
 
 def get_config() -> Config:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bug Detector for SanTOK
+Bug Detector for SOMA
 Detects various types of bugs in Python code
 """
 
@@ -221,7 +221,7 @@ class ComprehensiveBugDetector:
             exclude_dirs = {
                 '__pycache__', '.git', 'node_modules',
                 'venv', '.venv', 'archive',
-                'python_code_collection', 'demo_santok',
+                'python_code_collection', 'demo_SOMA',
                 '.pytest_cache', '.vscode'
             }
         

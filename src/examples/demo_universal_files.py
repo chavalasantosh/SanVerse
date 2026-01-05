@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-DEMO: Universal File Handling with SanTOK Tokenizer
+DEMO: Universal File Handling with SOMA Tokenizer
 ====================================================
 
-This demonstrates how the SanTOK Tokenizer can handle ANY file type
+This demonstrates how the SOMA Tokenizer can handle ANY file type
 as input and produce ANY file format as output.
 
 Features:
@@ -31,7 +31,7 @@ def create_test_files():
     
     # 2. JSON file
     with open(f"{test_dir}/sample.json", "w", encoding="utf-8") as f:
-        f.write('{"name": "SanTOK Tokenizer", "version": "1.0", "features": ["reversible", "stable"]}')
+        f.write('{"name": "SOMA Tokenizer", "version": "1.0", "features": ["reversible", "stable"]}')
     
     # 3. CSV file
     with open(f"{test_dir}/sample.csv", "w", encoding="utf-8") as f:
@@ -44,7 +44,7 @@ def create_test_files():
     # 5. Code file
     with open(f"{test_dir}/sample.py", "w", encoding="utf-8") as f:
         f.write('''def hello_world():
-    print("Hello from SanTOK Tokenizer!")
+    print("Hello from soma Tokenizer!")
     return "success"
 
 if __name__ == "__main__":
@@ -67,7 +67,7 @@ def demonstrate_universal_handling():
     print("=" * 60)
     print()
     
-    print("The SanTOK Tokenizer can now handle:")
+    print("The SOMA Tokenizer can now handle:")
     print()
     print("[INFO] INPUT FILES (ANY TYPE):")
     print("  [*] Text files (.txt, .md, .log)")
@@ -99,7 +99,7 @@ def demonstrate_universal_handling():
     print()
     
     print("[INFO] USAGE:")
-    print("  1. Run: python SanTOK_tokenizer.py")
+    print("  1. Run: python SOMA_tokenizer.py")
     print("  2. Choose: 2 (file path)")
     print("  3. Enter: path/to/ANY/file")
     print("  4. Choose: output format (JSON/CSV/XML/TXT/ALL)")
@@ -147,7 +147,7 @@ def show_file_type_detection():
 def main():
     """Main demonstration function"""
     
-    print("SanTOK Tokenizer - Universal File Handling Demo")
+    print("SOMA Tokenizer - Universal File Handling Demo")
     print("=" * 50)
     print()
     
@@ -164,7 +164,7 @@ def main():
     print("READY TO TEST!")
     print("=" * 60)
     print()
-    print("The SanTOK Tokenizer is now UNIVERSAL!")
+    print("The SOMA Tokenizer is now UNIVERSAL!")
     print("It can handle ANY file as input and produce ANY format as output.")
     print()
     print("Try it with any file on your system!")

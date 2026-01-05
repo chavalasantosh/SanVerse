@@ -1,16 +1,16 @@
 """
-SanTOK Verbalizer - Pure SanTOK text generation from structured knowledge.
+SOMA Verbalizer - Pure SOMA text generation from structured knowledge.
 
 NO GPT. NO TRANSFORMERS. NO NEURAL NETWORKS.
 
-This uses SanTOK's own:
+This uses SOMA's own:
 - Token patterns
 - Co-occurrence learning
 - Template-based generation
 - Symbolic reasoning
 
 The Verbalizer turns structured context into natural language
-using ONLY SanTOK-native algorithms.
+using ONLY SOMA-native algorithms.
 """
 
 from typing import Dict, Any, List, Optional, Tuple
@@ -24,7 +24,7 @@ from ..memory import UnifiedMemory, MemoryObject
 
 @dataclass
 class VerbalizationResult:
-    """Result from SanTOK verbalization."""
+    """Result from soma verbalization."""
     text: str
     confidence: float
     sources: List[str]
@@ -32,9 +32,9 @@ class VerbalizationResult:
     reasoning_depth: int
 
 
-class SanTOKVerbalizer:
+class SOMAVerbalizer:
     """
-    SanTOK-native text generation from structured knowledge.
+    SOMA-native text generation from structured knowledge.
     
     NO external dependencies. NO neural networks.
     Uses pure symbolic + template-based generation.
@@ -43,16 +43,16 @@ class SanTOKVerbalizer:
     - Template matching
     - Pattern composition
     - Confidence-weighted selection
-    - SanTOK token reconstruction
+    - SOMA token reconstruction
     
     Example:
-        verbalizer = SanTOKVerbalizer(memory)
+        verbalizer = SOMAVerbalizer(memory)
         
         result = verbalizer.verbalize(context)
         print(result.text)
     """
     
-    # SanTOK-native templates for different question types
+    # SOMA-native templates for different question types
     TEMPLATES = {
         # Definition questions
         "what_is": [
@@ -128,7 +128,7 @@ class SanTOKVerbalizer:
     
     def __init__(self, memory: UnifiedMemory):
         """
-        Initialize SanTOK Verbalizer.
+        Initialize SOMA Verbalizer.
         
         Args:
             memory: UnifiedMemory instance
@@ -147,7 +147,7 @@ class SanTOKVerbalizer:
         """
         Generate natural language from structured context.
         
-        Uses SanTOK-native algorithms:
+        Uses SOMA-native algorithms:
         1. Classify query type
         2. Extract key information
         3. Select best template
@@ -386,5 +386,5 @@ class SanTOKVerbalizer:
             self._phrase_patterns[category].append(pattern)
     
     def __repr__(self) -> str:
-        return f"SanTOKVerbalizer(templates={len(self.TEMPLATES)}, learned={len(self._learned_templates)})"
+        return f"SOMAVerbalizer(templates={len(self.TEMPLATES)}, learned={len(self._learned_templates)})"
 

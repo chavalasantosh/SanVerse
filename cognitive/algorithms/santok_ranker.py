@@ -1,10 +1,10 @@
 """
-SanTOK Ranker - Custom Hybrid Ranking Algorithm
+SOMA Ranker - Custom Hybrid Ranking Algorithm
 ===============================================
 
-SANTOK-ORIGINAL ALGORITHM. NOT BM25. NOT TF-IDF. NOT NEURAL.
+SOMA-ORIGINAL ALGORITHM. NOT BM25. NOT TF-IDF. NOT NEURAL.
 
-The SanTOK Ranking Formula:
+The SOMA Ranking Formula:
     
     score = α·Relevance + β·Connectivity + γ·Hierarchy + δ·Freshness
     
@@ -18,7 +18,7 @@ Where:
 
 The "9-Centric" twist:
     All scores are folded through digital root (mod 9 + 1)
-    This creates a bounded, cyclic scoring pattern unique to SanTOK.
+    This creates a bounded, cyclic scoring pattern unique to soma.
 """
 
 from typing import List, Dict, Any, Optional, Tuple
@@ -32,7 +32,7 @@ from ..memory import MemoryObject
 
 @dataclass
 class RankingResult:
-    """Result from SanTOK ranking."""
+    """Result from soma ranking."""
     item_id: str
     score: float
     
@@ -46,7 +46,7 @@ class RankingResult:
     digital_root: int
     
     # Metadata
-    ranking_version: str = "SanTOK-v1"
+    ranking_version: str = "SOMA-v1"
     
     def explain(self) -> str:
         """Explain the ranking."""
@@ -60,11 +60,11 @@ class RankingResult:
         )
 
 
-class SanTOKRanker:
+class SOMARanker:
     """
-    SanTOK Hybrid Ranking Algorithm.
+    SOMA Hybrid Ranking Algorithm.
     
-    UNIQUE TO SANTOK. Custom formula combining:
+    UNIQUE TO soma. Custom formula combining:
     - Token-based relevance
     - Graph connectivity
     - Tree hierarchy
@@ -72,7 +72,7 @@ class SanTOKRanker:
     - 9-centric digital root folding
     
     Example:
-        ranker = SanTOKRanker(graph, trees)
+        ranker = SOMARanker(graph, trees)
         
         results = ranker.rank(query_tokens, candidates)
         for result in results:
@@ -108,7 +108,7 @@ class SanTOKRanker:
         weights: Optional[Dict[str, float]] = None
     ):
         """
-        Initialize SanTOK Ranker.
+        Initialize SOMA Ranker.
         
         Args:
             graph: GraphStore for connectivity scoring
@@ -129,7 +129,7 @@ class SanTOKRanker:
         context: Optional[Dict[str, Any]] = None
     ) -> List[RankingResult]:
         """
-        Rank candidates using SanTOK's custom algorithm.
+        Rank candidates using SOMA's custom algorithm.
         
         Args:
             query_tokens: Tokenized query
@@ -200,7 +200,7 @@ class SanTOKRanker:
         candidate: MemoryObject
     ) -> float:
         """
-        Compute relevance score using SanTOK's custom formula.
+        Compute relevance score using SOMA's custom formula.
         
         Formula:
             relevance = Σ(token_match × position_boost) / |query_tokens|
@@ -364,7 +364,7 @@ class SanTOKRanker:
     
     def _digital_root_9(self, value: float) -> int:
         """
-        SanTOK's 9-centric digital root transformation.
+        SOMA's 9-centric digital root transformation.
         
         Maps any float to 1-9 using digital root formula:
             dr(n) = 1 + ((n - 1) mod 9)
@@ -375,7 +375,7 @@ class SanTOKRanker:
         int_value = abs(int(value * 1000))
         
         if int_value == 0:
-            return 9  # 0 maps to 9 in SanTOK numerology
+            return 9  # 0 maps to 9 in SOMA numerology
         
         # Digital root formula
         dr = 1 + ((int_value - 1) % 9)
@@ -392,7 +392,7 @@ class SanTOKRanker:
     
     def __repr__(self) -> str:
         return (
-            f"SanTOKRanker("
+            f"SOMARanker("
             f"α={self.weights['alpha']}, "
             f"β={self.weights['beta']}, "
             f"γ={self.weights['gamma']}, "

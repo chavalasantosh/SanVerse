@@ -20,7 +20,7 @@ def create_backend_package():
     print()
     
     # Create package directory
-    package_name = "santok_backend"
+    package_name = "SOMA_backend"
     package_dir = Path(package_name)
     
     # Remove old package if exists
@@ -35,7 +35,7 @@ def create_backend_package():
     # Copy from backend/ folder (all backend code is there)
     items_to_copy = [
         ("backend/src", "src"),  # All backend code
-        ("backend/santok", "santok"),  # Main package
+        ("backend/SOMA", "SOMA"),  # Main package
         ("backend/requirements.txt", "requirements.txt"),  # Dependencies
         ("backend/setup.py", "setup.py"),  # Package setup
         ("backend/README.md", "README.md"),  # README
@@ -76,7 +76,7 @@ def create_backend_package():
             print(f"  [ERROR] Error copying {src}: {e}")
     
     # Create README for backend
-    readme_content = """# SanTOK Backend
+    readme_content = """# SOMA Backend
 
 ## 🚀 Quick Start
 
@@ -97,13 +97,13 @@ python src/servers/main_server.py
 ## 📁 Structure
 
 ```
-santok_backend/
+SOMA_backend/
 ├── src/              # Backend code
 │   ├── servers/     # API servers
 │   ├── core/        # Core tokenization
 │   ├── embeddings/  # Embeddings & vector stores
 │   └── ...
-├── santok/          # Main package
+├── SOMA/          # Main package
 ├── requirements.txt # Python dependencies
 └── setup.py         # Package setup
 ```
@@ -183,7 +183,7 @@ curl -X POST "http://localhost:8000/embed" \\
 For issues or questions, refer to the documentation in `backend/` folder.
 
 ---
-**SanTOK Backend - Text Tokenization System**
+**SOMA Backend - Text Tokenization System**
 """
     
     readme_path = package_dir / "README.md"
@@ -228,7 +228,7 @@ For issues or questions, refer to the documentation in `backend/` folder.
     print(f"  3. Your colleague can extract and run: python src/servers/main_server.py")
     print(f"\n[*] Package includes:")
     print(f"  [OK] Backend code (src/)")
-    print(f"  [OK] Main package (santok/)")
+    print(f"  [OK] Main package (SOMA/)")
     print(f"  [OK] Dependencies (requirements.txt)")
     print(f"  [OK] Setup (setup.py)")
     print(f"  [OK] Documentation (backend/)")

@@ -65,7 +65,7 @@ def test_quick_endpoint():
             data = response.json()
             if data.get("success"):
                 print("[OK] Quick test passed!")
-                print(f"   SanTOK tokens: {len(data['santok']['tokens'])}")
+                print(f"   SOMA tokens: {len(data['SOMA']['tokens'])}")
                 print(f"   Model tokens: {len(data['model']['input_ids'])}")
                 print(f"   Model: {data['input']['model_name']}")
                 return True
@@ -93,7 +93,7 @@ def test_custom_request():
         {
             "name": "Simple text with BERT",
             "data": {
-                "text": "Hello world! SanTOK is amazing.",
+                "text": "Hello world! SOMA is amazing.",
                 "model_name": "bert-base-uncased",
                 "tokenizer_type": "word"
             }
@@ -131,12 +131,12 @@ def test_custom_request():
             if response.status_code == 200:
                 data = response.json()
                 if data.get("success"):
-                    santok_count = len(data['santok']['tokens'])
+                    SOMA_count = len(data['SOMA']['tokens'])
                     model_count = len(data['model']['input_ids'])
                     ratio = data['comparison']['ratio']
                     
                     print(f"      [OK] Success!")
-                    print(f"         SanTOK: {santok_count} tokens")
+                    print(f"         SOMA: {SOMA_count} tokens")
                     print(f"         Model:  {model_count} tokens")
                     print(f"         Ratio:  {ratio:.2f}x")
                     results.append(True)
@@ -157,7 +157,7 @@ def test_comparison():
     """Test comparing different models"""
     print_section("4. Comparing Different Models")
     
-    text = "SanTOK provides superior tokenization."
+    text = "SOMA provides superior tokenization."
     models = ["bert-base-uncased", "distilbert-base-uncased"]
     
     # Try GPT-2 if available (may not be available in all environments)
@@ -184,12 +184,12 @@ def test_comparison():
             if response.status_code == 200:
                 data = response.json()
                 if data.get("success"):
-                    santok_tokens = data['santok']['tokens']
+                    SOMA_tokens = data['SOMA']['tokens']
                     model_tokens = data['model']['tokens']
                     vocab_size = data['model']['vocab_size']
                     
                     print(f"      [OK] Vocab size: {vocab_size:,}")
-                    print(f"         SanTOK tokens: {santok_tokens}")
+                    print(f"         SOMA tokens: {SOMA_tokens}")
                     print(f"         Model tokens:  {model_tokens[:5]}..." if len(model_tokens) > 5 else f"         Model tokens:  {model_tokens}")
                 else:
                     print(f"      [ERROR] {data.get('error', 'Unknown error')}")

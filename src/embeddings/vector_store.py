@@ -1,5 +1,5 @@
 """
-Vector Database Interface for SanTOK Embeddings
+Vector Database Interface for SOMA Embeddings
 
 Provides unified interface to multiple vector database backends.
 """
@@ -29,7 +29,7 @@ except ImportError:
     warnings.warn("faiss-cpu not available. Install with: pip install faiss-cpu")
 
 
-class SanTOKVectorStore:
+class SOMAVectorStore:
     """
     Base class for vector database stores.
     Provides unified interface for different backends.
@@ -38,7 +38,7 @@ class SanTOKVectorStore:
     def __init__(
         self,
         backend: str = "chroma",
-        collection_name: str = "santok_embeddings",
+        collection_name: str = "SOMA_embeddings",
         embedding_dim: int = 768,
         persist_directory: Optional[str] = None
     ):
@@ -70,7 +70,7 @@ class SanTOKVectorStore:
         raise NotImplementedError
 
 
-class ChromaVectorStore(SanTOKVectorStore):
+class ChromaVectorStore(SOMAVectorStore):
     """
     ChromaDB-based vector store.
     
@@ -294,7 +294,7 @@ class ChromaVectorStore(SanTOKVectorStore):
         return None
 
 
-class FAISSVectorStore(SanTOKVectorStore):
+class FAISSVectorStore(SOMAVectorStore):
     """
     FAISS-based vector store.
     

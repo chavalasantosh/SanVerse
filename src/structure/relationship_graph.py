@@ -1,5 +1,5 @@
 """
-SanTOK Relationship Graph System
+SOMA Relationship Graph System
 =================================
 
 Comprehensive relationship understanding from ALL angles:

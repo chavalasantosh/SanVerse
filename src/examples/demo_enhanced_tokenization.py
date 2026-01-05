@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Demonstration of Enhanced SanTOK Tokenizer Logic
+Demonstration of Enhanced SOMA Tokenizer Logic
 
 This script demonstrates the enhanced space, byte, and sub-word tokenization
-logic that has been added to the SanTOK Tokenizer system.
+logic that has been added to the SOMA Tokenizer system.
 """
 
 # Import the enhanced tokenizer functions
@@ -126,7 +126,7 @@ def demo_comparison():
 
 def main():
     """Run all demonstrations"""
-    print("Enhanced SanTOK Tokenizer Logic Demonstration")
+    print("Enhanced SOMA Tokenizer Logic Demonstration")
     print("=" * 50)
     print()
     

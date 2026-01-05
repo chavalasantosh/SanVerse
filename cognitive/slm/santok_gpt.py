@@ -1,18 +1,18 @@
 """
-SanTOK LGM - Language Generation Model (100% SanTOK-Native)
+SOMA LGM - Language Generation Model (100% SOMA-Native)
 ===========================================================
 
-This is SanTOK's own language generation system - NOT GPT, NOT transformer.
-100% SanTOK-native using SanTOK's own components and methods.
+This is SOMA's own language generation system - NOT GPT, NOT transformer.
+100% SOMA-native using SOMA's own components and methods.
 
 Features:
-- Uses SanTOK tokenization (SanTOK's own tokenization system)
-- Uses SanTOK embeddings (SanTOK's own embedding system)
-- SanTOK Sequence Interaction Stack (SanTOK's own architecture)
-- SanTOK Gradient Flow (SanTOK's own learning method)
-- Fluent text generation using SanTOK's own methods
+- Uses SOMA tokenization (SOMA's own tokenization system)
+- Uses SOMA embeddings (SOMA's own embedding system)
+- SOMA Sequence Interaction Stack (SOMA's own architecture)
+- SOMA Gradient Flow (SOMA's own learning method)
+- Fluent text generation using SOMA's own methods
 
-This is 100% SanTOK's own family - no external dependencies!
+This is 100% SOMA's own family - no external dependencies!
 """
 
 import numpy as np
@@ -27,31 +27,31 @@ import random
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../../'))
 
-# Import SanTOK components
+# import soma components
 try:
     from src.core.core_tokenizer import tokenize_text
-    SANTOK_TOKENIZER_AVAILABLE = True
+    SOMA_TOKENIZER_AVAILABLE = True
 except ImportError:
     try:
         from src.src.core.core_tokenizer import tokenize_text
-        SANTOK_TOKENIZER_AVAILABLE = True
+        SOMA_TOKENIZER_AVAILABLE = True
     except ImportError:
-        SANTOK_TOKENIZER_AVAILABLE = False
-        print("Warning: SanTOK tokenizer not found, using fallback")
+        SOMA_TOKENIZER_AVAILABLE = False
+        print("Warning: SOMA tokenizer not found, using fallback")
 
-# Import SanTOK embeddings (optional)
+# import soma embeddings (optional)
 try:
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-    SANTOK_EMBEDDINGS_AVAILABLE = True
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
+    SOMA_EMBEDDINGS_AVAILABLE = True
 except ImportError:
-    SANTOK_EMBEDDINGS_AVAILABLE = False
+    SOMA_EMBEDDINGS_AVAILABLE = False
 
 
 @dataclass
-class SanTOKLGMConfig:
-    """Configuration for SanTOK LGM (Language Generation Model)"""
+class SOMALGMConfig:
+    """Configuration for SOMA LGM (Language Generation Model)"""
     # Model size
-    vocab_size: int = 60000  # Full SanTOK vocabulary
+    vocab_size: int = 60000  # Full SOMA vocabulary
     d_model: int = 768  # GPT-2 small size
     n_layers: int = 12  # GPT-2 small has 12 layers
     n_heads: int = 12  # 12 attention heads
@@ -68,11 +68,11 @@ class SanTOKLGMConfig:
     top_p: float = 0.95  # Nucleus sampling for better fluency (was 0.9)
 
 
-class SanTOKLGMTokenizer:
-    """SanTOK-native tokenizer for LGM (uses SanTOK's own tokenization)"""
+class SOMALGMTokenizer:
+    """SOMA-native tokenizer for LGM (uses SOMA's own tokenization)"""
     
     def __init__(self):
-        self.tokenizer_available = SANTOK_TOKENIZER_AVAILABLE
+        self.tokenizer_available = SOMA_TOKENIZER_AVAILABLE
         self.vocab: Dict[str, int] = {}
         self.id_to_token: Dict[int, str] = {}
         self.vocab_size = 0
@@ -89,7 +89,7 @@ class SanTOKLGMTokenizer:
         # Force-add general English words with high counts (ensures they rank high)
         # This prevents them from being dropped by max_vocab cutoff
         try:
-            from santok_cognitive.slm.VOCAB_EXPANSION import GENERAL_ENGLISH_WORDS
+            from soma_cognitive.slm.VOCAB_EXPANSION import GENERAL_ENGLISH_WORDS
             for word in GENERAL_ENGLISH_WORDS:
                 token_counts[word] = token_counts.get(word, 0) + 1000
         except ImportError:
@@ -180,8 +180,8 @@ class SanTOKLGMTokenizer:
         return " ".join(tokens) if tokens else ""
 
 
-class SanTOKTokenInteraction:
-    """SanTOK's own token interaction mechanism (multi-token interaction)"""
+class SOMATokenInteraction:
+    """SOMA's own token interaction mechanism (multi-token interaction)"""
     
     def __init__(self, d_model: int, n_heads: int):
         self.d_model = d_model
@@ -212,7 +212,7 @@ class SanTOKTokenInteraction:
         # Compute attention scores
         scores = Q @ K.transpose(0, 1, 3, 2) / math.sqrt(self.d_k)
         
-        # SanTOK sequential mask (can only interact with previous tokens)
+        # SOMA sequential mask (can only interact with previous tokens)
         if mask is None:
             mask = np.triu(np.ones((seq_len, seq_len)), k=1)
             mask = mask[np.newaxis, np.newaxis, :, :]
@@ -235,11 +235,11 @@ class SanTOKTokenInteraction:
         return output
 
 
-class SanTOKSequenceBlock:
-    """SanTOK's own sequence processing block"""
+class SOMASequenceBlock:
+    """SOMA's own sequence processing block"""
     
     def __init__(self, d_model: int, n_heads: int, d_ff: int):
-        self.token_interaction = SanTOKTokenInteraction(d_model, n_heads)
+        self.token_interaction = SOMATokenInteraction(d_model, n_heads)
         
         # Feed-forward
         np.random.seed(42)
@@ -250,7 +250,7 @@ class SanTOKSequenceBlock:
     
     def forward(self, x: np.ndarray) -> np.ndarray:
         """Forward pass with residual connections"""
-        # SanTOK Token Interaction + residual
+        # SOMA Token Interaction + residual
         attn_out = self.token_interaction.forward(x)
         x = x + attn_out
         
@@ -275,23 +275,23 @@ class SanTOKSequenceBlock:
         return (x - mean) / np.sqrt(var + eps)
 
 
-class SanTOKLGM:
+class SOMALGM:
     """
-    SanTOK Language Generation Model (LGM) - 100% SanTOK-Native
+    SOMA Language Generation Model (LGM) - 100% SOMA-Native
     
-    This is SanTOK's own language generation system.
-    Uses SanTOK's own tokenization, embeddings, sequence processing, and learning methods.
-    NOT GPT, NOT transformer - 100% SanTOK's own family!
+    This is SOMA's own language generation system.
+    Uses SOMA's own tokenization, embeddings, sequence processing, and learning methods.
+    NOT GPT, NOT transformer - 100% SOMA's own family!
     """
     
-    def __init__(self, config: Optional[SanTOKLGMConfig] = None):
-        self.config = config or SanTOKLGMConfig()
-        self.tokenizer = SanTOKLGMTokenizer()
+    def __init__(self, config: Optional[SOMALGMConfig] = None):
+        self.config = config or SOMALGMConfig()
+        self.tokenizer = SOMALGMTokenizer()
         
         # Model components
         self.embeddings: Optional[np.ndarray] = None
         self.pos_embeddings: Optional[np.ndarray] = None
-        self.blocks: List[SanTOKSequenceBlock] = []
+        self.blocks: List[SOMASequenceBlock] = []
         self.output_proj: Optional[np.ndarray] = None
         
         self.trained = False
@@ -303,7 +303,7 @@ class SanTOKLGM:
     
     def initialize_model(self):
         """Initialize model weights"""
-        print("Initializing SanTOK LGM (Language Generation Model)...")
+        print("Initializing SOMA LGM (Language Generation Model)...")
         
         # Token embeddings
         np.random.seed(42)
@@ -312,9 +312,9 @@ class SanTOKLGM:
         # Position embeddings
         self.pos_embeddings = np.random.randn(self.config.max_seq_len, self.config.d_model) * 0.02
         
-        # SanTOK Sequence Interaction Blocks
+        # SOMA Sequence Interaction Blocks
         self.blocks = [
-            SanTOKSequenceBlock(self.config.d_model, self.config.n_heads, self.config.d_ff)
+            SOMASequenceBlock(self.config.d_model, self.config.n_heads, self.config.d_ff)
             for _ in range(self.config.n_layers)
         ]
         
@@ -425,7 +425,7 @@ class SanTOKLGM:
     
     def generate(self, prompt: str, max_tokens: int = 100, temperature: float = 0.7, repetition_penalty: float = 1.15, use_fluency_enhancer: bool = True) -> str:
         """
-        Generate text from prompt using SanTOK's own generation method.
+        Generate text from prompt using SOMA's own generation method.
         
         Now with EXCELLENT FLUENCY through advanced sampling and repetition control!
         
@@ -610,7 +610,7 @@ class SanTOKLGM:
             use_trainer: Use real backpropagation trainer (default: True)
         """
         print("=" * 70)
-        print("Training SanTOK LGM (Language Generation Model)")
+        print("Training SOMA LGM (Language Generation Model)")
         print("=" * 70)
         
         # Build vocabulary
@@ -625,18 +625,18 @@ class SanTOKLGM:
             # Use REAL trainer with backpropagation
             print("\nStep 3: Training with REAL backpropagation...")
             try:
-                from .santok_gpt_trainer_real import SanTOKLGMTrainer
-                trainer = SanTOKLGMTrainer(self, learning_rate=self.config.learning_rate)
+                from .SOMA_gpt_trainer_real import somaLGMTrainer
+                trainer = SOMALGMTrainer(self, learning_rate=self.config.learning_rate)
                 trainer.train(texts, epochs=epochs, batch_size=self.config.batch_size)
             except ImportError:
                 try:
-                    from .santok_gpt_trainer_simple import SanTOKGPTTrainerSimple
-                    trainer = SanTOKGPTTrainerSimple(self, learning_rate=self.config.learning_rate)
+                    from .SOMA_gpt_trainer_simple import somaGPTTrainerSimple
+                    trainer = SOMAGPTTrainerSimple(self, learning_rate=self.config.learning_rate)
                     trainer.train(texts, epochs=epochs, batch_size=self.config.batch_size)
                 except ImportError:
                     # Fallback
-                    from .santok_gpt_trainer import SanTOKGPTTrainer
-                    trainer = SanTOKGPTTrainer(self, learning_rate=self.config.learning_rate)
+                    from .SOMA_gpt_trainer import somaGPTTrainer
+                    trainer = SOMAGPTTrainer(self, learning_rate=self.config.learning_rate)
                     trainer.train(texts, epochs=epochs, batch_size=self.config.batch_size)
         else:
             # Legacy: just mark as trained (no real learning)
@@ -656,12 +656,12 @@ class SanTOKLGM:
 # Quick usage
 if __name__ == "__main__":
     print("=" * 70)
-    print("SanTOK LGM - Language Generation Model (100% SanTOK-Native)")
+    print("SOMA LGM - Language Generation Model (100% SOMA-Native)")
     print("=" * 70)
     print()
     
-    # Create SanTOK LGM
-    model = SanTOKLGM()
+    # Create SOMA LGM
+    model = SOMALGM()
     
     # Training texts (you'll need a large corpus for real training)
     texts = [
@@ -672,12 +672,12 @@ if __name__ == "__main__":
         "Deep learning uses neural networks with multiple layers.",
     ] * 100  # Repeat for demo
     
-    # Train using SanTOK's own learning method
+    # Train using SOMA's own learning method
     model.train(texts, epochs=1)
     
-    # Generate using SanTOK's own generation method
+    # Generate using SOMA's own generation method
     print("=" * 70)
-    print("SanTOK Generation Test")
+    print("SOMA Generation Test")
     print("=" * 70)
     print()
     
@@ -697,11 +697,11 @@ if __name__ == "__main__":
             print(f"Error: {e}")
     
     print("=" * 70)
-    print("[OK] SanTOK LGM Ready!")
+    print("[OK] SOMA LGM Ready!")
     print("=" * 70)
     print()
-    print("This is SanTOK's own Language Generation Model!")
-    print("100% SanTOK-native - uses SanTOK's own:")
+    print("This is SOMA's own Language Generation Model!")
+    print("100% SOMA-native - uses SOMA's own:")
     print("  - Tokenization system")
     print("  - Embedding system")
     print("  - Sequence interaction stack")
@@ -709,8 +709,8 @@ if __name__ == "__main__":
     print()
     print("For real fluency, you need:")
     print("  - Large text corpus (books, web, etc.)")
-    print("  - Proper SanTOK learning cycles")
+    print("  - Proper SOMA learning cycles")
     print("  - Days/weeks of training")
     print()
-    print("But the SanTOK-native architecture is here - this is the foundation! 🚀")
+    print("But the SOMA-native architecture is here - this is the foundation! 🚀")
     print()

@@ -24,7 +24,7 @@ class VectorSearchResult:
 
 class VectorBridge:
     """
-    Bridge between src's vector stores and santok_cognitive.
+    Bridge between src's vector stores and SOMA_cognitive.
     
     Provides:
     - Add embeddings to memory objects
@@ -33,10 +33,10 @@ class VectorBridge:
     
     Example:
         from src.embeddings.vector_store import FAISSVectorStore
-        from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+        from src.embeddings.embedding_generator import somaEmbeddingGenerator
         
         # Setup
-        generator = SanTOKEmbeddingGenerator()
+        generator = SOMAEmbeddingGenerator()
         vector_store = FAISSVectorStore(dimension=768)
         
         memory = UnifiedMemory()

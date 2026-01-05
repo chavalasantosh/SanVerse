@@ -8,8 +8,8 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from enhanced_trainer import EnhancedSanTOKSemanticTrainer
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from enhanced_trainer import EnhancedSOMASemanticTrainer
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 
@@ -36,7 +36,7 @@ def main():
     
     print("BASIC TRAINER:")
     print("-" * 60)
-    basic_trainer = SanTOKSemanticTrainer(
+    basic_trainer = SOMASemanticTrainer(
         embedding_dim=768,
         window_size=5,
         epochs=3
@@ -48,7 +48,7 @@ def main():
     print()
     print("ENHANCED TRAINER:")
     print("-" * 60)
-    enhanced_trainer = EnhancedSanTOKSemanticTrainer(
+    enhanced_trainer = EnhancedSOMASemanticTrainer(
         embedding_dim=768,
         window_size=5,
         epochs=3,

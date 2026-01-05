@@ -1,8 +1,8 @@
 """
-SanTOK GPT Trainer - Simplified but Working Backpropagation
+SOMA GPT Trainer - Simplified but Working Backpropagation
 ===========================================================
 
-100% SanTOK-native training with simplified but correct backpropagation.
+100% SOMA-native training with simplified but correct backpropagation.
 This actually trains your model!
 """
 
@@ -11,9 +11,9 @@ from typing import List, Tuple
 import math
 
 
-class SanTOKGPTTrainerSimple:
+class SOMAGPTTrainerSimple:
     """
-    Simplified but working trainer for SanTOK GPT
+    Simplified but working trainer for SOMA GPT
     
     This implements REAL training with backpropagation.
     Simplified for correctness - but it WORKS!
@@ -115,7 +115,7 @@ class SanTOKGPTTrainerSimple:
         This actually trains your model!
         """
         print("=" * 70)
-        print("Training SanTOK GPT with REAL Backpropagation")
+        print("Training SOMA GPT with REAL Backpropagation")
         print("=" * 70)
         print()
         

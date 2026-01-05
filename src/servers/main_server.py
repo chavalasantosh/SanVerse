@@ -1,5 +1,5 @@
 """
-FastAPI Backend Server for SanTOK
+FastAPI Backend Server for SOMA
 Connects the frontend to the Python tokenization engine
 """
 
@@ -64,7 +64,7 @@ try:
         TokenStream,
         TokenRecord
     )
-    print("[OK] Successfully imported engine module with REAL SanTOK engine")
+    print("[OK] Successfully imported engine module with REAL SOMA engine")
 except ImportError as e:
     print(f"[ERROR] Error importing core_tokenizer.py: {e}")
     sys.exit(1)
@@ -115,15 +115,15 @@ try:
     try:
         from integration.vocabulary_adapter import (
             VocabularyAdapter,
-            SanTOKToModelConverter,
-            quick_convert_santok_to_model_ids
+            SOMAToModelConverter,
+            quick_convert_SOMA_to_model_ids
         )
     except ImportError:
         # Try with src prefix
         from src.integration.vocabulary_adapter import (
             VocabularyAdapter,
-            SanTOKToModelConverter,
-            quick_convert_santok_to_model_ids
+            SOMAToModelConverter,
+            quick_convert_SOMA_to_model_ids
         )
     INTEGRATION_AVAILABLE = True
     print("[OK] Successfully imported vocabulary adapter")
@@ -138,10 +138,10 @@ try:
     # Try importing with src prefix first
     try:
         from src.embeddings import (
-            SanTOKEmbeddingGenerator,
+            SOMAEmbeddingGenerator,
             ChromaVectorStore,
             FAISSVectorStore,
-            SanTOKInferencePipeline
+            SOMAInferencePipeline
         )
         # Try importing WeaviateVectorStore (optional)
         try:
@@ -153,10 +153,10 @@ try:
     except ImportError:
         # Fallback to direct import
         from embeddings import (
-            SanTOKEmbeddingGenerator,
+            SOMAEmbeddingGenerator,
             ChromaVectorStore,
             FAISSVectorStore,
-            SanTOKInferencePipeline
+            SOMAInferencePipeline
         )
         # Try importing WeaviateVectorStore (optional)
         try:
@@ -181,7 +181,7 @@ except ImportError as e:
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="SanTOK API",
+    title="SOMA API",
     description="Advanced Text Tokenization System with Multiple Algorithms",
     version="1.0.0"
 )
@@ -303,7 +303,7 @@ async def health_check(request: Request):
     # Just return a simple dict - this is the fastest possible response
     return {
             "status": "ok",
-        "message": "SanTOK API Server is running"
+        "message": "SOMA API Server is running"
         }
 
 # ==================== AUTHENTICATION ENDPOINTS ====================
@@ -666,7 +666,7 @@ class TokenizationResult(BaseModel):
     reversibility: bool
     fingerprint: Dict[str, Any]
     originalText: Optional[str] = None  # Include original text for comparison
-    # Extra data to mirror SanTOK core tokenizer engine
+    # Extra data to mirror SOMA core tokenizer engine
     frontendDigits: Optional[List[int]] = None
     backendScaled: Optional[List[int]] = None
     contentIds: Optional[List[int]] = None
@@ -755,7 +755,7 @@ def calculate_fingerprint(text: str, tokens: List[str], embedding: bool = False)
 async def root():
     """Health check endpoint"""
     return {
-        "message": "SanTOK API is running!",
+        "message": "SOMA API is running!",
         "version": "1.0.0",
         "available_tokenizers": list(TOKENIZERS.keys())
     }
@@ -805,7 +805,7 @@ async def tokenize_text(request: TokenizationRequest):
                 import re
                 processed_text = re.sub(r'\s+', ' ', processed_text).strip()
         
-        # Use REAL SanTOK TextTokenizer engine with all features
+        # Use REAL SOMA TextTokenizer engine with all features
         seed = request.seed if request.seed is not None else 12345
         embedding_bit = request.embedding_bit if hasattr(request, 'embedding_bit') and request.embedding_bit is not None else False
         
@@ -825,14 +825,14 @@ async def tokenize_text(request: TokenizationRequest):
         # Normalize tokenizer type name
         tokenizer_type = TOKENIZER_NAME_MAP.get(request.tokenizer_type, request.tokenizer_type)
         
-        print(f"🔧 Using REAL SanTOK engine: seed={seed}, embedding_bit={embedding_bit}, tokenizer={tokenizer_type} (original: {request.tokenizer_type})")
+        print(f"🔧 Using REAL SOMA engine: seed={seed}, embedding_bit={embedding_bit}, tokenizer={tokenizer_type} (original: {request.tokenizer_type})")
         
         # For VERY large files (>100MB), process in chunks but use real engine
         LARGE_FILE_THRESHOLD = 100 * 1024 * 1024  # 100MB
         use_chunked = text_length > LARGE_FILE_THRESHOLD
         
         if use_chunked:
-            print(f"📦 Large file detected ({text_length / (1024*1024*1024):.2f}GB), using chunked SanTOK engine...")
+            print(f"📦 Large file detected ({text_length / (1024*1024*1024):.2f}GB), using chunked SOMA engine...")
             # Process in chunks but still use real engine
             chunk_size = 50 * 1024 * 1024  # 50MB chunks
             all_token_objects = []
@@ -845,7 +845,7 @@ async def tokenize_text(request: TokenizationRequest):
                 if not chunk:
                     continue
                     
-                # Use REAL SanTOK engine for this chunk
+                # Use REAL SOMA engine for this chunk
                 engine = TextTokenizer(seed, embedding_bit)
                 
                 # Get all tokenizations for this chunk - with error handling
@@ -930,7 +930,7 @@ async def tokenize_text(request: TokenizationRequest):
             content_ids = all_content_ids
             
         else:
-            # Use REAL SanTOK engine for smaller files
+            # Use REAL SOMA engine for smaller files
             engine = TextTokenizer(seed, embedding_bit)
             
         # Get all tokenizations - handle failures gracefully
@@ -1077,7 +1077,7 @@ async def tokenize_text(request: TokenizationRequest):
             "textValueWithEmbedding": (len(processed_text) + (1 if embedding_bit else 0)) % 10000
         }
         
-        # Create result with REAL SanTOK engine values
+        # Create result with REAL SOMA engine values
         result = TokenizationResult(
             tokens=token_objects,
             tokenCount=actual_token_count,  # Report actual count, not just displayed
@@ -1291,9 +1291,9 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
     Test endpoint for vocabulary adapter integration with pretrained models.
     
     This endpoint tests the vocabulary compatibility solution:
-    1. Tokenizes text with SanTOK
-    2. Maps SanTOK tokens to model vocabulary IDs
-    3. Returns both SanTOK and model-compatible results
+    1. Tokenizes text with SOMA
+    2. Maps SOMA tokens to model vocabulary IDs
+    3. Returns both SOMA and model-compatible results
     """
     if not INTEGRATION_AVAILABLE:
         raise HTTPException(
@@ -1302,13 +1302,13 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
         )
     
     try:
-        text = request.get("text", "Hello world! SanTOK is amazing.")
+        text = request.get("text", "Hello world! SOMA is amazing.")
         model_name = request.get("model_name", "bert-base-uncased")
         tokenizer_type = request.get("tokenizer_type", "word")
         seed = request.get("seed", 42)
         embedding_bit = request.get("embedding_bit", False)
         
-        # Step 1: Tokenize with SanTOK
+        # Step 1: Tokenize with SOMA
         print(f"\n[INFO] Testing vocabulary adapter:")
         print(f"   Text: {text}")
         print(f"   Model: {model_name}")
@@ -1332,7 +1332,7 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
                 detail=f"Unknown tokenizer type: {tokenizer_type}. Available: {available_in_toks}"
             )
         
-        # Get SanTOK tokens
+        # Get SOMA tokens
         raw_tokens = toks[lookup_type]
         token_list = []
         for i, t in enumerate(raw_tokens):
@@ -1345,17 +1345,17 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
         with_uids = assign_uids(token_list, seed)
         with_neighbors = neighbor_uids(with_uids)
         
-        santok_tokens = [rec["text"] for rec in with_neighbors]
-        santok_frontend_digits = [
+        SOMA_tokens = [rec["text"] for rec in with_neighbors]
+        SOMA_frontend_digits = [
             combined_digit(rec["text"], embedding_bit) for rec in with_neighbors
         ]
         
         # Step 2: Convert to model vocabulary IDs
-        print(f"   Converting {len(santok_tokens)} SanTOK tokens to {model_name} vocabulary...")
+        print(f"   Converting {len(SOMA_tokens)} SOMA tokens to {model_name} vocabulary...")
         
         try:
             adapter = VocabularyAdapter(model_name)
-            model_result = adapter.map_santok_tokens_to_model_ids(santok_tokens)
+            model_result = adapter.map_SOMA_tokens_to_model_ids(SOMA_tokens)
             
             # Step 3: Get model info
             model_info = adapter.get_model_embedding_layer_info()
@@ -1370,10 +1370,10 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
                     "seed": seed,
                     "embedding_bit": embedding_bit
                 },
-                "santok": {
-                    "tokens": santok_tokens,
-                    "token_count": len(santok_tokens),
-                    "frontend_digits": santok_frontend_digits,
+                "SOMA": {
+                    "tokens": SOMA_tokens,
+                    "token_count": len(SOMA_tokens),
+                    "frontend_digits": SOMA_frontend_digits,
                     "tokenizer_type": tokenizer_type
                 },
                 "model": {
@@ -1384,19 +1384,19 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
                     "vocab_size": model_result["vocab_size"]
                 },
                 "mapping": {
-                    "santok_to_model": model_result["mapping"],
-                    "description": "SanTOK token index → Model token indices (may be 1:many for subword tokenization)"
+                    "SOMA_to_model": model_result["mapping"],
+                    "description": "SOMA token index → Model token indices (may be 1:many for subword tokenization)"
                 },
                 "model_info": model_info,
                 "comparison": {
-                    "santok_token_count": len(santok_tokens),
+                    "SOMA_token_count": len(SOMA_tokens),
                     "model_token_count": len(model_result["input_ids"]),
-                    "ratio": len(model_result["input_ids"]) / len(santok_tokens) if santok_tokens else 0,
+                    "ratio": len(model_result["input_ids"]) / len(SOMA_tokens) if SOMA_tokens else 0,
                     "note": "Model may split tokens into subwords (ratio > 1)"
                 }
             }
             
-            print(f"   [OK] Success! SanTOK: {len(santok_tokens)} tokens -> Model: {len(model_result['input_ids'])} tokens")
+            print(f"   [OK] Success! SOMA: {len(SOMA_tokens)} tokens -> Model: {len(model_result['input_ids'])} tokens")
             
             return response
             
@@ -1405,10 +1405,10 @@ async def test_vocabulary_adapter(request: Dict[str, Any]):
                 "success": False,
                 "error": str(adapter_error),
                 "message": f"Failed to convert to {model_name} vocabulary",
-                "santok": {
-                    "tokens": santok_tokens,
-                    "token_count": len(santok_tokens),
-                    "frontend_digits": santok_frontend_digits
+                "SOMA": {
+                    "tokens": SOMA_tokens,
+                    "token_count": len(SOMA_tokens),
+                    "frontend_digits": SOMA_frontend_digits
                 },
                 "suggestion": "Make sure the model name is valid and transformers library is installed"
             }
@@ -1427,7 +1427,7 @@ async def test_vocabulary_adapter_quick():
     Quick test endpoint for vocabulary adapter - uses default values.
     """
     return await test_vocabulary_adapter({
-        "text": "Hello world! SanTOK solves vocabulary compatibility.",
+        "text": "Hello world! SOMA solves vocabulary compatibility.",
         "model_name": "bert-base-uncased",
         "tokenizer_type": "word"
     })
@@ -1446,7 +1446,7 @@ class EmbeddingRequest(BaseModel):
     tokenizer_seed: int = 42
     embedding_bit: bool = False
     stream_type: Optional[str] = None
-    semantic_model_path: Optional[str] = "santok_semantic_model.pkl"
+    semantic_model_path: Optional[str] = "SOMA_semantic_model.pkl"
 
 class EmbeddingResponse(BaseModel):
     embeddings: List[List[float]]
@@ -1490,7 +1490,7 @@ def get_embedding_generator(strategy: str = "feature_based", embedding_dim: int 
         kwargs = {"strategy": strategy, "embedding_dim": embedding_dim}
         if strategy == "semantic" and semantic_model_path:
             kwargs["semantic_model_path"] = semantic_model_path
-        _embedding_generator = SanTOKEmbeddingGenerator(**kwargs)
+        _embedding_generator = SOMAEmbeddingGenerator(**kwargs)
         _embedding_generator._cache_key = cache_key
     return _embedding_generator
 
@@ -1501,9 +1501,9 @@ def get_vector_store(backend: str = "chroma", weaviate_url: Optional[str] = None
         raise HTTPException(status_code=503, detail="Embeddings not available.")
     if _vector_store is None:
         if backend == "chroma":
-            _vector_store = ChromaVectorStore(collection_name="santok_embeddings", persist_directory="./vector_db")
+            _vector_store = ChromaVectorStore(collection_name="SOMA_embeddings", persist_directory="./vector_db")
         elif backend == "faiss":
-            _vector_store = FAISSVectorStore(collection_name="santok_embeddings", embedding_dim=768)
+            _vector_store = FAISSVectorStore(collection_name="SOMA_embeddings", embedding_dim=768)
         elif backend == "weaviate":
             if not WEAVIATE_AVAILABLE or WeaviateVectorStore is None:
                 raise HTTPException(
@@ -1511,7 +1511,7 @@ def get_vector_store(backend: str = "chroma", weaviate_url: Optional[str] = None
                     detail="Weaviate not available. Install: pip install weaviate-client"
                 )
             _vector_store = WeaviateVectorStore(
-                collection_name="santok_embeddings",
+                collection_name="SOMA_embeddings",
                 embedding_dim=768,
                 weaviate_url=weaviate_url,
                 weaviate_api_key=weaviate_api_key
@@ -1530,7 +1530,7 @@ def get_pipeline(strategy: str = "feature_based"):
         embedding_gen = get_embedding_generator(strategy)
         vector_store = get_vector_store()
         tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-        _pipeline = SanTOKInferencePipeline(embedding_generator=embedding_gen, vector_store=vector_store, tokenizer=tokenizer)
+        _pipeline = SOMAInferencePipeline(embedding_generator=embedding_gen, vector_store=vector_store, tokenizer=tokenizer)
     return _pipeline
 
 @app.post("/embeddings/generate", response_model=EmbeddingResponse)
@@ -1764,7 +1764,7 @@ class DataInterpretationRequest(BaseModel):
     top_concepts: int = 5
     embedding_strategy: str = "feature_based"
     embedding_dim: int = 768
-    collection_name: str = "SanTOK_Token"
+    collection_name: str = "SOMA_Token"
 
 class DataInterpretationResponse(BaseModel):
     input: str
@@ -2205,7 +2205,7 @@ async def interpret_data(request: DataInterpretationRequest):
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Data interpretation failed: {str(e)}")
 
-# ==================== SANTOK TRAINING ENDPOINTS ====================
+# ==================== SOMA TRAINING ENDPOINTS ====================
 
 # User dataset storage directory
 USER_DATASETS_DIR = Path("user_datasets")
@@ -2463,17 +2463,17 @@ async def download_dataset(request: DatasetDownloadRequest):
         logging.info(f"[DOWNLOAD] Starting download: {request.dataset_type}, size_limit: {request.size_limit_gb}GB")
         
         try:
-            from training.dataset_downloader import SanTOKDatasetDownloader
+            from training.dataset_downloader import somaDatasetDownloader
         except ImportError:
             try:
-                from src.training.dataset_downloader import SanTOKDatasetDownloader
+                from src.training.dataset_downloader import somaDatasetDownloader
             except ImportError:
                 logging.error("[DOWNLOAD] Dataset downloader module not found")
                 raise HTTPException(status_code=503, detail="Dataset downloader not available. Check backend logs.")
         
         logging.info("[DOWNLOAD] Dataset downloader imported successfully")
         
-        downloader = SanTOKDatasetDownloader(data_dir="training_data")
+        downloader = SOMADatasetDownloader(data_dir="training_data")
         logging.info("[DOWNLOAD] Downloader initialized")
         
         dataset_path = None
@@ -2539,7 +2539,7 @@ async def download_dataset(request: DatasetDownloadRequest):
 
 @app.post("/training/vocabulary/build", response_model=VocabularyBuildResponse)
 async def build_vocabulary(request: VocabularyBuildRequest):
-    """Build 60K vocabulary from SanTOK tokens (runs as persistent job)."""
+    """Build 60K vocabulary from soma tokens (runs as persistent job)."""
     try:
         dataset_path = Path(request.dataset_path)
         if not dataset_path.exists():
@@ -2555,17 +2555,17 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+from src.training.vocabulary_builder import somaVocabularyBuilder
 
 print("="*60)
-print("Building SanTOK 60K Vocabulary")
+print("Building SOMA 60K Vocabulary")
 print("="*60)
 print(f"Dataset: {request.dataset_path}")
 print(f"Vocab size: {request.vocab_size:,}")
 print(f"Min frequency: {request.min_frequency}")
 print()
 
-vocab_builder = SanTOKVocabularyBuilder(
+vocab_builder = SOMAVocabularyBuilder(
     vocab_size={request.vocab_size},
     min_frequency={request.min_frequency},
     tokenizer_seed={request.tokenizer_seed}
@@ -2573,7 +2573,7 @@ vocab_builder = SanTOKVocabularyBuilder(
 
 vocab_builder.build_vocabulary(Path("{request.dataset_path}"))
 
-vocab_path = Path("models/santok_60k_vocab.pkl")
+vocab_path = Path("models/SOMA_60k_vocab.pkl")
 vocab_path.parent.mkdir(parents=True, exist_ok=True)
 vocab_builder.save(vocab_path)
 
@@ -2614,7 +2614,7 @@ print("="*60)
             return VocabularyBuildResponse(
                 success=True,
                 message="Vocabulary build started (running in background)",
-                vocab_path="models/santok_60k_vocab.pkl",
+                vocab_path="models/SOMA_60k_vocab.pkl",
                 vocab_size=None,
                 total_tokens=None,
                 job_id=job_id
@@ -2622,17 +2622,17 @@ print("="*60)
         else:
             # Fallback to synchronous execution
             try:
-                from training.vocabulary_builder import SanTOKVocabularyBuilder
+                from training.vocabulary_builder import somaVocabularyBuilder
             except ImportError:
                 try:
-                    from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+                    from src.training.vocabulary_builder import somaVocabularyBuilder
                 except ImportError:
                     raise HTTPException(status_code=503, detail="Vocabulary builder not available.")
             
-            vocab_builder = SanTOKVocabularyBuilder(vocab_size=request.vocab_size, min_frequency=request.min_frequency, tokenizer_seed=request.tokenizer_seed)
+            vocab_builder = SOMAVocabularyBuilder(vocab_size=request.vocab_size, min_frequency=request.min_frequency, tokenizer_seed=request.tokenizer_seed)
             vocab_builder.build_vocabulary(dataset_path)
             
-            vocab_path = Path("models/santok_60k_vocab.pkl")
+            vocab_path = Path("models/SOMA_60k_vocab.pkl")
             vocab_path.parent.mkdir(parents=True, exist_ok=True)
             vocab_builder.save(vocab_path)
             
@@ -2652,15 +2652,15 @@ print("="*60)
 
 @app.post("/training/model/train", response_model=ModelTrainResponse)
 async def train_model(request: ModelTrainRequest):
-    """Train SanTOK language model."""
+    """Train SOMA language model."""
     try:
         try:
-            from training.language_model_trainer import SanTOKLanguageModel, SanTOKLanguageModelTrainer
-            from training.vocabulary_builder import SanTOKVocabularyBuilder
+            from training.language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
+            from training.vocabulary_builder import somaVocabularyBuilder
         except ImportError:
             try:
-                from src.training.language_model_trainer import SanTOKLanguageModel, SanTOKLanguageModelTrainer
-                from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+                from src.training.language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
+                from src.training.vocabulary_builder import somaVocabularyBuilder
             except ImportError:
                 raise HTTPException(status_code=503, detail="Language model trainer not available.")
         
@@ -2681,13 +2681,13 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.training.language_model_trainer import SanTOKLanguageModel, SanTOKLanguageModelTrainer
-from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+from src.training.language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
+from src.training.vocabulary_builder import somaVocabularyBuilder
 
-vocab_builder = SanTOKVocabularyBuilder()
+vocab_builder = SOMAVocabularyBuilder()
 vocab_builder.load(Path("{request.vocab_path}"))
 
-model = SanTOKLanguageModel(
+model = SOMALanguageModel(
     vocab_size={request.vocab_size},
     embedding_dim={request.embedding_dim},
     num_layers={request.num_layers},
@@ -2696,7 +2696,7 @@ model = SanTOKLanguageModel(
     embedding_strategy="{request.embedding_strategy}"
 )
 
-trainer = SanTOKLanguageModelTrainer(
+trainer = SOMALanguageModelTrainer(
     model=model,
     vocab_builder=vocab_builder,
     learning_rate={request.learning_rate},
@@ -2739,7 +2739,7 @@ print("Training complete!")
             # Now start the job with the job_id from create_job
             job_manager.start_job(job_id, str(training_script_renamed), work_dir, timeout=86400)
             
-            return ModelTrainResponse(success=True, message="Training started", job_id=job_id, model_path=f"models/santok_lm_epoch_{request.epochs}.pkl")
+            return ModelTrainResponse(success=True, message="Training started", job_id=job_id, model_path=f"models/SOMA_lm_epoch_{request.epochs}.pkl")
         else:
             raise HTTPException(status_code=503, detail="Job manager not available")
     except HTTPException:
@@ -2751,15 +2751,15 @@ print("Training complete!")
 
 @app.post("/training/model/generate", response_model=ModelGenerateResponse)
 async def generate_text(request: ModelGenerateRequest):
-    """Generate text using trained SanTOK language model."""
+    """Generate text using trained SOMA language model."""
     try:
         try:
-            from training.language_model_trainer import SanTOKLanguageModel
-            from training.vocabulary_builder import SanTOKVocabularyBuilder
+            from training.language_model_trainer import somaLanguageModel
+            from training.vocabulary_builder import somaVocabularyBuilder
         except ImportError:
             try:
-                from src.training.language_model_trainer import SanTOKLanguageModel
-                from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+                from src.training.language_model_trainer import somaLanguageModel
+                from src.training.vocabulary_builder import somaVocabularyBuilder
             except ImportError:
                 raise HTTPException(status_code=503, detail="Language model not available.")
         
@@ -2771,10 +2771,10 @@ async def generate_text(request: ModelGenerateRequest):
         if not vocab_path.exists():
             raise HTTPException(status_code=404, detail=f"Vocabulary not found: {request.vocab_path}")
         
-        model = SanTOKLanguageModel()
+        model = SOMALanguageModel()
         model.load(model_path)
         
-        vocab_builder = SanTOKVocabularyBuilder()
+        vocab_builder = SOMAVocabularyBuilder()
         vocab_builder.load(vocab_path)
         
         generated_text = model.generate(prompt=request.prompt, vocab_builder=vocab_builder, max_length=request.max_length, temperature=request.temperature)
@@ -2833,7 +2833,7 @@ class TerminalCommandResponse(BaseModel):
 # ==================== AUTHENTICATION & AUTHORIZATION CONFIGURATION ====================
 # SECURITY: Only allowed users can access everything. Regular users are restricted.
 
-# Allowed users list - These users can access EVERYTHING (SanTOK files included)
+# Allowed users list - These users can access EVERYTHING (SOMA files included)
 # Format: {"username": "hashed_password_or_token", ...}
 # In production, use environment variables or a secure database
 # SECURITY: Load from environment variables for production
@@ -2938,7 +2938,7 @@ def is_user_allowed(auth: Optional[dict] = None) -> bool:
 # ==================== SECURITY CONFIGURATION ====================
 # CRITICAL SECURITY: File Access Restrictions
 # 
-# This section implements VERY STRICT file access restrictions to protect SanTOK core files.
+# This section implements VERY STRICT file access restrictions to protect SOMA core files.
 # 
 # SECURITY PRINCIPLES:
 # 1. DENY BY DEFAULT: Everything is blocked unless explicitly allowed
@@ -2961,15 +2961,15 @@ def is_user_allowed(auth: Optional[dict] = None) -> bool:
 # Whitelisted directories - ONLY these directories are accessible (for regular users)
 ALLOWED_DIRECTORIES = {
     "examples": "examples",  # Examples folder (root)
-    "src_examples": "src/examples",  # SanTOK example codes in src/
+    "src_examples": "src/examples",  # SOMA example codes in src/
     "workspace": "user_workspace",  # User workspace (created if doesn't exist)
     "uploads": "user_workspace/uploads",  # User uploads
     "temp": "user_workspace/temp",  # Temporary files
 }
 
-# Blacklisted paths - These are NEVER accessible (SanTOK core files)
-# SECURITY: Complete blocklist of all SanTOK directories and files
-# BUT: Allow src/examples for running SanTOK codes on Railway compute
+# Blacklisted paths - These are NEVER accessible (SOMA core files)
+# SECURITY: Complete blocklist of all SOMA directories and files
+# BUT: Allow src/examples for running SOMA codes on Railway compute
 BLOCKED_PATHS = {
     # Block core source directories (but allow src/examples)
     "src/core", "src/core/",
@@ -2988,7 +2988,7 @@ BLOCKED_PATHS = {
     "backend/src/core", "backend/src/core/",
     "backend/src/servers", "backend/src/servers/",
     "backend/src/embeddings", "backend/src/embeddings/",
-    "backend/santok", "backend/santok/",
+    "backend/SOMA", "backend/SOMA/",
     
     # Entire frontend/ directory
     "frontend", "frontend/",
@@ -3004,8 +3004,8 @@ BLOCKED_PATHS = {
     "frontend/.next", "frontend/.next/",
     
     # Package directories
-    "santok", "santok/",
-    "backend/santok", "backend/santok/",
+    "SOMA", "SOMA/",
+    "backend/SOMA", "backend/SOMA/",
     
     # Configuration directory - CRITICAL: Contains admin credentials
     "config", "config/",
@@ -3064,7 +3064,7 @@ BLOCKED_PATHS = {
 def is_path_blocked(file_path: Path, project_root: Path, auth: Optional[dict] = None) -> bool:
     """
     Check if a path is blocked from access.
-    SECURITY: Comprehensive blocking of all SanTOK core files and directories.
+    SECURITY: Comprehensive blocking of all SOMA core files and directories.
     EXCEPTION: Allowed users can access everything - returns False if user is allowed.
     
     CRITICAL SECURITY: This function is the PRIMARY line of defense against unauthorized file access.
@@ -3124,19 +3124,19 @@ def is_path_blocked(file_path: Path, project_root: Path, auth: Optional[dict] = 
             
             # Block if path starts with blocked prefix
             if path_str_lower.startswith(normalized_blocked + "/") or path_str_lower.startswith(normalized_blocked):
-                # Special case: Allow examples/ and src/examples/ for SanTOK code execution on Railway compute
+                # Special case: Allow examples/ and src/examples/ for SOMA code execution on Railway compute
                 if path_str_lower.startswith("examples/") or path_str_lower.startswith("src/examples/"):
                     continue
                 logging.warning(f"[SECURITY] Blocked path prefix: {path_str} matches {blocked}")
                 return True
         
         # SECURITY: BLOCK entire src/ directory EXCEPT examples
-        # Allow src/examples for SanTOK code execution on Railway compute
+        # Allow src/examples for SOMA code execution on Railway compute
         if "src" in path_parts:
             src_index = path_parts.index("src")
-            # Allow src/examples - this is where SanTOK codes are that need to run
+            # Allow src/examples - this is where SOMA codes are that need to run
             if src_index + 1 < len(path_parts) and path_parts[src_index + 1] == "examples":
-                # Allow src/examples/ - these are SanTOK codes to run on Railway compute
+                # Allow src/examples/ - these are SOMA codes to run on Railway compute
                 return False
             elif len(path_parts) > src_index:
                 # Block any src/ subdirectory
@@ -3400,7 +3400,7 @@ async def execute_code(code_request: CodeExecutionRequest, http_request: Request
             except ValueError:
                 raise HTTPException(status_code=403, detail="File path outside project root")
             
-            # Check if path is blocked (SanTOK core files) - bypassed for allowed users
+            # Check if path is blocked (SOMA core files) - bypassed for allowed users
             if is_path_blocked(script_path_obj, project_root, auth):
                 raise HTTPException(status_code=403, detail="Access denied: This file is protected")
             
@@ -4105,7 +4105,7 @@ async def execute_terminal_command(terminal_request: TerminalCommandRequest, htt
     auth = get_optional_auth(http_request)
     """
     Execute terminal commands in SAFE directories only.
-    SECURITY: All commands are restricted to whitelisted directories. SanTOK core files are blocked.
+    SECURITY: All commands are restricted to whitelisted directories. SOMA core files are blocked.
     """
     try:
         project_root = Path(__file__).parent.parent.parent
@@ -4227,7 +4227,7 @@ async def execute_terminal_command(terminal_request: TerminalCommandRequest, htt
                             cwd=cwd
                         )
                 
-                # Security: Check if path is blocked (SanTOK core files) - bypassed for allowed users
+                # Security: Check if path is blocked (SOMA core files) - bypassed for allowed users
                 if is_path_blocked(resolved, project_root, auth):
                     return TerminalCommandResponse(
                         success=False,
@@ -4503,7 +4503,7 @@ async def execute_terminal_command(terminal_request: TerminalCommandRequest, htt
                 # Security: Check if path is blocked and within allowed directories - bypassed for allowed users
                 resolved_file = Path(file_path).resolve()
                 
-                # Check if path is blocked (SanTOK core files)
+                # Check if path is blocked (SOMA core files)
                 if is_path_blocked(resolved_file, project_root, auth):
                     return TerminalCommandResponse(
                         success=False,
@@ -4648,7 +4648,7 @@ async def execute_terminal_command(terminal_request: TerminalCommandRequest, htt
             # Security check: ensure file is in allowed directories and not blocked - bypassed for allowed users
             resolved_file = Path(file_path).resolve()
             
-            # Check if path is blocked (SanTOK core files)
+            # Check if path is blocked (SOMA core files)
             if is_path_blocked(resolved_file, project_root, auth):
                 return TerminalCommandResponse(
                     success=False,
@@ -5082,7 +5082,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", "8000"))
     host = os.getenv("HOST", "0.0.0.0")
     
-    print("[START] Starting SanTOK API Server...")
+    print("[START] Starting SOMA API Server...")
     print(f"[INFO] Server will be available at: http://{host}:{port}")
     print(f"[INFO] API Documentation at: http://{host}:{port}/docs")
     print(f"[INFO] Health check at: http://{host}:{port}/health")

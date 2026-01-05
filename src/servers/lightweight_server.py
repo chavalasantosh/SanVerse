@@ -1,5 +1,5 @@
 """
-Simple HTTP Backend Server for SanTOK
+Simple HTTP Backend Server for SOMA
 Uses only standard library - no external dependencies
 """
 
@@ -78,7 +78,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def handle_root(self):
         response = {
-            "message": "SanTOK API is running!",
+            "message": "SOMA API is running!",
             "version": "1.0.0",
             "available_tokenizers": list(TOKENIZERS.keys())
         }
@@ -339,7 +339,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 def main():
     PORT = 8000
     
-    print("🎯 SanTOK Simple Backend Server")
+    print("🎯 SOMA Simple Backend Server")
     print("=" * 50)
     print(f"📡 Starting server on port {PORT}")
     print(f"🌐 Server will be available at: http://localhost:{PORT}")

@@ -1,5 +1,5 @@
 """
-SanTOK SLM Constraints
+SOMA SLM Constraints
 
 Token-level allow/deny logic that makes hallucination structurally impossible.
 Every token choice is filtered by:
@@ -76,7 +76,7 @@ class FactConstraint:
     Constraint that binds generation to known facts.
     
     The generator can ONLY emit tokens that are grounded
-    in facts from SanTOK Cognitive.
+    in facts from soma Cognitive.
     """
     facts: List[str] = field(default_factory=list)
     fact_tokens: Set[str] = field(default_factory=set)
@@ -163,10 +163,10 @@ class GenerationContext:
     # The query/prompt
     query: str = ""
     
-    # Facts from SanTOK Cognitive
+    # Facts from soma Cognitive
     facts: List[str] = field(default_factory=list)
     
-    # Reasoning path from SanTOK Cognitive
+    # Reasoning path from soma Cognitive
     reasoning_path: List[str] = field(default_factory=list)
     
     # Current constraints
@@ -218,7 +218,7 @@ class ConstraintEngine:
         self.constraints.sort(key=lambda c: c.priority, reverse=True)
     
     def set_fact_constraint(self, facts: List[str], strict: bool = True):
-        """Set the fact constraint from SanTOK Cognitive facts."""
+        """Set the fact constraint from soma Cognitive facts."""
         self.fact_constraint = FactConstraint(facts=facts, strict=strict)
     
     def set_vocabulary_scope(self, scope: VocabularyScope):
@@ -226,7 +226,7 @@ class ConstraintEngine:
         self.vocabulary_scope = scope
     
     def add_facts_from_cognitive(self, facts: List[str]):
-        """Add facts from SanTOK Cognitive."""
+        """Add facts from soma Cognitive."""
         if self.fact_constraint is None:
             self.fact_constraint = FactConstraint()
         for fact in facts:
@@ -234,7 +234,7 @@ class ConstraintEngine:
         self.context.facts = facts
     
     def set_reasoning_path(self, path: List[str]):
-        """Set the reasoning path from SanTOK Cognitive."""
+        """Set the reasoning path from soma Cognitive."""
         self.context.reasoning_path = path
     
     def check_token(self, token: str) -> tuple[bool, str]:

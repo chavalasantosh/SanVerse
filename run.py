@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Cross-platform SanTOK Run Script
-Starts the SanTOK API server with automatic environment detection
+Cross-platform SOMA Run Script
+Starts the SOMA API server with automatic environment detection
 """
 
 import os
@@ -11,13 +11,13 @@ import platform
 from pathlib import Path
 from typing import Optional, NoReturn
 
-# Import SanTOK config utilities
+# import soma config utilities
 try:
-    from santok.utils.config import Config
-    from santok.utils.logging_config import setup_logging
-    SANTOK_UTILS_AVAILABLE = True
+    from soma.utils.config import Config
+    from soma.utils.logging_config import setup_logging
+    SOMA_UTILS_AVAILABLE = True
 except ImportError:
-    SANTOK_UTILS_AVAILABLE = False
+    SOMA_UTILS_AVAILABLE = False
 
 def print_colored(text: str, color: str = 'white') -> None:
     """Print colored text (works on most terminals)"""
@@ -104,7 +104,7 @@ def check_port(port: int) -> None:
 def main() -> None:
     """Main function"""
     print("=" * 50)
-    print("SanTOK API Server")
+    print("SOMA API Server")
     print("=" * 50)
     print()
     
@@ -120,8 +120,8 @@ def main() -> None:
     
     # Get port from environment using config utility
     try:
-        if SANTOK_UTILS_AVAILABLE:
-            from santok.utils.validation import validate_port
+        if SOMA_UTILS_AVAILABLE:
+            from soma.utils.validation import validate_port
             port_str = os.environ.get('PORT', '8000')
             port = validate_port(int(port_str), param_name='PORT')
         else:
@@ -136,7 +136,7 @@ def main() -> None:
     
     # Print server info
     print()
-    print_colored(f"[INFO] Starting SanTOK API Server on port {port}...", 'green')
+    print_colored(f"[INFO] Starting SOMA API Server on port {port}...", 'green')
     print_colored(f"[INFO] Server will be available at: http://localhost:{port}", 'green')
     print_colored(f"[INFO] API Documentation at: http://localhost:{port}/docs", 'green')
     print()

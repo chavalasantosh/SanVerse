@@ -1,5 +1,5 @@
 """
-SanTOK Cognitive System
+SOMA Cognitive System
 =======================
 
 A cognitive knowledge system that adds:
@@ -14,7 +14,7 @@ This is a SEPARATE module from src.
 It imports from src but never modifies it.
 
 Quick Start (Standalone):
-    from santok_cognitive import UnifiedMemory, RelationType, HybridReasoner
+    from soma_cognitive import UnifiedMemory, RelationType, HybridReasoner
     
     memory = UnifiedMemory()
     t1 = memory.add("Dog is a mammal", "fact", auto_link_graph=True)
@@ -25,13 +25,13 @@ Quick Start (Standalone):
     answer = reasoner.answer("What is a dog?")
 
 Full Integration (with src):
-    from santok_cognitive import CognitivePipeline
+    from soma_cognitive import CognitivePipeline
     from src.core.core_tokenizer import TextTokenizationEngine
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
     
     pipeline = CognitivePipeline()
     pipeline.set_tokenizer(TextTokenizationEngine())
-    pipeline.set_embedding_generator(SanTOKEmbeddingGenerator())
+    pipeline.set_embedding_generator(SOMAEmbeddingGenerator())
     
     # Process knowledge
     pipeline.process("Transformers use attention mechanisms")
@@ -46,7 +46,7 @@ Architecture:
     Text → Tokenizer → Graph + Embeddings → Inference → Context → LLM → Answer
     
     The LLM becomes a SPEAKER, not a THINKER.
-    SanTOK Cognitive does the reasoning; LLM just verbalizes.
+    SOMA Cognitive does the reasoning; LLM just verbalizes.
 """
 
 __version__ = "0.3.0"
@@ -108,12 +108,12 @@ from .reasoning import (
 )
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# REASONING - PURE SANTOK (RECOMMENDED - NO external AI)
+# REASONING - PURE SOMA (RECOMMENDED - NO external AI)
 # ═══════════════════════════════════════════════════════════════════════════════
 from .reasoning import (
-    SanTOKReasoner,
-    SanTOKAnswer,
-    SanTOKVerbalizer,
+    SOMAReasoner,
+    SOMAAnswer,
+    SOMAVerbalizer,
     StructuredKnowledge,
 )
 
@@ -137,26 +137,26 @@ from .integration import (
 )
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# ALGORITHMS - SANTOK-ORIGINAL (100% UNIQUE)
+# ALGORITHMS - SOMA-ORIGINAL (100% UNIQUE)
 # ═══════════════════════════════════════════════════════════════════════════════
 from .algorithms import (
     # Ranking
-    SanTOKRanker,
+    SOMARanker,
     RankingResult,
     # Pattern Matching
-    SanTOKPatternMatcher,
+    SOMAPatternMatcher,
     PatternMatch,
     # 9-Centric
-    SanTOK9Scorer,
+    SOMA9Scorer,
     # Graph Walking
-    SanTOKGraphWalker,
+    SOMAGraphWalker,
     WalkResult,
     WalkMode,
     # Semantic Similarity
-    SanTOKSimilarity,
+    SOMASimilarity,
     SimilarityResult,
     # Query Parsing
-    SanTOKQueryParser,
+    SOMAQueryParser,
     ParsedQuery,
 )
 
@@ -210,10 +210,10 @@ __all__ = [
     "Contradiction",
     "ContradictionType",
     
-    # Reasoning - PURE SANTOK (RECOMMENDED)
-    "SanTOKReasoner",
-    "SanTOKAnswer",
-    "SanTOKVerbalizer",
+    # Reasoning - PURE SOMA (RECOMMENDED)
+    "SOMAReasoner",
+    "SOMAAnswer",
+    "SOMAVerbalizer",
     "StructuredKnowledge",
     
     # Reasoning - Hybrid (optional)
@@ -227,18 +227,18 @@ __all__ = [
     "EmbeddingBridge",
     "CognitivePipeline",
     
-    # Algorithms - SANTOK-ORIGINAL
-    "SanTOKRanker",
+    # Algorithms - SOMA-ORIGINAL
+    "SOMARanker",
     "RankingResult",
-    "SanTOKPatternMatcher",
+    "SOMAPatternMatcher",
     "PatternMatch",
-    "SanTOK9Scorer",
-    "SanTOKGraphWalker",
+    "SOMA9Scorer",
+    "SOMAGraphWalker",
     "WalkResult",
     "WalkMode",
-    "SanTOKSimilarity",
+    "SOMASimilarity",
     "SimilarityResult",
-    "SanTOKQueryParser",
+    "SOMAQueryParser",
     "ParsedQuery",
     
     # Utilities

@@ -35,8 +35,8 @@ class MemoryObject:
         tree_node_id: Reference to tree store
         tree_id: Which tree the node belongs to
         
-        # SanTOK-specific
-        token_uids: List of SanTOK token UIDs
+        # SOMA-specific
+        token_uids: List of SOMA token UIDs
     """
     uid: str
     content: str
@@ -55,7 +55,7 @@ class MemoryObject:
     tree_node_id: Optional[str] = None
     tree_id: Optional[str] = None
     
-    # SanTOK token references
+    # SOMA token references
     token_uids: List[int] = field(default_factory=list)
     
     @staticmethod

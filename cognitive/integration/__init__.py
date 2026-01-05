@@ -1,8 +1,8 @@
 """
-SanTOK Cognitive - Integration Module
+SOMA Cognitive - Integration Module
 =====================================
 
-Bridges santok_cognitive with src:
+Bridges SOMA_cognitive with src:
 - TokenBridge: Convert tokens to graph nodes
 - VectorBridge: Connect to vector stores
 - EmbeddingBridge: Use src embeddings

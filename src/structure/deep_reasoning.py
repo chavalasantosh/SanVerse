@@ -1,5 +1,5 @@
 """
-SanTOK Deep Structural Reasoning
+SOMA Deep Structural Reasoning
 =================================
 
 Deep reasoning about structure, patterns, and relationships from ALL angles:

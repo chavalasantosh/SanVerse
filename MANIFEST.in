@@ -3,7 +3,7 @@ include README.md
 include requirements.txt
 include pyproject.toml
 
-recursive-include santok *.py
+recursive-include soma *.py
 recursive-include src *.py
 recursive-include cognitive *.py
 recursive-include santek_core *.py
@@ -17,6 +17,5 @@ exclude *.pyc
 exclude __pycache__
 global-exclude *.pyc
 global-exclude __pycache__
-global-exclude *.pyo
 global-exclude .git
 global-exclude .github

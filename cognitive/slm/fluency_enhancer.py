@@ -1,5 +1,5 @@
 """
-SanTOK Fluency Enhancer
+SOMA Fluency Enhancer
 =======================
 
 Improves text generation fluency through:
@@ -298,7 +298,7 @@ def generate_with_fluency(
     uses all fluency enhancement techniques.
     
     Args:
-        model: SanTOK model with forward() and tokenizer
+        model: SOMA model with forward() and tokenizer
         prompt: Input prompt
         max_tokens: Maximum tokens to generate
         config: Optional fluency configuration

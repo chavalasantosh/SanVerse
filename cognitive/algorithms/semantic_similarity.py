@@ -1,8 +1,8 @@
 """
-SanTOK Semantic Similarity - Custom Similarity Without Neural Embeddings
+SOMA Semantic Similarity - Custom Similarity Without Neural Embeddings
 =======================================================================
 
-SANTOK-ORIGINAL ALGORITHM. NO BERT. NO WORD2VEC. NO NEURAL EMBEDDINGS.
+SOMA-ORIGINAL ALGORITHM. NO BERT. NO WORD2VEC. NO NEURAL EMBEDDINGS.
 
 Computes semantic similarity using:
 1. Lexical overlap (Jaccard, Dice, etc.)
@@ -11,7 +11,7 @@ Computes semantic similarity using:
 4. Graph-based relatedness (if graph available)
 5. 9-centric harmonic combination
 
-The SanTOK Similarity Formula:
+The SOMA Similarity Formula:
     sim(a, b) = α·Lexical + β·Ngram + γ·Position + δ·Graph
     
     Final score is 9-centric harmonized.
@@ -53,9 +53,9 @@ class SimilarityResult:
         )
 
 
-class SanTOKSimilarity:
+class SOMASimilarity:
     """
-    SanTOK Custom Semantic Similarity.
+    SOMA Custom Semantic Similarity.
     
     100% UNIQUE. NO neural embeddings. NO pretrained models.
     
@@ -67,7 +67,7 @@ class SanTOKSimilarity:
     - Graph-based relatedness
     
     Example:
-        sim = SanTOKSimilarity()
+        sim = SOMASimilarity()
         
         result = sim.compute("machine learning", "deep learning")
         print(result.score)  # 0.67
@@ -101,7 +101,7 @@ class SanTOKSimilarity:
         ngram_size: int = 3
     ):
         """
-        Initialize SanTOK Similarity.
+        Initialize SOMA Similarity.
         
         Args:
             graph: Optional GraphStore for graph-based similarity
@@ -494,7 +494,7 @@ class SanTOKSimilarity:
     
     def __repr__(self) -> str:
         return (
-            f"SanTOKSimilarity("
+            f"SOMASimilarity("
             f"ngram={self.ngram_size}, "
             f"has_graph={self.graph is not None})"
         )

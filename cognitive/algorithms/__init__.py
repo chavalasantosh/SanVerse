@@ -1,53 +1,53 @@
 """
-SanTOK Cognitive - Custom Algorithms
+SOMA Cognitive - Custom Algorithms
 ====================================
 
-100% UNIQUE. 100% SANTOK-NATIVE.
+100% UNIQUE. 100% SOMA-NATIVE.
 
-NO external AI. NO borrowed algorithms. These are SANTOK-ORIGINAL.
+NO external AI. NO borrowed algorithms. These are SOMA-ORIGINAL.
 
 Algorithms:
-- SanTOKRanker: Hybrid relevance scoring (custom formula)
-- SanTOKPatternMatcher: Relation extraction without ML
-- SanTOK9Scorer: 9-centric confidence propagation
-- SanTOKGraphWalker: Custom graph traversal with decay
-- SanTOKSimilarity: Semantic similarity without neural embeddings
-- SanTOKQueryParser: Natural language to structured query
+- SOMARanker: Hybrid relevance scoring (custom formula)
+- SOMAPatternMatcher: Relation extraction without ML
+- SOMA9Scorer: 9-centric confidence propagation
+- SOMAGraphWalker: Custom graph traversal with decay
+- SOMASimilarity: Semantic similarity without neural embeddings
+- SOMAQueryParser: Natural language to structured query
 - SanTEKMetrics: Custom logical metrics for SanTEK improvement
 """
 
-from .santok_ranker import SanTOKRanker, RankingResult
-from .pattern_matcher import SanTOKPatternMatcher, PatternMatch
-from .nine_scorer import SanTOK9Scorer
-from .graph_walker import SanTOKGraphWalker, WalkResult, WalkMode, WalkStep
-from .semantic_similarity import SanTOKSimilarity, SimilarityResult
-from .query_parser import SanTOKQueryParser, ParsedQuery, QueryType
+from .SOMA_ranker import somaRanker, RankingResult
+from .pattern_matcher import somaPatternMatcher, PatternMatch
+from .nine_scorer import soma9Scorer
+from .graph_walker import somaGraphWalker, WalkResult, WalkMode, WalkStep
+from .semantic_similarity import somaSimilarity, SimilarityResult
+from .query_parser import somaQueryParser, ParsedQuery, QueryType
 from .santek_metrics import SanTEKMetrics, MetricResult, measure_santek_performance
 
 __all__ = [
     # Ranking
-    "SanTOKRanker",
+    "SOMARanker",
     "RankingResult",
     
     # Pattern Matching
-    "SanTOKPatternMatcher",
+    "SOMAPatternMatcher",
     "PatternMatch",
     
     # 9-Centric Scoring
-    "SanTOK9Scorer",
+    "SOMA9Scorer",
     
     # Graph Walking
-    "SanTOKGraphWalker",
+    "SOMAGraphWalker",
     "WalkResult",
     "WalkMode",
     "WalkStep",
     
     # Semantic Similarity
-    "SanTOKSimilarity",
+    "SOMASimilarity",
     "SimilarityResult",
     
     # Query Parsing
-    "SanTOKQueryParser",
+    "SOMAQueryParser",
     "ParsedQuery",
     "QueryType",
     

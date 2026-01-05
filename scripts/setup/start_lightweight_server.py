@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Start the Simple SanTOK Tokenizer Backend Server
+Start the Simple SOMA Tokenizer Backend Server
 Uses only standard library - no external dependencies
 """
 
@@ -29,7 +29,7 @@ def check_backend_files():
 
 def start_server():
     """Start the simple HTTP server"""
-    print("[START] Starting Simple SanTOK Tokenizer Backend Server...")
+    print("[START] Starting Simple SOMA Tokenizer Backend Server...")
     print("📡 Server will be available at: http://localhost:8000")
     print("🔄 Press Ctrl+C to stop the server")
     print("-" * 50)
@@ -42,7 +42,7 @@ def start_server():
         print(f"[ERROR] Error starting server: {e}")
 
 if __name__ == "__main__":
-    print("[START] SanTOK Tokenizer Simple Backend Setup")
+    print("[START] SOMA Tokenizer Simple Backend Setup")
     print("=" * 40)
     
     # Check if we're in the right directory

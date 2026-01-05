@@ -34,9 +34,9 @@ def test_basic_interpretation():
     
     # Credentials will be auto-loaded from weaviate_codes/.env
     interpreter = DataInterpreter(
-        embedding_strategy="feature_based",  # YOUR SanTOK embeddings
+        embedding_strategy="feature_based",  # YOUR SOMA embeddings
         embedding_dim=768,  # Must match your Weaviate collection
-        collection_name="SanTOK_Token"  # YOUR collection
+        collection_name="SOMA_Token"  # YOUR collection
     )
     
     input_text = "Sales dropped 20% last month."
@@ -58,9 +58,9 @@ def test_multiple_inputs():
     
     # Credentials will be auto-loaded from weaviate_codes/.env
     interpreter = DataInterpreter(
-        embedding_strategy="feature_based",  # YOUR SanTOK embeddings
+        embedding_strategy="feature_based",  # YOUR SOMA embeddings
         embedding_dim=768,
-        collection_name="SanTOK_Token"
+        collection_name="SOMA_Token"
     )
     
     test_cases = [
@@ -90,9 +90,9 @@ def test_custom_knowledge_base():
     
     # Credentials will be auto-loaded from weaviate_codes/.env
     interpreter = DataInterpreter(
-        embedding_strategy="feature_based",  # YOUR SanTOK embeddings
+        embedding_strategy="feature_based",  # YOUR SOMA embeddings
         embedding_dim=768,
-        collection_name="SanTOK_Token"  # YOUR collection with 5.5M objects
+        collection_name="SOMA_Token"  # YOUR collection with 5.5M objects
     )
     
     # Add custom concepts (this would be done in the class)

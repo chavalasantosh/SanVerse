@@ -1,7 +1,7 @@
 """
-SanTOK Embedding Generator
+SOMA Embedding Generator
 
-Converts SanTOK TokenRecord objects into dense vector embeddings
+Converts SOMA TokenRecord objects into dense vector embeddings
 suitable for ML inference and similarity search.
 """
 
@@ -21,11 +21,11 @@ except ImportError:
     # Warning removed - handled by user choice in comprehensive example
 
 try:
-    from .semantic_trainer import SanTOKSemanticTrainer
+    from .semantic_trainer import somaSemanticTrainer
     SEMANTIC_TRAINER_AVAILABLE = True
 except ImportError:
     try:
-        from semantic_trainer import SanTOKSemanticTrainer
+        from semantic_trainer import somaSemanticTrainer
         SEMANTIC_TRAINER_AVAILABLE = True
     except ImportError:
         SEMANTIC_TRAINER_AVAILABLE = False
@@ -128,14 +128,14 @@ def _extract_features_batch_worker(args):
     return temp_file  # Return file path instead of array
 
 
-class SanTOKEmbeddingGenerator:
+class SOMAEmbeddingGenerator:
     """
-    Generates embeddings from SanTOK TokenRecord objects.
+    Generates embeddings from soma TokenRecord objects.
     
     Supports multiple strategies:
-    - feature_based: Deterministic embedding from SanTOK features
+    - feature_based: Deterministic embedding from soma features
     - semantic: Self-trained semantic embeddings (NLP-understandable, NO pretrained models)
-    - hybrid: Combines text embeddings with SanTOK features
+    - hybrid: Combines text embeddings with SOMA features
     - hash: Fast hash-based embedding
     """
     
@@ -174,7 +174,7 @@ class SanTOKEmbeddingGenerator:
         # Initialize source map if source tagging is enabled
         if self.enable_source_tagging and self.source_tag:
             try:
-                from src.santok_sources import get_source_map
+                from src.SOMA_sources import get_source_map
                 self.source_map = get_source_map()
                 self.source_metadata = self.source_map.get_source_metadata(self.source_tag)
                 if not self.source_metadata:
@@ -203,7 +203,7 @@ class SanTOKEmbeddingGenerator:
                     "Semantic trainer not available. "
                     "Make sure semantic_trainer.py is in the embeddings module."
                 )
-            self.semantic_trainer = SanTOKSemanticTrainer(embedding_dim=embedding_dim)
+            self.semantic_trainer = SOMASemanticTrainer(embedding_dim=embedding_dim)
             if semantic_model_path and os.path.exists(semantic_model_path):
                 self.semantic_trainer.load(semantic_model_path)
                 print(f"✅ Loaded semantic model from {semantic_model_path}")
@@ -236,7 +236,7 @@ class SanTOKEmbeddingGenerator:
         Generate embedding for a single token.
         
         Args:
-            token_record: TokenRecord object from SanTOK or token dictionary
+            token_record: TokenRecord object from soma or token dictionary
             return_metadata: If True, return dict with embedding and source metadata
             
         Returns:
@@ -397,7 +397,7 @@ class SanTOKEmbeddingGenerator:
         # Create temp files for each chunk
         for i in range(0, total, chunk_size):
             chunk = token_records[i:i + chunk_size]
-            temp_file = os.path.join(tempfile.gettempdir(), f"santok_features_{i}_{os.getpid()}.npy")
+            temp_file = os.path.join(tempfile.gettempdir(), f"SOMA_features_{i}_{os.getpid()}.npy")
             chunks.append((chunk, temp_file))
             temp_files.append(temp_file)
         
@@ -506,7 +506,7 @@ class SanTOKEmbeddingGenerator:
         return embeddings
     
     def _feature_based_embedding(self, token) -> np.ndarray:
-        """Generate embedding from SanTOK features only."""
+        """Generate embedding from soma features only."""
         features = self._extract_features(token)
         
         # Project to target dimension
@@ -526,7 +526,7 @@ class SanTOKEmbeddingGenerator:
         """
         Generate semantic embedding from trained model.
         
-        Uses self-trained semantic model that learned from SanTOK's structure.
+        Uses self-trained semantic model that learned from soma's structure.
         NO pretrained models - learns semantic relationships from co-occurrence.
         """
         if self.semantic_trainer is None:

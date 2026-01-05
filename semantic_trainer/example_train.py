@@ -8,13 +8,13 @@ import os
 # Add parent directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from enhanced_semantic_trainer import EnhancedSanTOKSemanticTrainer
+from enhanced_semantic_trainer import EnhancedSOMASemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 def main():
     # Sample corpus
     corpus = """
-    SanTOK is a universal tokenization system that works on any file type.
+    SOMA is a universal tokenization system that works on any file type.
     It generates multiple tokenization streams simultaneously.
     Each token has a deterministic UID that never changes.
     The system supports images, videos, audio, and any other file format.
@@ -32,7 +32,7 @@ def main():
     token_streams = {name: stream.tokens for name, stream in streams.items()}
     
     print("\nTraining enhanced semantic embeddings...")
-    trainer = EnhancedSanTOKSemanticTrainer(
+    trainer = EnhancedSOMASemanticTrainer(
         embedding_dim=768,
         window_size=5,
         epochs=10,

@@ -5,7 +5,7 @@ The key insight:
     Query → Graph + Tree + Memory → Structured Context → LLM → Natural Answer
 
 The LLM becomes a SPEAKER, not a THINKER.
-SanTOK Cognitive does the reasoning; LLM just verbalizes.
+SOMA Cognitive does the reasoning; LLM just verbalizes.
 """
 
 from typing import Dict, Any, List, Optional, Tuple, Callable
@@ -35,7 +35,7 @@ class StructuredContext:
     """
     Structured context for the neural generator.
     
-    This is what SanTOK Cognitive produces for the LLM.
+    This is what SOMA Cognitive produces for the LLM.
     The LLM's job is to turn this into natural language.
     """
     query: str

@@ -1,11 +1,11 @@
 """
-SanTOK Language Model Trainer
+SOMA Language Model Trainer
 =============================
 
-Trains a GPT-2 style language model using ONLY SanTOK.
-- Uses SanTOK vocabulary (60K)
-- Uses SanTOK embeddings
-- Uses SanTOK tokenization
+Trains a GPT-2 style language model using ONLY soma.
+- Uses SOMA vocabulary (60K)
+- Uses SOMA embeddings
+- Uses SOMA tokenization
 - NO external models or algorithms
 
 This creates a complete language model from scratch.
@@ -19,23 +19,23 @@ import json
 from tqdm import tqdm
 import math
 
-# Import SanTOK components
+# import soma components
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.core.core_tokenizer import TextTokenizer
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.training.vocabulary_builder import somaVocabularyBuilder
 
 
-class SanTOKLanguageModel:
+class SOMALanguageModel:
     """
-    GPT-2 style language model using ONLY SanTOK.
+    GPT-2 style language model using ONLY soma.
     
     Architecture:
-    - Input: SanTOK token IDs
-    - Embedding: SanTOK embeddings (feature-based or semantic)
+    - Input: SOMA token IDs
+    - Embedding: SOMA embeddings (feature-based or semantic)
     - Transformer: Self-attention layers (pure NumPy implementation)
     - Output: Next token prediction
     """
@@ -50,7 +50,7 @@ class SanTOKLanguageModel:
         embedding_strategy: str = "feature_based"
     ):
         """
-        Initialize SanTOK language model.
+        Initialize SOMA language model.
         
         Args:
             vocab_size: Vocabulary size (60K)
@@ -58,7 +58,7 @@ class SanTOKLanguageModel:
             num_layers: Number of transformer layers (12)
             num_heads: Number of attention heads (12)
             max_seq_length: Maximum sequence length (1024)
-            embedding_strategy: SanTOK embedding strategy
+            embedding_strategy: SOMA embedding strategy
         """
         self.vocab_size = vocab_size
         self.embedding_dim = embedding_dim
@@ -70,9 +70,9 @@ class SanTOKLanguageModel:
         # Initialize model weights
         self._initialize_weights()
         
-        # SanTOK components
+        # SOMA components
         self.tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-        self.embedding_generator = SanTOKEmbeddingGenerator(
+        self.embedding_generator = SOMAEmbeddingGenerator(
             strategy=embedding_strategy,
             embedding_dim=embedding_dim
         )
@@ -214,7 +214,7 @@ class SanTOKLanguageModel:
         
         return logits
     
-    def generate(self, prompt: str, vocab_builder: SanTOKVocabularyBuilder, max_length: int = 100, temperature: float = 1.0) -> str:
+    def generate(self, prompt: str, vocab_builder: SOMAVocabularyBuilder, max_length: int = 100, temperature: float = 1.0) -> str:
         """
         Generate text from prompt.
         
@@ -299,13 +299,13 @@ class SanTOKLanguageModel:
         print(f"✓ Model loaded: {input_path}")
 
 
-class SanTOKLanguageModelTrainer:
-    """Train SanTOK language model."""
+class SOMALanguageModelTrainer:
+    """Train SOMA language model."""
     
     def __init__(
         self,
-        model: SanTOKLanguageModel,
-        vocab_builder: SanTOKVocabularyBuilder,
+        model: SOMALanguageModel,
+        vocab_builder: SOMAVocabularyBuilder,
         learning_rate: float = 1e-4,
         batch_size: int = 32,
         seq_length: int = 512
@@ -314,7 +314,7 @@ class SanTOKLanguageModelTrainer:
         Initialize trainer.
         
         Args:
-            model: SanTOK language model
+            model: SOMA language model
             vocab_builder: Vocabulary builder
             learning_rate: Learning rate
             batch_size: Batch size
@@ -345,7 +345,7 @@ class SanTOKLanguageModelTrainer:
         output_dir.mkdir(parents=True, exist_ok=True)
         
         print("\n" + "="*60)
-        print("Training SanTOK Language Model")
+        print("Training SOMA Language Model")
         print("="*60)
         print(f"Model: {self.model.num_layers} layers, {self.model.num_heads} heads")
         print(f"Vocab size: {self.model.vocab_size:,}")
@@ -356,7 +356,7 @@ class SanTOKLanguageModelTrainer:
         
         # Load and encode training data
         print("\n[1] Loading training data and converting to token IDs...")
-        print("  (Using SanTOK vocabulary to encode text for language model training)")
+        print("  (Using SOMA vocabulary to encode text for language model training)")
         with open(text_file, 'r', encoding='utf-8', errors='ignore') as f:
             text = f.read()
         
@@ -479,22 +479,22 @@ class SanTOKLanguageModelTrainer:
             
             # Save model
             if (epoch + 1) % save_every == 0:
-                model_path = output_dir / f"santok_lm_epoch_{epoch + 1}.pkl"
+                model_path = output_dir / f"SOMA_lm_epoch_{epoch + 1}.pkl"
                 self.model.save(model_path)
         
         print("\n✓ Training complete!")
-        print(f"  Final model: {output_dir / f'santok_lm_epoch_{epochs}.pkl'}")
+        print(f"  Final model: {output_dir / f'SOMA_lm_epoch_{epochs}.pkl'}")
 
 
 def main():
     """Example usage."""
     # Load vocabulary
-    vocab_path = Path("models/santok_60k_vocab.pkl")
-    vocab_builder = SanTOKVocabularyBuilder()
+    vocab_path = Path("models/SOMA_60k_vocab.pkl")
+    vocab_builder = SOMAVocabularyBuilder()
     vocab_builder.load(vocab_path)
     
     # Create model
-    model = SanTOKLanguageModel(
+    model = SOMALanguageModel(
         vocab_size=60000,
         embedding_dim=768,
         num_layers=12,
@@ -502,7 +502,7 @@ def main():
     )
     
     # Create trainer
-    trainer = SanTOKLanguageModelTrainer(model, vocab_builder)
+    trainer = SOMALanguageModelTrainer(model, vocab_builder)
     
     # Train
     text_file = Path("training_data/combined_training_data.txt")

@@ -12,7 +12,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 print("=" * 70)
-print("Testing SanTOK Structure System Integration")
+print("Testing SOMA Structure System Integration")
 print("=" * 70)
 print()
 
@@ -37,8 +37,8 @@ except Exception as e:
 print("\n2. Testing integration imports...")
 try:
     from src.structure import (
-        SanTOKStructureIntegrator,
-        integrate_structure_with_santok_tokens,
+        SOMAStructureIntegrator,
+        integrate_structure_with_SOMA_tokens,
         get_structure_priorities
     )
     print("   ✅ Integration imports work")
@@ -94,12 +94,12 @@ except Exception as e:
 # Test 6: Integration functionality
 print("\n6. Testing integration functionality...")
 try:
-    integrator = SanTOKStructureIntegrator()
+    integrator = SOMAStructureIntegrator()
     tokens = [
         {"token": "cat", "position": 0},
         {"token": "dog", "position": 1}
     ]
-    result = integrator.process_santok_tokens(tokens)
+    result = integrator.process_SOMA_tokens(tokens)
     print(f"   ✅ Integration works: processed {result['tokens_processed']} tokens")
 except Exception as e:
     errors.append(f"Integration functionality failed: {e}")

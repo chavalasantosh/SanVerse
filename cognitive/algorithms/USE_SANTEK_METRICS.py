@@ -20,7 +20,7 @@ print("Custom metrics designed to help SanTEK improve!")
 print()
 
 try:
-    from santok_cognitive.algorithms.santek_metrics import (
+    from soma_cognitive.algorithms.santek_metrics import (
         SanTEKMetrics,
         measure_santek_performance
     )

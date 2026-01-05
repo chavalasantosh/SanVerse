@@ -1,7 +1,7 @@
 """
-SanTOK SLM Constrained Generator
+SOMA SLM Constrained Generator
 
-Generates text that is STRUCTURALLY constrained by SanTOK Cognitive.
+Generates text that is STRUCTURALLY constrained by SOMA Cognitive.
 Every token choice is filtered. Hallucination is impossible.
 
 This is NOT:
@@ -108,11 +108,11 @@ class ConstrainedGenerator:
     The constrained text generator.
     
     This generator can ONLY emit tokens that are sanctioned
-    by SanTOK Cognitive. It is structurally incapable of
+    by SOMA Cognitive. It is structurally incapable of
     hallucination.
     
     How it works:
-    1. SanTOK Cognitive provides: facts, reasoning path, constraints
+    1. SOMA Cognitive provides: facts, reasoning path, constraints
     2. Generator builds allowed token set from facts
     3. Each token choice is filtered through constraints
     4. Output is guaranteed to be fact-grounded
@@ -142,7 +142,7 @@ class ConstrainedGenerator:
         relations: Optional[List[str]] = None
     ):
         """
-        Load constraints from SanTOK Cognitive output.
+        Load constraints from soma Cognitive output.
         
         This is the bridge between thinking and speaking.
         """
@@ -182,8 +182,8 @@ class ConstrainedGenerator:
         
         Args:
             query: The question/prompt
-            facts: Facts from SanTOK Cognitive (optional if already loaded)
-            reasoning_path: Reasoning path from SanTOK Cognitive
+            facts: Facts from soma Cognitive (optional if already loaded)
+            reasoning_path: Reasoning path from soma Cognitive
         
         Returns:
             GenerationResult with grounded text
@@ -386,17 +386,17 @@ class ConstrainedGenerator:
         return text
 
 
-class SanTOKSLM:
+class SOMASLM:
     """
-    The complete SanTOK Small Language Model.
+    The complete SOMA Small Language Model.
     
     This integrates:
     - Constraint Engine (from slm_constraints)
     - Constrained Generator
-    - SanTOK Cognitive bridge
+    - SOMA Cognitive bridge
     
     Usage:
-        slm = SanTOKSLM()
+        slm = SOMASLM()
         slm.load_knowledge(facts, reasoning_path)
         result = slm.generate("What is Python?")
         print(result.text)
@@ -416,7 +416,7 @@ class SanTOKSLM:
         relations: Optional[List[str]] = None
     ):
         """
-        Load knowledge from SanTOK Cognitive.
+        Load knowledge from soma Cognitive.
         
         This is the bridge between THINKING and TALKING.
         """
@@ -447,7 +447,7 @@ class SanTOKSLM:
         """Explain current constraints."""
         stats = self.get_stats()
         lines = [
-            "=== SanTOK SLM Constraints ===",
+            "=== SOMA SLM Constraints ===",
             f"Facts loaded: {stats['fact_count']}",
             f"Vocabulary size: {stats['vocab_size']}",
             f"Active constraints: {stats['active_constraints']}",

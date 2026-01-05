@@ -1,5 +1,5 @@
 """
-SanTOK Multi-Model System
+SOMA Multi-Model System
 =========================
 
 REAL multi-model architecture that integrates ALL perspectives:

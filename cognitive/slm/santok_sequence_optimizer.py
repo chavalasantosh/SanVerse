@@ -1,16 +1,16 @@
 """
-SanTOK Sequence Optimizer
+SOMA Sequence Optimizer
 
-A SanTOK-native sequence ordering system.
+A SOMA-native sequence ordering system.
 This is NOT intelligence - it only arranges approved tokens.
 
 Key design principles:
-    - Weak by design (intelligence stays in SanTOK Cognitive)
+    - Weak by design (intelligence stays in SOMA Cognitive)
     - Symbol IDs only (no raw text to prevent leakage)
-    - Sequence Optimizer proposes → SanTOK Cognitive disposes
+    - Sequence Optimizer proposes → SOMA Cognitive disposes
     - 2-4 pattern matching blocks (minimal complexity)
 
-NumPy only. No external AI concepts. 100% SanTOK.
+NumPy only. No external AI concepts. 100% soma.
 """
 
 from dataclasses import dataclass
@@ -19,8 +19,8 @@ import numpy as np
 
 
 @dataclass
-class SanTOKSequenceConfig:
-    """Configuration for SanTOK Sequence Optimizer."""
+class SOMASequenceConfig:
+    """Configuration for SOMA Sequence Optimizer."""
     vocab_size: int = 10000      # Symbol vocabulary size
     d_model: int = 128           # Model dimension (tiny)
     n_layers: int = 2            # Number of attention blocks
@@ -34,9 +34,9 @@ class SanTOKSequenceConfig:
         assert self.d_model % self.n_heads == 0, "d_model must be divisible by n_heads"
 
 
-class SanTOKPositionEncoder:
+class SOMAPositionEncoder:
     """
-    SanTOK position encoding.
+    SOMA position encoding.
     
     Adds position information to symbol embeddings.
     This is PURELY positional - no semantic meaning.
@@ -70,9 +70,9 @@ class SanTOKPositionEncoder:
         return x + self.pe[:seq_len]
 
 
-class SanTOKPatternMatcher:
+class SOMAPatternMatcher:
     """
-    SanTOK pattern matching.
+    SOMA pattern matching.
     
     This learns LOCAL patterns (which tokens go together).
     It does NOT learn facts or reasoning.
@@ -142,9 +142,9 @@ class SanTOKPatternMatcher:
         return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
 
 
-class SanTOKProcessor:
+class SOMAProcessor:
     """
-    SanTOK processing layer.
+    SOMA processing layer.
     
     Simple two-layer processing for local token transformation.
     """
@@ -173,9 +173,9 @@ class SanTOKProcessor:
         return out
 
 
-class SanTOKSequenceBlock:
+class SOMASequenceBlock:
     """
-    SanTOK sequence processing block.
+    SOMA sequence processing block.
     
     Pattern Matching → Add & Norm → Processing → Add & Norm
     
@@ -183,8 +183,8 @@ class SanTOKSequenceBlock:
     """
     
     def __init__(self, d_model: int, n_heads: int, d_ff: int):
-        self.pattern_matcher = SanTOKPatternMatcher(d_model, n_heads)
-        self.processor = SanTOKProcessor(d_model, d_ff)
+        self.pattern_matcher = SOMAPatternMatcher(d_model, n_heads)
+        self.processor = SOMAProcessor(d_model, d_ff)
         
         # Layer normalization (simplified - just variance normalization)
         self.norm1_scale = np.ones(d_model, dtype=np.float32)
@@ -225,9 +225,9 @@ class SanTOKSequenceBlock:
         return x_norm * scale
 
 
-class SanTOKSequenceOptimizer:
+class SOMASequenceOptimizer:
     """
-    SanTOK Sequence Optimizer.
+    SOMA Sequence Optimizer.
     
     This is WEAK BY DESIGN. It only learns:
     - Which tokens appear together (local patterns)
@@ -239,10 +239,10 @@ class SanTOKSequenceOptimizer:
     - Reasoning
     - Semantic understanding
     
-    Intelligence stays in SanTOK Cognitive.
+    Intelligence stays in SOMA Cognitive.
     """
     
-    def __init__(self, config: SanTOKSequenceConfig):
+    def __init__(self, config: SOMASequenceConfig):
         self.config = config
         
         # Embedding layer (symbol IDs → vectors)
@@ -250,11 +250,11 @@ class SanTOKSequenceOptimizer:
         self.embedding = np.random.randn(config.vocab_size, config.d_model).astype(np.float32) * 0.02
         
         # Position encoding
-        self.pos_encoder = SanTOKPositionEncoder(config.d_model, config.max_seq_len)
+        self.pos_encoder = SOMAPositionEncoder(config.d_model, config.max_seq_len)
         
         # Sequence processing blocks
         self.blocks = [
-            SanTOKSequenceBlock(config.d_model, config.n_heads, config.d_ff)
+            SOMASequenceBlock(config.d_model, config.n_heads, config.d_ff)
             for _ in range(config.n_layers)
         ]
         
@@ -269,7 +269,7 @@ class SanTOKSequenceOptimizer:
         """
         Set the vocabulary mapping.
         
-        This maps SanTOK symbols to transformer IDs.
+        This maps SOMA symbols to transformer IDs.
         The transformer only sees IDs, never raw symbols.
         """
         self.symbol_to_id = symbol_to_id
@@ -302,7 +302,7 @@ class SanTOKSequenceOptimizer:
             Logits for next token, shape (vocab_size,)
         
         This generates SCORES, not probabilities.
-        SanTOK Cognitive will filter these.
+        SOMA Cognitive will filter these.
         """
         seq_len = len(symbol_ids)
         
@@ -378,24 +378,24 @@ class SanTOKSequenceOptimizer:
         return count
 
 
-def create_santok_sequence_optimizer(
+def create_SOMA_sequence_optimizer(
     vocab_size: int = 10000,
     d_model: int = 128,
     n_layers: int = 2,
     n_heads: int = 4,
     d_ff: int = 512
-) -> SanTOKSequenceOptimizer:
+) -> SOMASequenceOptimizer:
     """
-    Factory function to create a SanTOK Sequence Optimizer.
+    Factory function to create a SOMA Sequence Optimizer.
     
     Defaults create a ~1M parameter model.
     """
-    config = SanTOKSequenceConfig(
+    config = SOMASequenceConfig(
         vocab_size=vocab_size,
         d_model=d_model,
         n_layers=n_layers,
         n_heads=n_heads,
         d_ff=d_ff,
     )
-    return SanTOKSequenceOptimizer(config)
+    return SOMASequenceOptimizer(config)
 

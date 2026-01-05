@@ -2,7 +2,7 @@
 Real-Time Data Interpretation System
 =====================================
 
-Uses YOUR Weaviate database (5.5M objects) with SanTOK's own embeddings.
+Uses YOUR Weaviate database (5.5M objects) with SOMA's own embeddings.
 NO pretrained models - 100% YOUR data and YOUR embeddings.
 
 Example:
@@ -24,17 +24,17 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
     from src.core.core_tokenizer import TextTokenizer
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
     from src.embeddings.weaviate_vector_store import WeaviateVectorStore
 except ImportError:
     from core.core_tokenizer import TextTokenizer
-    from embeddings.embedding_generator import SanTOKEmbeddingGenerator
+    from embeddings.embedding_generator import somaEmbeddingGenerator
     from embeddings.weaviate_vector_store import WeaviateVectorStore
 
 
 class DataInterpreter:
     """
-    Real-time data interpretation system using SanTOK embeddings.
+    Real-time data interpretation system using SOMA embeddings.
     
     Flow:
     1. Tokenize input text → extract key tokens
@@ -49,27 +49,27 @@ class DataInterpreter:
         embedding_dim: int = 768,
         weaviate_url: Optional[str] = None,
         weaviate_api_key: Optional[str] = None,
-        collection_name: str = "SanTOK_Token"
+        collection_name: str = "SOMA_Token"
     ):
         """
         Initialize data interpreter using YOUR Weaviate database.
         
         Args:
             embedding_strategy: Strategy for embeddings ("feature_based", "semantic", "hybrid")
-                               Uses SanTOK's own embeddings - NO pretrained models
+                               Uses SOMA's own embeddings - NO pretrained models
             embedding_dim: Embedding dimension (must match your Weaviate collection)
             weaviate_url: Your Weaviate cluster URL (or from WEAVIATE_URL env var, or auto-detected)
             weaviate_api_key: Your Weaviate API key (or from WEAVIATE_API_KEY env var, or auto-detected)
-            collection_name: Your Weaviate collection name (default: "SanTOK_Token")
+            collection_name: Your Weaviate collection name (default: "SOMA_Token")
         """
         self.embedding_strategy = embedding_strategy
         self.embedding_dim = embedding_dim
         
-        # Initialize tokenizer (YOUR SanTOK tokenizer)
+        # Initialize tokenizer (YOUR SOMA tokenizer)
         self.tokenizer = TextTokenizer(seed=42, embedding_bit=False)
         
-        # Initialize embedding generator (YOUR SanTOK embeddings - NO pretrained models)
-        self.embedding_generator = SanTOKEmbeddingGenerator(
+        # Initialize embedding generator (YOUR SOMA embeddings - NO pretrained models)
+        self.embedding_generator = SOMAEmbeddingGenerator(
             strategy=embedding_strategy,  # Uses YOUR feature-based embeddings
             embedding_dim=embedding_dim
         )
@@ -109,7 +109,7 @@ class DataInterpreter:
         )
         
         print(f"✓ Connected to YOUR Weaviate database: {collection_name}")
-        print(f"✓ Using YOUR SanTOK embeddings (strategy: {embedding_strategy})")
+        print(f"✓ Using YOUR SOMA embeddings (strategy: {embedding_strategy})")
         print(f"✓ NO pretrained models - 100% YOUR data")
     
     def _extract_concepts_from_results(self, search_results: List[Dict[str, Any]]) -> List[str]:
@@ -251,7 +251,7 @@ class DataInterpreter:
     ) -> List[Dict[str, Any]]:
         """
         Find related concepts by searching YOUR Weaviate database (5.5M objects).
-        Uses YOUR SanTOK embeddings - NO pretrained models.
+        Uses YOUR SOMA embeddings - NO pretrained models.
         
         Args:
             token_clues: List of key token strings
@@ -263,7 +263,7 @@ class DataInterpreter:
         if not token_clues:
             return []
         
-        # Tokenize clues using YOUR SanTOK tokenizer
+        # Tokenize clues using YOUR SOMA tokenizer
         all_tokens = []
         for clue in token_clues:
             streams = self.tokenizer.build(clue)
@@ -274,7 +274,7 @@ class DataInterpreter:
         if not all_tokens:
             return []
         
-        # Generate embeddings using YOUR SanTOK embedding generator
+        # Generate embeddings using YOUR SOMA embedding generator
         # This uses YOUR feature-based embeddings - NO pretrained models
         clue_embeddings = self.embedding_generator.generate_batch(all_tokens)
         
@@ -464,16 +464,16 @@ def main():
     print("=" * 80)
     print("Real-Time Data Interpretation System")
     print("Using YOUR Weaviate Database (5.5M objects)")
-    print("Using YOUR SanTOK Embeddings - NO Pretrained Models")
+    print("Using YOUR SOMA Embeddings - NO Pretrained Models")
     print("=" * 80)
     
     # Initialize interpreter with YOUR Weaviate
     # Credentials will be auto-loaded from weaviate_codes/.env
     print("\nConnecting to YOUR Weaviate database...")
     interpreter = DataInterpreter(
-        embedding_strategy="feature_based",  # YOUR SanTOK embeddings
+        embedding_strategy="feature_based",  # YOUR SOMA embeddings
         embedding_dim=768,  # Must match your Weaviate collection
-        collection_name="SanTOK_Token"  # YOUR collection name
+        collection_name="SOMA_Token"  # YOUR collection name
     )
     
     # Example input

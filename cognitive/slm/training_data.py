@@ -1,8 +1,8 @@
 """
-SanTOK SLM Training Data Generator
+SOMA SLM Training Data Generator
 
-Generates training sequences from SanTOK Cognitive knowledge.
-This is SanTOK-native only - no external corpora.
+Generates training sequences from soma Cognitive knowledge.
+This is SOMA-native only - no external corpora.
 
 Key principle:
     Training data comes from facts, reasoning paths, and templates.
@@ -23,9 +23,9 @@ class TrainingSequence:
     allowed_tokens: List[str]  # Set of allowed tokens at this position
 
 
-class SanTOKDataGenerator:
+class SOMADataGenerator:
     """
-    Generates training sequences from SanTOK knowledge.
+    Generates training sequences from soma knowledge.
     
     This creates sequences that:
     - Come from verified facts
@@ -46,7 +46,7 @@ class SanTOKDataGenerator:
         reasoning_paths: Optional[List[List[str]]] = None,
         relations: Optional[List[str]] = None
     ):
-        """Load knowledge from SanTOK Cognitive."""
+        """Load knowledge from soma Cognitive."""
         self.facts = facts
         self.reasoning_paths = reasoning_paths or []
         
@@ -270,7 +270,7 @@ def create_training_data(
     Convenience function to create training data.
     
     Args:
-        facts: Facts from SanTOK Cognitive
+        facts: Facts from soma Cognitive
         reasoning_paths: Reasoning paths (optional)
         templates: Template patterns (optional, uses defaults if None)
         num_sequences: Total number of sequences to generate
@@ -278,7 +278,7 @@ def create_training_data(
     Returns:
         (train_sequences, val_sequences)
     """
-    generator = SanTOKDataGenerator()
+    generator = SOMADataGenerator()
     generator.load_knowledge(facts, reasoning_paths)
     
     if templates is None:

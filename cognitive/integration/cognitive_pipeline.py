@@ -4,11 +4,11 @@ CognitivePipeline - Full end-to-end cognitive processing.
 Combines:
 - Tokenization (src)
 - Embedding generation (src)
-- Knowledge graph (santok_cognitive)
-- Inference (santok_cognitive)
-- Hybrid reasoning (santok_cognitive)
+- Knowledge graph (SOMA_cognitive)
+- Inference (SOMA_cognitive)
+- Hybrid reasoning (SOMA_cognitive)
 
-This is the main integration point between src and santok_cognitive.
+This is the main integration point between src and SOMA_cognitive.
 """
 
 from typing import Dict, Any, List, Optional, Callable, Tuple
@@ -93,13 +93,13 @@ class CognitivePipeline:
           ↓
         Tokenization (src)
           ↓
-        Graph + Embeddings (santok_cognitive + src)
+        Graph + Embeddings (SOMA_cognitive + src)
           ↓
-        Inference Engine (santok_cognitive)
+        Inference Engine (SOMA_cognitive)
           ↓
-        Contradiction Check (santok_cognitive)
+        Contradiction Check (SOMA_cognitive)
           ↓
-        Hybrid Reasoner (santok_cognitive)
+        Hybrid Reasoner (SOMA_cognitive)
           ↓
         Answer + Explanation
     
@@ -112,10 +112,10 @@ class CognitivePipeline:
         
         # With src integration
         from src.core.core_tokenizer import TextTokenizationEngine
-        from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+        from src.embeddings.embedding_generator import somaEmbeddingGenerator
         
         tokenizer = TextTokenizationEngine()
-        generator = SanTOKEmbeddingGenerator()
+        generator = SOMAEmbeddingGenerator()
         
         pipeline = CognitivePipeline()
         pipeline.set_tokenizer(tokenizer)
@@ -182,7 +182,7 @@ class CognitivePipeline:
         Set the embedding generator from src.
         
         Args:
-            generator: SanTOKEmbeddingGenerator instance
+            generator: SOMAEmbeddingGenerator instance
         """
         self._embedding_generator = generator
         self.embedding_bridge.set_generator(generator, self._tokenizer)

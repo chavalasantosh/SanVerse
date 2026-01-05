@@ -8,7 +8,7 @@ Key features:
 - Minimal memory: ~1-5 MB for typical vocabularies
 - CPU-friendly: No GPU required, fast on any CPU
 - Simple n-gram model: Learns token co-occurrence patterns
-- Constraint integration: Works with SanTOK constraint system
+- Constraint integration: Works with SOMA constraint system
 - Fast inference: O(vocab_size) per token
 
 Perfect for:
@@ -407,9 +407,9 @@ class TinySLM:
 
 class TinySLMWrapper:
     """
-    Wrapper that integrates TinySLM with SanTOK Cognitive.
+    Wrapper that integrates TinySLM with SOMA Cognitive.
     
-    This provides the same interface as SanTOKSLM but uses
+    This provides the same interface as SOMASLM but uses
     the lightweight TinySLM backend.
     
     Usage:
@@ -431,7 +431,7 @@ class TinySLMWrapper:
         relations: Optional[List[str]] = None
     ):
         """
-        Load knowledge from SanTOK Cognitive and train the model.
+        Load knowledge from soma Cognitive and train the model.
         """
         self.facts = facts
         self.reasoning_path = reasoning_path or []

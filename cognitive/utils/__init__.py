@@ -1,5 +1,5 @@
 """
-SanTOK Cognitive - Utilities
+SOMA Cognitive - Utilities
 ============================
 
 Helper functions and utilities:

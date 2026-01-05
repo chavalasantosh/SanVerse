@@ -1,8 +1,8 @@
 """
-SanTOK Dataset Downloader
+SOMA Dataset Downloader
 ==========================
 
-Downloads and prepares clean text datasets for training SanTOK 60K vocabulary.
+Downloads and prepares clean text datasets for training SOMA 60K vocabulary.
 Uses ONLY free, open datasets:
 - Wikipedia
 - OpenWebText
@@ -23,8 +23,8 @@ import json
 import re
 
 
-class SanTOKDatasetDownloader:
-    """Download and prepare datasets for SanTOK training."""
+class SOMADatasetDownloader:
+    """Download and prepare datasets for SOMA training."""
     
     def __init__(self, data_dir: str = "training_data"):
         """
@@ -278,7 +278,7 @@ class SanTOKDatasetDownloader:
 
 def main():
     """Example usage."""
-    downloader = SanTOKDatasetDownloader()
+    downloader = SOMADatasetDownloader()
     
     # Download datasets
     wikipedia_path = downloader.download_wikipedia(size_limit_gb=1.0)

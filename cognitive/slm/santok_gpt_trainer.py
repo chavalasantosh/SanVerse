@@ -1,8 +1,8 @@
 """
-SanTOK GPT Trainer - Pure NumPy Backpropagation
+SOMA GPT Trainer - Pure NumPy Backpropagation
 ================================================
 
-100% SanTOK-native training system with:
+100% SOMA-native training system with:
 - Pure NumPy backpropagation
 - No PyTorch
 - No TensorFlow
@@ -173,9 +173,9 @@ class GPTBlockGradients:
         return grad_x
 
 
-class SanTOKGPTTrainer:
+class SOMAGPTTrainer:
     """
-    Pure NumPy trainer for SanTOK GPT
+    Pure NumPy trainer for SOMA GPT
     
     This implements REAL training with backpropagation.
     No third-party dependencies!
@@ -274,7 +274,7 @@ class SanTOKGPTTrainer:
         This is what makes your model actually learn!
         """
         print("=" * 70)
-        print("Training SanTOK GPT with REAL Backpropagation")
+        print("Training SOMA GPT with REAL Backpropagation")
         print("=" * 70)
         print()
         

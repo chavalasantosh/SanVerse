@@ -1,6 +1,6 @@
 """
-Enhanced SanTOK Semantic Trainer
-Implements all unique SanTOK features for semantic learning:
+Enhanced SOMA Semantic Trainer
+Implements all unique SOMA features for semantic learning:
 - Multi-stream hierarchical learning
 - Deterministic UID semantic graph
 - Content-ID clustering
@@ -39,9 +39,9 @@ class SemanticNode:
     source_tags: Set[str]  # Sources where this token appeared
 
 
-class EnhancedSanTOKSemanticTrainer:
+class EnhancedSOMASemanticTrainer:
     """
-    Enhanced semantic trainer that leverages ALL SanTOK unique features.
+    Enhanced semantic trainer that leverages ALL SOMA unique features.
     
     Features:
     1. Multi-stream hierarchical learning (char, subword, word simultaneously)

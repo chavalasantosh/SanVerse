@@ -8,7 +8,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from enhanced_trainer import EnhancedSanTOKSemanticTrainer
+from enhanced_trainer import EnhancedSOMASemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 
@@ -29,7 +29,7 @@ def main():
     based on surrounding context. Transformer models use attention mechanisms
     to learn relationships between all tokens in a sequence.
     
-    SanTOK provides a unique tokenization system with deterministic UIDs,
+    SOMA provides a unique tokenization system with deterministic UIDs,
     multi-stream tokenization, and mathematical properties on every token.
     The enhanced semantic trainer leverages all these features to create
     embeddings that understand meaning at multiple granularities.
@@ -50,7 +50,7 @@ def main():
     print()
     
     # Initialize trainer with all features
-    trainer = EnhancedSanTOKSemanticTrainer(
+    trainer = EnhancedSOMASemanticTrainer(
         embedding_dim=768,
         window_size=5,
         epochs=10,

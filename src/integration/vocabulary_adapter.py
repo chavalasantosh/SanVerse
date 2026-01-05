@@ -1,14 +1,14 @@
 """
-Vocabulary Adapter for SanTOK → Pretrained Model Integration
+Vocabulary Adapter for SOMA → Pretrained Model Integration
 
 CRITICAL ISSUE ADDRESSED:
-SanTOK generates its own token IDs (UIDs, frontend digits, backend numbers) that are
+SOMA generates its own token IDs (UIDs, frontend digits, backend numbers) that are
 NOT compatible with pretrained transformer model vocabularies. Pretrained models have
 embedding layers that map their own vocabulary IDs to embeddings.
 
 This module provides:
-1. Vocabulary mapping from SanTOK tokens (text strings) to standard model vocabularies
-2. Adapter functions to convert SanTOK tokenization results to model-compatible IDs
+1. Vocabulary mapping from soma tokens (text strings) to standard model vocabularies
+2. Adapter functions to convert SOMA tokenization results to model-compatible IDs
 3. Integration utilities for HuggingFace transformers
 """
 
@@ -25,9 +25,9 @@ except ImportError:
 
 class VocabularyAdapter:
     """
-    Adapter to map SanTOK tokens to pretrained model vocabulary IDs.
+    Adapter to map SOMA tokens to pretrained model vocabulary IDs.
     
-    This solves the critical issue where SanTOK's internal IDs don't match
+    This solves the critical issue where SOMA's internal IDs don't match
     pretrained model vocabularies.
     """
     
@@ -48,15 +48,15 @@ class VocabularyAdapter:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=use_fast)
         self.vocab_size = len(self.tokenizer.vocab) if hasattr(self.tokenizer, 'vocab') else len(self.tokenizer.get_vocab())
         
-    def map_santok_tokens_to_model_ids(
+    def map_SOMA_tokens_to_model_ids(
         self, 
-        santok_tokens: List[Union[str, Dict]]
+        SOMA_tokens: List[Union[str, Dict]]
     ) -> Dict[str, Union[List[int], List[str], Dict]]:
         """
-        Map SanTOK token strings to model vocabulary IDs.
+        Map SOMA token strings to model vocabulary IDs.
         
         Args:
-            santok_tokens: List of SanTOK tokens. Can be:
+            SOMA_tokens: List of SOMA tokens. Can be:
                 - List of strings: ["hello", "world"]
                 - List of dicts with "text" key: [{"text": "hello"}, {"text": "world"}]
         
@@ -65,11 +65,11 @@ class VocabularyAdapter:
                 - "input_ids": List of model vocabulary IDs
                 - "tokens": List of token strings (may differ from input due to subword tokenization)
                 - "attention_mask": Attention mask (all 1s for standard tokens)
-                - "mapping": Mapping from SanTOK token indices to model token indices
+                - "mapping": Mapping from soma token indices to model token indices
         """
         # Extract token texts from various formats
         token_texts = []
-        for token in santok_tokens:
+        for token in SOMA_tokens:
             if isinstance(token, dict):
                 token_texts.append(token.get("text", str(token)))
             else:
@@ -88,7 +88,7 @@ class VocabularyAdapter:
             truncation=False
         )
         
-        # Create mapping: SanTOK token index -> Model token indices (for subword tokens)
+        # Create mapping: SOMA token index -> Model token indices (for subword tokens)
         # This is approximate since model tokenizer may split tokens differently
         mapping = self._create_token_mapping(token_texts, encoded["input_ids"])
         
@@ -103,16 +103,16 @@ class VocabularyAdapter:
     
     def _create_token_mapping(
         self, 
-        santok_tokens: List[str], 
+        SOMA_tokens: List[str], 
         model_ids: List[int]
     ) -> Dict[int, List[int]]:
         """
-        Create approximate mapping from SanTOK token indices to model token indices.
+        Create approximate mapping from soma token indices to model token indices.
         
         This handles cases where model tokenizer splits tokens into subwords.
         """
-        # Reconstruct text from SanTOK tokens
-        santok_text = " ".join(santok_tokens)
+        # Reconstruct text from soma tokens
+        SOMA_text = " ".join(SOMA_tokens)
         
         # Tokenize again to get alignment
         model_tokens = self.tokenizer.convert_ids_to_tokens(model_ids)
@@ -121,13 +121,13 @@ class VocabularyAdapter:
         # Simple alignment: map based on character positions
         # This is approximate and may not be perfect for all cases
         mapping = {}
-        santok_pos = 0
+        SOMA_pos = 0
         
-        for santok_idx, santok_token in enumerate(santok_tokens):
-            token_start = santok_pos
-            token_end = santok_pos + len(santok_token)
+        for SOMA_idx, SOMA_token in enumerate(SOMA_tokens):
+            token_start = SOMA_pos
+            token_end = SOMA_pos + len(SOMA_token)
             
-            # Find which model tokens correspond to this SanTOK token
+            # Find which model tokens correspond to this SOMA token
             model_indices = []
             char_pos = 0
             
@@ -144,7 +144,7 @@ class VocabularyAdapter:
                 clean_token = model_token.replace("##", "").replace("▁", "")
                 char_pos += len(clean_token) + 1  # +1 for space
             
-            mapping[santok_idx] = model_indices if model_indices else [0]  # Default to first token
+            mapping[SOMA_idx] = model_indices if model_indices else [0]  # Default to first token
         
         return mapping
     
@@ -167,9 +167,9 @@ class VocabularyAdapter:
         }
 
 
-class SanTOKToModelConverter:
+class SOMAToModelConverter:
     """
-    High-level converter that takes SanTOK tokenization results and converts them
+    High-level converter that takes SOMA tokenization results and converts them
     for use with pretrained models.
     """
     
@@ -183,48 +183,48 @@ class SanTOKToModelConverter:
         self.adapter = VocabularyAdapter(model_name)
         self.model_name = model_name
     
-    def convert_santok_result(
+    def convert_SOMA_result(
         self, 
-        santok_result: Dict,
+        SOMA_result: Dict,
         tokenizer_type: str = "word"
     ) -> Dict:
         """
-        Convert SanTOK tokenization result to model-compatible format.
+        Convert SOMA tokenization result to model-compatible format.
         
         Args:
-            santok_result: Result from SanTOK tokenization (from run_once or TextTokenizer.build)
+            SOMA_result: Result from soma tokenization (from run_once or TextTokenizer.build)
             tokenizer_type: Which tokenization strategy to use (e.g., "word", "char", "subword_bpe")
         
         Returns:
             Dictionary with model-compatible token IDs and metadata
         """
-        if tokenizer_type not in santok_result:
+        if tokenizer_type not in SOMA_result:
             raise ValueError(
-                f"Tokenization type '{tokenizer_type}' not found in SanTOK result. "
-                f"Available: {list(santok_result.keys())}"
+                f"Tokenization type '{tokenizer_type}' not found in SOMA result. "
+                f"Available: {list(SOMA_result.keys())}"
             )
         
-        # Extract tokens from SanTOK result
-        tokens_data = santok_result[tokenizer_type]
+        # Extract tokens from soma result
+        tokens_data = SOMA_result[tokenizer_type]
         
         # Get token texts
         if "records" in tokens_data:
             tokens = [rec["text"] for rec in tokens_data["records"]]
         else:
-            raise ValueError("SanTOK result must contain 'records' with token texts")
+            raise ValueError("SOMA result must contain 'records' with token texts")
         
         # Map to model vocabulary
-        model_encoded = self.adapter.map_santok_tokens_to_model_ids(tokens)
+        model_encoded = self.adapter.map_SOMA_tokens_to_model_ids(tokens)
         
-        # Preserve SanTOK metadata
+        # Preserve SOMA metadata
         return {
             "model_input_ids": model_encoded["input_ids"],
             "model_tokens": model_encoded["tokens"],
             "model_attention_mask": model_encoded["attention_mask"],
-            "santok_tokens": tokens,
-            "santok_frontend_digits": tokens_data.get("digits", []),
-            "santok_backend_scaled": tokens_data.get("scaled", []),
-            "santok_tokenizer_type": tokenizer_type,
+            "SOMA_tokens": tokens,
+            "SOMA_frontend_digits": tokens_data.get("digits", []),
+            "SOMA_backend_scaled": tokens_data.get("scaled", []),
+            "SOMA_tokenizer_type": tokenizer_type,
             "token_mapping": model_encoded["mapping"],
             "model_info": self.adapter.get_model_embedding_layer_info(),
             "vocab_size": model_encoded["vocab_size"]
@@ -232,22 +232,22 @@ class SanTOKToModelConverter:
     
     def prepare_for_inference(
         self, 
-        santok_result: Dict,
+        SOMA_result: Dict,
         tokenizer_type: str = "word",
         return_tensors: str = "pt"
     ) -> Dict:
         """
-        Prepare SanTOK result for model inference (returns tensors if transformers available).
+        Prepare SOMA result for model inference (returns tensors if transformers available).
         
         Args:
-            santok_result: SanTOK tokenization result
+            SOMA_result: SOMA tokenization result
             tokenizer_type: Tokenization strategy to use
             return_tensors: "pt" for PyTorch, "tf" for TensorFlow, None for lists
         
         Returns:
             Dictionary ready for model(**inputs)
         """
-        converted = self.convert_santok_result(santok_result, tokenizer_type)
+        converted = self.convert_SOMA_result(SOMA_result, tokenizer_type)
         
         if return_tensors and return_tensors != "np":
             try:
@@ -279,20 +279,20 @@ def create_vocabulary_adapter(model_name: str = "bert-base-uncased") -> Vocabula
     return VocabularyAdapter(model_name)
 
 
-def quick_convert_santok_to_model_ids(
-    santok_tokens: List[Union[str, Dict]],
+def quick_convert_SOMA_to_model_ids(
+    SOMA_tokens: List[Union[str, Dict]],
     model_name: str = "bert-base-uncased"
 ) -> List[int]:
     """
-    Quick conversion function: SanTOK tokens -> Model vocabulary IDs.
+    Quick conversion function: SOMA tokens -> Model vocabulary IDs.
     
     Args:
-        santok_tokens: List of SanTOK token strings or dicts with "text" key
+        SOMA_tokens: List of SOMA token strings or dicts with "text" key
         model_name: HuggingFace model identifier
     
     Returns:
         List of model vocabulary IDs
     """
     adapter = VocabularyAdapter(model_name)
-    result = adapter.map_santok_tokens_to_model_ids(santok_tokens)
+    result = adapter.map_SOMA_tokens_to_model_ids(SOMA_tokens)
     return result["input_ids"]

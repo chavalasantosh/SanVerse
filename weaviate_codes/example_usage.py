@@ -1,24 +1,24 @@
 """
-Example: Using Weaviate with SanTOK - Building Memory & Recall System
+Example: Using Weaviate with SOMA - Building Memory & Recall System
 
-This script demonstrates how to build SanTOK's long-term memory and recall system:
+This script demonstrates how to build SOMA's long-term memory and recall system:
 
-1. Tokenize text with SanTOK
+1. Tokenize text with SOMA
 2. Generate embeddings
 3. Retrieval - Check Weaviate for similar tokens BEFORE processing (context memory)
 4. Store in Weaviate with tags (filename, date, session) - building memory
 5. Search for similar tokens
 6. Query tokens by ID from Weaviate
 7. Search using stored vectors from Weaviate
-8. Visualize embeddings with t-SNE (see SanTOK's semantic brain map)
+8. Visualize embeddings with t-SNE (see SOMA's semantic brain map)
 
 Key Features:
 - Auto-stores tokens and embeddings on every run (builds growing knowledge base)
 - Tags each record with filename, date, and session for tracking
-- Retrieval ability - SanTOK can recall similar embeddings from memory
-- Visualization shows how SanTOK clusters words and symbols semantically
+- Retrieval ability - SOMA can recall similar embeddings from memory
+- Visualization shows how SOMA clusters words and symbols semantically
 
-This creates a self-referential, context-aware system where SanTOK learns
+This creates a self-referential, context-aware system where SOMA learns
 from its own tokenizations and builds long-term memory!
 """
 
@@ -43,7 +43,7 @@ except ImportError:
     except ImportError:
         raise ImportError("Could not find TextTokenizer. Make sure you're running from project root.")
 
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
 
 import numpy as np
 
@@ -150,21 +150,21 @@ def main():
     if WeaviateVectorStore is None:
         raise ImportError("weaviate_vector_store.py does not define WeaviateVectorStore")
 
-    print("SanTOK + Weaviate Example\n")
+    print("SOMA + Weaviate Example\n")
 
-    # Step 1: Initialize SanTOK tokenizer
-    print("1. Initializing SanTOK tokenizer...")
+    # Step 1: Initialize SOMA tokenizer
+    print("1. Initializing SOMA tokenizer...")
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
 
     # Step 2: Initialize embedding generator
     print("2. Initializing embedding generator...")
-    embedding_generator = SanTOKEmbeddingGenerator(strategy="feature_based")
+    embedding_generator = SOMAEmbeddingGenerator(strategy="feature_based")
 
     # Step 3: Initialize Weaviate vector store
     print("3. Connecting to Weaviate...")
     try:
         vector_store = WeaviateVectorStore(
-            collection_name="SanTOK_Token",
+            collection_name="SOMA_Token",
             embedding_dim=768
         )
         print("[OK] Connected to Weaviate!\n")
@@ -177,9 +177,9 @@ def main():
 
     try:
         # Step 3.5: Retrieval - Check Weaviate for similar tokens BEFORE processing
-        # This makes SanTOK recall similar embeddings it saw before (context memory)
+        # This makes SOMA recall similar embeddings it saw before (context memory)
         print("3.5. Retrieval - Checking Weaviate for similar tokens...")
-        sample_query_text = "Hello world! This is SanTOK tokenization with Weaviate."
+        sample_query_text = "Hello world! This is SOMA tokenization with Weaviate."
         
         # Generate embedding for the query text to check for similar tokens
         try:
@@ -197,7 +197,7 @@ def main():
                 if query_emb.ndim == 2 and query_emb.shape[0] > 0:
                     query_emb = query_emb[0]  # Get first embedding
                     
-                    # Search Weaviate for similar tokens (SanTOK's memory recall)
+                    # Search Weaviate for similar tokens (SOMA's memory recall)
                     recall_results = vector_store.search(query_emb, top_k=5)
                     
                     if recall_results:
@@ -211,7 +211,7 @@ def main():
                             print(f"   {i}. '{text_val}' (distance: {distance_str})")
                             if "run_" in str(content_id):
                                 print(f"      Source: {content_id.split('_')[-1] if '_' in content_id else 'N/A'}")
-                        print("   → SanTOK can recall similar embeddings from its memory!\n")
+                        print("   → SOMA can recall similar embeddings from its memory!\n")
                     else:
                         print("   → No similar tokens found in memory (this is a new context)\n")
                 else:
@@ -223,7 +223,7 @@ def main():
         
         # Step 4: Tokenize some text
         print("4. Tokenizing text...")
-        text = "Hello world! This is SanTOK tokenization with Weaviate."
+        text = "Hello world! This is SOMA tokenization with Weaviate."
         streams = tokenizer.build(text)
 
         # Get tokens from word stream or first available stream
@@ -245,17 +245,17 @@ def main():
             raise ValueError("Embeddings must be a 2D array: (n_tokens, dim)")
         print(f"   Generated {embeddings.shape[0]} embeddings of dimension {embeddings.shape[1]}\n")
 
-        # Step 6: Store in Weaviate with tags (building SanTOK's long-term memory)
+        # Step 6: Store in Weaviate with tags (building SOMA's long-term memory)
         print("6. Storing tokens and embeddings in Weaviate (building memory)...")
         
         # Generate tags for this run (filename, date, session)
-        # These tags help SanTOK remember where tokens came from
+        # These tags help SOMA remember where tokens came from
         session_id = f"session_{uuid_module.uuid4().hex[:8]}"
         current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         filename_tag = "example_usage_2.py"  # In real usage, this would be the actual file being processed
         run_id = f"run_{int(time.time() * 1000000)}_{uuid_module.uuid4().hex[:8]}"
         
-        # Create metadata with tags to build SanTOK's memory base
+        # Create metadata with tags to build SOMA's memory base
         # Each record gets tagged with filename, date, and session for tracking
         metadata_list = []
         for token in tokens:
@@ -272,14 +272,14 @@ def main():
             metadata_list.append(token_metadata)
         
         # Auto-store tokens and embeddings into Weaviate
-        # This builds SanTOK's growing knowledge vector space - it learns from its own history
+        # This builds SOMA's growing knowledge vector space - it learns from its own history
         vector_store.add_tokens(tokens, embeddings, metadata=metadata_list)
         print(f"   [OK] Stored {len(tokens)} tokens with tags:")
         print(f"        - Filename: {filename_tag}")
         print(f"        - Date: {current_date}")
         print(f"        - Session: {session_id}")
         print(f"        - Run ID: {run_id}")
-        print("   → SanTOK's memory base is growing!\n")
+        print("   → SOMA's memory base is growing!\n")
         
         # Store the first token's UUID for later querying (we'll get it from search results)
         stored_token_uuids = []
@@ -354,9 +354,9 @@ def main():
         else:
             print("   [SKIP] No stored token available for vector search")
 
-        # Step 10: Visualize embeddings (see SanTOK's brain)
-        # This shows how SanTOK clusters words and symbols semantically
-        print("\n10. Visualizing embeddings (SanTOK's semantic brain map)...")
+        # Step 10: Visualize embeddings (see SOMA's brain)
+        # This shows how SOMA clusters words and symbols semantically
+        print("\n10. Visualizing embeddings (SOMA's semantic brain map)...")
         try:
             from sklearn.manifold import TSNE
             import matplotlib.pyplot as plt
@@ -379,12 +379,12 @@ def main():
                 if len(vectors) >= 3:  # Need at least 3 points for t-SNE
                     vectors_array = np.array(vectors)
                     print(f"   Reducing {len(vectors)} token embeddings to 2D with t-SNE...")
-                    print("   This shows which tokens SanTOK thinks are 'close in meaning'...")
+                    print("   This shows which tokens SOMA thinks are 'close in meaning'...")
                     
                     # Use t-SNE to reduce dimensionality
                     reduced = TSNE(n_components=2, random_state=42, perplexity=min(30, len(vectors)-1)).fit_transform(vectors_array)
                     
-                    # Create visualization - see SanTOK's embedding space
+                    # Create visualization - see SOMA's embedding space
                     plt.figure(figsize=(14, 10))
                     scatter = plt.scatter(reduced[:, 0], reduced[:, 1], alpha=0.6, s=50, c=range(len(vectors)), cmap='viridis')
                     
@@ -394,7 +394,7 @@ def main():
                         plt.annotate(token_text, (x, y), fontsize=7, alpha=0.8, 
                                    bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.6))
                     
-                    plt.title("SanTOK Embedding Space - Semantic Map of Token Relationships", fontsize=14, fontweight='bold')
+                    plt.title("SOMA Embedding Space - Semantic Map of Token Relationships", fontsize=14, fontweight='bold')
                     plt.xlabel("t-SNE Dimension 1", fontsize=12)
                     plt.ylabel("t-SNE Dimension 2", fontsize=12)
                     plt.grid(True, alpha=0.3)
@@ -402,14 +402,14 @@ def main():
                     
                     # Add informative text
                     plt.figtext(0.5, 0.02, 
-                              "Clusters show tokens that SanTOK perceives as semantically similar", 
+                              "Clusters show tokens that SOMA perceives as semantically similar", 
                               ha='center', fontsize=10, style='italic')
                     
                     # Save the plot
-                    output_file = example_folder / "santok_embeddings_visualization.png"
+                    output_file = example_folder / "SOMA_embeddings_visualization.png"
                     plt.savefig(output_file, dpi=200, bbox_inches='tight')
                     print(f"   [OK] Visualization saved to: {output_file}")
-                    print("   → This semantic map shows how SanTOK clusters words and symbols!")
+                    print("   → This semantic map shows how SOMA clusters words and symbols!")
                     print("   (To display interactively, uncomment plt.show() in the code)")
                     # plt.show()  # Uncomment to display interactively
                     plt.close()
@@ -426,14 +426,14 @@ def main():
         print("\n[OK] Example completed successfully!")
         
         # ====================================================================
-        # Integration Workflow: Building SanTOK's Memory System
+        # Integration Workflow: Building SOMA's Memory System
         # ====================================================================
         # 
-        # 1. KEEP BUILDING SANTOK'S MEMORY (Long-term Data)
-        #    Every SanTOK run auto-stores its tokens and embeddings into Weaviate.
+        # 1. KEEP BUILDING SOMA'S MEMORY (Long-term Data)
+        #    Every SOMA run auto-stores its tokens and embeddings into Weaviate.
         #    Every analysis, file, or user text adds to its memory base.
         # 
-        #    How: Integrate this call in your main SanTOK loop:
+        #    How: Integrate this call in your main SOMA loop:
         #         vector_store.add_tokens(tokens, embeddings)
         # 
         #    Give each record a tag (filename, date, session):
@@ -441,26 +441,26 @@ def main():
         #         - date: When the tokens were processed
         #         - session: Group related processing runs
         # 
-        #    This builds a growing knowledge vector space - SanTOK learns from its own history!
+        #    This builds a growing knowledge vector space - SOMA learns from its own history!
         # 
         # 2. ADD RETRIEVAL ABILITY (Make it Recall)
-        #    Before processing new input, let SanTOK check Weaviate for similar tokens.
+        #    Before processing new input, let SOMA check Weaviate for similar tokens.
         #    This makes it "remember" similar embeddings it saw before - context memory.
         # 
         #    Example:
         #         query_emb = embedding_generator.generate_single("payment error on stripe api")
         #         results = vector_store.search(query_emb, top_k=5)
         # 
-        #    Now SanTOK can recall similar embeddings from its memory!
-        #    This turns it into an intelligent recall system (foundation for SanTOK AI).
+        #    Now SOMA can recall similar embeddings from its memory!
+        #    This turns it into an intelligent recall system (foundation for SOMA AI).
         # 
-        # 3. VISUALIZE EMBEDDINGS (See SanTOK's Brain)
-        #    Visualize stored vectors to see how SanTOK clusters words and symbols semantically.
-        #    This helps you see which tokens SanTOK thinks are "close in meaning."
+        # 3. VISUALIZE EMBEDDINGS (See SOMA's Brain)
+        #    Visualize stored vectors to see how SOMA clusters words and symbols semantically.
+        #    This helps you see which tokens SOMA thinks are "close in meaning."
         # 
-        #    The visualization shows SanTOK's semantic understanding of token relationships.
+        #    The visualization shows SOMA's semantic understanding of token relationships.
         # 
-        # This creates a self-referential, context-aware system where SanTOK learns
+        # This creates a self-referential, context-aware system where SOMA learns
         # from its own tokenizations and builds long-term memory!
         # ====================================================================
 

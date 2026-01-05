@@ -2,13 +2,13 @@
 Simple TinySLM Usage Example
 
 This is a minimal example showing how to use the TinySLM
-with SanTOK. It's designed to run on any CPU with minimal resources.
+with soma. It's designed to run on any CPU with minimal resources.
 
 Usage:
     python examples/simple_tiny_slm.py
 """
 
-from santok_cognitive.slm import TinySLMWrapper
+from soma_cognitive.slm import TinySLMWrapper
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
     # Step 1: Create the SLM (that's it!)
     slm = TinySLMWrapper()
     
-    # Step 2: Load your facts (from SanTOK Cognitive or anywhere)
+    # Step 2: Load your facts (from soma Cognitive or anywhere)
     facts = [
         "Python is a programming language",
         "Python was created by Guido van Rossum in 1991",

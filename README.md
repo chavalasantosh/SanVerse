@@ -1,8 +1,10 @@
-# SanTOK - Advanced AI Tokenization Framework
+# SOMA - Shiva's Moon AI Framework
 
 ## Overview
 
-SanTOK is a comprehensive text tokenization system with mathematical analysis, semantic embeddings, and AI/ML capabilities. It provides multiple tokenization methods, embedding generation, training pipelines, and a full-featured API server.
+**SOMA** (formerly SanTOK) is an advanced AI tokenization and intelligence framework symbolizing the perfect balance of power and calm intelligence. It provides comprehensive text analysis, semantic embeddings, and Small Language Models (SLMs).
+
+_"Soma" represents the divine nectar and the moon that adorns Lord Shiva, signifying enhanced perception and enlightenment._
 
 ## Quick Start
 
@@ -14,7 +16,7 @@ pip install -r requirements.txt
 python run.py
 
 # Or use CLI
-python santok_cli.py --help
+python soma_cli.py --help
 ```
 
 ## Project Structure
@@ -23,7 +25,7 @@ python santok_cli.py --help
 | ------------------- | ------------------------------------------------------- |
 | `src/`              | Core tokenization engine, embeddings, servers, training |
 | `cognitive/`        | AI/ML: reasoning, SLM models, algorithms, graphs        |
-| `santok/`           | High-level wrapper module                               |
+| `soma/`             | High-level wrapper module                               |
 | `santek_core/`      | Structure metrics system                                |
 | `semantic_trainer/` | Enhanced semantic embeddings                            |
 | `examples/`         | Usage examples                                          |
@@ -40,30 +42,24 @@ python santok_cli.py --help
 | `main.py`                  | Application entry point    |
 | `run.py`                   | Start the API server       |
 | `start.py`                 | Alternative startup script |
-| `santok_cli.py`            | Command-line interface     |
+| `soma_cli.py`              | Command-line interface     |
 | `train_santok_complete.py` | Train the complete model   |
 
 ## Key Features
 
 - **Multiple Tokenization Methods**: Word, character, subword, byte-level, grammar-based
 - **Semantic Embeddings**: Feature-based, hash-based, semantic, hybrid strategies
+- **SOMA-GPT**: Small Language Models for efficient inference
 - **RESTful API**: FastAPI-based server with interactive documentation
-- **SLM Models**: Small Language Models (SanTOK-GPT, Tiny-SLM)
-- **Training Pipelines**: Vocabulary building, language model training
-- **Vector Database**: ChromaDB, FAISS, Weaviate integration
+- **Vector Database**: Integration with Weaviate and others
 
 ## Documentation
 
-See the `docs/` folder and the following guides:
-
-- `SANTOK_TOKENIZATION_GUIDE.md` - Complete tokenization guide
-- `SANTOK_EMBEDDINGS_GUIDE.md` - Embeddings documentation
-- `RAILWAY_OPERATIONS_GUIDE.md` - Deployment guide
-- `QUICK_SUMMARY.md` - Project overview
+See the `docs/` folder for detailed guides.
 
 ## Requirements
 
-- Python 3.11+
+- Python 3.8+
 - See `requirements.txt` for dependencies
 
 ## Author
@@ -72,4 +68,4 @@ Santosh Chavala
 
 ## License
 
-See LICENSE file
+MIT License

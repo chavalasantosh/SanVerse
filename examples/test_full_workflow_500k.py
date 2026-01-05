@@ -2,8 +2,8 @@
 Full Workflow Test: Tokenization -> Embedding -> Semantic -> Model Outcome
 ================================================================================
 
-This script tests the complete SanTOK workflow with 500k tokens:
-1. Tokenization (SanTOK)
+This script tests the complete SOMA workflow with 500k tokens:
+1. Tokenization (SOMA)
 2. Embedding Generation
 3. Semantic Training/Inference
 4. Model Outcome (similarity search, clustering, etc.)
@@ -25,8 +25,8 @@ import numpy as np
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.embeddings.vector_store import ChromaVectorStore, FAISSVectorStore
 from src.core.core_tokenizer import TextTokenizer, all_tokenizations
 
@@ -415,7 +415,7 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
     # Initialize file paths (used in summary)
     tokenization_file = os.path.join(output_dir, "tokenization_results.json")
     embedding_file = os.path.join(output_dir, "embedding_stats.json")
-    semantic_model_path = os.path.join(output_dir, "santok_semantic_model.pkl")
+    semantic_model_path = os.path.join(output_dir, "SOMA_semantic_model.pkl")
     search_file = os.path.join(output_dir, "similarity_search_results.json")
     
     # ============================================================================
@@ -444,7 +444,7 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
             print("[ERROR] ERROR: Cannot tokenize - no text provided and tokens not found!")
             print("   Please provide text or ensure tokens.pkl exists in the output directory.")
             return
-        print("Tokenizing with SanTOK...")
+        print("Tokenizing with soma...")
         tokenizer = TextTokenizer(seed=42, embedding_bit=False)
         streams = tokenizer.build(text)
         
@@ -489,7 +489,7 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
     print("-" * 80)
     
     print("Initializing embedding generator...")
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=768
     )
@@ -627,9 +627,9 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
         semantic_embeddings = []
     else:
         try:
-            print("Training semantic embeddings from SanTOK structure...")
+            print("Training semantic embeddings from soma structure...")
             # AGGRESSIVE VOCABULARY LIMITING to prevent memory errors
-            trainer = SanTOKSemanticTrainer(
+            trainer = SOMASemanticTrainer(
                 embedding_dim=768,
                 window_size=5,
                 epochs=5,  # Reduced epochs to save memory
@@ -728,7 +728,7 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
                     import chromadb
                     temp_client = chromadb.PersistentClient(path=persist_dir)
                     try:
-                        temp_client.delete_collection(name="santok_embeddings")
+                        temp_client.delete_collection(name="SOMA_embeddings")
                         print("[INFO] Cleared existing ChromaDB collection for fresh start")
                     except Exception:
                         pass  # Collection might not exist yet
@@ -738,7 +738,7 @@ def test_full_workflow(text, output_dir="workflow_output", resume=False, max_bat
             vector_store = ChromaVectorStore(
                 embedding_dim=768,
                 persist_directory=persist_dir,
-                collection_name="santok_embeddings"
+                collection_name="SOMA_embeddings"
             )
             print(f"[OK] ChromaDB vector store created (persistent storage: {persist_dir})")
             use_chroma = True
@@ -1079,7 +1079,7 @@ def main():
     import sys
     
     print("=" * 80)
-    print("SanTOK Full Workflow Test - 500k Tokens")
+    print("SOMA Full Workflow Test - 500k Tokens")
     print("=" * 80)
     
     # Check dependencies first

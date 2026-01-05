@@ -199,7 +199,7 @@ def main():
     print("DEMONSTRATION SUMMARY")
     print("=" * 60)
     print()
-    print("The SanTOK Tokenizer now provides:")
+    print("The SOMA Tokenizer now provides:")
     print("✓ Perfect reversibility (100% reconstruction guaranteed)")
     print("✓ Unique IDs by design (no collisions, deterministic)")
     print("✓ Stable and deterministic behavior")

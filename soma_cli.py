@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SanTOK CLI - Complete Command Line Interface
+SOMA CLI - Complete Command Line Interface
 
 One clean entry point for everything:
 - Tokenization
@@ -26,9 +26,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 # Import with proper error handling
 TextTokenizer = None
-SanTOKSemanticTrainer = None
-SanTOKEmbeddingGenerator = None
-EnhancedSanTOKSemanticTrainer = None
+SOMASemanticTrainer = None
+SOMAEmbeddingGenerator = None
+EnhancedSOMASemanticTrainer = None
 
 try:
     from src.core.core_tokenizer import TextTokenizer
@@ -37,24 +37,24 @@ except ImportError as e:
     sys.exit(1)
 
 try:
-    from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+    from src.embeddings.semantic_trainer import somaSemanticTrainer
 except ImportError as e:
-    print(f"Warning: Could not import SanTOKSemanticTrainer: {e}")
+    print(f"Warning: Could not import somaSemanticTrainer: {e}")
 
 try:
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
 except ImportError as e:
-    print(f"Warning: Could not import SanTOKEmbeddingGenerator: {e}")
+    print(f"Warning: Could not import somaEmbeddingGenerator: {e}")
 
 try:
-    from enhanced_semantic_trainer.enhanced_trainer import EnhancedSanTOKSemanticTrainer
+    from enhanced_semantic_trainer.enhanced_trainer import EnhancedSOMASemanticTrainer
 except ImportError:
     # Enhanced trainer is optional
     pass
 
 
-class SanTOKCLI:
-    """Main CLI interface for SanTOK."""
+class SOMACLI:
+    """Main CLI interface for soma."""
     
     def __init__(self) -> None:
         self.tokenizer: Optional[Any] = None
@@ -94,7 +94,7 @@ class SanTOKCLI:
             raise TypeError(f"format must be str, got {type(format).__name__}")
         
         print("=" * 60)
-        print("SanTOK Tokenization")
+        print("SOMA Tokenization")
         print("=" * 60)
         print()
         
@@ -136,7 +136,7 @@ class SanTOKCLI:
                 import socket
                 # Set timeout
                 socket.setdefaulttimeout(30)
-                req = urllib.request.Request(url, headers={'User-Agent': 'SanTOK-CLI/1.0'})
+                req = urllib.request.Request(url, headers={'User-Agent': 'SOMA-CLI/1.0'})
                 with urllib.request.urlopen(req, timeout=30) as response:
                     raw_data = response.read()
                     input_text = raw_data.decode('utf-8', errors='replace')
@@ -236,7 +236,7 @@ class SanTOKCLI:
         text: Optional[str] = None,
         file: Optional[str] = None,
         url: Optional[str] = None,
-        model_path: str = "santok_model.pkl",
+        model_path: str = "SOMA_model.pkl",
         embedding_dim: int = 768,
         epochs: int = 10,
         window_size: int = 5,
@@ -244,7 +244,7 @@ class SanTOKCLI:
     ):
         """Train semantic embeddings."""
         print("=" * 60)
-        print("SanTOK Semantic Training")
+        print("SOMA Semantic Training")
         print("=" * 60)
         print()
         
@@ -271,7 +271,7 @@ class SanTOKCLI:
                 import urllib.request
                 import socket
                 socket.setdefaulttimeout(30)
-                req = urllib.request.Request(url, headers={'User-Agent': 'SanTOK-CLI/1.0'})
+                req = urllib.request.Request(url, headers={'User-Agent': 'SOMA-CLI/1.0'})
                 with urllib.request.urlopen(req, timeout=30) as response:
                     raw_data = response.read()
                     input_text = raw_data.decode('utf-8', errors='replace')
@@ -315,10 +315,10 @@ class SanTOKCLI:
         print("Step 2: Training...")
         try:
             if enhanced:
-                if EnhancedSanTOKSemanticTrainer is None:
+                if EnhancedSOMASemanticTrainer is None:
                     print("Error: Enhanced trainer not available. Install enhanced_semantic_trainer module.")
                     return
-                trainer = EnhancedSanTOKSemanticTrainer(
+                trainer = EnhancedSOMASemanticTrainer(
                     embedding_dim=embedding_dim,
                     epochs=epochs,
                     window_size=window_size,
@@ -329,10 +329,10 @@ class SanTOKCLI:
                 )
                 trainer.train(streams)
             else:
-                if SanTOKSemanticTrainer is None:
+                if SOMASemanticTrainer is None:
                     print("Error: Semantic trainer not available.")
                     return
-                trainer = SanTOKSemanticTrainer(
+                trainer = SOMASemanticTrainer(
                     embedding_dim=embedding_dim,
                     epochs=epochs,
                     window_size=window_size
@@ -370,13 +370,13 @@ class SanTOKCLI:
         self,
         text: Optional[str] = None,
         file: Optional[str] = None,
-        model_path: str = "santok_model.pkl",
+        model_path: str = "SOMA_model.pkl",
         output: Optional[str] = None,
         strategy: str = "feature_based"
     ):
         """Generate embeddings."""
         print("=" * 60)
-        print("SanTOK Embedding Generation")
+        print("SOMA Embedding Generation")
         print("=" * 60)
         print()
         
@@ -432,11 +432,11 @@ class SanTOKCLI:
         print("Generating embeddings...")
         try:
             if strategy == "semantic" and os.path.exists(model_path):
-                if SanTOKSemanticTrainer is None:
+                if SOMASemanticTrainer is None:
                     print("Error: Semantic trainer not available.")
                     return
                 # Load trained model
-                trainer = SanTOKSemanticTrainer()
+                trainer = SOMASemanticTrainer()
                 trainer.load(model_path)
                 
                 # Generate embeddings
@@ -456,11 +456,11 @@ class SanTOKCLI:
                 
                 print(f"Generated {len(embeddings)} embeddings")
             else:
-                if SanTOKEmbeddingGenerator is None:
+                if SOMAEmbeddingGenerator is None:
                     print("Error: Embedding generator not available.")
                     return
                 # Feature-based
-                generator = SanTOKEmbeddingGenerator(strategy=strategy)
+                generator = SOMAEmbeddingGenerator(strategy=strategy)
                 if "word" not in streams or not streams["word"].tokens:
                     print("Error: No word tokens found.")
                     return
@@ -498,7 +498,7 @@ class SanTOKCLI:
     def test(self, quick: bool = False):
         """Run tests."""
         print("=" * 60)
-        print("SanTOK Tests")
+        print("SOMA Tests")
         print("=" * 60)
         print()
         
@@ -526,12 +526,12 @@ class SanTOKCLI:
         # Embedding test
         print("Test 2: Embedding Generation")
         try:
-            if SanTOKEmbeddingGenerator is None:
-                print("  ✗ Failed: SanTOKEmbeddingGenerator not available")
+            if SOMAEmbeddingGenerator is None:
+                print("  ✗ Failed: SOMAEmbeddingGenerator not available")
             elif streams is None or "word" not in streams:
                 print("  ✗ Failed: No streams from previous test")
             else:
-                generator = SanTOKEmbeddingGenerator()
+                generator = SOMAEmbeddingGenerator()
                 tokens = streams["word"].tokens
                 if not tokens:
                     print("  ✗ Failed: No tokens found")
@@ -554,7 +554,7 @@ class SanTOKCLI:
     def info(self):
         """Show system information."""
         print("=" * 60)
-        print("SanTOK System Information")
+        print("SOMA System Information")
         print("=" * 60)
         print()
         
@@ -585,27 +585,27 @@ class SanTOKCLI:
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
-        description="SanTOK CLI - Complete tokenization and embedding system",
+        description="SOMA CLI - Complete tokenization and embedding system",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   # Tokenize text
-  python santok_cli.py tokenize --text "Hello world" --method word
+  python soma_cli.py tokenize --text "Hello world" --method word
   
   # Tokenize file
-  python santok_cli.py tokenize --file data.txt --output tokens.json
+  python soma_cli.py tokenize --file data.txt --output tokens.json
   
   # Train embeddings
-  python santok_cli.py train --file corpus.txt --model-path model.pkl
+  python soma_cli.py train --file corpus.txt --model-path model.pkl
   
   # Generate embeddings
-  python santok_cli.py embed --text "Hello world" --model-path model.pkl
+  python soma_cli.py embed --text "Hello world" --model-path model.pkl
   
   # Run tests
-  python santok_cli.py test
+  python soma_cli.py test
   
   # Show info
-  python santok_cli.py info
+  python soma_cli.py info
         """
     )
     
@@ -629,7 +629,7 @@ Examples:
     train_parser.add_argument('--text', type=str, help='Training text')
     train_parser.add_argument('--file', type=str, help='Training file path')
     train_parser.add_argument('--url', type=str, help='Training URL')
-    train_parser.add_argument('--model-path', type=str, default='santok_model.pkl',
+    train_parser.add_argument('--model-path', type=str, default='SOMA_model.pkl',
                             help='Model output path')
     train_parser.add_argument('--embedding-dim', type=int, default=768,
                             help='Embedding dimension')
@@ -642,7 +642,7 @@ Examples:
     embed_parser = subparsers.add_parser('embed', help='Generate embeddings')
     embed_parser.add_argument('--text', type=str, help='Input text')
     embed_parser.add_argument('--file', type=str, help='Input file path')
-    embed_parser.add_argument('--model-path', type=str, default='santok_model.pkl',
+    embed_parser.add_argument('--model-path', type=str, default='SOMA_model.pkl',
                             help='Trained model path')
     embed_parser.add_argument('--output', type=str, help='Output file path (.npy)')
     embed_parser.add_argument('--strategy', type=str, default='feature_based',
@@ -662,7 +662,7 @@ Examples:
         parser.print_help()
         return
     
-    cli = SanTOKCLI()
+    cli = SOMACLI()
     
     if args.command == 'tokenize':
         cli.tokenize(

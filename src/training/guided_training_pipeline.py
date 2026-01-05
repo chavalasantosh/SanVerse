@@ -26,8 +26,8 @@ from tqdm import tqdm
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
-from src.training.vocabulary_builder import SanTOKVocabularyBuilder
-from src.training.language_model_trainer import SanTOKLanguageModel, SanTOKLanguageModelTrainer
+from src.training.vocabulary_builder import somaVocabularyBuilder
+from src.training.language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
 from src.structure.multi_model_clean import SanTEKMultiModelClean
 from src.structure.decision_gates import PromotionDecision, TrustLevel, GenerationDecision
 from src.structure.scoring_utils import bound_score
@@ -62,7 +62,7 @@ class GuidedVocabularyBuilder:
         self.promote_threshold = promote_threshold
         
         # Use existing vocabulary builder for tokenization
-        self.vocab_builder = SanTOKVocabularyBuilder(
+        self.vocab_builder = SOMAVocabularyBuilder(
             vocab_size=vocab_size,
             min_frequency=min_frequency
         )
@@ -297,7 +297,7 @@ class GuidedTrainingPipeline:
         token_to_id = self.vocab_builder.build_guided_vocabulary(text_file)
         
         # Save vocabulary
-        vocab_path = output_dir / "santok_guided_vocab.pkl"
+        vocab_path = output_dir / "SOMA_guided_vocab.pkl"
         with open(vocab_path, 'wb') as f:
             pickle.dump({
                 'token_to_id': token_to_id,
@@ -308,7 +308,7 @@ class GuidedTrainingPipeline:
         
         # Step 2: Create language model
         print("\n[Step 2] Creating language model...")
-        model = SanTOKLanguageModel(
+        model = SOMALanguageModel(
             vocab_size=len(token_to_id),
             embedding_dim=self.embedding_dim,
             num_layers=self.num_layers,
@@ -322,11 +322,11 @@ class GuidedTrainingPipeline:
         print("  (Using standard trainer - guided filtering can be added)")
         
         # Create standard vocab builder for trainer compatibility
-        standard_vocab = SanTOKVocabularyBuilder()
+        standard_vocab = SOMAVocabularyBuilder()
         standard_vocab.token_to_id = token_to_id
         standard_vocab.id_to_token = self.vocab_builder.vocab_builder.id_to_token
         
-        trainer = SanTOKLanguageModelTrainer(
+        trainer = SOMALanguageModelTrainer(
             model=model,
             vocab_builder=standard_vocab,
             learning_rate=self.learning_rate,
@@ -345,7 +345,7 @@ class GuidedTrainingPipeline:
         print("✓ Guided Training Complete!")
         print("="*70)
         print(f"  Vocabulary: {vocab_path}")
-        print(f"  Model: {output_dir / f'santok_lm_epoch_{epochs}.pkl'}")
+        print(f"  Model: {output_dir / f'SOMA_lm_epoch_{epochs}.pkl'}")
         print()
         print("Key differences from standard training:")
         print("  ✓ Vocabulary filtered by Promote/Demote gate")

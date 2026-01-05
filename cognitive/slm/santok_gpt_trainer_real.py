@@ -1,10 +1,10 @@
 """
-SanTOK LGM Trainer - SanTOK Gradient Flow
+SOMA LGM Trainer - SOMA Gradient Flow
 ==========================================
 
-100% SanTOK-native training using SanTOK's own gradient flow method.
-This implements SanTOK's own gradient computation through all layers.
-NOT backpropagation - SanTOK's own learning method!
+100% SOMA-native training using SOMA's own gradient flow method.
+This implements SOMA's own gradient computation through all layers.
+NOT backpropagation - SOMA's own learning method!
 """
 
 import numpy as np
@@ -12,12 +12,12 @@ from typing import List, Tuple
 import math
 
 
-class SanTOKLGMTrainer:
+class SOMALGMTrainer:
     """
-    SanTOK Gradient Flow Trainer for SanTOK LGM
+    SOMA Gradient Flow Trainer for SOMA LGM
     
-    This implements SanTOK's own gradient flow through all layers.
-    Uses SanTOK's own gradient computation method!
+    This implements SOMA's own gradient flow through all layers.
+    Uses SOMA's own gradient computation method!
     """
     
     def __init__(self, model, learning_rate: float = 1e-4):
@@ -50,9 +50,9 @@ class SanTOKLGMTrainer:
     
     def backward_through_block(self, block, grad_out: np.ndarray, cache: dict, learning_rate: float):
         """
-        SanTOK Gradient Flow through a sequence block
+        SOMA Gradient Flow through a sequence block
         
-        This computes SanTOK's own gradients using SanTOK's gradient flow method!
+        This computes SOMA's own gradients using SOMA's gradient flow method!
         """
         # grad_out shape: (seq_len, d_model) or (1, seq_len, d_model)
         if len(grad_out.shape) == 3:
@@ -125,12 +125,12 @@ class SanTOKLGMTrainer:
         grad_x = grad_res1.copy()
         grad_attn = grad_res1.copy()
         
-        # SanTOK Token Interaction backward (simplified but better than random)
+        # SOMA Token Interaction backward (simplified but better than random)
         # In full implementation, you'd flow gradients through Q, K, V, interaction scores
         # For now, we update projection weights based on gradient magnitude
         attn_grad_scale = np.mean(np.abs(grad_attn)) / d_model
         
-        # Update SanTOK Token Interaction weights (scaled by actual gradient)
+        # Update SOMA Token Interaction weights (scaled by actual gradient)
         block.token_interaction.W_o -= learning_rate * attn_grad_scale * np.random.randn(*block.token_interaction.W_o.shape) * 0.1
         block.token_interaction.W_q -= learning_rate * attn_grad_scale * np.random.randn(*block.token_interaction.W_q.shape) * 0.1
         block.token_interaction.W_k -= learning_rate * attn_grad_scale * np.random.randn(*block.token_interaction.W_k.shape) * 0.1
@@ -140,9 +140,9 @@ class SanTOKLGMTrainer:
     
     def train_step(self, input_seq: List[int], target_id: int) -> float:
         """
-        Single SanTOK learning step using SanTOK Gradient Flow
+        Single SOMA learning step using SOMA Gradient Flow
         
-        This computes loss and updates ALL weights using SanTOK's own gradient flow!
+        This computes loss and updates ALL weights using SOMA's own gradient flow!
         """
         # Forward pass with caching
         seq_len = len(input_seq)
@@ -159,7 +159,7 @@ class SanTOKLGMTrainer:
             # Cache for backprop
             cache = {}
             
-            # SanTOK Token Interaction
+            # SOMA Token Interaction
             attn_out = block.token_interaction.forward(x)
             cache['attn_out'] = attn_out.copy()
             
@@ -215,11 +215,11 @@ class SanTOKLGMTrainer:
         # Backward through output projection
         grad_hidden = grad_logits @ self.model.output_proj.T  # (d_model,)
         
-        # Update output projection (SanTOK gradient!)
+        # Update output projection (SOMA gradient!)
         grad_output_proj = np.outer(last_hidden, grad_logits)
         self.model.output_proj -= self.learning_rate * grad_output_proj
         
-        # SanTOK Gradient Flow through blocks
+        # SOMA Gradient Flow through blocks
         grad_block = grad_hidden.copy()  # (d_model,)
         
         # Expand to sequence shape for block backward
@@ -232,7 +232,7 @@ class SanTOKLGMTrainer:
             cache = block_caches[i]
             grad_block_seq = self.backward_through_block(block, grad_block_seq, cache, self.learning_rate)
         
-        # Update embeddings (SanTOK gradient!)
+        # Update embeddings (SOMA gradient!)
         # Gradient flows from first block
         grad_emb = grad_block_seq  # (seq_len, d_model)
         
@@ -257,16 +257,16 @@ class SanTOKLGMTrainer:
     
     def train(self, texts: List[str], epochs: int = 10, batch_size: int = 32):
         """
-        Full training loop with SanTOK Gradient Flow
+        Full training loop with SOMA Gradient Flow
         
         This actually trains your model with REAL gradients!
         """
         print("=" * 70)
-        print("Training SanTOK LGM with SanTOK Gradient Flow")
+        print("Training SOMA LGM with SOMA Gradient Flow")
         print("=" * 70)
         print()
         print("[OK] Loss function: Cross-entropy")
-        print("[OK] Gradient computation: SanTOK Gradient Flow")
+        print("[OK] Gradient computation: SOMA Gradient Flow")
         print("[OK] Weight updates: All layers (embeddings, blocks, output)")
         print()
         
@@ -314,9 +314,9 @@ class SanTOKLGMTrainer:
         print("[OK] Training Complete!")
         print("=" * 70)
         print()
-        print("Your SanTOK LGM has been trained with SanTOK Gradient Flow!")
+        print("Your SOMA LGM has been trained with SOMA Gradient Flow!")
         print("[OK] Loss function: Cross-entropy")
-        print("[OK] Gradient computation: SanTOK Gradient Flow through all layers")
+        print("[OK] Gradient computation: SOMA Gradient Flow through all layers")
         print("[OK] Weight updates: Embeddings, FF layers, Output projection")
-        print("[OK] This is REAL SanTOK learning - all weights updated with SanTOK gradients!")
+        print("[OK] This is REAL SOMA learning - all weights updated with SOMA gradients!")
         print()

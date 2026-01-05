@@ -1,5 +1,5 @@
 """
-SanTOK Cognitive - Graph Module
+SOMA Cognitive - Graph Module
 ===============================
 
 Knowledge Graph implementation with:

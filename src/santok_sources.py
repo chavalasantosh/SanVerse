@@ -1,8 +1,8 @@
 """
-SanTOK Source Map - Universal Knowledge Source Registration System
+SOMA Source Map - Universal Knowledge Source Registration System
 ===================================================================
 
-This module provides a comprehensive source map for SanTOK that can integrate
+This module provides a comprehensive source map for SOMA that can integrate
 various knowledge sources for token evolution and semantic embedding calibration.
 
 Designed for Railway compute and cloud-based execution.
@@ -30,9 +30,9 @@ class SourceMetadata:
     priority: int = 5  # Priority level (1-10, higher = more important)
 
 
-class SanTOKSourceMap:
+class SOMASourceMap:
     """
-    Universal source map for SanTOK that manages knowledge sources,
+    Universal source map for SOMA that manages knowledge sources,
     source UID generation, and source tagging for tokens.
     """
     
@@ -48,7 +48,7 @@ class SanTOKSourceMap:
         "wikidata": {
             "description": "Structured knowledge graph",
             "url": "https://www.wikidata.org/",
-            "notes": "Use for entity embedding (UID ↔ text linking). Pairs perfectly with SanTOK's UID system.",
+            "notes": "Use for entity embedding (UID ↔ text linking). Pairs perfectly with SOMA's UID system.",
             "weight": 1.0,
             "priority": 9
         },
@@ -239,7 +239,7 @@ class SanTOKSourceMap:
         "laion_5b": {
             "description": "Large text-image corpus",
             "url": "https://laion.ai/blog/laion-5b/",
-            "notes": "For cross-modal linking, aligns visual symbols with SanTOK's numerical backend.",
+            "notes": "For cross-modal linking, aligns visual symbols with SOMA's numerical backend.",
             "weight": 1.0,
             "priority": 6
         },
@@ -270,7 +270,7 @@ class SanTOKSourceMap:
         },
         "synthetic_corpus": {
             "description": "Generated training text",
-            "url": "santok_synthetic_v1",
+            "url": "SOMA_synthetic_v1",
             "notes": "To expand algorithmic coverage during internal testing.",
             "weight": 0.9,
             "priority": 5
@@ -286,7 +286,7 @@ class SanTOKSourceMap:
                           If None, uses in-memory registry only.
         """
         self.registry_file = registry_file or os.path.join(
-            os.path.dirname(__file__), '..', 'data', 'santok_sources_registry.json'
+            os.path.dirname(__file__), '..', 'data', 'SOMA_sources_registry.json'
         )
         self.sources: Dict[str, SourceMetadata] = {}
         self._initialize_sources()
@@ -624,14 +624,14 @@ class SanTOKSourceMap:
         }
     
     def __repr__(self) -> str:
-        return f"SanTOKSourceMap(total_sources={len(self.sources)}, registry_file='{self.registry_file}')"
+        return f"SOMASourceMap(total_sources={len(self.sources)}, registry_file='{self.registry_file}')"
 
 
 # Global instance
-_source_map_instance: Optional[SanTOKSourceMap] = None
+_source_map_instance: Optional[SOMASourceMap] = None
 
 
-def get_source_map(registry_file: Optional[str] = None) -> SanTOKSourceMap:
+def get_source_map(registry_file: Optional[str] = None) -> SOMASourceMap:
     """
     Get or create the global source map instance.
     
@@ -639,28 +639,28 @@ def get_source_map(registry_file: Optional[str] = None) -> SanTOKSourceMap:
         registry_file: Optional registry file path
         
     Returns:
-        SanTOKSourceMap instance
+        SOMASourceMap instance
     """
     global _source_map_instance
     if _source_map_instance is None:
-        _source_map_instance = SanTOKSourceMap(registry_file=registry_file)
+        _source_map_instance = SOMASourceMap(registry_file=registry_file)
     return _source_map_instance
 
 
 # Export for easy access
 __all__ = [
-    "SanTOKSourceMap",
+    "SOMASourceMap",
     "SourceMetadata",
     "get_source_map",
-    "SANTOK_SOURCES"  # For backward compatibility if needed
+    "SOMA_SOURCES"  # For backward compatibility if needed
 ]
 
 # Create a structured dict export (for compatibility with user's format)
-SANTOK_SOURCES = {
-    "knowledge": {tag: info["url"] for tag, info in SanTOKSourceMap.KNOWLEDGE_SOURCES.items()},
-    "technical": {tag: info["url"] for tag, info in SanTOKSourceMap.TECHNICAL_SOURCES.items()},
-    "domain": {tag: info["url"] for tag, info in SanTOKSourceMap.DOMAIN_SOURCES.items()},
-    "symbolic": {tag: info["url"] for tag, info in SanTOKSourceMap.SYMBOLIC_SOURCES.items()},
-    "crossmodal": {tag: info["url"] for tag, info in SanTOKSourceMap.CROSSMODAL_SOURCES.items()},
-    "reinforcement": {tag: info["url"] for tag, info in SanTOKSourceMap.REINFORCEMENT_SOURCES.items()}
+SOMA_SOURCES = {
+    "knowledge": {tag: info["url"] for tag, info in SOMASourceMap.KNOWLEDGE_SOURCES.items()},
+    "technical": {tag: info["url"] for tag, info in SOMASourceMap.TECHNICAL_SOURCES.items()},
+    "domain": {tag: info["url"] for tag, info in SOMASourceMap.DOMAIN_SOURCES.items()},
+    "symbolic": {tag: info["url"] for tag, info in SOMASourceMap.SYMBOLIC_SOURCES.items()},
+    "crossmodal": {tag: info["url"] for tag, info in SOMASourceMap.CROSSMODAL_SOURCES.items()},
+    "reinforcement": {tag: info["url"] for tag, info in SOMASourceMap.REINFORCEMENT_SOURCES.items()}
 }

@@ -1,5 +1,5 @@
 """
-COMPLETE SanTOK Model Trainer - Single File
+COMPLETE SOMA Model Trainer - Single File
 ============================================
 
 ONE complete file that does everything:
@@ -33,21 +33,21 @@ from typing import Optional, Dict, Any, List, Tuple, Union
 import numpy as np
 from tqdm import tqdm
 
-# Add src to path for SanTOK imports
+# Add src to path for SOMA imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-# Import SanTOK components (these exist in your codebase)
-from src.training.vocabulary_builder import SanTOKVocabularyBuilder
+# import soma components (these exist in your codebase)
+from src.training.vocabulary_builder import somaVocabularyBuilder
 from src.training.language_model_trainer import (
-    SanTOKLanguageModel,
-    SanTOKLanguageModelTrainer
+    SOMALanguageModel,
+    SOMALanguageModelTrainer
 )
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 
-class CompleteSanTOKTrainer:
+class CompleteSOMATrainer:
     """
     Complete unified trainer - everything in one class.
     """
@@ -211,7 +211,7 @@ class CompleteSanTOKTrainer:
 
         if metadata_patterns > len(lines) * 0.3:
             print("   ⚠️  WARNING: Detected token metadata patterns!")
-            print("   This file appears to be SanTOK token output, not source text.")
+            print("   This file appears to be SOMA token output, not source text.")
             print("   Token metadata cannot train semantic embeddings.")
             return False
 
@@ -232,7 +232,7 @@ class CompleteSanTOKTrainer:
         output_dir.mkdir(parents=True, exist_ok=True)
 
         print("\n" + "="*70)
-        print("COMPLETE SanTOK Model Training")
+        print("COMPLETE SOMA Model Training")
         print("="*70)
         print(f"Data: {text_file}")
         print(f"Output: {output_dir}")
@@ -264,13 +264,13 @@ class CompleteSanTOKTrainer:
         # Step 2: Build/load vocabulary
         if vocab_path and vocab_path.exists():
             print(f"\n[Step 2] Loading vocabulary from {vocab_path}...")
-            self.vocab_builder = SanTOKVocabularyBuilder()
+            self.vocab_builder = SOMAVocabularyBuilder()
             self.vocab_builder.load(vocab_path)
         else:
             print("\n[Step 2] Building vocabulary...")
-            self.vocab_builder = SanTOKVocabularyBuilder(vocab_size=self.vocab_size, min_frequency=2)
+            self.vocab_builder = SOMAVocabularyBuilder(vocab_size=self.vocab_size, min_frequency=2)
             self.vocab_builder.build_vocabulary(text_file)
-            vocab_save_path = output_dir / "santok_60k_vocab.pkl"
+            vocab_save_path = output_dir / "SOMA_60k_vocab.pkl"
             self.vocab_builder.save(vocab_save_path)
             print(f"✓ Vocabulary saved: {vocab_save_path}")
 
@@ -295,16 +295,16 @@ class CompleteSanTOKTrainer:
         print("\n" + "="*70)
         print("✓ Training Complete!")
         print("="*70)
-        print(f"  Model: {output_dir / f'santok_lm_epoch_{epochs}.pkl'}")
+        print(f"  Model: {output_dir / f'SOMA_lm_epoch_{epochs}.pkl'}")
         if self.use_semantic:
-            print(f"  Semantic: {output_dir / 'santok_semantic_model.pkl'}")
-        print(f"  Vectors: {output_dir / 'santok_vector_embeddings.pkl'}")
+            print(f"  Semantic: {output_dir / 'SOMA_semantic_model.pkl'}")
+        print(f"  Vectors: {output_dir / 'SOMA_vector_embeddings.pkl'}")
 
         return True
 
     def _train_semantic(self, text_file: Path, epochs: int, output_dir: Path) -> bool:
         """Train semantic embeddings with quality monitoring."""
-        self.semantic_trainer = SanTOKSemanticTrainer(embedding_dim=self.embedding_dim)
+        self.semantic_trainer = SOMASemanticTrainer(embedding_dim=self.embedding_dim)
 
         with open(text_file, 'r', encoding='utf-8', errors='ignore') as f:
             text = f.read()
@@ -425,7 +425,7 @@ class CompleteSanTOKTrainer:
                 )
 
         # Save semantic model
-        semantic_path = output_dir / "santok_semantic_model.pkl"
+        semantic_path = output_dir / "SOMA_semantic_model.pkl"
         self.semantic_trainer.save(str(semantic_path))
         print(f"✓ Semantic model saved: {semantic_path}")
 
@@ -434,16 +434,16 @@ class CompleteSanTOKTrainer:
     def _generate_vectors(self, text_file: Path, output_dir: Path):
         """Generate combined vector embeddings."""
         if self.use_feature_based:
-            self.feature_embedder = SanTOKEmbeddingGenerator(
+            self.feature_embedder = SOMAEmbeddingGenerator(
                 strategy="feature_based",
                 embedding_dim=self.embedding_dim
             )
 
         if self.use_semantic:
-            self.semantic_embedder = SanTOKEmbeddingGenerator(
+            self.semantic_embedder = SOMAEmbeddingGenerator(
                 strategy="semantic",
                 embedding_dim=self.embedding_dim,
-                semantic_model_path=str(output_dir / "santok_semantic_model.pkl")
+                semantic_model_path=str(output_dir / "SOMA_semantic_model.pkl")
             )
             self.semantic_embedder.semantic_trainer = self.semantic_trainer
 
@@ -494,7 +494,7 @@ class CompleteSanTOKTrainer:
             self.vector_embeddings[vocab_id] = combined.astype(np.float32)
 
         # Save vectors
-        vector_path = output_dir / "santok_vector_embeddings.pkl"
+        vector_path = output_dir / "SOMA_vector_embeddings.pkl"
         with open(vector_path, 'wb') as f:
             pickle.dump(self.vector_embeddings, f)
         print(f"✓ Vector embeddings saved: {vector_path}")
@@ -502,7 +502,7 @@ class CompleteSanTOKTrainer:
     def _train_language_model(self, text_file: Path, epochs: int, output_dir: Path):
         """Train language model with quality checks."""
         # Create model
-        self.model = SanTOKLanguageModel(
+        self.model = SOMALanguageModel(
             vocab_size=len(self.vocab_builder.token_to_id),
             embedding_dim=self.embedding_dim,
             num_layers=self.num_layers,
@@ -517,7 +517,7 @@ class CompleteSanTOKTrainer:
                     self.model.token_embeddings[vocab_id] = embedding
 
         # Create trainer
-        trainer = SanTOKLanguageModelTrainer(
+        trainer = SOMALanguageModelTrainer(
             model=self.model,
             vocab_builder=self.vocab_builder,
             learning_rate=self.learning_rate,
@@ -637,7 +637,7 @@ def find_training_data() -> Optional[Path]:
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description="Complete SanTOK Model Trainer - Single File",
+        description="Complete SOMA Model Trainer - Single File",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -699,7 +699,7 @@ Examples:
     output_dir = Path(args.output)
 
     # Create trainer
-    trainer = CompleteSanTOKTrainer(
+    trainer = CompleteSOMATrainer(
         vocab_size=60000,
         embedding_dim=768,
         num_layers=12,

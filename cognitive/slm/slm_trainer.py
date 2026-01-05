@@ -1,7 +1,7 @@
 """
-SanTOK SLM Trainer
+SOMA SLM Trainer
 
-Training loop for the SanTOK Sequence Optimizer.
+Training loop for the SOMA Sequence Optimizer.
 Key principle: Loss computed ONLY over allowed tokens.
 
 This is sequence optimization, NOT fact learning.
@@ -15,8 +15,8 @@ import random
 import json
 from pathlib import Path
 
-from .santok_sequence_optimizer import SanTOKSequenceOptimizer, SanTOKSequenceConfig
-from .training_data import TrainingSequence, SanTOKDataGenerator
+from .SOMA_sequence_optimizer import somaSequenceOptimizer, SOMASequenceConfig
+from .training_data import TrainingSequence, SOMADataGenerator
 
 
 @dataclass
@@ -41,7 +41,7 @@ class TrainingConfig:
 
 class SLMTrainer:
     """
-    Trainer for SanTOK SLM.
+    Trainer for SOMA SLM.
     
     This trains the sequence optimizer to predict next tokens
     ONLY from allowed sets. Hallucination cannot occur
@@ -50,7 +50,7 @@ class SLMTrainer:
     
     def __init__(
         self,
-        transformer: SanTOKSequenceOptimizer,
+        transformer: SOMASequenceOptimizer,
         config: Optional[TrainingConfig] = None
     ):
         self.transformer = transformer
@@ -372,7 +372,7 @@ class SLMTrainer:
 
 
 def create_trainer(
-        transformer: Optional[SanTOKSequenceOptimizer] = None,
+        transformer: Optional[SOMASequenceOptimizer] = None,
     vocab_size: int = 10000,
     d_model: int = 128,
     n_layers: int = 2,
@@ -388,17 +388,17 @@ def create_trainer(
         n_layers: Number of layers
         n_heads: Number of heads
     """
-    from .santok_sequence_optimizer import SanTOKSequenceOptimizer, SanTOKSequenceConfig
+    from .SOMA_sequence_optimizer import somaSequenceOptimizer, SOMASequenceConfig
     
     if transformer is None:
-        config = SanTOKSequenceConfig(
+        config = SOMASequenceConfig(
             vocab_size=vocab_size,
             d_model=d_model,
             n_layers=n_layers,
             n_heads=n_heads,
             d_ff=d_model * 4,
         )
-        transformer = SanTOKSequenceOptimizer(config)
+        transformer = SOMASequenceOptimizer(config)
     
     return SLMTrainer(transformer)
 

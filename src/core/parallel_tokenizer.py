@@ -1,5 +1,5 @@
 """
-Parallel Processing Module for SanTOK
+Parallel Processing Module for SOMA
 Supports multi-threading and multi-processing for large text tokenization
 """
 

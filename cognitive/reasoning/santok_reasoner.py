@@ -1,15 +1,15 @@
 """
-SanTOK Reasoner - Pure SanTOK symbolic reasoning.
+SOMA Reasoner - Pure SOMA symbolic reasoning.
 
 NO GPT. NO TRANSFORMERS. NO NEURAL NETWORKS. NO EXTERNAL AI.
 
-This is 100% SanTOK-native:
+This is 100% SOMA-native:
 - Symbolic inference
 - Pattern-based reasoning
 - Template verbalization
 - Knowledge graph traversal
 
-SanTOK does the THINKING AND the SPEAKING.
+SOMA does the THINKING AND the SPEAKING.
 """
 
 from typing import Dict, Any, List, Optional, Tuple
@@ -23,13 +23,13 @@ from .inference_engine import InferenceEngine
 from .path_finder import PathFinder
 from .query_engine import QueryEngine
 from .contradiction_detector import ContradictionDetector
-from .santok_verbalizer import SanTOKVerbalizer, VerbalizationResult
+from .SOMA_verbalizer import somaVerbalizer, VerbalizationResult
 
 
 @dataclass
-class SanTOKAnswer:
+class SOMAAnswer:
     """
-    Answer produced by pure SanTOK reasoning.
+    Answer produced by pure SOMA reasoning.
     
     NO neural generation. Pure symbolic + template.
     """
@@ -99,7 +99,7 @@ class StructuredKnowledge:
     """
     Structured knowledge extracted for a query.
     
-    This replaces "StructuredContext" - it's SanTOK-native terminology.
+    This replaces "StructuredContext" - it's SOMA-native terminology.
     """
     query: str
     
@@ -122,9 +122,9 @@ class StructuredKnowledge:
     confidence: float = 1.0
 
 
-class SanTOKReasoner:
+class SOMAReasoner:
     """
-    Pure SanTOK reasoning system.
+    Pure SOMA reasoning system.
     
     NO external AI. NO neural networks. NO GPT.
     
@@ -134,15 +134,15 @@ class SanTOKReasoner:
     - Template-based verbalization
     - Pattern matching
     
-    This is what makes SanTOK UNIQUE.
+    This is what makes SOMA UNIQUE.
     
     Example:
-        from santok_cognitive import SanTOKReasoner, UnifiedMemory
+        from soma_cognitive import somaReasoner, UnifiedMemory
         
         memory = UnifiedMemory()
         # ... add knowledge ...
         
-        reasoner = SanTOKReasoner(memory)
+        reasoner = SOMAReasoner(memory)
         
         answer = reasoner.ask("What is machine learning?")
         print(answer.text)
@@ -151,14 +151,14 @@ class SanTOKReasoner:
     
     def __init__(self, memory: UnifiedMemory):
         """
-        Initialize SanTOK Reasoner.
+        Initialize SOMA Reasoner.
         
         Args:
             memory: UnifiedMemory with knowledge
         """
         self.memory = memory
         
-        # Core reasoning components (all SanTOK-native)
+        # Core reasoning components (all SOMA-native)
         self.inference_engine = InferenceEngine(memory.graph)
         self.inference_engine.rules.add_builtin_rules()
         
@@ -166,8 +166,8 @@ class SanTOKReasoner:
         self.query_engine = QueryEngine(memory)
         self.contradiction_detector = ContradictionDetector(memory.graph)
         
-        # SanTOK-native verbalizer (NO GPT)
-        self.verbalizer = SanTOKVerbalizer(memory)
+        # SOMA-native verbalizer (NO GPT)
+        self.verbalizer = SOMAVerbalizer(memory)
         
         # Configuration
         self.config = {
@@ -179,7 +179,7 @@ class SanTOKReasoner:
             "min_confidence": 0.3,
         }
     
-    def ask(self, question: str) -> SanTOKAnswer:
+    def ask(self, question: str) -> SOMAAnswer:
         """
         Ask a question and get a reasoned answer.
         
@@ -194,14 +194,14 @@ class SanTOKReasoner:
             question: Natural language question
             
         Returns:
-            SanTOKAnswer with reasoning trace
+            SOMAAnswer with reasoning trace
         """
         start_time = time.time()
         
         # 1. Build structured knowledge
         knowledge = self._build_knowledge(question)
         
-        # 2. Verbalize using SanTOK templates (NOT GPT)
+        # 2. Verbalize using SOMA templates (NOT GPT)
         verbalization = self.verbalizer.verbalize(knowledge, question)
         
         # 3. Collect reasoning info
@@ -220,7 +220,7 @@ class SanTOKReasoner:
         
         elapsed = time.time() - start_time
         
-        return SanTOKAnswer(
+        return SOMAAnswer(
             text=verbalization.text,
             confidence=verbalization.confidence,
             facts_used=facts_used,
@@ -333,5 +333,5 @@ class SanTOKReasoner:
         return self._build_knowledge(query)
     
     def __repr__(self) -> str:
-        return f"SanTOKReasoner(memory={len(self.memory)}, inference_rules={len(self.inference_engine.rules)})"
+        return f"SOMAReasoner(memory={len(self.memory)}, inference_rules={len(self.inference_engine.rules)})"
 

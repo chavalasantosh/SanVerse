@@ -1,8 +1,8 @@
 """
-SanTOK Source Map Integration
+SOMA Source Map Integration
 ==============================
 
-Integration layer for connecting SanTOK Source Map with tokenization
+Integration layer for connecting SOMA Source Map with tokenization
 and embedding generation workflows.
 
 Designed for Railway compute.
@@ -17,7 +17,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 try:
-    from src.santok_sources import get_source_map, SourceMetadata
+    from src.SOMA_sources import get_source_map, SourceMetadata
     SOURCE_MAP_AVAILABLE = True
 except ImportError:
     SOURCE_MAP_AVAILABLE = False
@@ -133,10 +133,10 @@ class SourceMapEmbeddingGenerator:
         Returns:
             Dictionary with embeddings and source metadata
         """
-        from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+        from src.embeddings.embedding_generator import somaEmbeddingGenerator
         
         # Generate embeddings
-        generator = SanTOKEmbeddingGenerator(strategy=strategy)
+        generator = SOMAEmbeddingGenerator(strategy=strategy)
         embeddings = generator.generate_embeddings(tokens, strategy=strategy)
         
         result = {

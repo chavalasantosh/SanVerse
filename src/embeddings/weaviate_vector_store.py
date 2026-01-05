@@ -1,8 +1,8 @@
 """
-Weaviate Vector Store for SanTOK Embeddings
+Weaviate Vector Store for SOMA Embeddings
 
 Cloud-based vector database integration using Weaviate.
-Inherits from SanTOKVectorStore for consistency with other vector stores.
+Inherits from somaVectorStore for consistency with other vector stores.
 """
 
 import os
@@ -12,7 +12,7 @@ import warnings
 import uuid
 import sys
 
-from .vector_store import SanTOKVectorStore
+from .vector_store import somaVectorStore
 
 # Try importing weaviate (module-level check - may fail in some import contexts)
 # Runtime check in __init__ is more reliable
@@ -31,9 +31,9 @@ except (ImportError, AttributeError):
     WEAVIATE_AVAILABLE = False
 
 
-class WeaviateVectorStore(SanTOKVectorStore):
+class WeaviateVectorStore(SOMAVectorStore):
     """
-    Weaviate-based vector store for SanTOK.
+    Weaviate-based vector store for soma.
     
     Advantages:
     - Cloud-based (accessible from anywhere)
@@ -45,7 +45,7 @@ class WeaviateVectorStore(SanTOKVectorStore):
     
     def __init__(
         self,
-        collection_name: str = "SanTOK_Token",
+        collection_name: str = "SOMA_Token",
         embedding_dim: int = 768,
         weaviate_url: Optional[str] = None,
         weaviate_api_key: Optional[str] = None,

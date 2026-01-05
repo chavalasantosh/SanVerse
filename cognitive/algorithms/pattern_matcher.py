@@ -1,8 +1,8 @@
 """
-SanTOK Pattern Matcher - Relation Extraction Without ML
+SOMA Pattern Matcher - Relation Extraction Without ML
 ======================================================
 
-SANTOK-ORIGINAL ALGORITHM. NO NEURAL NETWORKS. NO NER. NO DEPENDENCY PARSING.
+SOMA-ORIGINAL ALGORITHM. NO NEURAL NETWORKS. NO NER. NO DEPENDENCY PARSING.
 
 Uses pure pattern matching with:
 - Lexical patterns (word sequences)
@@ -46,9 +46,9 @@ class PatternType(Enum):
     TEMPORAL = "temporal"      # "X before Y", "after X"
 
 
-class SanTOKPatternMatcher:
+class SOMAPatternMatcher:
     """
-    SanTOK Pattern-based Relation Extractor.
+    SOMA Pattern-based Relation Extractor.
     
     100% rule-based. NO ML. NO neural NER.
     
@@ -61,7 +61,7 @@ class SanTOKPatternMatcher:
     6. Custom patterns: User-defined
     
     Example:
-        matcher = SanTOKPatternMatcher()
+        matcher = SOMAPatternMatcher()
         
         text = "Python is a programming language. It uses dynamic typing."
         matches = matcher.extract(text)
@@ -138,7 +138,7 @@ class SanTOKPatternMatcher:
     }
     
     def __init__(self):
-        """Initialize SanTOK Pattern Matcher."""
+        """Initialize SOMA Pattern Matcher."""
         # Compile patterns for efficiency
         self._compiled_patterns: List[Tuple[re.Pattern, RelationType, int, int, str]] = []
         
@@ -227,7 +227,7 @@ class SanTOKPatternMatcher:
     
     def _compute_confidence(self, subject: str, obj: str, text: str) -> float:
         """
-        Compute confidence using SanTOK's custom formula.
+        Compute confidence using SOMA's custom formula.
         
         Formula:
             confidence = base × frequency_boost × proximity_boost × length_penalty
@@ -325,7 +325,7 @@ class SanTOKPatternMatcher:
     def __repr__(self) -> str:
         stats = self.get_pattern_stats()
         return (
-            f"SanTOKPatternMatcher("
+            f"SOMAPatternMatcher("
             f"lexical={stats['lexical_patterns']}, "
             f"custom={stats['custom_patterns']}, "
             f"learned={stats['learned_cooccurrences']})"

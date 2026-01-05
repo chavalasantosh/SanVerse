@@ -1,10 +1,10 @@
 """
-SanTOK Graph Walker - Custom Graph Traversal Algorithm
+SOMA Graph Walker - Custom Graph Traversal Algorithm
 =====================================================
 
-SANTOK-ORIGINAL ALGORITHM. NOT PageRank. NOT BFS/DFS alone.
+SOMA-ORIGINAL ALGORITHM. NOT PageRank. NOT BFS/DFS alone.
 
-The SanTOK Walk Algorithm:
+The SOMA Walk Algorithm:
     
     1. Start at source node with initial energy E
     2. At each step:
@@ -75,18 +75,18 @@ class WalkResult:
         return "\n".join(lines)
 
 
-class SanTOKGraphWalker:
+class SOMAGraphWalker:
     """
-    SanTOK Custom Graph Walking Algorithm.
+    SOMA Custom Graph Walking Algorithm.
     
-    UNIQUE TO SANTOK. Combines:
+    UNIQUE TO soma. Combines:
     - Energy-based traversal
     - Relation-weighted edges
     - 9-centric scoring
     - Explainable paths
     
     Example:
-        walker = SanTOKGraphWalker(graph)
+        walker = SOMAGraphWalker(graph)
         
         # Find path from node 1 to node 5
         result = walker.walk(source=1, target=5)
@@ -136,7 +136,7 @@ class SanTOKGraphWalker:
         decay_rate: float = 0.1
     ):
         """
-        Initialize SanTOK Graph Walker.
+        Initialize SOMA Graph Walker.
         
         Args:
             graph: GraphStore to walk
@@ -461,7 +461,7 @@ class SanTOKGraphWalker:
     
     def __repr__(self) -> str:
         return (
-            f"SanTOKGraphWalker("
+            f"SOMAGraphWalker("
             f"energy={self.initial_energy}, "
             f"decay={self.decay_rate})"
         )

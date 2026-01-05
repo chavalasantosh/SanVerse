@@ -1,11 +1,11 @@
 """
-SanTOK Vocabulary Builder
+SOMA Vocabulary Builder
 ==========================
 
-Builds 60K vocabulary from SanTOK tokenized text.
-Uses ONLY SanTOK tokenization - NO external tokenizers.
+Builds 60K vocabulary from soma tokenized text.
+Uses ONLY SOMA tokenization - NO external tokenizers.
 
-This is the core of building a SanTOK-only language model.
+This is the core of building a SOMA-only language model.
 """
 
 import numpy as np
@@ -16,7 +16,7 @@ import json
 import pickle
 from tqdm import tqdm
 
-# Import SanTOK components
+# import soma components
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -24,11 +24,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.core.core_tokenizer import TextTokenizer, TokenRecord
 
 
-class SanTOKVocabularyBuilder:
+class SOMAVocabularyBuilder:
     """
-    Build vocabulary from SanTOK tokens.
+    Build vocabulary from soma tokens.
     
-    This creates a 60K vocabulary using ONLY SanTOK's tokenization.
+    This creates a 60K vocabulary using ONLY SOMA's tokenization.
     No external models or algorithms.
     """
     
@@ -45,7 +45,7 @@ class SanTOKVocabularyBuilder:
         Args:
             vocab_size: Target vocabulary size (default: 60K)
             min_frequency: Minimum token frequency to include
-            tokenizer_seed: Seed for SanTOK tokenizer
+            tokenizer_seed: Seed for SOMA tokenizer
             embedding_bit: Use embedding_bit mode
         """
         self.vocab_size = vocab_size
@@ -58,7 +58,7 @@ class SanTOKVocabularyBuilder:
         self.id_to_token: Dict[int, str] = {}
         self.token_metadata: Dict[str, Dict] = {}  # Store token features
         
-        # Special tokens (SanTOK style)
+        # Special tokens (SOMA style)
         self.special_tokens = {
             '<PAD>': 0,
             '<UNK>': 1,
@@ -74,7 +74,7 @@ class SanTOKVocabularyBuilder:
     
     def tokenize_text(self, text: str) -> List[TokenRecord]:
         """
-        Tokenize text using SanTOK.
+        Tokenize text using soma.
         
         Returns:
             List of TokenRecord objects
@@ -106,7 +106,7 @@ class SanTOKVocabularyBuilder:
             Dictionary mapping tokens to IDs
         """
         print("\n" + "="*60)
-        print("Building SanTOK Vocabulary (60K)")
+        print("Building SOMA Vocabulary (60K)")
         print("="*60)
         print(f"Reading: {text_file}")
         print(f"Target vocab size: {self.vocab_size:,}")
@@ -299,16 +299,16 @@ def main():
         print("Run dataset_downloader.py first!")
         return
     
-    builder = SanTOKVocabularyBuilder(vocab_size=60000, min_frequency=2)
+    builder = SOMAVocabularyBuilder(vocab_size=60000, min_frequency=2)
     builder.build_vocabulary(text_file)
     
     # Save vocabulary
-    vocab_path = Path("models/santok_60k_vocab.pkl")
+    vocab_path = Path("models/SOMA_60k_vocab.pkl")
     vocab_path.parent.mkdir(parents=True, exist_ok=True)
     builder.save(vocab_path)
     
     # Test encode/decode
-    test_text = "Hello world! This is SanTOK tokenization."
+    test_text = "Hello world! This is SOMA tokenization."
     token_ids = builder.encode(test_text)
     decoded = builder.decode(token_ids)
     

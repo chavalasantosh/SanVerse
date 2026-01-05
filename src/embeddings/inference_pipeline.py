@@ -1,7 +1,7 @@
 """
-SanTOK Inference Pipeline
+SOMA Inference Pipeline
 
-End-to-end pipeline for processing text through SanTOK,
+End-to-end pipeline for processing text through SOMA,
 generating embeddings, and performing inference/search.
 """
 
@@ -25,16 +25,16 @@ except ImportError:
             def tokenize(self, text):
                 return tokenize_text(text, 'space')
 
-from .embedding_generator import SanTOKEmbeddingGenerator
-from .vector_store import SanTOKVectorStore
+from .embedding_generator import somaEmbeddingGenerator
+from .vector_store import somaVectorStore
 
 
-class SanTOKInferencePipeline:
+class SOMAInferencePipeline:
     """
-    Complete inference pipeline using SanTOK embeddings.
+    Complete inference pipeline using SOMA embeddings.
     
     Flow:
-    1. Tokenize text with SanTOK
+    1. Tokenize text with SOMA
     2. Generate embeddings for tokens
     3. Store in vector database
     4. Enable similarity search and retrieval
@@ -42,8 +42,8 @@ class SanTOKInferencePipeline:
     
     def __init__(
         self,
-        embedding_generator: SanTOKEmbeddingGenerator,
-        vector_store: SanTOKVectorStore,
+        embedding_generator: SOMAEmbeddingGenerator,
+        vector_store: SOMAVectorStore,
         tokenizer: Optional[TextTokenizer] = None,
         tokenizer_seed: int = 42,
         embedding_bit: bool = False
@@ -52,8 +52,8 @@ class SanTOKInferencePipeline:
         Initialize inference pipeline.
         
         Args:
-            embedding_generator: SanTOKEmbeddingGenerator instance
-            vector_store: SanTOKVectorStore instance
+            embedding_generator: SOMAEmbeddingGenerator instance
+            vector_store: SOMAVectorStore instance
             tokenizer: Optional TextTokenizer (creates new if None)
             tokenizer_seed: Seed for tokenizer
             embedding_bit: Embedding bit flag for tokenizer
@@ -86,7 +86,7 @@ class SanTOKInferencePipeline:
         Returns:
             Dictionary with tokens, embeddings, and metadata
         """
-        # Step 1: Tokenize with SanTOK
+        # Step 1: Tokenize with SOMA
         streams = self.tokenizer.build(text)
         
         # Step 2: Collect tokens (from all streams or specific one)

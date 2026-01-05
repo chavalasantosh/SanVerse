@@ -1,5 +1,5 @@
 """
-Input Validation Utilities for SanTOK
+Input Validation Utilities for SOMA
 """
 
 from typing import Any, Union, List

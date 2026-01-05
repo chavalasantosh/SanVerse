@@ -1,5 +1,5 @@
 """
-Basic usage example for Enhanced SanTOK Semantic Trainer
+Basic usage example for Enhanced SOMA Semantic Trainer
 """
 
 import sys
@@ -9,7 +9,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from enhanced_trainer import EnhancedSanTOKSemanticTrainer
+from enhanced_trainer import EnhancedSOMASemanticTrainer
 from src.core.core_tokenizer import TextTokenizer
 
 
@@ -25,12 +25,12 @@ def main():
     """
     
     print("=" * 60)
-    print("Enhanced SanTOK Semantic Trainer - Basic Example")
+    print("Enhanced SOMA Semantic Trainer - Basic Example")
     print("=" * 60)
     print()
     
     # Step 1: Tokenize with all streams
-    print("Step 1: Tokenizing with SanTOK (all streams)...")
+    print("Step 1: Tokenizing with SOMA (all streams)...")
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
     streams = tokenizer.build(text)
     
@@ -41,7 +41,7 @@ def main():
     
     # Step 2: Initialize enhanced trainer
     print("Step 2: Initializing enhanced trainer...")
-    trainer = EnhancedSanTOKSemanticTrainer(
+    trainer = EnhancedSOMASemanticTrainer(
         embedding_dim=768,
         window_size=5,
         epochs=5,

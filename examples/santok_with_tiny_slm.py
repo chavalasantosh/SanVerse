@@ -1,28 +1,28 @@
 """
-SanTOK + TinySLM Integration Example
+SOMA + TinySLM Integration Example
 
-This shows how to use TinySLM with SanTOK Cognitive.
+This shows how to use TinySLM with SOMA Cognitive.
 The flow is:
-  1. SanTOK Cognitive thinks (finds facts, reasons)
+  1. SOMA Cognitive thinks (finds facts, reasons)
   2. TinySLM talks (generates text from facts)
 
 Perfect for low-resource environments - runs on any CPU!
 """
 
-from santok_cognitive import UnifiedMemory, RelationType
-from santok_cognitive.slm import TinySLMWrapper
+from soma_cognitive import UnifiedMemory, RelationType
+from soma_cognitive.slm import TinySLMWrapper
 
 
 def main():
-    """Complete example: SanTOK Cognitive + TinySLM."""
+    """Complete example: SOMA Cognitive + TinySLM."""
     
     print("=" * 60)
-    print("SanTOK Cognitive + TinySLM Integration")
+    print("SOMA Cognitive + TinySLM Integration")
     print("=" * 60)
     print()
     
-    # Step 1: Create SanTOK Cognitive memory
-    print("1. Setting up SanTOK Cognitive...")
+    # Step 1: Create SOMA Cognitive memory
+    print("1. Setting up SOMA Cognitive...")
     memory = UnifiedMemory()
     
     # Add some knowledge
@@ -48,8 +48,8 @@ def main():
     print("   ✓ TinySLM ready")
     print()
     
-    # Step 3: Query SanTOK Cognitive and get facts
-    print("3. Querying SanTOK Cognitive...")
+    # Step 3: Query SOMA Cognitive and get facts
+    print("3. Querying SOMA Cognitive...")
     query = "What is Python?"
     
     # Search for relevant facts

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Import Validator for SanTOK
+Import Validator for SOMA
 Validates that all imports work correctly
 """
 

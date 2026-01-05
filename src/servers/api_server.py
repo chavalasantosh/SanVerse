@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-FastAPI Backend Server for SanTOK Tokenizer
+FastAPI Backend Server for SOMA Tokenizer
 Connects the frontend to the actual Python tokenization engine
 """
 
@@ -31,14 +31,14 @@ except ImportError as e:
         print("Make sure core_tokenizer.py, compression_algorithms.py, and unique_identifier.py are in the same directory")
         sys.exit(1)
 # Create a wrapper class for compatibility
-class SanTOKTokenizer:
+class SOMATokenizer:
     def tokenize(self, text, tokenizer_type='space'):
         return tokenize_text(text, tokenizer_type)
     def all_tokenizations(self, text):
         return all_tokenizations(text)
 
 app = FastAPI(
-    title="SanTOK Tokenizer API",
+    title="SOMA Tokenizer API",
     description="Advanced Text Tokenization Platform",
     version="1.0.0"
 )
@@ -99,11 +99,11 @@ class CompressionAnalysis(BaseModel):
     reversibility: bool
 
 # Initialize tokenizer
-tokenizer = SanTOKTokenizer()
+tokenizer = SOMATokenizer()
 
 @app.get("/")
 async def root():
-    return {"message": "SanTOK Tokenizer API is running!", "version": "1.0.0"}
+    return {"message": "SOMA Tokenizer API is running!", "version": "1.0.0"}
 
 @app.get("/health")
 async def health_check():
@@ -111,7 +111,7 @@ async def health_check():
 
 @app.post("/tokenize", response_model=TokenizationResult)
 async def tokenize_text(request: TokenizationRequest):
-    """Tokenize text using the SanTOK Tokenizer"""
+    """Tokenize text using the SOMA Tokenizer"""
     try:
         start_time = time.time()
         start_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
@@ -281,7 +281,7 @@ async def validate_tokenization(request: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting SanTOK Tokenizer API Server...")
+    print("🚀 Starting SOMA Tokenizer API Server...")
     print("📡 Frontend should connect to: http://localhost:8000")
     print("🌐 API Documentation: http://localhost:8000/docs")
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

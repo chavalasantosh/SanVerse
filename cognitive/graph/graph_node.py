@@ -1,5 +1,5 @@
 """
-GraphNode: A node in SanTOK's knowledge graph.
+GraphNode: A node in SOMA's knowledge graph.
 
 Each node represents a piece of knowledge (token, concept, entity, etc.)
 and can be connected to other nodes via edges.
@@ -139,9 +139,9 @@ class GraphNode:
     @classmethod
     def from_token(cls, token) -> "GraphNode":
         """
-        Create GraphNode from a SanTOK TokenRecord.
+        Create GraphNode from a SOMA TokenRecord.
         
-        This bridges src's TokenRecord to santok_cognitive's GraphNode.
+        This bridges src's TokenRecord to SOMA_cognitive's GraphNode.
         
         Args:
             token: A TokenRecord from src.core.core_tokenizer

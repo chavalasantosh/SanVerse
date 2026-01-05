@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive Performance Test for SanTOK
+Comprehensive Performance Test for SOMA
 """
 
 import sys
@@ -164,7 +164,7 @@ def test_reconstruction_performance(text, tokenizer_type, iterations=10):
 def comprehensive_performance_test():
     """Run comprehensive performance tests"""
     
-    print("[START] SanTOK Comprehensive Performance Test")
+    print("[START] SOMA Comprehensive Performance Test")
     print("=" * 80)
     
     # Generate test data

@@ -21,7 +21,7 @@ import pickle
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.embeddings.vector_store import FAISSVectorStore
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
 
 
 def quick_load_vector_store(output_dir="workflow_output", max_batches=30):

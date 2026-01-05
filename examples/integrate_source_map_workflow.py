@@ -2,7 +2,7 @@
 Complete Source Map Integration Example
 ========================================
 
-Demonstrates how to use the SanTOK Source Map system in a complete workflow
+Demonstrates how to use the SOMA Source Map system in a complete workflow
 from tokenization to embedding generation with source tagging.
 
 Designed for Railway compute execution.
@@ -19,7 +19,7 @@ from src.integration.source_map_integration import (
     SourceMapEmbeddingGenerator,
     create_source_aware_workflow
 )
-from src.santok_sources import get_source_map
+from src.SOMA_sources import get_source_map
 
 
 def example_basic_workflow():
@@ -29,7 +29,7 @@ def example_basic_workflow():
     print("=" * 80)
     
     text = """
-    SanTOK is a universal tokenization system that supports multiple algorithms.
+    SOMA is a universal tokenization system that supports multiple algorithms.
     It can tokenize text using space, word, character, grammar, and subword methods.
     The system generates embeddings that can be merged from multiple knowledge sources.
     """
@@ -160,7 +160,7 @@ def example_custom_source():
 def main():
     """Run all examples."""
     print("\n" + "=" * 80)
-    print("SANTOK SOURCE MAP INTEGRATION EXAMPLES")
+    print("SOMA SOURCE MAP INTEGRATION EXAMPLES")
     print("=" * 80)
     print("\nDemonstrating complete source map integration workflow...")
     

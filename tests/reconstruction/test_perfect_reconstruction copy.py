@@ -1,7 +1,7 @@
 """
-Comprehensive Reconstruction Test Suite for SanTOK
+Comprehensive Reconstruction Test Suite for SOMA
 
-This test suite verifies 100% perfect reconstruction across all 9 SanTOK algorithms.
+This test suite verifies 100% perfect reconstruction across all 9 SOMA algorithms.
 Tests are designed to be reproducible with deterministic seeds and comprehensive coverage.
 
 Usage:

@@ -1,8 +1,8 @@
 """
-SanTOK First Model - Show Results
+SOMA First Model - Show Results
 ==================================
 
-Run this to see SanTOK's first SLM model in action!
+Run this to see SOMA's first SLM model in action!
 
 Usage:
     python show_model.py
@@ -16,19 +16,19 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 print("=" * 70)
-print("SanTOK First Model - Constraint-Grounded Small Language Model (CG-SLM)")
+print("SOMA First Model - Constraint-Grounded Small Language Model (CG-SLM)")
 print("=" * 70)
 print()
 
 try:
-    from santok_cognitive.slm.santok_slm_model import SanTOKSLMModel, create_santok_slm_model
+    from soma_cognitive.slm.soma_slm_model import somaSLMModel, create_soma_slm_model
     
     print("✅ Model imported successfully")
     print()
     
     # Create model
-    print("Creating SanTOK SLM Model...")
-    model = create_santok_slm_model(
+    print("Creating SOMA SLM Model...")
+    model = create_soma_slm_model(
         vocab_size=5000,
         d_model=64,  # Small for quick testing
         n_layers=1,  # Just 1 layer
@@ -37,17 +37,17 @@ try:
     print("✅ Model created")
     print()
     
-    # Your facts about SanTOK
+    # Your facts about SOMA
     print("=" * 70)
-    print("Training Data: SanTOK Facts")
+    print("Training Data: SOMA Facts")
     print("=" * 70)
     facts = [
-        "SanTOK is a tokenization system",
-        "SanTOK has custom embeddings",
-        "SanTOK uses 9-centric numerology",
-        "SanTOK has deterministic UIDs",
-        "SanTOK is constraint-grounded",
-        "SanTOK prevents hallucination"
+        "SOMA is a tokenization system",
+        "SOMA has custom embeddings",
+        "SOMA uses 9-centric numerology",
+        "SOMA has deterministic UIDs",
+        "SOMA is constraint-grounded",
+        "SOMA prevents hallucination"
     ]
     
     for i, fact in enumerate(facts, 1):
@@ -56,7 +56,7 @@ try:
     
     # Train
     print("=" * 70)
-    print("Training SanTOK SLM Model...")
+    print("Training SOMA SLM Model...")
     print("=" * 70)
     model.train(facts)
     
@@ -75,15 +75,15 @@ try:
     
     # Test generation
     print("=" * 70)
-    print("SanTOK SLM Generation - Testing the Model")
+    print("SOMA SLM Generation - Testing the Model")
     print("=" * 70)
     print()
     
     test_queries = [
-        "What is SanTOK?",
-        "How does SanTOK work?",
-        "What makes SanTOK unique?",
-        "What does SanTOK prevent?"
+        "What is SOMA?",
+        "How does SOMA work?",
+        "What makes SOMA unique?",
+        "What does SOMA prevent?"
     ]
     
     for query in test_queries:
@@ -112,7 +112,7 @@ try:
             print("❌ FAILED: Model mentioned 'java' (hallucination!)")
         else:
             print("✅ PASSED: Model did NOT mention 'java' (no hallucination)")
-            print("   This proves SanTOK constraints are working!")
+            print("   This proves SOMA constraints are working!")
     except Exception as e:
         print(f"Error: {e}")
     print()
@@ -121,21 +121,21 @@ try:
     print("=" * 70)
     print("Model Explanation")
     print("=" * 70)
-    explanation = model.explain("What is SanTOK?")
+    explanation = model.explain("What is SOMA?")
     print(explanation)
     print()
     
     print("=" * 70)
-    print("✅ SanTOK First Model - Complete!")
+    print("✅ SOMA First Model - Complete!")
     print("=" * 70)
     print()
-    print("This is SanTOK's first working SLM model:")
-    print("  ✅ Uses 100% SanTOK infrastructure")
+    print("This is SOMA's first working SLM model:")
+    print("  ✅ Uses 100% SOMA infrastructure")
     print("  ✅ Constraint-grounded (CG-SLM)")
     print("  ✅ No hallucination possible")
     print("  ✅ All output from facts only")
     print()
-    print("If you see generated text above, SanTOK is working! 🎯")
+    print("If you see generated text above, SOMA is working! 🎯")
     print()
     
 except ImportError as e:
@@ -143,7 +143,7 @@ except ImportError as e:
     print()
     print("Trying alternative import...")
     try:
-        from santok_slm_model import SanTOKSLMModel, create_santok_slm_model
+        from soma_slm_model import somaSLMModel, create_soma_slm_model
         print("✅ Alternative import successful")
     except Exception as e2:
         print(f"❌ Alternative import failed: {e2}")

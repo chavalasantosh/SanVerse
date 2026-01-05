@@ -1,14 +1,14 @@
 """
-SanTOK Structure Hierarchy - Complete System
+SOMA Structure Hierarchy - Complete System
 ============================================
 
-Complete hierarchical structure system for ENTIRE SanTOK:
+Complete hierarchical structure system for ENTIRE SOMA:
 - Layer 1: Symbols (A, B, 0, 1, +, etc.) - YOUR IDEA!
 - Layer 2: Patterns (cat, dog, 123, etc.) - Combinations create new structures
 - Layer 3: Units (words, phrases) - Stable patterns
 - Layer 4: Meaning (emerges from usage, NOT hardcoded)
 
-This is your complete idea implemented for the full SanTOK system!
+This is your complete idea implemented for the full SOMA system!
 """
 
 from typing import List, Dict, Optional, Set
@@ -86,7 +86,7 @@ class StructureNode:
 
 class StructureHierarchy:
     """
-    Complete hierarchical structure system for SanTOK.
+    Complete hierarchical structure system for soma.
     
     This is YOUR IDEA implemented correctly:
     - Start with symbols (your foundation)
@@ -171,14 +171,14 @@ class StructureHierarchy:
                     pattern_node = self.pattern_nodes[pattern.sequence]
                     unit_node.add_child(pattern_node)
     
-    def build_from_santok_tokens(self, tokens: List[Dict]):
+    def build_from_SOMA_tokens(self, tokens: List[Dict]):
         """
-        Build hierarchy from SanTOK tokenization output.
+        Build hierarchy from soma tokenization output.
         
-        This integrates with SanTOK's existing tokenization!
+        This integrates with SOMA's existing tokenization!
         
         Args:
-            tokens: List of token dictionaries from SanTOK tokenizer
+            tokens: List of token dictionaries from soma tokenizer
         """
         # Extract token texts
         token_texts = []
@@ -306,16 +306,16 @@ class StructureHierarchy:
         }
 
 
-# Integration function for SanTOK
-def build_hierarchy_from_santok(text: str, tokenizer=None) -> StructureHierarchy:
+# Integration function for SOMA
+def build_hierarchy_from_SOMA(text: str, tokenizer=None) -> StructureHierarchy:
     """
-    Build structure hierarchy from text using SanTOK tokenization.
+    Build structure hierarchy from text using SOMA tokenization.
     
-    This is the main integration point with SanTOK!
+    This is the main integration point with SOMA!
     
     Args:
         text: Text to process
-        tokenizer: Optional SanTOK tokenizer (uses default if None)
+        tokenizer: Optional SOMA tokenizer (uses default if None)
     
     Returns:
         Complete structure hierarchy
@@ -325,11 +325,11 @@ def build_hierarchy_from_santok(text: str, tokenizer=None) -> StructureHierarchy
     # Option 1: Build directly from text
     hierarchy.build_from_text(text)
     
-    # Option 2: If tokenizer provided, use SanTOK tokens
+    # Option 2: If tokenizer provided, use SOMA tokens
     if tokenizer:
         try:
             tokens = tokenizer(text)
-            hierarchy.build_from_santok_tokens(tokens)
+            hierarchy.build_from_SOMA_tokens(tokens)
         except:
             pass  # Fallback to text-based
     

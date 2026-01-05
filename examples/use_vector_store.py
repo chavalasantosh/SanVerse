@@ -20,7 +20,7 @@ import pickle
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.embeddings.vector_store import FAISSVectorStore
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
 
 
 def load_vector_store(output_dir="workflow_output", max_batches=30):
@@ -61,7 +61,7 @@ def load_vector_store(output_dir="workflow_output", max_batches=30):
     vector_store = FAISSVectorStore(embedding_dim=embedding_dim)
     
     # Initialize embedding generator to create query embeddings
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=embedding_dim
     )

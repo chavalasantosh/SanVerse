@@ -1,16 +1,16 @@
 """
-Integration Example: SanTOK Cognitive + NumPy GPT
+Integration Example: SOMA Cognitive + NumPy GPT
 =================================================
 
-This example shows how to use SanTOK Cognitive with your
+This example shows how to use SOMA Cognitive with your
 NumPy GPT to create a powerful hybrid reasoning system.
 
 The key insight:
-    SanTOK Cognitive does the THINKING (symbolic reasoning)
+    SOMA Cognitive does the THINKING (symbolic reasoning)
     NumPy GPT does the SPEAKING (natural language generation)
 
 Run this example:
-    python -m santok_cognitive.examples.numpy_gpt_integration
+    python -m SOMA_cognitive.examples.numpy_gpt_integration
 """
 
 import sys
@@ -78,7 +78,7 @@ class MockNumPyGPT:
     """
     Mock NumPy GPT for demonstration.
     
-    Replace this with your actual SanTOKLanguageModel from:
+    Replace this with your actual SOMALanguageModel from:
     src.training.language_model_trainer
     """
     
@@ -88,9 +88,9 @@ class MockNumPyGPT:
         
         In production, this would use your actual NumPy GPT:
         
-            from src.training.language_model_trainer import SanTOKLanguageModel
+            from src.training.language_model_trainer import somaLanguageModel
             
-            model = SanTOKLanguageModel.load("model_path")
+            model = SOMALanguageModel.load("model_path")
             return model.generate(prompt, max_tokens=max_tokens)
         """
         # For demo, return a simple response based on context
@@ -224,13 +224,13 @@ def main():
     
     print("""
 ╔═══════════════════════════════════════════════════════════════╗
-║          SanTOK Cognitive + NumPy GPT Integration             ║
+║          SOMA Cognitive + NumPy GPT Integration             ║
 ║                                                               ║
 ║   Architecture:                                               ║
 ║   Query → Cognitive (thinking) → Context → GPT (speaking)     ║
 ║                                                               ║
 ║   The GPT becomes a SPEAKER, not a THINKER.                   ║
-║   SanTOK Cognitive does the reasoning!                        ║
+║   SOMA Cognitive does the reasoning!                        ║
 ╚═══════════════════════════════════════════════════════════════╝
     """)
     
@@ -256,10 +256,10 @@ def main():
 To use with your actual NumPy GPT:
 
 1. Import your model:
-   from src.training.language_model_trainer import SanTOKLanguageModel
+   from src.training.language_model_trainer import somaLanguageModel
    
 2. Load or create model:
-   model = SanTOKLanguageModel(vocab_size=60000, embed_dim=768, num_heads=12)
+   model = SOMALanguageModel(vocab_size=60000, embed_dim=768, num_heads=12)
    
 3. Set as generator:
    pipeline.set_llm_generator(lambda prompt: model.generate(prompt, max_tokens=200))
@@ -270,7 +270,7 @@ To use with your actual NumPy GPT:
    print(answer.explain())
 
 Your NumPy GPT is now MUCH more powerful because:
-- SanTOK Cognitive provides structured context
+- SOMA Cognitive provides structured context
 - Symbolic reasoning derives new facts
 - Contradictions are detected and flagged
 - Explanations are grounded in evidence

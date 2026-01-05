@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Code Quality Checker for SanTOK
+Code Quality Checker for SOMA
 Checks for common code quality issues
 """
 

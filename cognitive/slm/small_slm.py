@@ -1,17 +1,17 @@
 """
-SanTOK Small Language Model (SLM)
+SOMA Small Language Model (SLM)
 =================================
 
 Constraint-Grounded Small Language Model (CG-SLM)
 
-A lightweight, CPU-friendly language model that uses ONLY SanTOK's custom infrastructure.
+A lightweight, CPU-friendly language model that uses ONLY SOMA's custom infrastructure.
 
-100% SANTOK-NATIVE - NO THIRD-PARTY AI DEPENDENCIES:
-- ✅ Uses ONLY SanTOK tokenization (custom implementation)
-- ✅ Uses ONLY SanTOK embeddings (custom implementation)
-- ✅ Uses ONLY SanTOK semantic processing (custom implementation)
-- ✅ Uses ONLY SanTOK trees and graphs (custom implementation)
-- ✅ Uses ONLY SanTOK training/testing (custom implementation)
+100% SOMA-NATIVE - NO THIRD-PARTY AI DEPENDENCIES:
+- ✅ Uses ONLY SOMA tokenization (custom implementation)
+- ✅ Uses ONLY SOMA embeddings (custom implementation)
+- ✅ Uses ONLY SOMA semantic processing (custom implementation)
+- ✅ Uses ONLY SOMA trees and graphs (custom implementation)
+- ✅ Uses ONLY SOMA training/testing (custom implementation)
 
 SYSTEM BEHAVIOR (SLM Characteristics):
 ✅ Has embeddings
@@ -22,7 +22,7 @@ SYSTEM BEHAVIOR (SLM Characteristics):
 
 This IS an SLM, but of a different class:
 - Class: Constraint-Grounded Small Language Model (CG-SLM)
-- Terminology: SanTOK SLM
+- Terminology: SOMA SLM
 
 DEPENDENCIES:
 - ✅ NumPy: ONLY as numerical substrate (arrays, math, matrix ops)
@@ -46,47 +46,47 @@ import math
 import sys
 import os
 
-# Add paths for SanTOK imports
+# Add paths for SOMA imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../../'))
 
 try:
     from src.src.core.core_tokenizer import tokenize_text
-    SANTOK_TOKENIZER_AVAILABLE = True
+    SOMA_TOKENIZER_AVAILABLE = True
 except ImportError:
     try:
         from src.core.core_tokenizer import tokenize_text
-        SANTOK_TOKENIZER_AVAILABLE = True
+        SOMA_TOKENIZER_AVAILABLE = True
     except ImportError:
-        SANTOK_TOKENIZER_AVAILABLE = False
-        print("Warning: SanTOK tokenizer not found, using fallback")
+        SOMA_TOKENIZER_AVAILABLE = False
+        print("Warning: SOMA tokenizer not found, using fallback")
 
-# Note: SanTOKEmbeddingGenerator may import TensorFlow, but we don't use it
+# Note: SOMAEmbeddingGenerator may import TensorFlow, but we don't use it
 # The SLM itself is pure NumPy and doesn't depend on TensorFlow
 try:
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-    SANTOK_EMBEDDINGS_AVAILABLE = True
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
+    SOMA_EMBEDDINGS_AVAILABLE = True
 except ImportError:
     try:
-        from embeddings.embedding_generator import SanTOKEmbeddingGenerator
-        SANTOK_EMBEDDINGS_AVAILABLE = True
+        from embeddings.embedding_generator import somaEmbeddingGenerator
+        SOMA_EMBEDDINGS_AVAILABLE = True
     except ImportError:
-        SANTOK_EMBEDDINGS_AVAILABLE = False
-        print("Warning: SanTOK embeddings not found, using fallback")
+        SOMA_EMBEDDINGS_AVAILABLE = False
+        print("Warning: SOMA embeddings not found, using fallback")
 
 try:
-    from santok_cognitive.algorithms.semantic_similarity import SanTOKSimilarity
-    SANTOK_SEMANTIC_AVAILABLE = True
+    from soma_cognitive.algorithms.semantic_similarity import somaSimilarity
+    SOMA_SEMANTIC_AVAILABLE = True
 except ImportError:
-    SANTOK_SEMANTIC_AVAILABLE = False
-    print("Warning: SanTOK semantic similarity not found, using fallback")
+    SOMA_SEMANTIC_AVAILABLE = False
+    print("Warning: SOMA semantic similarity not found, using fallback")
 
 try:
-    from santok_cognitive.graph import GraphStore
-    SANTOK_GRAPH_AVAILABLE = True
+    from soma_cognitive.graph import GraphStore
+    SOMA_GRAPH_AVAILABLE = True
 except ImportError:
-    SANTOK_GRAPH_AVAILABLE = False
-    print("Warning: SanTOK graph not found, using fallback")
+    SOMA_GRAPH_AVAILABLE = False
+    print("Warning: SOMA graph not found, using fallback")
 
 
 @dataclass
@@ -100,11 +100,11 @@ class SLMConfig:
     d_ff: int = 512  # Feed-forward dimension
     max_seq_len: int = 256  # Maximum sequence length
     
-    # SanTOK integration
-    use_santok_tokenizer: bool = True
-    use_santok_embeddings: bool = False  # Disabled by default to avoid TF imports
-    use_santok_semantic: bool = True
-    use_santok_graph: bool = True
+    # SOMA integration
+    use_SOMA_tokenizer: bool = True
+    use_SOMA_embeddings: bool = False  # Disabled by default to avoid TF imports
+    use_SOMA_semantic: bool = True
+    use_SOMA_graph: bool = True
     
     # Training
     learning_rate: float = 0.001
@@ -112,14 +112,14 @@ class SLMConfig:
     dropout: float = 0.1
 
 
-class SanTOKTokenizerWrapper:
-    """Wrapper for SanTOK tokenization"""
+class SOMATokenizerWrapper:
+    """Wrapper for SOMA tokenization"""
     
     def __init__(self):
-        self.tokenizer_available = SANTOK_TOKENIZER_AVAILABLE
+        self.tokenizer_available = SOMA_TOKENIZER_AVAILABLE
     
     def tokenize(self, text: str) -> List[str]:
-        """Tokenize text using SanTOK"""
+        """Tokenize text using SOMA"""
         if self.tokenizer_available:
             try:
                 tokens = tokenize_text(text, tokenizer_type="word")
@@ -142,7 +142,7 @@ class SanTOKTokenizerWrapper:
                 
                 return result if result else text.lower().split()
             except Exception as e:
-                print(f"SanTOK tokenizer error: {e}, using fallback")
+                print(f"SOMA tokenizer error: {e}, using fallback")
                 return text.lower().split()
         else:
             # Fallback to simple word splitting
@@ -170,7 +170,7 @@ class SanTOKTokenizerWrapper:
 
 
 class ConstraintEngine:
-    """Constraint engine using SanTOK Cognitive facts"""
+    """Constraint engine using SOMA Cognitive facts"""
     
     def __init__(self, facts: Optional[List[str]] = None):
         self.facts = facts or []
@@ -183,7 +183,7 @@ class ConstraintEngine:
     
     def _build_from_facts(self):
         """Extract tokens from facts"""
-        tokenizer = SanTOKTokenizerWrapper()
+        tokenizer = SOMATokenizerWrapper()
         
         for fact in self.facts:
             tokens = tokenizer.tokenize(fact)
@@ -215,7 +215,7 @@ class ConstraintEngine:
             return token in self.fact_tokens or token in structural
 
 
-class SanTOKPositionEncoder:
+class SOMAPositionEncoder:
     """Positional encoding using sinusoidal patterns"""
     
     def __init__(self, d_model: int, max_len: int = 5000):
@@ -237,7 +237,7 @@ class SanTOKPositionEncoder:
         return self.pe[:sequence_length, :]
 
 
-class SanTOKPatternMatcher:
+class SOMAPatternMatcher:
     """
     Lightweight pattern matcher (attention mechanism)
     
@@ -294,7 +294,7 @@ class SanTOKPatternMatcher:
         return output
 
 
-class SanTOKProcessor:
+class SOMAProcessor:
     """
     Feed-forward processor
     
@@ -328,12 +328,12 @@ class SanTOKProcessor:
         return h2
 
 
-class SanTOKSequenceBlock:
+class SOMASequenceBlock:
     """Single sequence processing block"""
     
     def __init__(self, d_model: int, n_heads: int, d_ff: int):
-        self.pattern_matcher = SanTOKPatternMatcher(d_model, n_heads)
-        self.processor = SanTOKProcessor(d_model, d_ff)
+        self.pattern_matcher = SOMAPatternMatcher(d_model, n_heads)
+        self.processor = SOMAProcessor(d_model, d_ff)
     
     def forward(self, x: np.ndarray) -> np.ndarray:
         """Forward pass with residual connections"""
@@ -360,7 +360,7 @@ class SanTOKSequenceBlock:
         return (x - mean) / np.sqrt(var + eps)
 
 
-class SanTOKSequenceOptimizer:
+class SOMASequenceOptimizer:
     """
     Lightweight sequence optimizer
     
@@ -382,11 +382,11 @@ class SanTOKSequenceOptimizer:
         self.embeddings = np.random.randn(self.vocab_size, config.d_model) * 0.02
         
         # Position encoder
-        self.pos_encoder = SanTOKPositionEncoder(config.d_model, config.max_seq_len)
+        self.pos_encoder = SOMAPositionEncoder(config.d_model, config.max_seq_len)
         
         # Sequence blocks
         self.blocks = [
-            SanTOKSequenceBlock(config.d_model, config.n_heads, config.d_ff)
+            SOMASequenceBlock(config.d_model, config.n_heads, config.d_ff)
             for _ in range(config.n_layers)
         ]
         
@@ -453,7 +453,7 @@ class SanTOKSequenceOptimizer:
 class ConstrainedDecoder:
     """Constrained decoder that integrates optimizer with constraints"""
     
-    def __init__(self, optimizer: SanTOKSequenceOptimizer, constraint_engine: ConstraintEngine):
+    def __init__(self, optimizer: SOMASequenceOptimizer, constraint_engine: ConstraintEngine):
         self.optimizer = optimizer
         self.constraint_engine = constraint_engine
     
@@ -511,18 +511,18 @@ class ConstrainedDecoder:
         return sequence
 
 
-class SmallSanTOKSLM:
-    """Complete Small SLM using SanTOK infrastructure"""
+class SmallSOMASLM:
+    """Complete Small SLM using SOMA infrastructure"""
     
     def __init__(self, config: Optional[SLMConfig] = None):
         self.config = config or SLMConfig()
-        self.tokenizer = SanTOKTokenizerWrapper()
+        self.tokenizer = SOMATokenizerWrapper()
         self.vocab: Optional[Dict[str, int]] = None
-        self.optimizer: Optional[SanTOKSequenceOptimizer] = None
+        self.optimizer: Optional[SOMASequenceOptimizer] = None
         self.constraint_engine: Optional[ConstraintEngine] = None
         self.decoder: Optional[ConstrainedDecoder] = None
         
-        # SanTOK integrations (optional - may import TF, but SLM core doesn't use TF)
+        # SOMA integrations (optional - may import TF, but SLM core doesn't use TF)
         # Note: The SLM core itself is 100% NumPy, no TensorFlow dependency
         self.embedding_generator = None
         self.semantic_similarity = None
@@ -530,25 +530,25 @@ class SmallSanTOKSLM:
         
         # Embeddings are optional - disabled by default to avoid TF imports
         # The SLM works perfectly without embeddings (uses its own NumPy-based optimizer)
-        if self.config.use_santok_embeddings and SANTOK_EMBEDDINGS_AVAILABLE:
+        if self.config.use_SOMA_embeddings and SOMA_EMBEDDINGS_AVAILABLE:
             try:
                 # This may import TensorFlow, but we don't use it in SLM core
-                self.embedding_generator = SanTOKEmbeddingGenerator(strategy="feature_based")
+                self.embedding_generator = SOMAEmbeddingGenerator(strategy="feature_based")
             except Exception as e:
-                print(f"Warning: Could not initialize SanTOK embeddings: {e}")
+                print(f"Warning: Could not initialize SOMA embeddings: {e}")
                 print("Note: SLM works fine without embeddings - uses pure NumPy optimizer")
         
-        if self.config.use_santok_semantic and SANTOK_SEMANTIC_AVAILABLE:
+        if self.config.use_SOMA_semantic and SOMA_SEMANTIC_AVAILABLE:
             try:
-                self.semantic_similarity = SanTOKSimilarity()
+                self.semantic_similarity = SOMASimilarity()
             except Exception as e:
-                print(f"Warning: Could not initialize SanTOK semantic: {e}")
+                print(f"Warning: Could not initialize SOMA semantic: {e}")
         
-        if self.config.use_santok_graph and SANTOK_GRAPH_AVAILABLE:
+        if self.config.use_SOMA_graph and SOMA_GRAPH_AVAILABLE:
             try:
                 self.graph_store = GraphStore()
             except Exception as e:
-                print(f"Warning: Could not initialize SanTOK graph: {e}")
+                print(f"Warning: Could not initialize SOMA graph: {e}")
     
     def train(self, texts: List[str], facts: Optional[List[str]] = None):
         """Train the SLM on texts and facts"""
@@ -567,7 +567,7 @@ class SmallSanTOKSLM:
         
         # Initialize optimizer
         print("Initializing sequence optimizer...")
-        self.optimizer = SanTOKSequenceOptimizer(self.config, self.vocab)
+        self.optimizer = SOMASequenceOptimizer(self.config, self.vocab)
         
         # Initialize decoder
         self.decoder = ConstrainedDecoder(self.optimizer, self.constraint_engine)
@@ -603,7 +603,7 @@ class SmallSanTOKSLM:
 # Example usage
 if __name__ == "__main__":
     print("=" * 60)
-    print("SanTOK Small Language Model (SLM)")
+    print("SOMA Small Language Model (SLM)")
     print("=" * 60)
     
     # Create SLM
@@ -614,7 +614,7 @@ if __name__ == "__main__":
         vocab_size=5000
     )
     
-    slm = SmallSanTOKSLM(config)
+    slm = SmallSOMASLM(config)
     
     # Training data
     facts = [

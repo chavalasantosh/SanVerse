@@ -1,15 +1,15 @@
 """
-SanTOK Pattern Builder - Core System
+SOMA Pattern Builder - Core System
 =====================================
 
-Builds patterns from symbol combinations for the ENTIRE SanTOK system.
+Builds patterns from symbol combinations for the ENTIRE SOMA system.
 
 This is where your idea comes to life:
 - Symbols (c, a, t) → Pattern ("cat")
 - Patterns emerge from usage
 - No hardcoded meanings!
 
-Integrates with SanTOK's tokenization system.
+Integrates with SOMA's tokenization system.
 """
 
 from typing import List, Dict, Tuple, Set
@@ -88,7 +88,7 @@ class PatternBuilder:
     """
     Builds patterns from text by observing symbol combinations.
     
-    This integrates with SanTOK's tokenization system.
+    This integrates with SOMA's tokenization system.
     Works with any text input and learns patterns automatically.
     """
     
@@ -147,12 +147,12 @@ class PatternBuilder:
     
     def learn_from_tokens(self, tokens: List[str]):
         """
-        Learn patterns from SanTOK tokens.
+        Learn patterns from soma tokens.
         
-        This integrates with SanTOK's tokenization output.
+        This integrates with SOMA's tokenization output.
         
         Args:
-            tokens: List of tokens from SanTOK tokenizer
+            tokens: List of tokens from soma tokenizer
         """
         # Treat each token as a potential pattern
         for token in tokens:
@@ -229,22 +229,22 @@ class PatternBuilder:
         }
 
 
-# Integration function for SanTOK
-def build_patterns_from_santok_tokens(tokens: List[Dict]) -> PatternBuilder:
+# Integration function for SOMA
+def build_patterns_from_SOMA_tokens(tokens: List[Dict]) -> PatternBuilder:
     """
-    Build patterns from SanTOK tokenization output.
+    Build patterns from soma tokenization output.
     
-    This integrates with SanTOK's existing tokenization system.
+    This integrates with SOMA's existing tokenization system.
     
     Args:
-        tokens: List of token dictionaries from SanTOK tokenizer
+        tokens: List of token dictionaries from soma tokenizer
     
     Returns:
         PatternBuilder with learned patterns
     """
     builder = PatternBuilder()
     
-    # Extract token text from SanTOK format
+    # Extract token text from soma format
     token_texts = []
     for token in tokens:
         if isinstance(token, dict):

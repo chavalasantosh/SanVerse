@@ -1,5 +1,5 @@
 """
-SanTOK Utility Modules
+SOMA Utility Modules
 """
 
 from .logging_config import setup_logging, get_logger

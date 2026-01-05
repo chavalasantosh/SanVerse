@@ -1,8 +1,8 @@
 """
-Quick Test Script - Run This to Test SanTOK SLM
+Quick Test Script - Run This to Test SOMA SLM
 ===============================================
 
-This is the simplest way to test if SanTOK is working.
+This is the simplest way to test if SOMA is working.
 
 Usage:
     python run_model.py
@@ -15,18 +15,18 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
-from santok_cognitive.slm.santok_slm_model import SanTOKSLMModel, create_santok_slm_model
+from soma_cognitive.slm.soma_slm_model import somaSLMModel, create_soma_slm_model
 
 
 def main():
     print("=" * 60)
-    print("SanTOK SLM Model - Quick Test")
+    print("SOMA SLM Model - Quick Test")
     print("=" * 60)
     print()
     
     # Create model
     print("Creating model...")
-    model = create_santok_slm_model(
+    model = create_soma_slm_model(
         vocab_size=5000,
         d_model=64,  # Small for quick testing
         n_layers=1,  # Just 1 layer
@@ -85,7 +85,7 @@ def main():
     print("✅ Test Complete!")
     print("=" * 60)
     print()
-    print("If you see generated text above, SanTOK is working!")
+    print("If you see generated text above, SOMA is working!")
     print("The model can only generate tokens from your facts.")
     print()
 

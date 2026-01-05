@@ -1,5 +1,5 @@
 """
-SanTOK Package
+SOMA Package
 A comprehensive text tokenization system with mathematical analysis and statistical features
 """
 
@@ -8,7 +8,7 @@ __author__ = "Santosh Chavala"
 __email__ = "chavalasantosh@example.com"
 
 # Import the main class and convenience functions
-from .santok import (
+from .SOMA import (
     TextTokenizationEngine, 
     tokenize_text, 
     analyze_text_comprehensive, 

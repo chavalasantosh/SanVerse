@@ -1,8 +1,8 @@
 """
-SanTOK Query Parser - Natural Language to Structured Query
+SOMA Query Parser - Natural Language to Structured Query
 =========================================================
 
-SANTOK-ORIGINAL. NO NLP LIBRARIES. NO NEURAL PARSING.
+SOMA-ORIGINAL. NO NLP LIBRARIES. NO NEURAL PARSING.
 
 Parses natural language queries into structured representations
 using pure pattern matching and rule-based analysis.
@@ -98,9 +98,9 @@ class ParsedQuery:
         return "\n".join(lines)
 
 
-class SanTOKQueryParser:
+class SOMAQueryParser:
     """
-    SanTOK Natural Language Query Parser.
+    SOMA Natural Language Query Parser.
     
     100% RULE-BASED. NO NLP. NO NEURAL NETWORKS.
     
@@ -108,7 +108,7 @@ class SanTOKQueryParser:
     that can be executed against the knowledge base.
     
     Example:
-        parser = SanTOKQueryParser()
+        parser = SOMAQueryParser()
         
         parsed = parser.parse("What is machine learning?")
         print(parsed.query_type)  # QueryType.DEFINITION
@@ -196,7 +196,7 @@ class SanTOKQueryParser:
     NOISE_WORDS = {"please", "could", "would", "can", "tell", "me", "i", "want", "to", "know"}
     
     def __init__(self):
-        """Initialize SanTOK Query Parser."""
+        """Initialize SOMA Query Parser."""
         # Compile patterns
         self._compiled_patterns = [
             (re.compile(pattern, re.IGNORECASE), qtype, subj_grp, obj_grp)
@@ -365,5 +365,5 @@ class SanTOKQueryParser:
         return suggestions
     
     def __repr__(self) -> str:
-        return f"SanTOKQueryParser(patterns={len(self.PATTERNS)})"
+        return f"SOMAQueryParser(patterns={len(self.PATTERNS)})"
 

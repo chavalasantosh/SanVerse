@@ -9,8 +9,8 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
-from src.embeddings.semantic_trainer import SanTOKSemanticTrainer
+from src.embeddings.embedding_generator import somaEmbeddingGenerator
+from src.embeddings.semantic_trainer import somaSemanticTrainer
 from src.embeddings.vector_store import ChromaVectorStore, FAISSVectorStore
 from src.core.core_tokenizer import TextTokenizer, all_tokenizations
 

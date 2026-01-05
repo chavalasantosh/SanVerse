@@ -1,8 +1,8 @@
 """
-Test SanTOK Source Map Integration
+Test SOMA Source Map Integration
 ===================================
 
-This script demonstrates how to use the SanTOK Source Map system
+This script demonstrates how to use the SOMA Source Map system
 for token source tagging and embedding merging.
 
 Designed for Railway compute execution.
@@ -23,10 +23,10 @@ print("Loading modules...", flush=True)
 sys.stdout.flush()
 
 try:
-    from src.santok_sources import get_source_map, SANTOK_SOURCES
-    print("✓ Loaded santok_sources", flush=True)
+    from src.SOMA_sources import get_source_map, SOMA_SOURCES
+    print("✓ Loaded SOMA_sources", flush=True)
 except ImportError as e:
-    print(f"✗ Failed to import santok_sources: {e}", flush=True, file=sys.stderr)
+    print(f"✗ Failed to import soma_sources: {e}", flush=True, file=sys.stderr)
     raise
 
 try:
@@ -37,7 +37,7 @@ except ImportError as e:
     raise
 
 try:
-    from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+    from src.embeddings.embedding_generator import somaEmbeddingGenerator
     print("✓ Loaded embedding_generator", flush=True)
 except ImportError as e:
     print(f"✗ Failed to import embedding_generator: {e}", flush=True, file=sys.stderr)
@@ -86,7 +86,7 @@ def test_source_tagging():
     source_map = get_source_map()
     
     # Example: Tokenize text from Wikipedia source
-    text = "SanTOK is a universal tokenization system."
+    text = "SOMA is a universal tokenization system."
     
     print(f"\n✓ Tokenizing text from Wikipedia source...")
     print(f"  Text: '{text}'")
@@ -216,7 +216,7 @@ def test_integration_with_tokenizer():
     
     # Sample text (simulating Wikipedia content)
     text = """
-    SanTOK is a universal tokenization system that supports multiple algorithms.
+    SOMA is a universal tokenization system that supports multiple algorithms.
     It can tokenize text using space, word, character, grammar, and subword methods.
     The system generates embeddings that can be merged from multiple knowledge sources.
     """
@@ -239,7 +239,7 @@ def test_integration_with_tokenizer():
     # Generate embeddings with source tagging
     print(f"\n✓ Generating embeddings with source tagging...")
     
-    generator = SanTOKEmbeddingGenerator()
+    generator = SOMAEmbeddingGenerator()
     
     # Get source tags
     source_tags = source_map.get_source_tags_for_token(
@@ -266,9 +266,9 @@ def main():
     sys.stderr.flush()
     
     print("\n" + "=" * 80, flush=True)
-    print("SANTOK SOURCE MAP TEST SUITE", flush=True)
+    print("SOMA SOURCE MAP TEST SUITE", flush=True)
     print("=" * 80, flush=True)
-    print("\nTesting SanTOK Source Map system for Railway compute...", flush=True)
+    print("\nTesting SOMA Source Map system for Railway compute...", flush=True)
     sys.stdout.flush()
     
     try:
@@ -302,7 +302,7 @@ if __name__ == "__main__":
     sys.stderr.flush()
     
     # Print immediately so job manager knows we started
-    print("Starting SanTOK Source Map test...", flush=True)
+    print("Starting SOMA Source Map test...", flush=True)
     sys.stdout.flush()
     
     exit(main())

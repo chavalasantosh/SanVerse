@@ -1,5 +1,5 @@
 """
-GraphEdge: A directed edge in SanTOK's knowledge graph.
+GraphEdge: A directed edge in SOMA's knowledge graph.
 
 Represents a typed relationship between two nodes.
 """

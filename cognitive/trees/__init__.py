@@ -1,5 +1,5 @@
 """
-SanTOK Cognitive - Trees Module
+SOMA Cognitive - Trees Module
 ===============================
 
 Hierarchical knowledge organization:

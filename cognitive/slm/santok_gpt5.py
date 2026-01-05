@@ -1,13 +1,13 @@
 """
-SanTOK GPT-5 Level Architecture
+SOMA GPT-5 Level Architecture
 ================================
 
-Next-generation SanTOK LLM with:
+Next-generation SOMA LLM with:
 - Mixture of Experts (MoE)
 - Structural Attention
 - Long Context (32K-128K)
 - Multi-Modal Support
-- SanTOK Cognitive Integration
+- SOMA Cognitive Integration
 - 1.7T-10T parameters (via MoE)
 
 This is the foundation for GPT-5 level capabilities.
@@ -24,8 +24,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 
 @dataclass
-class SanTOKGPT5Config:
-    """Configuration for SanTOK GPT-5 Level Model"""
+class SOMAGPT5Config:
+    """Configuration for SOMA GPT-5 Level Model"""
     
     # Core Architecture
     vocab_size: int = 512000  # 512K vocabulary (GPT-5 level)
@@ -86,7 +86,7 @@ class RouterNetwork:
         return expert_weights, top_indices
 
 
-class SanTOKExpert:
+class SOMAExpert:
     """Single Expert Network in MoE"""
     
     def __init__(self, d_model: int, d_ff: int):
@@ -107,14 +107,14 @@ class SanTOKExpert:
         return out
 
 
-class SanTOKMoELayer:
+class SOMAMoELayer:
     """Mixture of Experts Layer"""
     
-    def __init__(self, config: SanTOKGPT5Config):
+    def __init__(self, config: SOMAGPT5Config):
         self.config = config
         self.router = RouterNetwork(config.d_model, config.num_experts)
         self.experts = [
-            SanTOKExpert(config.d_model, config.d_ff)
+            SOMAExpert(config.d_model, config.d_ff)
             for _ in range(config.num_experts)
         ]
     
@@ -159,7 +159,7 @@ class SanTOKMoELayer:
 
 
 class StructuralAttention:
-    """Attention with SanTOK structural awareness"""
+    """Attention with SOMA structural awareness"""
     
     def __init__(self, d_model: int, n_heads: int):
         self.d_model = d_model
@@ -217,17 +217,17 @@ class StructuralAttention:
         return output
 
 
-class SanTOKGPT5Block:
+class SOMAGPT5Block:
     """Single transformer block with MoE and structural attention"""
     
-    def __init__(self, config: SanTOKGPT5Config):
+    def __init__(self, config: SOMAGPT5Config):
         self.config = config
         
         # Structural attention
         self.attention = StructuralAttention(config.d_model, config.n_heads)
         
         # MoE layer (replaces standard FFN)
-        self.moe = SanTOKMoELayer(config)
+        self.moe = SOMAMoELayer(config)
         
         # Layer norms
         self.ln1 = np.ones(config.d_model)  # Simplified layer norm
@@ -246,10 +246,10 @@ class SanTOKGPT5Block:
         return x
 
 
-class SanTOKGPT5:
-    """SanTOK GPT-5 Level Model"""
+class SOMAGPT5:
+    """SOMA GPT-5 Level Model"""
     
-    def __init__(self, config: SanTOKGPT5Config):
+    def __init__(self, config: SOMAGPT5Config):
         self.config = config
         
         # Token embeddings
@@ -260,7 +260,7 @@ class SanTOKGPT5:
         
         # Transformer blocks
         self.blocks = [
-            SanTOKGPT5Block(config)
+            SOMAGPT5Block(config)
             for _ in range(config.n_layers)
         ]
         
@@ -356,12 +356,12 @@ class SanTOKGPT5:
 # Quick test
 if __name__ == "__main__":
     print("=" * 70)
-    print("SanTOK GPT-5 Level Architecture")
+    print("SOMA GPT-5 Level Architecture")
     print("=" * 70)
     print()
     
     # Create config
-    config = SanTOKGPT5Config(
+    config = SOMAGPT5Config(
         vocab_size=512000,
         d_model=8192,
         n_layers=120,
@@ -369,7 +369,7 @@ if __name__ == "__main__":
         num_experts=16
     )
     
-    print("Creating SanTOK GPT-5 model...")
+    print("Creating SOMA GPT-5 model...")
     print(f"  Vocab: {config.vocab_size:,}")
     print(f"  Model dim: {config.d_model:,}")
     print(f"  Layers: {config.n_layers}")
@@ -379,7 +379,7 @@ if __name__ == "__main__":
     print()
     
     # Create model
-    model = SanTOKGPT5(config)
+    model = SOMAGPT5(config)
     
     # Count parameters
     total_params = model.count_parameters()
@@ -389,14 +389,14 @@ if __name__ == "__main__":
     print()
     
     print("=" * 70)
-    print("[OK] SanTOK GPT-5 Architecture Ready!")
+    print("[OK] SOMA GPT-5 Architecture Ready!")
     print("=" * 70)
     print()
     print("This is the foundation for GPT-5 level capabilities.")
     print("Next steps:")
     print("  1. Implement training loop")
     print("  2. Add distributed training")
-    print("  3. Integrate SanTOK Cognitive")
+    print("  3. Integrate SOMA Cognitive")
     print("  4. Add multi-modal support")
     print("  5. Scale to full size")
     print()

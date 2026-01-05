@@ -19,7 +19,7 @@ from ..trees import TreeStore, Tree, TreeNode
 
 class UnifiedMemory:
     """
-    Central hub for SanTOK cognitive system.
+    Central hub for SOMA cognitive system.
     
     Provides unified interface to:
     - Add/retrieve knowledge

@@ -1,16 +1,16 @@
 """
-SanTOK SLM - Small Language Model
+SOMA SLM - Small Language Model
 
 A constrained language generation system that can ONLY emit tokens
-sanctioned by SanTOK Cognitive. Hallucination is structurally impossible,
+sanctioned by SOMA Cognitive. Hallucination is structurally impossible,
 not statistically unlikely.
 
 Architecture:
-    SanTOK Cognitive (THINKS) → facts, constraints, reasoning path
-    SanTOK SLM (TALKS)        → constrained verbalization ONLY
+    SOMA Cognitive (THINKS) → facts, constraints, reasoning path
+    SOMA SLM (TALKS)        → constrained verbalization ONLY
 
 NumPy is used strictly as a numerical backend.
-No pretrained models. No ML frameworks. 100% SanTOK.
+No pretrained models. No ML frameworks. 100% soma.
 """
 
 from .slm_constraints import (
@@ -24,25 +24,25 @@ from .slm_generator import (
     ConstrainedGenerator,
     GenerationConfig,
     GenerationResult,
-    SanTOKSLM,
+    SOMASLM,
 )
 
-from .santok_sequence_optimizer import (
-    SanTOKSequenceOptimizer,
-    SanTOKSequenceConfig,
-    create_santok_sequence_optimizer,
+from .SOMA_sequence_optimizer import (
+    SOMASequenceOptimizer,
+    SOMASequenceConfig,
+    create_SOMA_sequence_optimizer,
 )
 
 from .slm_constrained_decoder import (
     ConstrainedDecoder,
     DecoderConfig,
-    SanTOKConstrainedSLM,
-    create_santok_constrained_slm,
+    SOMAConstrainedSLM,
+    create_SOMA_constrained_slm,
 )
 
 from .training_data import (
     TrainingSequence,
-    SanTOKDataGenerator,
+    SOMADataGenerator,
     create_training_data,
     create_default_templates,
 )
@@ -63,19 +63,19 @@ __all__ = [
     'ConstrainedGenerator',
     'GenerationConfig',
     'GenerationResult',
-    'SanTOKSLM',
+    'SOMASLM',
     # Phase 2 Sequence Optimizer
-    'SanTOKSequenceOptimizer',
-    'SanTOKSequenceConfig',
-    'create_santok_sequence_optimizer',
+    'SOMASequenceOptimizer',
+    'SOMASequenceConfig',
+    'create_SOMA_sequence_optimizer',
     # Phase 2 Decoder
     'ConstrainedDecoder',
     'DecoderConfig',
-    'SanTOKConstrainedSLM',
-    'create_santok_constrained_slm',
+    'SOMAConstrainedSLM',
+    'create_SOMA_constrained_slm',
     # Phase 3 Training
     'TrainingSequence',
-    'SanTOKDataGenerator',
+    'SOMADataGenerator',
     'create_training_data',
     'create_default_templates',
     'SLMTrainer',

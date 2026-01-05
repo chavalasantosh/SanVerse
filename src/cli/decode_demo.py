@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-SanTOK Decoding Demo
+SOMA Decoding Demo
 ===================
 
 This script demonstrates how to decode tokenized text back to its original form
-using SanTOK's reversible tokenization algorithms.
+using SOMA's reversible tokenization algorithms.
 
 Usage:
     python decode_demo.py
@@ -19,11 +19,11 @@ from src.core.core_tokenizer import tokenize_text, reconstruct_from_tokens
 def demo_decoding():
     """Demonstrate text tokenization and decoding"""
     
-    print("[INFO] SanTOK Decoding Demo")
+    print("[INFO] SOMA Decoding Demo")
     print("=" * 50)
     
     # Example text
-    original_text = "Hello, world! This is a test of SanTOK's reversible tokenization."
+    original_text = "Hello, world! This is a test of SOMA's reversible tokenization."
     print(f"[INFO] Original Text: {original_text}")
     print()
     

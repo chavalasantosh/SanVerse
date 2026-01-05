@@ -1,8 +1,8 @@
 """
-Example: Using SanTOK Embeddings for Inference
+Example: Using SOMA Embeddings for Inference
 
 This example demonstrates:
-1. Generating embeddings from SanTOK tokens
+1. Generating embeddings from soma tokens
 2. Storing embeddings in vector database
 3. Performing similarity search
 """
@@ -15,9 +15,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.core.core_tokenizer import TextTokenizer
 from src.embeddings import (
-    SanTOKEmbeddingGenerator,
+    SOMAEmbeddingGenerator,
     ChromaVectorStore,
-    SanTOKInferencePipeline
+    SOMAInferencePipeline
 )
 import numpy as np
 
@@ -32,13 +32,13 @@ def example_1_basic_embedding():
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
     
     # Initialize embedding generator
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=768
     )
     
     # Tokenize text
-    text = "Hello world, this is SanTOK!"
+    text = "Hello world, this is SOMA!"
     print(f"\nInput text: {text}")
     
     streams = tokenizer.build(text)
@@ -64,7 +64,7 @@ def example_2_vector_store():
     
     # Initialize components
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=768
     )
@@ -72,7 +72,7 @@ def example_2_vector_store():
     # Initialize vector store (using ChromaDB)
     try:
         vector_store = ChromaVectorStore(
-            collection_name="santok_example",
+            collection_name="SOMA_example",
             persist_directory="./vector_db_example"
         )
     except ImportError:
@@ -84,7 +84,7 @@ def example_2_vector_store():
     documents = [
         "Machine learning is fascinating",
         "Natural language processing enables AI",
-        "SanTOK provides perfect tokenization",
+        "SOMA provides perfect tokenization",
         "Embeddings enable semantic search",
         "Vector databases store high-dimensional data"
     ]
@@ -139,14 +139,14 @@ def example_3_inference_pipeline():
     
     # Initialize pipeline
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=768
     )
     
     try:
         vector_store = ChromaVectorStore(
-            collection_name="santok_pipeline",
+            collection_name="SOMA_pipeline",
             persist_directory="./vector_db_pipeline"
         )
     except ImportError:
@@ -154,7 +154,7 @@ def example_3_inference_pipeline():
         print("Skipping pipeline example...")
         return
     
-    pipeline = SanTOKInferencePipeline(
+    pipeline = SOMAInferencePipeline(
         embedding_generator=embedding_gen,
         vector_store=vector_store,
         tokenizer=tokenizer
@@ -164,7 +164,7 @@ def example_3_inference_pipeline():
     documents = [
         "Python is a programming language",
         "Machine learning uses algorithms",
-        "SanTOK tokenizes text perfectly",
+        "SOMA tokenizes text perfectly",
         "Embeddings represent meaning",
         "Vector search finds similar content"
     ]
@@ -205,12 +205,12 @@ def example_4_document_embeddings():
     
     # Initialize pipeline
     tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-    embedding_gen = SanTOKEmbeddingGenerator(
+    embedding_gen = SOMAEmbeddingGenerator(
         strategy="feature_based",
         embedding_dim=768
     )
     
-    pipeline = SanTOKInferencePipeline(
+    pipeline = SOMAInferencePipeline(
         embedding_generator=embedding_gen,
         vector_store=None,  # Not needed for this example
         tokenizer=tokenizer
@@ -242,7 +242,7 @@ def example_4_document_embeddings():
 
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("SanTOK Embedding Examples")
+    print("SOMA Embedding Examples")
     print("="*60)
     
     # Run examples

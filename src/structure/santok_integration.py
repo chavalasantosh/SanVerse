@@ -1,13 +1,13 @@
 """
-SanTOK Structure Integration
+SOMA Structure Integration
 ============================
 
-Deep integration of structure system with SanTOK's existing components:
+Deep integration of structure system with SOMA's existing components:
 - Tokenization integration
 - Embedding integration
 - Cognitive integration
 
-This makes your structure idea work seamlessly with ALL of SanTOK!
+This makes your structure idea work seamlessly with ALL of SOMA!
 """
 
 import sys
@@ -21,14 +21,14 @@ from src.structure.pattern_builder import PatternBuilder, Pattern
 from src.structure.structure_hierarchy import StructureHierarchy, StructureNode
 
 
-class SanTOKStructureIntegrator:
+class SOMAStructureIntegrator:
     """
-    Integrates structure system with SanTOK's existing systems.
+    Integrates structure system with SOMA's existing systems.
     
     This makes your structure idea work with:
-    - SanTOK tokenization
-    - SanTOK embeddings
-    - SanTOK cognitive reasoning
+    - SOMA tokenization
+    - SOMA embeddings
+    - SOMA cognitive reasoning
     """
     
     def __init__(self):
@@ -37,12 +37,12 @@ class SanTOKStructureIntegrator:
         self.pattern_builder = PatternBuilder(self.registry)
         self.hierarchy = StructureHierarchy(self.registry)
     
-    def process_santok_tokens(self, tokens: List[Dict]) -> Dict[str, Any]:
+    def process_SOMA_tokens(self, tokens: List[Dict]) -> Dict[str, Any]:
         """
-        Process SanTOK tokens and build structure hierarchy.
+        Process SOMA tokens and build structure hierarchy.
         
         Args:
-            tokens: List of token dictionaries from SanTOK tokenizer
+            tokens: List of token dictionaries from soma tokenizer
         
         Returns:
             Dictionary with structure information
@@ -61,7 +61,7 @@ class SanTOKStructureIntegrator:
         self.pattern_builder.learn_from_tokens(token_texts)
         
         # Build hierarchy
-        self.hierarchy.build_from_santok_tokens(tokens)
+        self.hierarchy.build_from_SOMA_tokens(tokens)
         
         # Get structure insights
         stable_patterns = self.pattern_builder.get_top_patterns(min_frequency=2)
@@ -75,12 +75,12 @@ class SanTOKStructureIntegrator:
     
     def enhance_token_with_structure(self, token: Dict) -> Dict:
         """
-        Enhance a SanTOK token with structure information.
+        Enhance a SOMA token with structure information.
         
         Adds structure metadata to existing token.
         
         Args:
-            token: Token dictionary from SanTOK
+            token: Token dictionary from soma
         
         Returns:
             Enhanced token with structure info
@@ -129,13 +129,13 @@ class SanTOKStructureIntegrator:
         Get all tokens enhanced with structure information.
         
         Args:
-            tokens: List of token dictionaries from SanTOK
+            tokens: List of token dictionaries from soma
         
         Returns:
             List of enhanced tokens
         """
         # First, process all tokens to build structure
-        self.process_santok_tokens(tokens)
+        self.process_SOMA_tokens(tokens)
         
         # Then enhance each token
         enhanced = []
@@ -157,7 +157,7 @@ class SanTOKStructureIntegrator:
             List of tokens with priority scores
         """
         # Process tokens
-        self.process_santok_tokens(tokens)
+        self.process_SOMA_tokens(tokens)
         
         # Score tokens by structure stability
         scored_tokens = []
@@ -205,17 +205,17 @@ class SanTOKStructureIntegrator:
 
 
 # Convenience functions for easy integration
-def integrate_structure_with_santok_tokens(tokens: List[Dict]) -> List[Dict]:
+def integrate_structure_with_SOMA_tokens(tokens: List[Dict]) -> List[Dict]:
     """
-    Quick function to integrate structure system with SanTOK tokens.
+    Quick function to integrate structure system with SOMA tokens.
     
     Args:
-        tokens: List of token dictionaries from SanTOK tokenizer
+        tokens: List of token dictionaries from soma tokenizer
     
     Returns:
         List of tokens enhanced with structure information
     """
-    integrator = SanTOKStructureIntegrator()
+    integrator = SOMAStructureIntegrator()
     return integrator.get_structure_enhanced_tokens(tokens)
 
 
@@ -229,18 +229,18 @@ def get_structure_priorities(tokens: List[Dict]) -> List[Dict]:
     Returns:
         List of tokens sorted by structure priority
     """
-    integrator = SanTOKStructureIntegrator()
+    integrator = SOMAStructureIntegrator()
     return integrator.suggest_token_priorities(tokens)
 
 
 # Test it works
 if __name__ == "__main__":
-    print("Testing SanTOK Structure Integration...")
+    print("Testing SOMA Structure Integration...")
     print("=" * 70)
     
-    integrator = SanTOKStructureIntegrator()
+    integrator = SOMAStructureIntegrator()
     
-    # Simulate SanTOK tokens
+    # Simulate SOMA tokens
     tokens = [
         {"token": "cat", "position": 0},
         {"token": "cat", "position": 1},
@@ -248,8 +248,8 @@ if __name__ == "__main__":
         {"token": "cat", "position": 3}
     ]
     
-    print("\n1. Processing SanTOK tokens...")
-    result = integrator.process_santok_tokens(tokens)
+    print("\n1. Processing SOMA tokens...")
+    result = integrator.process_SOMA_tokens(tokens)
     print(f"   Tokens processed: {result['tokens_processed']}")
     print(f"   Patterns found: {result['patterns_found']}")
     print(f"   Stable patterns: {result['stable_patterns']}")

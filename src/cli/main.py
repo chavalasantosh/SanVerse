@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SanTOK CLI - Command Line Interface
+SOMA CLI - Command Line Interface
 """
 
 import sys
@@ -15,7 +15,7 @@ from core.core_tokenizer import tokenize_text, reconstruct_from_tokens
 
 def main():
     """Main CLI function"""
-    parser = argparse.ArgumentParser(description='SanTOK - Advanced Text Tokenization Framework')
+    parser = argparse.ArgumentParser(description='SOMA - Advanced Text Tokenization Framework')
     parser.add_argument('text', help='Text to tokenize')
     parser.add_argument('-t', '--tokenizer', default='word', 
                        choices=['space', 'word', 'char', 'grammar', 'subword', 'subword_bpe', 'subword_syllable', 'subword_frequency', 'byte'],

@@ -1,11 +1,11 @@
 """
-SanTOK Constrained Decoder
+SOMA Constrained Decoder
 
-Integrates the SanTOK Sequence Optimizer with SanTOK Cognitive constraints.
+Integrates the SOMA Sequence Optimizer with SOMA Cognitive constraints.
 
-Rule: Sequence Optimizer proposes → SanTOK Cognitive disposes
+Rule: Sequence Optimizer proposes → SOMA Cognitive disposes
 
-The sequence optimizer generates scores, but SanTOK Cognitive decides
+The sequence optimizer generates scores, but SOMA Cognitive decides
 which tokens are actually allowed. Disallowed tokens get zero probability.
 
 This makes hallucination structurally impossible even with a sequence component.
@@ -16,7 +16,7 @@ from typing import List, Dict, Set, Optional, Tuple
 import numpy as np
 import random
 
-from .santok_sequence_optimizer import SanTOKSequenceOptimizer, SanTOKSequenceConfig
+from .SOMA_sequence_optimizer import somaSequenceOptimizer, SOMASequenceConfig
 from .slm_constraints import ConstraintEngine
 
 
@@ -39,18 +39,18 @@ class ConstrainedDecoder:
     """
     The constrained decoder.
     
-    This is where sequence optimizer scores meet SanTOK constraints.
+    This is where sequence optimizer scores meet SOMA constraints.
     
     Flow:
     1. Sequence Optimizer generates scores for all tokens
-    2. SanTOK Cognitive filters to allowed tokens only
+    2. SOMA Cognitive filters to allowed tokens only
     3. Disallowed tokens get zero probability
     4. Sample from allowed set only
     """
     
     def __init__(
         self,
-        sequence_optimizer: SanTOKSequenceOptimizer,
+        sequence_optimizer: SOMASequenceOptimizer,
         constraint_engine: ConstraintEngine
     ):
         self.sequence_optimizer = sequence_optimizer
@@ -290,17 +290,17 @@ class ConstrainedDecoder:
                 setattr(self.config, key, value)
 
 
-class SanTOKConstrainedSLM:
+class SOMAConstrainedSLM:
     """
-    Complete SanTOK sequence-constrained SLM.
+    Complete SOMA sequence-constrained SLM.
     
     This integrates:
-    - SanTOKSequenceOptimizer (sequence optimization)
+    - SOMASequenceOptimizer (sequence optimization)
     - ConstraintEngine (fact grounding)
     - ConstrainedDecoder (integration layer)
     
     Usage:
-        slm = SanTOKConstrainedSLM()
+        slm = SOMAConstrainedSLM()
         slm.load_knowledge(facts, reasoning_path)
         slm.set_vocabulary_from_facts()
         result = slm.generate("What is Python?")
@@ -308,7 +308,7 @@ class SanTOKConstrainedSLM:
     
     def __init__(
         self,
-        transformer_config: Optional[SanTOKSequenceConfig] = None
+        transformer_config: Optional[SOMASequenceConfig] = None
     ):
         # Import here to avoid circular import
         from .slm_constraints import ConstraintEngine
@@ -318,14 +318,14 @@ class SanTOKConstrainedSLM:
         
         # Create sequence optimizer
         if transformer_config is None:
-            transformer_config = SanTOKSequenceConfig(
+            transformer_config = SOMASequenceConfig(
                 vocab_size=10000,
                 d_model=128,
                 n_layers=2,
                 n_heads=4,
                 d_ff=512,
             )
-        self.sequence_optimizer = SanTOKSequenceOptimizer(transformer_config)
+        self.sequence_optimizer = SOMASequenceOptimizer(transformer_config)
         
         # Create decoder
         self.decoder = ConstrainedDecoder(self.sequence_optimizer, self.engine)
@@ -340,7 +340,7 @@ class SanTOKConstrainedSLM:
         reasoning_path: Optional[List[str]] = None,
         relations: Optional[List[str]] = None
     ):
-        """Load knowledge from SanTOK Cognitive."""
+        """Load knowledge from soma Cognitive."""
         self.facts = facts
         self.reasoning_path = reasoning_path or []
         
@@ -420,23 +420,23 @@ class SanTOKConstrainedSLM:
         }
 
 
-def create_santok_constrained_slm(
+def create_SOMA_constrained_slm(
     vocab_size: int = 10000,
     d_model: int = 128,
     n_layers: int = 2,
     n_heads: int = 4
-) -> SanTOKConstrainedSLM:
+) -> SOMAConstrainedSLM:
     """
-    Factory function to create a SanTOK sequence-constrained SLM.
+    Factory function to create a SOMA sequence-constrained SLM.
     
     Defaults create a ~1M parameter model.
     """
-    config = SanTOKSequenceConfig(
+    config = SOMASequenceConfig(
         vocab_size=vocab_size,
         d_model=d_model,
         n_layers=n_layers,
         n_heads=n_heads,
         d_ff=d_model * 4,
     )
-    return SanTOKConstrainedSLM(config)
+    return SOMAConstrainedSLM(config)
 

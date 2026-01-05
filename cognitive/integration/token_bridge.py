@@ -1,7 +1,7 @@
 """
 TokenBridge - Connect src tokenizer to cognitive graph.
 
-Converts SanTOK tokens into graph nodes while preserving:
+Converts SOMA tokens into graph nodes while preserving:
 - Token UIDs (for deterministic identity)
 - Token metadata (frontend, backend, stream)
 - Token relationships (sequence, co-occurrence)
@@ -15,7 +15,7 @@ from ..graph import GraphStore, GraphNode, RelationType
 
 @dataclass
 class TokenInfo:
-    """Information extracted from a SanTOK token."""
+    """Information extracted from a SOMA token."""
     uid: int
     text: str
     stream: str
@@ -28,7 +28,7 @@ class TokenInfo:
 
 class TokenBridge:
     """
-    Bridge between src's tokenizer and santok_cognitive's graph.
+    Bridge between src's tokenizer and SOMA_cognitive's graph.
     
     Converts tokens to graph nodes and establishes relationships:
     - PRECEDES/FOLLOWS for sequential tokens

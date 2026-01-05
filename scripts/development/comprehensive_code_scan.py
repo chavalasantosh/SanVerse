@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive Code Scanner for SanTOK
+Comprehensive Code Scanner for SOMA
 Scans all Python files and generates detailed report
 """
 
@@ -106,7 +106,7 @@ class ComprehensiveCodeScanner:
             exclude_dirs = {
                 '__pycache__', '.git', 'node_modules', 
                 'venv', '.venv', 'archive', 
-                'python_code_collection', 'demo_santok',
+                'python_code_collection', 'demo_SOMA',
                 '.pytest_cache', '.vscode'
             }
         

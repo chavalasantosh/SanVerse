@@ -2,7 +2,7 @@
 EmbeddingBridge - Use src's embedding system.
 
 Connects:
-- SanTOKEmbeddingGenerator for creating embeddings
+- SOMAEmbeddingGenerator for creating embeddings
 - Feature-based, semantic, and hybrid embedding strategies
 - Embedding to graph node linking
 """
@@ -28,16 +28,16 @@ class EmbeddingBridge:
     Bridge to src's embedding system.
     
     Provides:
-    - Generate embeddings using SanTOK's custom algorithms
+    - Generate embeddings using SOMA's custom algorithms
     - Link embeddings to graph nodes
     - Support for different embedding strategies
     
     Example:
-        from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+        from src.embeddings.embedding_generator import somaEmbeddingGenerator
         from src.core.core_tokenizer import TextTokenizationEngine
         
         tokenizer = TextTokenizationEngine()
-        generator = SanTOKEmbeddingGenerator()
+        generator = SOMAEmbeddingGenerator()
         
         bridge = EmbeddingBridge(memory)
         bridge.set_generator(generator, tokenizer)
@@ -92,7 +92,7 @@ class EmbeddingBridge:
         Set the embedding generator from src.
         
         Args:
-            generator: SanTOKEmbeddingGenerator instance
+            generator: SOMAEmbeddingGenerator instance
             tokenizer: TextTokenizationEngine instance (optional)
         """
         self._generator = generator
