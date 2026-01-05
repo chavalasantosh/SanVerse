@@ -9,8 +9,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="soma",
-    version="1.0.3",
+    name="somaya",
+    version="1.0.0",
     author="Santosh Chavala",
     author_email="chavalasantosh@gmail.com",
     description="SOMA - Advanced Tokenization & Intelligence Framework",

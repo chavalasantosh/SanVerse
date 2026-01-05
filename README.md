@@ -1,7 +1,7 @@
 # SOMA: Advanced Intelligence Framework
 
-[![PyPI version](https://badge.fury.io/py/soma.svg)](https://badge.fury.io/py/soma)
-[![Python Versions](https://img.shields.io/pypi/pyversions/soma.svg)](https://pypi.org/project/soma/)
+[![PyPI version](https://badge.fury.io/py/somaya.svg)](https://badge.fury.io/py/somaya)
+[![Python Versions](https://img.shields.io/pypi/pyversions/somaya.svg)](https://pypi.org/project/somaya/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Build Status](https://github.com/chavalasantosh/SanVerse/actions/workflows/python-tests.yml/badge.svg)](https://github.com/chavalasantosh/SanVerse/actions)
@@ -26,7 +26,7 @@ SOMA is built for researchers and developers who need more than just BPE (Byte P
 ## 📦 Installation
 
 ```bash
-pip install soma
+pip install somaya
 ```
 
 ## ⚡ Quick Start
