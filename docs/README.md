@@ -2,7 +2,7 @@
 
 ## Overview
 
-Complete documentation for the SanTOK project.
+Complete documentation for the SOMA project.
 
 ## Contents
 

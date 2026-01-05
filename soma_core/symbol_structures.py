@@ -1,5 +1,5 @@
 """
-SanTEK Symbol Structures
+SOMA Core Symbol Structures
 ========================
 
 Defines the basic building blocks: symbols and their classes.

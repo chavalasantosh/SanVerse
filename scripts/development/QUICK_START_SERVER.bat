@@ -1,6 +1,6 @@
 @echo off
 echo ========================================
-echo   SanTOK Backend Server - Quick Start
+echo   SOMA Backend Server - Quick Start
 echo ========================================
 echo.
 

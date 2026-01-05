@@ -1,9 +1,9 @@
 @echo off
-REM Prepare SanTOK for distribution (Windows)
+REM Prepare SOMA for distribution (Windows)
 REM Cleans unnecessary files and creates a distribution-ready package
 
 echo ==========================================
-echo SanTOK Distribution Preparation
+echo SOMA Distribution Preparation
 echo ==========================================
 echo.
 
@@ -11,7 +11,7 @@ REM Create backup
 echo [INFO] Creating backup...
 for /f "tokens=2-4 delims=/ " %%a in ('date /t') do set mydate=%%c%%a%%b
 for /f "tokens=1-2 delims=/:" %%a in ('time /t') do set mytime=%%a%%b
-set BACKUP_DIR=santok_backup_%mydate%_%mytime%
+set BACKUP_DIR=soma_backup_%mydate%_%mytime%
 mkdir "%BACKUP_DIR%" 2>nul
 echo [SUCCESS] Backup directory created: %BACKUP_DIR%
 
@@ -82,7 +82,7 @@ if %MISSING%==1 (
 REM Create distribution checklist
 echo [INFO] Creating distribution checklist...
 (
-echo # SanTOK Distribution Checklist
+echo # SOMA Distribution Checklist
 echo.
 echo ## Pre-Distribution Checks
 echo.
@@ -142,7 +142,7 @@ echo    - Share ZIP file
 echo    - Team extracts and runs setup
 echo.
 echo 3. **Docker Image**
-echo    - Build: docker build -t santok .
+echo    - Build: docker build -t soma .
 echo    - Push to registry
 echo    - Team pulls: docker pull ^<image^>
 ) > DISTRIBUTION_CHECKLIST.md

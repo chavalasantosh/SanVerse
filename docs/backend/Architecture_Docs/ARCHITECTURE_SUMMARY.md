@@ -1,8 +1,8 @@
-# SanTOK Architecture - Complete Summary
+# SOMA Architecture - Complete Summary
 
 ## 🎯 Project Overview
 
-**SanTOK** is a comprehensive text tokenization framework that provides end-to-end processing from text to semantic search.
+**SOMA** is a comprehensive text tokenization framework that provides end-to-end processing from text to semantic search.
 
 ### What It Does
 
@@ -149,7 +149,7 @@
 
 **Key Features:**
 - ✅ No pretrained models
-- ✅ Learns from SanTOK structure
+- ✅ Learns from SOMA structure
 - ✅ Co-occurrence-based learning
 - ✅ Window-based context
 - ✅ Self-supervised training
@@ -255,9 +255,9 @@
 **Type:** OWN + EXTERNAL
 
 **What it does:**
-- Maps SanTOK tokens to pretrained model vocabularies
+- Maps SOMA tokens to pretrained model vocabularies
 - Enables integration with BERT, GPT, T5, etc.
-- Converts SanTOK tokenization to model-compatible format
+- Converts SOMA tokenization to model-compatible format
 
 **Features:**
 - Token mapping
@@ -460,9 +460,9 @@ backend/
 │   └── tests/
 │       └── ...                     # Tests
 │
-├── santok/
+├── soma/
 │   ├── __init__.py
-│   ├── santok.py                  # Main package
+│   ├── soma.py                  # Main package
 │   └── cli.py                     # CLI
 │
 ├── requirements.txt               # Dependencies
@@ -566,7 +566,7 @@ backend/
 
 ## 🔍 Component Ownership
 
-### OWN/CUSTOM (100% SanTOK)
+### OWN/CUSTOM (100% SOMA)
 - ✅ Tokenization engine
 - ✅ UID generation
 - ✅ Feature extraction
@@ -607,7 +607,7 @@ backend/
 
 ## ✅ Summary
 
-### What SanTOK Is:
+### What SOMA Is:
 - ✅ Self-contained tokenization system (no external tokenization libraries)
 - ✅ Feature-based embedding generation (OWN)
 - ✅ Semantic training system (OWN, no pretrained models)
@@ -615,7 +615,7 @@ backend/
 - ✅ REST API server (OWN logic + FastAPI framework)
 - ✅ Integration adapters (OWN + transformers)
 
-### What SanTOK Uses:
+### What SOMA Uses:
 - ⚙️ NumPy - Numerical operations (required)
 - ⚙️ FastAPI - Web framework (required)
 - ⚙️ Uvicorn - ASGI server (required)

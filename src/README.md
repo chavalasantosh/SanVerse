@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the core source code for the SanTOK tokenization framework.
+This is the core source code for the SOMA tokenization framework.
 
 ## Modules
 

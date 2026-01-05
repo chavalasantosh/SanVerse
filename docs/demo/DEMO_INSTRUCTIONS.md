@@ -1,4 +1,4 @@
-# SanTOK Demo Instructions
+# SOMA Demo Instructions
 
 ## 🚀 Quick Demo Steps
 
@@ -114,7 +114,7 @@ curl -X POST http://localhost:8000/tokenize \
 
 ## 🎯 Demo Talking Points
 
-1. **"SanTOK provides multiple tokenization strategies"**
+1. **"SOMA provides multiple tokenization strategies"**
    - Show different tokenization methods
    - Demonstrate mathematical features
 
@@ -139,7 +139,7 @@ workflow_output/
 ├── tokens.pkl                    # Tokenized data
 ├── embedding_batches/            # Embedding batches
 ├── embedding_batches_metadata.json
-├── santok_semantic_model.pkl    # Semantic model (if trained)
+├── soma_semantic_model.pkl    # Semantic model (if trained)
 ├── vector_store.faiss           # Vector store index
 ├── similarity_search_results.json
 └── tokenization_results.json

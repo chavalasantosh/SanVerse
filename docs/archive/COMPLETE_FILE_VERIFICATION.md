@@ -14,9 +14,9 @@ All `vector_store.py` files have been updated with:
 **Files Verified:**
 1. ✅ `src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
 2. ✅ `backend/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
-3. ✅ `demo_santok/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
-4. ✅ `backend/demo_santok/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
-5. ✅ `santok_backend_mother ucker/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
+3. ✅ `demo_soma/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
+4. ✅ `backend/demo_soma/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
+5. ✅ `soma_backend_mother ucker/src/embeddings/vector_store.py` - **VERIFIED & UPDATED**
 
 ### ✅ Job Manager Files - 5 FILES
 
@@ -25,9 +25,9 @@ All `job_manager.py` files created with full async execution support:
 **Files Created/Verified:**
 1. ✅ `src/servers/job_manager.py` - **EXISTS & VERIFIED**
 2. ✅ `backend/src/servers/job_manager.py` - **CREATED & VERIFIED**
-3. ✅ `demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-4. ✅ `backend/demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-5. ✅ `santok_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
+3. ✅ `demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+4. ✅ `backend/demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+5. ✅ `soma_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
 
 **Features:**
 - ✅ Async job execution
@@ -58,17 +58,17 @@ All `job_manager.py` files created with full async execution support:
    - ✅ `/execute/job/{job_id}/cancel` endpoint (POST)
 
 **Files WITHOUT Code Execution (No Async Needed):**
-3. ✅ `demo_santok/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
+3. ✅ `demo_soma/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
    - ✅ Does not have `/execute/code` endpoint
    - ✅ Only has tokenization/embedding endpoints
    - ✅ Vector store updated with duplicate fix
 
-4. ✅ `backend/demo_santok/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
+4. ✅ `backend/demo_soma/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
    - ✅ Does not have `/execute/code` endpoint
    - ✅ Only has tokenization/embedding endpoints
    - ✅ Vector store updated with duplicate fix
 
-5. ✅ `santok_backend_mother ucker/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
+5. ✅ `soma_backend_mother ucker/src/servers/main_server.py` - **VERIFIED: NO EXECUTE ENDPOINT (OK)**
    - ✅ Does not have `/execute/code` endpoint
    - ✅ Only has tokenization/embedding endpoints
    - ✅ Vector store updated with duplicate fix
@@ -97,23 +97,23 @@ All `job_manager.py` files created with full async execution support:
 ### Vector Store Files:
 - [x] `src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
 - [x] `backend/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
-- [x] `demo_santok/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
-- [x] `backend/demo_santok/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
-- [x] `santok_backend_mother ucker/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
+- [x] `demo_soma/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
+- [x] `backend/demo_soma/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
+- [x] `soma_backend_mother ucker/src/embeddings/vector_store.py` - Has upsert, unique IDs, telemetry disabled
 
 ### Job Manager Files:
 - [x] `src/servers/job_manager.py` - Complete implementation
 - [x] `backend/src/servers/job_manager.py` - Complete implementation
-- [x] `demo_santok/src/servers/job_manager.py` - Complete implementation
-- [x] `backend/demo_santok/src/servers/job_manager.py` - Complete implementation
-- [x] `santok_backend_mother ucker/src/servers/job_manager.py` - Complete implementation
+- [x] `demo_soma/src/servers/job_manager.py` - Complete implementation
+- [x] `backend/demo_soma/src/servers/job_manager.py` - Complete implementation
+- [x] `soma_backend_mother ucker/src/servers/job_manager.py` - Complete implementation
 
 ### Main Server Files:
 - [x] `src/servers/main_server.py` - Has async job support
 - [x] `backend/src/servers/main_server.py` - Has async job support
-- [x] `demo_santok/src/servers/main_server.py` - No execute endpoint (OK)
-- [x] `backend/demo_santok/src/servers/main_server.py` - No execute endpoint (OK)
-- [x] `santok_backend_mother ucker/src/servers/main_server.py` - No execute endpoint (OK)
+- [x] `demo_soma/src/servers/main_server.py` - No execute endpoint (OK)
+- [x] `backend/demo_soma/src/servers/main_server.py` - No execute endpoint (OK)
+- [x] `soma_backend_mother ucker/src/servers/main_server.py` - No execute endpoint (OK)
 
 ## ✅ STATUS: ALL CLEAR
 

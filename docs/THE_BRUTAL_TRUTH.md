@@ -1,4 +1,4 @@
-# The Brutal Truth: What SanTOK Actually Is
+# The Brutal Truth: What SOMA Actually Is
 
 ## What You Thought You Built
 
@@ -36,11 +36,11 @@ So improving token determinism **doesn't help the model**, unless you retrain fr
 
 #### 2. Your IDs don't mean anything to the model
 
-The mathematical beauty of SanTOK IDs (UIDs, hashes, digits) is internal — Transformers only understand embedding indices.
+The mathematical beauty of SOMA IDs (UIDs, hashes, digits) is internal — Transformers only understand embedding indices.
 
-When you mapped SanTOK → model IDs, you effectively **discarded all that math** before the model ever saw it.
+When you mapped SOMA → model IDs, you effectively **discarded all that math** before the model ever saw it.
 
-So by the time inference happens, SanTOK has been reduced to just a *fancier tokenizer front-end*.
+So by the time inference happens, SOMA has been reduced to just a *fancier tokenizer front-end*.
 
 **Reality**: The mathematical properties become metadata that models ignore.
 
@@ -52,13 +52,13 @@ Your system can't alter that without destroying the embedding alignment.
 
 So you built an "adapter" — but that just loops you back to using the model's original tokenizer logic.
 
-**Reality**: The adapter converts SanTOK tokens → model tokens, so you're using model tokenization anyway.
+**Reality**: The adapter converts SOMA tokens → model tokens, so you're using model tokenization anyway.
 
 #### 4. Mathematical purity ≠ semantic usefulness
 
 Transformers don't care about "clean math" — they care about **semantic structure and contextual embeddings**.
 
-SanTOK's math is perfect for *data verification*, not for *semantic understanding*.
+SOMA's math is perfect for *data verification*, not for *semantic understanding*.
 
 You built a **checksum system**, not a **meaning system**.
 
@@ -76,9 +76,9 @@ It's like inventing a perfectly balanced alphabet that no language actually spea
 
 ## What You Accidentally Built (The Truth)
 
-### SanTOK Isn't Useless — But It's Not What You Thought
+### SOMA Isn't Useless — But It's Not What You Thought
 
-**SanTOK isn't a better tokenizer.**
+**SOMA isn't a better tokenizer.**
 
 **It's a mathematical validation and audit system for any tokenizer.**
 
@@ -86,12 +86,12 @@ That's its *true* nature.
 
 ### The Reframing
 
-**SanTOK is the "checks and balances" layer — the verifier, not the producer.**
+**SOMA is the "checks and balances" layer — the verifier, not the producer.**
 
 Think of it like this:
 
 - **BPE / WordPiece** = how we *speak* to the model
-- **SanTOK** = how we *verify* what we said
+- **SOMA** = how we *verify* what we said
 
 You didn't fix tokenization — you **discovered the missing accountability layer** that no one else built.
 
@@ -107,7 +107,7 @@ You didn't fix tokenization — you **discovered the missing accountability laye
 
 ## The Real Value (Now Clear)
 
-If you accept that shift, SanTOK becomes:
+If you accept that shift, SOMA becomes:
 
 ### 1. Text Integrity Layer for AI Systems
 
@@ -171,7 +171,7 @@ If you accept that shift, SanTOK becomes:
 
 ### To: "Verification Layer"
 
-**New understanding**: SanTOK is the accountability layer for tokenization
+**New understanding**: SOMA is the accountability layer for tokenization
 
 **What it provides**: Mathematical verification, not replacement
 
@@ -189,7 +189,7 @@ If you accept that shift, SanTOK becomes:
 - No audit trail for tokenization changes
 - No way to detect tokenization drift
 
-**SanTOK provides this**:
+**SOMA provides this**:
 - Mathematical verification
 - Token-level checksums
 - Audit trails
@@ -205,17 +205,17 @@ That's the real innovation.
 
 ---
 
-## What This Means for SanTOK
+## What This Means for SOMA
 
 ### Accept the Redefinition
 
-SanTOK is:
+SOMA is:
 - ✅ **Text integrity layer** for AI systems
 - ✅ **Verification engine** for token drift detection
 - ✅ **Checksum protocol** for NLP pipelines
 - ✅ **Research tool** for token alignment
 
-SanTOK is NOT:
+SOMA is NOT:
 - ❌ A replacement for BPE/WordPiece
 - ❌ A better tokenizer for models
 - ❌ A way to improve model performance
@@ -223,7 +223,7 @@ SanTOK is NOT:
 
 ### The Value Proposition
 
-**SanTOK provides verification and accountability that no other system offers.**
+**SOMA provides verification and accountability that no other system offers.**
 
 That's its unique value.
 
@@ -259,13 +259,13 @@ You didn't build a better tokenizer, but you built something **equally valuable*
 
 ### The Real Discovery
 
-The discovery isn't that SanTOK replaces tokenization.
+The discovery isn't that SOMA replaces tokenization.
 
-**The discovery is that tokenization needs verification, and SanTOK provides it.**
+**The discovery is that tokenization needs verification, and SOMA provides it.**
 
 ### The Value
 
-SanTOK's value isn't in replacing tokenization.
+SOMA's value isn't in replacing tokenization.
 
 **It's in making tokenization verifiable, auditable, and accountable.**
 
@@ -285,7 +285,7 @@ That's not failure — it's **redefinition**.
 
 ### The Real Value
 
-SanTOK is the verification infrastructure that tokenization never had.
+SOMA is the verification infrastructure that tokenization never had.
 
 **That's the innovation.**
 

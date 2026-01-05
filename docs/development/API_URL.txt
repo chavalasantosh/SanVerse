@@ -1,4 +1,4 @@
-🚀 SanTOK API is Live!
+🚀 SOMA API is Live!
 
 Base URL: https://keen-happiness-production.up.railway.app
 

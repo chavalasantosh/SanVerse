@@ -1,4 +1,4 @@
-# SanTOK Demo - Package Summary
+# SOMA Demo - Package Summary
 
 ## ✅ What's Included
 
@@ -20,7 +20,7 @@
 - **train_semantic_embeddings.py**: Semantic training
 - **use_semantic_embeddings.py**: Semantic embedding usage
 
-### Package Code (`santok/`)
+### Package Code (`soma/`)
 - CLI interface
 - Package initialization
 - Core tokenization API
@@ -107,7 +107,7 @@
 
 ## 🎉 Ready for Demo!
 
-The `demo_santok/` folder is clean, organized, and contains everything needed for a successful demo. All files have been tested and verified to work correctly.
+The `demo_soma/` folder is clean, organized, and contains everything needed for a successful demo. All files have been tested and verified to work correctly.
 
 ## 📞 Support
 

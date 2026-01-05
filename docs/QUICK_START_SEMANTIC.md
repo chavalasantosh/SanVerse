@@ -9,9 +9,9 @@ python examples/train_semantic_embeddings.py
 ```
 
 This will:
-- Tokenize sample text with SanTOK
+- Tokenize sample text with SOMA
 - Train semantic embeddings
-- Save model to `santok_semantic_model.pkl`
+- Save model to `soma_semantic_model.pkl`
 
 ### Step 2: Test Embeddings
 
@@ -27,13 +27,13 @@ This will:
 ### Step 3: Use in Your Code
 
 ```python
-from src.embeddings import SanTOKEmbeddingGenerator
+from src.embeddings import SOMAEmbeddingGenerator
 from src.core.core_tokenizer import TextTokenizer
 
 # Load trained model
-generator = SanTOKEmbeddingGenerator(
+generator = SOMAEmbeddingGenerator(
     strategy="semantic",
-    semantic_model_path="santok_semantic_model.pkl"
+    semantic_model_path="soma_semantic_model.pkl"
 )
 
 # Tokenize and embed
@@ -65,5 +65,5 @@ train_semantic_embeddings(
 
 ## ✅ That's It!
 
-You now have NLP-understandable embeddings trained from SanTOK, **NO pretrained models needed!**
+You now have NLP-understandable embeddings trained from SOMA, **NO pretrained models needed!**
 

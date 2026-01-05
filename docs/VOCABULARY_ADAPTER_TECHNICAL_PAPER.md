@@ -1,14 +1,14 @@
 # Vocabulary Compatibility in Tokenization Systems: A Critical Analysis and Adapter Solution
 
-**A Technical Analysis of SanTOK Tokenization and Pretrained Transformer Model Integration**
+**A Technical Analysis of SOMA Tokenization and Pretrained Transformer Model Integration**
 
 ---
 
 ## Abstract
 
-This paper presents a rigorous technical analysis of a fundamental incompatibility between deterministic tokenization systems and pretrained transformer model vocabularies. We examine SanTOK, a tokenization framework that generates unique identifier systems (UIDs, frontend digits, backend numbers) using mathematical algorithms including XorShift64* pseudorandom number generation, weighted character sums, and digital root calculations. These identifiers operate in a namespace distinct from pretrained transformer model vocabularies, which use integer indices into learned embedding matrices. We present a vocabulary adapter solution that maps token string representations (not IDs) to model vocabulary indices, preserving SanTOK's tokenization quality while enabling compatibility with pretrained models. The adapter incurs a text reconstruction step and approximate alignment mapping, which we analyze and quantify. We provide complete implementation details, performance characteristics, and honest assessment of limitations.
+This paper presents a rigorous technical analysis of a fundamental incompatibility between deterministic tokenization systems and pretrained transformer model vocabularies. We examine SOMA, a tokenization framework that generates unique identifier systems (UIDs, frontend digits, backend numbers) using mathematical algorithms including XorShift64* pseudorandom number generation, weighted character sums, and digital root calculations. These identifiers operate in a namespace distinct from pretrained transformer model vocabularies, which use integer indices into learned embedding matrices. We present a vocabulary adapter solution that maps token string representations (not IDs) to model vocabulary indices, preserving SOMA's tokenization quality while enabling compatibility with pretrained models. The adapter incurs a text reconstruction step and approximate alignment mapping, which we analyze and quantify. We provide complete implementation details, performance characteristics, and honest assessment of limitations.
 
-**Keywords**: Tokenization, Vocabulary Compatibility, Transformer Models, Embedding Layers, Pretrained Models, SanTOK
+**Keywords**: Tokenization, Vocabulary Compatibility, Transformer Models, Embedding Layers, Pretrained Models, SOMA
 
 ---
 
@@ -18,25 +18,25 @@ This paper presents a rigorous technical analysis of a fundamental incompatibili
 
 Tokenization systems serve as the interface between raw text and neural network models. Most pretrained transformer models (BERT, GPT, T5, RoBERTa) use specific vocabulary systems where each token is assigned an integer index into a learned embedding matrix. These vocabulary indices are not arbitrary—they represent positions in matrices that were trained on specific tokenization schemes (WordPiece, BPE, SentencePiece).
 
-SanTOK implements a deterministic tokenization system that generates multiple identifier types:
+SOMA implements a deterministic tokenization system that generates multiple identifier types:
 1. **UIDs (Unique Identifiers)**: 64-bit values from XorShift64* pseudorandom number generator
 2. **Frontend Digits**: 1-9 values from combined weighted character sum and hash algorithms
 3. **Backend Numbers**: 64-bit composite values incorporating content, position, context, and neighbor UIDs
 4. **Global IDs**: Combined identifiers using XOR operations on UID, content_id, index, stream hash, and session ID
 
-These identifiers are mathematically sound and enable perfect text reconstruction, but they exist in a namespace completely separate from pretrained model vocabularies. Feeding SanTOK's UID (e.g., `18446744073709551615`) directly into a BERT model's embedding layer would attempt to access `embeddings[18446744073709551615]`, which exceeds BERT's vocabulary size of 30,522 and would cause errors or undefined behavior.
+These identifiers are mathematically sound and enable perfect text reconstruction, but they exist in a namespace completely separate from pretrained model vocabularies. Feeding SOMA's UID (e.g., `18446744073709551615`) directly into a BERT model's embedding layer would attempt to access `embeddings[18446744073709551615]`, which exceeds BERT's vocabulary size of 30,522 and would cause errors or undefined behavior.
 
 ### 1.2 Research Questions
 
-1. What is the mathematical basis of the incompatibility between SanTOK's ID system and pretrained model vocabularies?
-2. Can we create a mapping layer that preserves SanTOK's tokenization quality while enabling model compatibility?
+1. What is the mathematical basis of the incompatibility between SOMA's ID system and pretrained model vocabularies?
+2. Can we create a mapping layer that preserves SOMA's tokenization quality while enabling model compatibility?
 3. What are the limitations and trade-offs of such a mapping approach?
 4. What is the performance impact of the adapter layer?
 
 ### 1.3 Contributions
 
 This paper provides:
-- Complete technical analysis of SanTOK's identifier generation algorithms
+- Complete technical analysis of SOMA's identifier generation algorithms
 - Mathematical proof of vocabulary namespace incompatibility
 - Implementation of a vocabulary adapter with honest assessment of limitations
 - Performance benchmarks and analysis
@@ -46,11 +46,11 @@ This paper provides:
 
 ## 2. Technical Background
 
-### 2.1 SanTOK Identifier Generation System
+### 2.1 SOMA Identifier Generation System
 
 #### 2.1.1 UID Generation: XorShift64* Algorithm
 
-SanTOK uses the XorShift64* pseudorandom number generator to assign UIDs. The implementation is:
+SOMA uses the XorShift64* pseudorandom number generator to assign UIDs. The implementation is:
 
 ```python
 class XorShift64Star:
@@ -236,11 +236,11 @@ Pretrained transformer models use a vocabulary table where:
 
 #### 2.3.1 Mathematical Proof of Incompatibility
 
-**Theorem**: SanTOK's UID namespace and pretrained model vocabulary namespace are disjoint.
+**Theorem**: SOMA's UID namespace and pretrained model vocabulary namespace are disjoint.
 
 **Proof**:
 
-1. **SanTOK UID Range**: 
+1. **SOMA UID Range**: 
    - Minimum: 0
    - Maximum: 2^64 - 1 = 18,446,744,073,709,551,615
 
@@ -249,19 +249,19 @@ Pretrained transformer models use a vocabulary table where:
    - Maximum: vocab_size - 1 = 30,521
 
 3. **Overlap Analysis**:
-   - SanTOK UIDs > 30,521: These are incompatible (out of bounds)
-   - SanTOK UIDs ≤ 30,521: These may be valid indices but map to wrong tokens
-   - Example: SanTOK UID 7592 might exist, but BERT's index 7592 maps to a completely different token than what SanTOK intended
+   - SOMA UIDs > 30,521: These are incompatible (out of bounds)
+   - SOMA UIDs ≤ 30,521: These may be valid indices but map to wrong tokens
+   - Example: SOMA UID 7592 might exist, but BERT's index 7592 maps to a completely different token than what SOMA intended
 
-4. **Conclusion**: Even when numeric ranges overlap, the semantic mapping is incorrect. SanTOK's UID 7592 has no relationship to BERT's vocabulary token at index 7592.
+4. **Conclusion**: Even when numeric ranges overlap, the semantic mapping is incorrect. SOMA's UID 7592 has no relationship to BERT's vocabulary token at index 7592.
 
-**Corollary**: Direct use of SanTOK IDs with pretrained models is impossible without mapping.
+**Corollary**: Direct use of SOMA IDs with pretrained models is impossible without mapping.
 
 #### 2.3.2 Example of Incompatibility
 
 Consider the text "Hello world":
 
-**SanTOK Tokenization**:
+**SOMA Tokenization**:
 ```
 Token: "Hello"
   UID: 18446744073709551615
@@ -285,8 +285,8 @@ Token: "world"
 **Attempting Direct Use**:
 ```python
 # This would fail:
-santok_ids = [18446744073709551615, 9876543210987654321]
-bert_embeddings = model.embeddings(santok_ids)
+soma_ids = [18446744073709551615, 9876543210987654321]
+bert_embeddings = model.embeddings(soma_ids)
 # Error: Index 18446744073709551615 out of bounds for dimension 0 with size 30522
 ```
 
@@ -298,11 +298,11 @@ bert_embeddings = model.embeddings(santok_ids)
 
 The vocabulary adapter is designed with these principles:
 
-1. **Preserve SanTOK Tokenization**: Use SanTOK's token strings, not IDs
+1. **Preserve SOMA Tokenization**: Use SOMA's token strings, not IDs
 2. **Map to Model Vocabulary**: Convert token strings to model vocabulary IDs
-3. **Maintain Metadata**: Preserve SanTOK's frontend digits, backend numbers, UIDs
+3. **Maintain Metadata**: Preserve SOMA's frontend digits, backend numbers, UIDs
 4. **Handle Subword Tokenization**: Accommodate models that split tokens into subwords
-5. **Provide Alignment Information**: Return mapping between SanTOK and model token indices
+5. **Provide Alignment Information**: Return mapping between SOMA and model token indices
 
 ### 3.2 Implementation Architecture
 
@@ -310,12 +310,12 @@ The vocabulary adapter is designed with these principles:
 
 The adapter performs a three-step process:
 
-**Step 1: Extract Token Strings from SanTOK**
+**Step 1: Extract Token Strings from SOMA**
 
 ```python
-# From SanTOK result
-santok_result = run_once(text, seed=42, embedding_bit=False)
-tokens = [rec["text"] for rec in santok_result["word"]["records"]]
+# From SOMA result
+soma_result = run_once(text, seed=42, embedding_bit=False)
+tokens = [rec["text"] for rec in soma_result["word"]["records"]]
 # tokens = ["Hello", "world", "!"]
 ```
 
@@ -352,22 +352,22 @@ encoded = tokenizer(
 
 **Step 4: Create Alignment Mapping**
 
-The adapter creates an approximate mapping from SanTOK token indices to model token indices:
+The adapter creates an approximate mapping from SOMA token indices to model token indices:
 
 ```python
-def _create_token_mapping(santok_tokens, model_ids):
+def _create_token_mapping(soma_tokens, model_ids):
     # Reconstruct text from both tokenizations
-    santok_text = " ".join(santok_tokens)
+    soma_text = " ".join(soma_tokens)
     model_tokens = tokenizer.convert_ids_to_tokens(model_ids)
     model_text = tokenizer.convert_tokens_to_string(model_tokens)
     
     # Approximate alignment based on character positions
     mapping = {}
-    santok_pos = 0
+    soma_pos = 0
     
-    for santok_idx, santok_token in enumerate(santok_tokens):
-        token_start = santok_pos
-        token_end = santok_pos + len(santok_token)
+    for soma_idx, soma_token in enumerate(soma_tokens):
+        token_start = soma_pos
+        token_end = soma_pos + len(soma_token)
         
         model_indices = []
         char_pos = 0
@@ -382,7 +382,7 @@ def _create_token_mapping(santok_tokens, model_ids):
             clean_token = model_token.replace("##", "").replace("▁", "")
             char_pos += len(clean_token) + 1
         
-        mapping[santok_idx] = model_indices if model_indices else [0]
+        mapping[soma_idx] = model_indices if model_indices else [0]
     
     return mapping
 ```
@@ -406,10 +406,10 @@ class VocabularyAdapter:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=use_fast)
         self.vocab_size = len(self.tokenizer.get_vocab())
     
-    def map_santok_tokens_to_model_ids(self, santok_tokens: List[Union[str, Dict]]) -> Dict:
+    def map_soma_tokens_to_model_ids(self, soma_tokens: List[Union[str, Dict]]) -> Dict:
         # Extract token texts
         token_texts = [t.get("text", str(t)) if isinstance(t, dict) else str(t) 
-                      for t in santok_tokens]
+                      for t in soma_tokens]
         
         # Reconstruct text
         text = " ".join(token_texts)
@@ -436,39 +436,39 @@ class VocabularyAdapter:
         }
 ```
 
-#### 3.3.2 SanTOKToModelConverter Class
+#### 3.3.2 SOMAToModelConverter Class
 
 ```python
-class SanTOKToModelConverter:
+class SOMAToModelConverter:
     def __init__(self, model_name: str = "bert-base-uncased"):
         self.adapter = VocabularyAdapter(model_name)
         self.model_name = model_name
     
-    def convert_santok_result(self, santok_result: Dict, tokenizer_type: str = "word") -> Dict:
-        # Extract tokens from SanTOK result
-        tokens_data = santok_result[tokenizer_type]
+    def convert_soma_result(self, soma_result: Dict, tokenizer_type: str = "word") -> Dict:
+        # Extract tokens from SOMA result
+        tokens_data = soma_result[tokenizer_type]
         tokens = [rec["text"] for rec in tokens_data["records"]]
         
         # Map to model vocabulary
-        model_encoded = self.adapter.map_santok_tokens_to_model_ids(tokens)
+        model_encoded = self.adapter.map_soma_tokens_to_model_ids(tokens)
         
-        # Preserve SanTOK metadata
+        # Preserve SOMA metadata
         return {
             "model_input_ids": model_encoded["input_ids"],
             "model_tokens": model_encoded["tokens"],
             "model_attention_mask": model_encoded["attention_mask"],
-            "santok_tokens": tokens,
-            "santok_frontend_digits": tokens_data.get("digits", []),
-            "santok_backend_scaled": tokens_data.get("scaled", []),
-            "santok_tokenizer_type": tokenizer_type,
+            "soma_tokens": tokens,
+            "soma_frontend_digits": tokens_data.get("digits", []),
+            "soma_backend_scaled": tokens_data.get("scaled", []),
+            "soma_tokenizer_type": tokenizer_type,
             "token_mapping": model_encoded["mapping"],
             "model_info": self.adapter.get_model_embedding_layer_info(),
             "vocab_size": model_encoded["vocab_size"]
         }
     
-    def prepare_for_inference(self, santok_result: Dict, tokenizer_type: str = "word",
+    def prepare_for_inference(self, soma_result: Dict, tokenizer_type: str = "word",
                              return_tensors: str = "pt") -> Dict:
-        converted = self.convert_santok_result(santok_result, tokenizer_type)
+        converted = self.convert_soma_result(soma_result, tokenizer_type)
         
         if return_tensors == "pt":
             import torch
@@ -487,14 +487,14 @@ class SanTOKToModelConverter:
 
 #### 3.4.1 Text Reconstruction Loss
 
-**Problem**: When joining SanTOK tokens back into text, some information may be lost:
+**Problem**: When joining SOMA tokens back into text, some information may be lost:
 - Original whitespace spacing
 - Exact punctuation placement
 - Special character handling
 
 **Example**:
 - Original: "Hello,world!"
-- SanTOK tokens: ["Hello", ",", "world", "!"]
+- SOMA tokens: ["Hello", ",", "world", "!"]
 - Reconstructed: "Hello , world !"
 - Model tokenizer processes: "Hello , world !"
 
@@ -502,14 +502,14 @@ class SanTOKToModelConverter:
 
 #### 3.4.2 Subword Tokenization Mismatch
 
-**Problem**: Models may split SanTOK tokens into subwords:
-- SanTOK: `["tokenization"]`
+**Problem**: Models may split SOMA tokens into subwords:
+- SOMA: `["tokenization"]`
 - Model: `["token", "##ization"]` (WordPiece) or `["token", "ization"]` (BPE)
 
 **Impact**:
 - Token count increases (ratio > 1.0)
-- Alignment mapping becomes 1:many (one SanTOK token → multiple model tokens)
-- SanTOK's single-token representation is lost
+- Alignment mapping becomes 1:many (one SOMA token → multiple model tokens)
+- SOMA's single-token representation is lost
 
 **Mitigation**: The mapping field provides alignment information, but perfect 1:1 correspondence is impossible.
 
@@ -520,7 +520,7 @@ class SanTOKToModelConverter:
 - May fail for edge cases with complex tokenization
 - Doesn't guarantee perfect correspondence
 
-**Example**: If model tokenizer handles "don't" differently than SanTOK, alignment may be incorrect.
+**Example**: If model tokenizer handles "don't" differently than SOMA, alignment may be incorrect.
 
 **Impact**: The mapping may not be 100% accurate for all cases.
 
@@ -529,7 +529,7 @@ class SanTOKToModelConverter:
 **Overhead Components**:
 1. **Text Reconstruction**: O(n) where n = number of tokens
 2. **Model Tokenization**: O(m) where m = text length (typically fast, < 1ms)
-3. **Alignment Calculation**: O(n × k) where k = model tokens per SanTOK token (typically < 10ms)
+3. **Alignment Calculation**: O(n × k) where k = model tokens per SOMA token (typically < 10ms)
 
 **Total Overhead**: < 20ms for typical inputs (< 1000 tokens)
 
@@ -573,13 +573,13 @@ We tested the vocabulary adapter with:
 - Range: 1.0x to 2.0x
 - Highest variance due to language model approach
 
-**Observation**: Subword tokenization consistently produces more tokens than SanTOK's word-level tokenization, as expected.
+**Observation**: Subword tokenization consistently produces more tokens than SOMA's word-level tokenization, as expected.
 
 #### 4.2.2 Alignment Accuracy
 
 We manually verified alignment for 1000 token pairs:
 - **Perfect Alignment**: 85% (1:1 mapping, no subword splitting)
-- **Correct 1:Many**: 12% (one SanTOK token correctly mapped to multiple model tokens)
+- **Correct 1:Many**: 12% (one SOMA token correctly mapped to multiple model tokens)
 - **Approximate**: 3% (alignment may be slightly off due to edge cases)
 
 **Conclusion**: The alignment algorithm is accurate for the vast majority of cases, with edge cases in < 5% of tokens.
@@ -615,15 +615,15 @@ We manually verified alignment for 1000 token pairs:
 
 ```python
 from src.core.core_tokenizer import run_once
-from src.integration.vocabulary_adapter import quick_convert_santok_to_model_ids
+from src.integration.vocabulary_adapter import quick_convert_soma_to_model_ids
 
-# Tokenize with SanTOK
-text = "Hello world! SanTOK is amazing."
-santok_result = run_once(text, seed=42, embedding_bit=False)
-tokens = [rec["text"] for rec in santok_result["word"]["records"]]
+# Tokenize with SOMA
+text = "Hello world! SOMA is amazing."
+soma_result = run_once(text, seed=42, embedding_bit=False)
+tokens = [rec["text"] for rec in soma_result["word"]["records"]]
 
 # Convert to model IDs
-model_ids = quick_convert_santok_to_model_ids(tokens, "bert-base-uncased")
+model_ids = quick_convert_soma_to_model_ids(tokens, "bert-base-uncased")
 # Result: [101, 7592, 2088, 999, 17594, 2003, 3407, 1012, 102]
 ```
 
@@ -631,17 +631,17 @@ model_ids = quick_convert_santok_to_model_ids(tokens, "bert-base-uncased")
 
 ```python
 from src.core.core_tokenizer import TextTokenizer
-from src.integration.vocabulary_adapter import SanTOKToModelConverter
+from src.integration.vocabulary_adapter import SOMAToModelConverter
 from transformers import AutoModel
 import torch
 
-# Step 1: SanTOK tokenization
+# Step 1: SOMA tokenization
 tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-streams = tokenizer.build("Hello world! SanTOK is amazing.")
+streams = tokenizer.build("Hello world! SOMA is amazing.")
 tokens = [tok.text for tok in streams["word"].tokens]
 
 # Step 2: Convert to model format
-converter = SanTOKToModelConverter("bert-base-uncased")
+converter = SOMAToModelConverter("bert-base-uncased")
 model_inputs = converter.prepare_for_inference(
     {"word": {"records": [{"text": t} for t in tokens]}},
     tokenizer_type="word",
@@ -660,13 +660,13 @@ with torch.no_grad():
 ### 5.3 Metadata Preservation
 
 ```python
-converter = SanTOKToModelConverter("bert-base-uncased")
-result = converter.convert_santok_result(santok_result, "word")
+converter = SOMAToModelConverter("bert-base-uncased")
+result = converter.convert_soma_result(soma_result, "word")
 
-# Access SanTOK metadata
-santok_tokens = result["santok_tokens"]
-frontend_digits = result["santok_frontend_digits"]
-backend_scaled = result["santok_backend_scaled"]
+# Access SOMA metadata
+soma_tokens = result["soma_tokens"]
+frontend_digits = result["soma_frontend_digits"]
+backend_scaled = result["soma_backend_scaled"]
 
 # Access model data
 model_ids = result["model_input_ids"]
@@ -674,7 +674,7 @@ model_tokens = result["model_tokens"]
 
 # Access mapping
 mapping = result["token_mapping"]
-# Shows: SanTOK token index → Model token indices
+# Shows: SOMA token index → Model token indices
 ```
 
 ---
@@ -686,13 +686,13 @@ mapping = result["token_mapping"]
 The vocabulary adapter works because:
 1. **Token Strings are Universal**: While IDs differ, token strings can be shared
 2. **Model Tokenizers are Deterministic**: Given the same text, models produce the same tokens
-3. **Metadata is Preserved**: SanTOK's unique identifiers are kept separately
+3. **Metadata is Preserved**: SOMA's unique identifiers are kept separately
 4. **Mapping is Provided**: Alignment information enables understanding of tokenization differences
 
 ### 6.2 Honest Assessment of Limitations
 
 **What Works Well**:
-- ✅ Preserves SanTOK's tokenization quality
+- ✅ Preserves SOMA's tokenization quality
 - ✅ Enables compatibility with any HuggingFace model
 - ✅ Maintains metadata for analysis
 - ✅ Fast performance (< 10ms overhead)
@@ -707,21 +707,21 @@ The vocabulary adapter works because:
 
 **What's Impossible**:
 - ❌ Perfect 1:1 token correspondence when models use subword tokenization
-- ❌ Using SanTOK IDs directly without mapping (mathematically impossible)
+- ❌ Using SOMA IDs directly without mapping (mathematically impossible)
 - ❌ Zero-overhead solution (some processing is required)
 
 ### 6.3 Alternative Approaches
 
-**Approach 1: Train New Models with SanTOK Vocabulary**
+**Approach 1: Train New Models with SOMA Vocabulary**
 - **Pros**: Perfect alignment, no adapter needed
 - **Cons**: Requires full model training (expensive, time-consuming), loses pretrained embeddings
 
 **Approach 2: Re-embed Existing Models**
-- **Pros**: Could align embeddings with SanTOK vocabulary
+- **Pros**: Could align embeddings with SOMA vocabulary
 - **Cons**: Extremely complex, requires significant research, may not preserve model performance
 
 **Approach 3: Vocabulary Adapter (Our Solution)**
-- **Pros**: Works immediately, preserves pretrained embeddings, maintains SanTOK quality
+- **Pros**: Works immediately, preserves pretrained embeddings, maintains SOMA quality
 - **Cons**: Requires text reconstruction, approximate alignment, dependency on transformers
 
 **Conclusion**: The vocabulary adapter is the most practical solution for most use cases.
@@ -744,12 +744,12 @@ The vocabulary adapter works because:
 
 ## 7. Conclusion
 
-This paper presented a rigorous technical analysis of vocabulary incompatibility between SanTOK's deterministic tokenization system and pretrained transformer model vocabularies. We proved mathematically that SanTOK's ID namespace (64-bit integers from XorShift64*, 1-9 frontend digits, composite backend numbers) is incompatible with model vocabulary indices (0 to vocab_size-1).
+This paper presented a rigorous technical analysis of vocabulary incompatibility between SOMA's deterministic tokenization system and pretrained transformer model vocabularies. We proved mathematically that SOMA's ID namespace (64-bit integers from XorShift64*, 1-9 frontend digits, composite backend numbers) is incompatible with model vocabulary indices (0 to vocab_size-1).
 
 We implemented and analyzed a vocabulary adapter solution that:
-1. Preserves SanTOK's tokenization quality by using token strings
+1. Preserves SOMA's tokenization quality by using token strings
 2. Maps tokens to model vocabulary IDs through text reconstruction
-3. Maintains SanTOK's metadata (frontend digits, backend numbers, UIDs)
+3. Maintains SOMA's metadata (frontend digits, backend numbers, UIDs)
 4. Provides alignment information for understanding tokenization differences
 
 **Key Findings**:
@@ -770,13 +770,13 @@ We implemented and analyzed a vocabulary adapter solution that:
 - Optimize performance for large-scale processing
 - Research perfect alignment methods
 
-The vocabulary adapter enables practical use of SanTOK's superior tokenization with pretrained transformer models, making it a valuable tool for NLP practitioners who want both SanTOK's quality and model compatibility.
+The vocabulary adapter enables practical use of SOMA's superior tokenization with pretrained transformer models, making it a valuable tool for NLP practitioners who want both SOMA's quality and model compatibility.
 
 ---
 
 ## 8. References
 
-### 8.1 SanTOK Implementation
+### 8.1 SOMA Implementation
 
 - **Core Tokenizer**: `src/core/core_tokenizer.py`
   - XorShift64* implementation: Lines 1899-1912
@@ -788,7 +788,7 @@ The vocabulary adapter enables practical use of SanTOK's superior tokenization w
 
 - **Adapter Module**: `src/integration/vocabulary_adapter.py`
   - VocabularyAdapter class: Lines 26-167
-  - SanTOKToModelConverter class: Lines 170-266
+  - SOMAToModelConverter class: Lines 170-266
   - Mapping algorithm: Lines 104-149
 
 ### 8.3 Backend API
@@ -860,8 +860,8 @@ See `tests/test_vocabulary_adapter_backend.py` for benchmark results.
 
 **Paper Version**: 1.0  
 **Date**: 2024  
-**Author**: SanTOK Technical Team  
-**License**: Same as SanTOK project
+**Author**: SOMA Technical Team  
+**License**: Same as SOMA project
 
 ---
 

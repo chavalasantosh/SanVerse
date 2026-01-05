@@ -1,4 +1,4 @@
-# ✅ Correct SanTOK Tokenizer Names
+# ✅ Correct SOMA Tokenizer Names
 
 ## ⚠️ Important: Use Lowercase and Correct Spelling
 
@@ -45,7 +45,7 @@ curl.exe http://127.0.0.1:8000/
 You'll see:
 ```json
 {
-  "message": "SanTOK API is running!",
+  "message": "SOMA API is running!",
   "version": "1.0.0",
   "available_tokenizers": [
     "space",

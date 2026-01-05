@@ -1,4 +1,4 @@
-# SanTOK Distribution Setup - Complete
+# SOMA Distribution Setup - Complete
 
 All distribution setup files have been created and configured. Your team can now easily download, install dependencies, and run the code.
 
@@ -44,7 +44,7 @@ All distribution setup files have been created and configured. Your team can now
    ```bash
    git init
    git add .
-   git commit -m "Initial commit - SanTOK distribution ready"
+   git commit -m "Initial commit - SOMA distribution ready"
    git remote add origin <your-repo-url>
    git push -u origin main
    ```
@@ -52,7 +52,7 @@ All distribution setup files have been created and configured. Your team can now
 2. **Team members clone:**
    ```bash
    git clone <repo-url>
-   cd SanTOK
+   cd SOMA
    ```
 
 3. **Team members setup:**
@@ -69,7 +69,7 @@ All distribution setup files have been created and configured. Your team can now
 2. **Create ZIP** (exclude .git/):
    ```bash
    # Linux/Mac
-   zip -r santok-distribution.zip . -x "*.git*" "*.zip" "venv/*" "__pycache__/*"
+   zip -r soma-distribution.zip . -x "*.git*" "*.zip" "venv/*" "__pycache__/*"
    
    # Windows
    # Use 7-Zip or WinRAR to create ZIP excluding .git/
@@ -86,15 +86,15 @@ All distribution setup files have been created and configured. Your team can now
 
 1. **Build and push image:**
    ```bash
-   docker build -t santok:latest .
-   docker tag santok:latest <registry>/santok:latest
-   docker push <registry>/santok:latest
+   docker build -t soma:latest .
+   docker tag soma:latest <registry>/soma:latest
+   docker push <registry>/soma:latest
    ```
 
 2. **Team pulls and runs:**
    ```bash
-   docker pull <registry>/santok:latest
-   docker run -p 8000:8000 santok:latest
+   docker pull <registry>/soma:latest
+   docker run -p 8000:8000 soma:latest
    ```
 
 ## Team Workflow
@@ -124,7 +124,7 @@ All distribution setup files have been created and configured. Your team can now
 ## File Structure
 
 ```
-SanTOK/
+SOMA/
 ├── README.md                    # Main documentation
 ├── INSTALLATION.md              # Detailed installation guide
 ├── QUICK_START.md               # Quick reference

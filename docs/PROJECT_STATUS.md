@@ -1,11 +1,11 @@
-# SanTOK Project Status Report
+# SOMA Project Status Report
 **Last Updated:** Current Session
 
 ---
 
 ## 🎯 Executive Summary
 
-**SanTOK is a fully functional, production-ready text tokenization framework** with:
+**SOMA is a fully functional, production-ready text tokenization framework** with:
 - ✅ Complete tokenization engine (9 algorithms)
 - ✅ Modern web frontend (Next.js/React)
 - ✅ FastAPI backend server
@@ -119,8 +119,8 @@ npm run dev
 - ✅ `inference_pipeline.py` - End-to-end inference pipeline
 
 **Strategies:**
-1. ✅ **Feature-Based** - Deterministic from SanTOK features
-2. ✅ **Hybrid** - Text embeddings + SanTOK features (requires sentence-transformers)
+1. ✅ **Feature-Based** - Deterministic from SOMA features
+2. ✅ **Hybrid** - Text embeddings + SOMA features (requires sentence-transformers)
 3. ✅ **Hash-Based** - Fast cryptographic hash embeddings
 
 **Features:**
@@ -145,11 +145,11 @@ npm run dev
 
 **Status:** ✅ Fully functional
 
-**Purpose:** Bridge SanTOK tokens to pretrained model vocabularies
+**Purpose:** Bridge SOMA tokens to pretrained model vocabularies
 
 **Features:**
 - ✅ Works with any HuggingFace model (BERT, GPT, T5, etc.)
-- ✅ Preserves SanTOK metadata
+- ✅ Preserves SOMA metadata
 - ✅ Frontend UI for testing
 - ✅ API endpoint for integration
 
@@ -197,7 +197,7 @@ npm run dev
 ## 📁 Project Structure
 
 ```
-SanTOK/
+SOMA/
 ├── src/
 │   ├── core/
 │   │   └── core_tokenizer.py          ✅ Core engine
@@ -383,7 +383,7 @@ All core features are complete and operational. The system is ready for use!
 
 ## 📝 Summary
 
-**SanTOK is a complete, production-ready tokenization framework** with:
+**SOMA is a complete, production-ready tokenization framework** with:
 
 ✅ **Core Engine** - 9 algorithms, perfect reconstruction  
 ✅ **Web Interface** - Modern React frontend  

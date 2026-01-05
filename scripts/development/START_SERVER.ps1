@@ -1,9 +1,9 @@
-# Start SanTOK Backend Server with WebSocket Support
+# Start SOMA Backend Server with WebSocket Support
 # This fixes the WebSocket connection error
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  Starting SanTOK Backend Server" -ForegroundColor Cyan
+Write-Host "  Starting SOMA Backend Server" -ForegroundColor Cyan
 Write-Host "  (WebSocket Support Enabled)" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""

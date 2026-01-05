@@ -19,7 +19,7 @@
 3. **CORS_ORIGINS** (REQUIRED)
    - Description: Comma-separated list of allowed frontend origins
    - Format: `https://yourdomain.com,https://www.yourdomain.com`
-   - Example: `https://santok-frontend.up.railway.app`
+   - Example: `https://soma-frontend.up.railway.app`
    - **DO NOT USE "*" IN PRODUCTION**
 
 4. **PORT** (Optional - Railway sets this automatically)
@@ -36,7 +36,7 @@
 1. **NEXT_PUBLIC_API_URL** (REQUIRED)
    - Description: Backend API URL
    - Format: `https://your-backend-url.up.railway.app`
-   - Example: `https://santok-backend.up.railway.app`
+   - Example: `https://soma-backend.up.railway.app`
    - **MUST BE HTTPS IN PRODUCTION**
 
 ## How to Set in Railway

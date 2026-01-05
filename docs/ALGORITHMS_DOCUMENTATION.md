@@ -1,6 +1,6 @@
-# SanTOK Algorithms Documentation
+# SOMA Algorithms Documentation
 
-Complete documentation of all algorithms used in the SanTOK project.
+Complete documentation of all algorithms used in the SOMA project.
 
 ---
 
@@ -58,7 +58,7 @@ Complete documentation of all algorithms used in the SanTOK project.
 
 #### 1.5.2 BPE-like Subword
 - **Strategy**: `bpe`
-- **Algorithm**: Byte Pair Encoding-inspired algorithm optimized for SanTOK
+- **Algorithm**: Byte Pair Encoding-inspired algorithm optimized for SOMA
   - Iteratively merges most frequent character pairs
   - Optimized version without full BPE training overhead
 - **Use Case**: Subword representation similar to BPE tokenizers
@@ -431,7 +431,7 @@ Where:
 
 - **Document Version**: 1.0
 - **Last Updated**: 2024
-- **SanTOK Version**: Current
+- **SOMA Version**: Current
 
 ---
 

@@ -1,9 +1,9 @@
 @echo off
-REM SanTOK Run Script for Windows
-REM Starts the SanTOK API server
+REM SOMA Run Script for Windows
+REM Starts the SOMA API server
 
 echo ==========================================
-echo SanTOK API Server
+echo SOMA API Server
 echo ==========================================
 echo.
 
@@ -40,7 +40,7 @@ if not errorlevel 1 (
     )
 )
 
-echo [INFO] Starting SanTOK API Server...
+echo [INFO] Starting SOMA API Server...
 echo [INFO] Server will be available at: http://localhost:%PORT%
 echo [INFO] API Documentation at: http://localhost:%PORT%/docs
 echo.

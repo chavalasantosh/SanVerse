@@ -1,4 +1,4 @@
-# 🚀 How to Execute SanTOK Workflows
+# 🚀 How to Execute SOMA Workflows
 
 ## After Importing Workflows
 
@@ -137,7 +137,7 @@ All workflows accept these parameters:
 ### Workflow Not Executing?
 - ✅ Check workflow is activated (toggle switch)
 - ✅ Verify webhook URL is correct
-- ✅ Check SanTOK API is running: `http://localhost:8000/health`
+- ✅ Check SOMA API is running: `http://localhost:8000/health`
 - ✅ Check n8n execution logs for errors
 
 ### Getting 404 Error?
@@ -146,7 +146,7 @@ All workflows accept these parameters:
 - Check n8n is running
 
 ### Getting 500 Error?
-- Check SanTOK API is running
+- Check SOMA API is running
 - Verify API URL in workflow node
 - Check execution logs in n8n
 
@@ -155,7 +155,7 @@ All workflows accept these parameters:
 Test if everything is working:
 
 ```bash
-# Test SanTOK API
+# Test SOMA API
 curl http://localhost:8000/health
 
 # Test n8n workflow

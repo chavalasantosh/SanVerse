@@ -71,7 +71,7 @@
 - [ ] Test file browser: Admin can access files
 
 ### Security Verification
-- [ ] Regular users cannot access SanTOK files
+- [ ] Regular users cannot access SOMA files
 - [ ] Admin login required for file access
 - [ ] CORS errors don't appear in console
 - [ ] JWT tokens work correctly

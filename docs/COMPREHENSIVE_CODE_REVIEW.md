@@ -2,12 +2,12 @@
 
 ## Executive Summary
 
-This document summarizes all code improvements made to the SanTOK repository following a comprehensive codebase audit.
+This document summarizes all code improvements made to the SOMA repository following a comprehensive codebase audit.
 
 ## Phase 1: Codebase Audit ✅
 
 ### Structure Analysis
-- Identified multiple entry points (main.py, run.py, santok_cli.py, start.py)
+- Identified multiple entry points (main.py, run.py, soma_cli.py, start.py)
 - Found duplicate directory structures (backend/src and src)
 - Located import path inconsistencies
 - Identified missing type hints throughout codebase
@@ -24,8 +24,8 @@ This document summarizes all code improvements made to the SanTOK repository fol
 
 ### 1. Type Hints & Type Safety
 **Files Modified:**
-- `santok/santok.py` - Complete type hint coverage
-- `santok/cli.py` - Type hints for CLI functions
+- `soma/soma.py` - Complete type hint coverage
+- `soma/cli.py` - Type hints for CLI functions
 - `main.py` - Added type hints and better error handling
 
 **Improvements:**
@@ -36,7 +36,7 @@ This document summarizes all code improvements made to the SanTOK repository fol
 
 ### 2. Input Validation & Error Handling
 **Files Modified:**
-- `santok/santok.py` - Comprehensive input validation
+- `soma/soma.py` - Comprehensive input validation
 - `main.py` - Better error handling for imports and server startup
 
 **Improvements:**
@@ -73,18 +73,18 @@ This document summarizes all code improvements made to the SanTOK repository fol
 ## Files Modified
 
 ### Core Package
-1. `santok/santok.py` ✅
+1. `soma/soma.py` ✅
    - Complete type hints
    - Input validation
    - Error handling
    - 449 lines improved
 
-2. `santok/cli.py` ✅
+2. `soma/cli.py` ✅
    - Type hints added
    - Function signatures improved
    - Better error handling
 
-3. `santok/__init__.py`
+3. `soma/__init__.py`
    - Already good, no changes needed
 
 ### Entry Points

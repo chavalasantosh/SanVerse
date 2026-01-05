@@ -2,7 +2,7 @@
 
 ## What We Built
 
-✅ **Complete Weaviate integration for SanTOK**
+✅ **Complete Weaviate integration for SOMA**
 
 ### Files Created:
 
@@ -21,7 +21,7 @@
    - Quick validation tool
 
 3. **`example_usage.py`** - Full working example
-   - Complete SanTOK → Weaviate pipeline
+   - Complete SOMA → Weaviate pipeline
    - Tokenization → Embeddings → Storage → Search
 
 4. **`requirements.txt`** - Dependencies
@@ -35,7 +35,7 @@
 ## How It Works
 
 ```
-SanTOK Tokenization
+SOMA Tokenization
     ↓
 Generate Embeddings (768-dim vectors)
     ↓
@@ -62,7 +62,7 @@ Similar tokens returned
 
 1. **Test it**: Run `python weaviate/test_connection.py`
 2. **Try example**: Run `python weaviate/example_usage.py`
-3. **Integrate**: Use `WeaviateVectorStore` in your SanTOK pipeline
+3. **Integrate**: Use `WeaviateVectorStore` in your SOMA pipeline
 
 ## Status
 
@@ -72,7 +72,7 @@ The implementation follows the same pattern as your existing `ChromaVectorStore`
 
 ## Notes
 
-- Collection name defaults to "SanTOK_Token"
+- Collection name defaults to "SOMA_Token"
 - Embedding dimension: 768 (configurable)
 - Credentials from `.env` or constructor args
 - Always call `.close()` or use `with` statement

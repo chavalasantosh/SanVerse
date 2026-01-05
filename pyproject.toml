@@ -36,7 +36,7 @@ Issues = "https://github.com/chavalasantosh/SanVerse/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["soma*", "src*", "cognitive*", "santek_core*", "semantic_trainer*"]
+include = ["soma*", "src*", "cognitive*", "soma_core*", "semantic_trainer*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

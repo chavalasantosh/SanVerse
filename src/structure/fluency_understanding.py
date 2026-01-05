@@ -9,7 +9,7 @@ Deep understanding of data, patterns, and structure for EXCELLENT fluency:
 - Context understanding
 - Fluency scoring and improvement
 
-This makes SanTEK understand data deeply!
+This makes SOMA Core understand data deeply!
 """
 
 import sys

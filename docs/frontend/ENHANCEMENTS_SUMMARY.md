@@ -1,4 +1,4 @@
-# 🚀 SanTOK Frontend Enhancements - Complete Summary
+# 🚀 SOMA Frontend Enhancements - Complete Summary
 
 ## ✅ What's Been Added
 

@@ -59,7 +59,7 @@ if len(all_tokens) > 5000000:
 
 You can use `strategy="hybrid"` which combines:
 - Text embeddings (from sentence-transformers)
-- Feature embeddings (from SanTOK)
+- Feature embeddings (from SOMA)
 
 **But:** Requires `sentence-transformers` package (you got a warning it's not available)
 

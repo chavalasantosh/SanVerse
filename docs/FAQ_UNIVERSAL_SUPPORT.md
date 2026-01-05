@@ -1,10 +1,10 @@
-# SanTOK FAQ: Universal File Support
+# SOMA FAQ: Universal File Support
 
-## ❓ **Common Question: "Does SanTOK only work on text tokenization?"**
+## ❓ **Common Question: "Does SOMA only work on text tokenization?"**
 
-## ✅ **Answer: NO! SanTOK is a UNIVERSAL tokenization system!**
+## ✅ **Answer: NO! SOMA is a UNIVERSAL tokenization system!**
 
-SanTOK works on **EVERYTHING**, not just text:
+SOMA works on **EVERYTHING**, not just text:
 
 ### 🖼️ **Images**
 - ✅ JPG/JPEG
@@ -54,13 +54,13 @@ SanTOK works on **EVERYTHING**, not just text:
 - ✅ TAR, GZ, BZ2
 
 ### 🌐 **ANY File Type!**
-**If it's a file, SanTOK can tokenize it!**
+**If it's a file, SOMA can tokenize it!**
 
 ---
 
 ## 🔍 **How Does It Work?**
 
-SanTOK uses a **universal file handling system**:
+SOMA uses a **universal file handling system**:
 
 1. **Reads ANY file as binary** - No file type is excluded
 2. **Converts to tokenizable format** - Binary files become hex representation
@@ -112,9 +112,9 @@ tokens = tokenizer.tokenize_file("any_file.xyz", method="byte")
 
 ## 🎯 **Bottom Line**
 
-**SanTOK is NOT a text-only tokenizer.**
+**SOMA is NOT a text-only tokenizer.**
 
-**SanTOK is a UNIVERSAL tokenization system that works on:**
+**SOMA is a UNIVERSAL tokenization system that works on:**
 - ✅ Text
 - ✅ Images
 - ✅ Videos
@@ -125,8 +125,8 @@ tokens = tokenizer.tokenize_file("any_file.xyz", method="byte")
 - ✅ Archives
 - ✅ **ANY file type!**
 
-**If someone asks you if SanTOK only works on text, the answer is:**
-> **"No! SanTOK is universal - it works on images, videos, audio, GIFs, and ANY file type. It's not limited to text at all!"**
+**If someone asks you if SOMA only works on text, the answer is:**
+> **"No! SOMA is universal - it works on images, videos, audio, GIFs, and ANY file type. It's not limited to text at all!"**
 
 ---
 

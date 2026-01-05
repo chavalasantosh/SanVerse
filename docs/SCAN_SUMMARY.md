@@ -37,10 +37,10 @@
 
 ## Files Already Improved ✅
 
-- `santok/santok.py` - 100% type hints
-- `santok/cli.py` - Complete type hints
+- `soma/soma.py` - 100% type hints
+- `soma/cli.py` - Complete type hints
 - `main.py`, `run.py`, `start.py` - Complete type hints
-- `santok_cli.py` - Enhanced type safety
+- `soma_cli.py` - Enhanced type safety
 
 **Status:** Core package is production-ready!
 

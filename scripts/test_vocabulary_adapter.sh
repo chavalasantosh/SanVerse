@@ -24,7 +24,7 @@ echo "3. Testing custom request..."
 curl -s -X POST http://localhost:8000/test/vocabulary-adapter \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "Hello world! SanTOK is amazing.",
+    "text": "Hello world! SOMA is amazing.",
     "model_name": "bert-base-uncased",
     "tokenizer_type": "word"
   }' | python -m json.tool

@@ -1,6 +1,6 @@
 # How to Get 500k Tokens for Testing
 
-This guide shows you how to get 500,000 tokens to test the complete SanTOK workflow:
+This guide shows you how to get 500,000 tokens to test the complete SOMA workflow:
 **Tokenization → Embedding → Semantic → Model Outcome**
 
 ## Quick Start
@@ -86,9 +86,9 @@ The test script includes a synthetic text generator that creates varied text to 
 
 ## What the Test Script Does
 
-1. **Tokenization**: Tokenizes your text with SanTOK
+1. **Tokenization**: Tokenizes your text with SOMA
 2. **Embedding Generation**: Creates feature-based embeddings
-3. **Semantic Training**: Trains semantic embeddings from SanTOK structure
+3. **Semantic Training**: Trains semantic embeddings from SOMA structure
 4. **Model Outcome**: Performs similarity search to demonstrate the full pipeline
 
 ## Output Files
@@ -96,7 +96,7 @@ The test script includes a synthetic text generator that creates varied text to 
 All results are saved to `workflow_output/`:
 - `tokenization_results.json` - Tokenization statistics
 - `embedding_stats.json` - Embedding information
-- `santok_semantic_model.pkl` - Trained semantic model
+- `soma_semantic_model.pkl` - Trained semantic model
 - `similarity_search_results.json` - Search results
 
 ## Example Usage

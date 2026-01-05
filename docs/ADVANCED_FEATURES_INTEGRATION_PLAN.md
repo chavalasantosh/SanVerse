@@ -21,7 +21,7 @@ Integrating advanced examples folder features into frontend with backend API end
 - Quality metrics and analysis
 
 ### 4. **Context Fusion Embeddings**
-- SanTOK-native context-aware embeddings
+- SOMA-native context-aware embeddings
 - Context fusion search
 
 ### 5. **Full Workflow (Large Batch Processing)**

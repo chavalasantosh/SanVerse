@@ -1,11 +1,11 @@
-# 🚀 SanTOK Tokenizer - Backend Integration Guide
+# 🚀 SOMA Tokenizer - Backend Integration Guide
 
 ## ✅ **Your Frontend is Now Connected to Your Python Backend!**
 
 ### 🎯 **What I've Done:**
 
 1. **Created FastAPI Backend Server** (`backend_server.py`)
-   - Integrates with your existing `SanTOK_tokenizer.py`
+   - Integrates with your existing `SOMA_tokenizer.py`
    - Connects to your `token_math.py`, `tokenizer.py`, `uid.py` files
    - Provides REST API endpoints for the frontend
 
@@ -83,7 +83,7 @@ npm run dev
 
 ## 🎯 **Your Backend Files Integration:**
 
-### **SanTOK_tokenizer.py** ✅
+### **SOMA_tokenizer.py** ✅
 - All 9 tokenizer functions integrated
 - `_content_id`, `_alphabetic_mapping`, `_weighted_sum` functions used
 - `_digital_root`, `_xorshift64_star`, `_embedding_bit` functions integrated
@@ -123,7 +123,7 @@ npm run dev
 ### **Backend Won't Start:**
 1. Check if Python 3.7+ is installed
 2. Install requirements: `pip install -r requirements.txt`
-3. Check if `SanTOK_tokenizer.py` is in the same directory
+3. Check if `SOMA_tokenizer.py` is in the same directory
 
 ### **Frontend Can't Connect:**
 1. Make sure backend is running on port 8000

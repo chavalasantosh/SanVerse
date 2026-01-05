@@ -32,9 +32,9 @@
 - ✅ `.gitignore` - Git ignore rules
 
 ### ✅ Package Files
-- ✅ `santok/__init__.py`
-- ✅ `santok/cli.py`
-- ✅ `santok/santok.py`
+- ✅ `soma/__init__.py`
+- ✅ `soma/cli.py`
+- ✅ `soma/soma.py`
 
 ### ✅ Example Scripts (ALL 10)
 1. ✅ `test_full_workflow_500k.py` - **MAIN DEMO** ⭐
@@ -64,10 +64,10 @@
 ## 📁 Demo Folder Structure
 
 ```
-demo_santok/
+demo_soma/
 ├── src/                    ✅ Core source code (35 Python files)
 ├── examples/               ✅ Demo scripts (10 scripts)
-├── santok/                 ✅ Package code (3 files)
+├── soma/                 ✅ Package code (3 files)
 ├── main.py                 ✅ Entry point
 ├── setup.py                ✅ Setup script
 ├── requirements.txt        ✅ Dependencies
@@ -198,7 +198,7 @@ demo_santok/
 
 ---
 
-**Location**: `demo_santok/`
+**Location**: `demo_soma/`
 **Total Files**: 77 files
 **Status**: ✅ **ALL ESSENTIAL FILES PRESENT**
 **Ready**: ✅ **YES!**

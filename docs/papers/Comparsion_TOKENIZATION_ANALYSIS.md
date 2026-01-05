@@ -1,8 +1,8 @@
-# Comprehensive Tokenization Analysis: SanTOK vs Industry Standards
+# Comprehensive Tokenization Analysis: SOMA vs Industry Standards
 
 ## Executive Summary
 
-This document provides a comprehensive analysis of the SanTOK (Stable and Novel Tokenization) framework against major tokenization approaches used in state-of-the-art language models. Our analysis reveals that SanTOK offers unique advantages in terms of reconstruction accuracy, algorithmic diversity, and practical applicability.
+This document provides a comprehensive analysis of the SOMA (Stable and Novel Tokenization) framework against major tokenization approaches used in state-of-the-art language models. Our analysis reveals that SOMA offers unique advantages in terms of reconstruction accuracy, algorithmic diversity, and practical applicability.
 
 ## 1. Introduction
 
@@ -16,9 +16,9 @@ Tokenization is the foundational process that converts raw text into discrete un
 - **Computational Efficiency**: Processing speed and memory usage
 - **Cost Management**: Token-based pricing in commercial APIs
 
-### 1.2 The SanTOK Framework
+### 1.2 The SOMA Framework
 
-SanTOK introduces a novel approach by providing **9 distinct tokenization algorithms** in a unified framework:
+SOMA introduces a novel approach by providing **9 distinct tokenization algorithms** in a unified framework:
 
 1. **Space-based**: Splits on whitespace
 2. **Word-based**: Splits on word boundaries
@@ -47,7 +47,7 @@ We evaluate tokenization approaches across multiple dimensions:
 ### 2.2 Methodology
 
 Our analysis is based on:
-- **Empirical Testing**: Verified performance metrics from SanTOK implementation
+- **Empirical Testing**: Verified performance metrics from SOMA implementation
 - **Literature Review**: Analysis of published tokenization approaches
 - **Industry Standards**: Comparison with widely-used tokenizers
 - **Technical Specifications**: Detailed examination of algorithmic properties
@@ -73,11 +73,11 @@ Our analysis is based on:
 | Mistral | SentencePiece | ✅ Lossless with normalization | ✅ Yes | |
 | Baichuan | BPE | ⚠️ Depends | ✅ Yes | |
 | RWKV | BPE | ⚠️ Depends | ✅ Yes | |
-| **SanTOK** | **9 Algorithms** | **✅ 100% Lossless (Verified)** | **❌ None** | **Deterministic, no training required** |
+| **SOMA** | **9 Algorithms** | **✅ 100% Lossless (Verified)** | **❌ None** | **Deterministic, no training required** |
 
 ### 3.2 Technical Feature Comparison
 
-| **Aspect** | **SanTOK** | **WordPiece (BERT family)** | **BPE** | **Byte-level BPE (tiktoken/GPT-2/RoBERTa)** | **SentencePiece (T5/XLNet/ALBERT/LLaMA/Mistral)** |
+| **Aspect** | **SOMA** | **WordPiece (BERT family)** | **BPE** | **Byte-level BPE (tiktoken/GPT-2/RoBERTa)** | **SentencePiece (T5/XLNet/ALBERT/LLaMA/Mistral)** |
 |------------|------------|------------------------------|---------|-----------------------------------------------|---------------------------------------------------|
 | **Core Algorithms** | ✅ 9 total: Space, Word, Char, Grammar, Subword, BPE, Syllable, Frequency, Byte | 1 (WordPiece) | 1 (BPE) | 1 (Byte-level BPE) | 1 (SentencePiece, supports BPE & unigram LM) |
 | **Reconstruction** | ✅ Perfect (100% verified, lossless for all 9) | ✅ Lossless for text but vocab cutoff can cause `<UNK>` | ✅ Lossless but dependent on merges | ✅ Lossless (handles raw bytes, no `<UNK>`) | ✅ Lossless (handles raw text, fallback tokens avoid `<UNK>`) |
@@ -95,7 +95,7 @@ Our analysis is based on:
 
 ### 4.1 Speed Benchmarks
 
-Our comprehensive testing reveals SanTOK's performance characteristics:
+Our comprehensive testing reveals SOMA's performance characteristics:
 
 | **Algorithm** | **Speed Range (chars/sec)** | **Perfect Reconstruction** | **Use Case** |
 |---------------|----------------------------|---------------------------|--------------|
@@ -111,18 +111,18 @@ Our comprehensive testing reveals SanTOK's performance characteristics:
 
 ### 4.2 Comparative Performance
 
-| **Tokenizer Type** | **Typical Speed Range** | **SanTOK Advantage** |
+| **Tokenizer Type** | **Typical Speed Range** | **SOMA Advantage** |
 |-------------------|------------------------|---------------------|
-| WordPiece (BERT) | ~500K - 1.5M chars/sec | Comparable to fastest SanTOK algorithms |
-| BPE (GPT-2) | ~300K - 1M chars/sec | SanTOK BPE: 308K-316K (competitive) |
-| Byte-level BPE | ~400K - 1.3M chars/sec | SanTOK Space/Word: 770K-1.26M (superior) |
-| SentencePiece | ~300K - 1.2M chars/sec | SanTOK multiple algorithms exceed this range |
+| WordPiece (BERT) | ~500K - 1.5M chars/sec | Comparable to fastest SOMA algorithms |
+| BPE (GPT-2) | ~300K - 1M chars/sec | SOMA BPE: 308K-316K (competitive) |
+| Byte-level BPE | ~400K - 1.3M chars/sec | SOMA Space/Word: 770K-1.26M (superior) |
+| SentencePiece | ~300K - 1.2M chars/sec | SOMA multiple algorithms exceed this range |
 
-## 5. Key Advantages of SanTOK
+## 5. Key Advantages of SOMA
 
 ### 5.1 Algorithmic Diversity
 
-**Unique Feature**: SanTOK is the only framework providing 9 distinct tokenization algorithms in a unified system:
+**Unique Feature**: SOMA is the only framework providing 9 distinct tokenization algorithms in a unified system:
 
 1. **Multi-granularity Support**: From coarse (space/word) to fine (character/byte) granularity
 2. **Hybrid Approaches**: Grammar and frequency-based tokenization
@@ -131,7 +131,7 @@ Our comprehensive testing reveals SanTOK's performance characteristics:
 
 ### 5.2 Perfect Reconstruction
 
-**Verified Guarantee**: All 9 SanTOK algorithms achieve 100% perfect reconstruction:
+**Verified Guarantee**: All 9 SOMA algorithms achieve 100% perfect reconstruction:
 
 - **Deterministic Design**: No probabilistic elements that could cause reconstruction errors
 - **Comprehensive Testing**: Verified across multiple datasets and text types
@@ -187,7 +187,7 @@ Our comprehensive testing reveals SanTOK's performance characteristics:
 ### 7.1 Current Limitations
 
 **Model Integration**:
-- **No Pre-trained Models**: SanTOK algorithms are not yet integrated into major language models
+- **No Pre-trained Models**: SOMA algorithms are not yet integrated into major language models
 - **Research Stage**: Currently positioned as a research and tooling framework
 - **Community Adoption**: Requires broader adoption for ecosystem integration
 
@@ -212,7 +212,7 @@ Our comprehensive testing reveals SanTOK's performance characteristics:
 
 **Modular Design**:
 ```
-SanTOK Framework
+SOMA Framework
 ├── Core Tokenizers (9 algorithms)
 ├── Reconstruction Engine
 ├── Performance Optimization
@@ -280,9 +280,9 @@ SanTOK Framework
 
 ### 9.1 Unique Value Propositions
 
-**SanTOK vs. Industry Standards**:
+**SOMA vs. Industry Standards**:
 
-| **Feature** | **SanTOK** | **Industry Standard** | **Advantage** |
+| **Feature** | **SOMA** | **Industry Standard** | **Advantage** |
 |-------------|------------|----------------------|---------------|
 | **Algorithm Count** | 9 algorithms | 1 algorithm per system | **9x more options** |
 | **Reconstruction** | 100% verified | Variable (60-100%) | **Guaranteed accuracy** |
@@ -311,7 +311,7 @@ SanTOK Framework
 
 ### 10.1 Key Findings
 
-The comprehensive analysis reveals that SanTOK offers significant advantages over existing tokenization approaches:
+The comprehensive analysis reveals that SOMA offers significant advantages over existing tokenization approaches:
 
 1. **Algorithmic Superiority**: 9 distinct algorithms vs. single-algorithm systems
 2. **Perfect Reconstruction**: 100% verified accuracy across all algorithms
@@ -354,13 +354,13 @@ The comprehensive analysis reveals that SanTOK offers significant advantages ove
 3. Liu, Y., et al. (2019). "RoBERTa: A Robustly Optimized BERT Pretraining Approach." arXiv.
 4. Raffel, C., et al. (2020). "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer." JMLR.
 5. Touvron, H., et al. (2023). "LLaMA: Open and Efficient Foundation Language Models." arXiv.
-6. SanTOK Project Documentation. (2024). "Stable and Novel Tokenization Framework." GitHub Repository.
+6. SOMA Project Documentation. (2024). "Stable and Novel Tokenization Framework." GitHub Repository.
 
 ## 12. Appendices
 
 ### Appendix A: Performance Test Results
 
-Detailed performance testing results for all 9 SanTOK algorithms across multiple datasets and text sizes.
+Detailed performance testing results for all 9 SOMA algorithms across multiple datasets and text sizes.
 
 ### Appendix B: Reconstruction Accuracy Tests
 
@@ -368,15 +368,15 @@ Comprehensive testing results verifying 100% reconstruction accuracy across all 
 
 ### Appendix C: Multilingual Support Analysis
 
-Analysis of SanTOK's performance across different languages and scripts.
+Analysis of SOMA's performance across different languages and scripts.
 
 ### Appendix D: API Integration Examples
 
-Code examples demonstrating SanTOK integration with various programming languages and frameworks.
+Code examples demonstrating SOMA integration with various programming languages and frameworks.
 
 ---
 
 **Document Version**: 1.0  
 **Last Updated**: January 2024  
-**Authors**: SanTOK Development Team  
+**Authors**: SOMA Development Team  
 **License**: MIT License

@@ -1,23 +1,23 @@
-# SanTOK Embedding Generation System - Complete Design
+# SOMA Embedding Generation System - Complete Design
 
 ## Executive Summary
 
-This document outlines a comprehensive system to generate embeddings from SanTOK tokens and make SanTOK inference-ready. The system converts SanTOK's mathematical token features (UIDs, frontend digits, backend numbers) into dense vector embeddings suitable for ML inference, similarity search, and semantic operations.
+This document outlines a comprehensive system to generate embeddings from SOMA tokens and make SOMA inference-ready. The system converts SOMA's mathematical token features (UIDs, frontend digits, backend numbers) into dense vector embeddings suitable for ML inference, similarity search, and semantic operations.
 
 ---
 
 ## 1. Problem Statement
 
 ### Current State
-- ✅ SanTOK generates rich token metadata (UIDs, digits, backend numbers)
+- ✅ SOMA generates rich token metadata (UIDs, digits, backend numbers)
 - ❌ No embeddings exist - tokens are just IDs
 - ❌ Cannot be used for inference without embeddings
 - ❌ No vector database integration
-- ❌ Vocabulary adapter discards SanTOK features
+- ❌ Vocabulary adapter discards SOMA features
 
 ### Goal
-Transform SanTOK tokens into **inference-ready embeddings** that:
-1. Preserve SanTOK's mathematical properties
+Transform SOMA tokens into **inference-ready embeddings** that:
+1. Preserve SOMA's mathematical properties
 2. Enable similarity search and retrieval
 3. Support ML model inference
 4. Work with vector databases
@@ -32,7 +32,7 @@ Transform SanTOK tokens into **inference-ready embeddings** that:
 ```
 Text Input
     ↓
-SanTOK Tokenization
+SOMA Tokenization
     ↓
 TokenRecord (with UID, frontend, backend, etc.)
     ↓
@@ -49,11 +49,11 @@ Inference/Retrieval
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              SanTOK Embedding System                     │
+│              SOMA Embedding System                     │
 ├─────────────────────────────────────────────────────────┤
 │                                                           │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────┐ │
-│  │   SanTOK     │───▶│  Embedding   │───▶│  Vector  │ │
+│  │   SOMA     │───▶│  Embedding   │───▶│  Vector  │ │
 │  │ Tokenization │    │   Generator  │    │ Database  │ │
 │  └──────────────┘    └──────────────┘    └──────────┘ │
 │         │                    │                  │       │
@@ -73,7 +73,7 @@ Inference/Retrieval
 
 ### 3.1 Strategy 1: Feature-Based Embedding (Deterministic)
 
-**Concept**: Convert SanTOK's mathematical features directly into embeddings.
+**Concept**: Convert SOMA's mathematical features directly into embeddings.
 
 **Features Used**:
 - `uid` (64-bit) → split into 8 bytes → 8 dimensions
@@ -89,7 +89,7 @@ Inference/Retrieval
 
 **Advantages**:
 - ✅ Deterministic (same token → same embedding)
-- ✅ Preserves all SanTOK features
+- ✅ Preserves all SOMA features
 - ✅ Fast generation (no ML model needed)
 - ✅ Perfect reproducibility
 
@@ -99,11 +99,11 @@ Inference/Retrieval
 
 ### 3.2 Strategy 2: Hybrid Embedding (Text + Features)
 
-**Concept**: Combine text-based embeddings with SanTOK features.
+**Concept**: Combine text-based embeddings with SOMA features.
 
 **Process**:
 1. Generate text embedding using pre-trained model (e.g., sentence-transformers)
-2. Generate feature embedding from SanTOK metadata
+2. Generate feature embedding from SOMA metadata
 3. Concatenate or weighted combine both
 
 **Formula**:
@@ -113,7 +113,7 @@ embedding = α × text_embedding + (1-α) × feature_embedding
 
 **Advantages**:
 - ✅ Semantic meaning from text embeddings
-- ✅ Preserves SanTOK mathematical properties
+- ✅ Preserves SOMA mathematical properties
 - ✅ Better for similarity search
 - ✅ Can leverage pre-trained models
 
@@ -124,11 +124,11 @@ embedding = α × text_embedding + (1-α) × feature_embedding
 
 ### 3.3 Strategy 3: Learned Embedding (Trainable)
 
-**Concept**: Train a neural network to map SanTOK features → embeddings.
+**Concept**: Train a neural network to map SOMA features → embeddings.
 
 **Architecture**:
 ```
-Input: SanTOK Features (60-dim)
+Input: SOMA Features (60-dim)
     ↓
 Dense Layer 1 (256 units, ReLU)
     ↓
@@ -159,7 +159,7 @@ Output: Embedding (768-dim)
 **Concept**: Use cryptographic hashing to create fixed-size embeddings.
 
 **Process**:
-1. Concatenate all SanTOK features into string
+1. Concatenate all SOMA features into string
 2. Hash using SHA-256 or similar
 3. Convert hash bytes to embedding vector
 4. Normalize to unit vector
@@ -180,12 +180,12 @@ Output: Embedding (768-dim)
 
 ### 4.1 Core Classes
 
-#### `SanTOKEmbeddingGenerator`
+#### `SOMAEmbeddingGenerator`
 
 ```python
-class SanTOKEmbeddingGenerator:
+class SOMAEmbeddingGenerator:
     """
-    Generates embeddings from SanTOK TokenRecord objects.
+    Generates embeddings from SOMA TokenRecord objects.
     """
     
     def __init__(
@@ -300,19 +300,19 @@ class SanTOKEmbeddingGenerator:
         return embedding
 ```
 
-#### `SanTOKVectorStore`
+#### `SOMAVectorStore`
 
 ```python
-class SanTOKVectorStore:
+class SOMAVectorStore:
     """
-    Vector database interface for SanTOK embeddings.
+    Vector database interface for SOMA embeddings.
     Supports multiple backends: Chroma, FAISS, Qdrant, etc.
     """
     
     def __init__(
         self,
         backend: str = "chroma",
-        collection_name: str = "santok_embeddings",
+        collection_name: str = "soma_embeddings",
         embedding_dim: int = 768,
         persist_directory: Optional[str] = None
     ):
@@ -368,7 +368,7 @@ class SanTOKVectorStore:
 import chromadb
 from chromadb.config import Settings
 
-class ChromaVectorStore(SanTOKVectorStore):
+class ChromaVectorStore(SOMAVectorStore):
     def _init_chroma(self):
         self.client = chromadb.Client(
             Settings(
@@ -424,7 +424,7 @@ class ChromaVectorStore(SanTOKVectorStore):
 import faiss
 import numpy as np
 
-class FAISSVectorStore(SanTOKVectorStore):
+class FAISSVectorStore(SOMAVectorStore):
     def _init_faiss(self):
         self.index = faiss.IndexFlatL2(self.embedding_dim)
         self.token_map = {}  # Map index → TokenRecord
@@ -459,15 +459,15 @@ class FAISSVectorStore(SanTOKVectorStore):
 ### 6.1 Complete Inference Flow
 
 ```python
-class SanTOKInferencePipeline:
+class SOMAInferencePipeline:
     """
-    End-to-end inference pipeline using SanTOK embeddings.
+    End-to-end inference pipeline using SOMA embeddings.
     """
     
     def __init__(
         self,
-        embedding_generator: SanTOKEmbeddingGenerator,
-        vector_store: SanTOKVectorStore,
+        embedding_generator: SOMAEmbeddingGenerator,
+        vector_store: SOMAVectorStore,
         tokenizer: TextTokenizer
     ):
         self.embedding_generator = embedding_generator
@@ -477,7 +477,7 @@ class SanTOKInferencePipeline:
     def process_text(self, text: str) -> Dict:
         """
         Process text through complete pipeline:
-        1. Tokenize with SanTOK
+        1. Tokenize with SOMA
         2. Generate embeddings
         3. Store in vector database
         4. Return results
@@ -543,7 +543,7 @@ class SanTOKInferencePipeline:
 ### Phase 1: Core Embedding Generation (Week 1-2)
 
 **Tasks**:
-1. ✅ Implement `SanTOKEmbeddingGenerator` class
+1. ✅ Implement `SOMAEmbeddingGenerator` class
 2. ✅ Implement feature extraction from TokenRecord
 3. ✅ Implement feature-based embedding strategy
 4. ✅ Add unit tests
@@ -559,7 +559,7 @@ class SanTOKInferencePipeline:
 **Tasks**:
 1. ✅ Implement Chroma backend
 2. ✅ Implement FAISS backend
-3. ✅ Create unified `SanTOKVectorStore` interface
+3. ✅ Create unified `SOMAVectorStore` interface
 4. ✅ Add persistence support
 5. ✅ Performance benchmarking
 
@@ -583,7 +583,7 @@ class SanTOKInferencePipeline:
 ### Phase 4: Inference Pipeline (Week 4-5)
 
 **Tasks**:
-1. ✅ Implement `SanTOKInferencePipeline`
+1. ✅ Implement `SOMAInferencePipeline`
 2. ✅ Add batch processing
 3. ✅ Create API endpoints
 4. ✅ Add similarity search API
@@ -616,17 +616,17 @@ class SanTOKInferencePipeline:
 
 ```python
 from src.core.core_tokenizer import TextTokenizer
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import SOMAEmbeddingGenerator
 
 # Initialize
 tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-embedding_gen = SanTOKEmbeddingGenerator(
+embedding_gen = SOMAEmbeddingGenerator(
     strategy="feature_based",
     embedding_dim=768
 )
 
 # Tokenize text
-text = "Hello world, this is SanTOK!"
+text = "Hello world, this is SOMA!"
 streams = tokenizer.build(text)
 
 # Generate embeddings
@@ -642,16 +642,16 @@ for stream_name, token_stream in streams.items():
 
 ```python
 from src.embeddings.vector_store import ChromaVectorStore
-from src.embeddings.inference_pipeline import SanTOKInferencePipeline
+from src.embeddings.inference_pipeline import SOMAInferencePipeline
 
 # Initialize pipeline
 vector_store = ChromaVectorStore(
     backend="chroma",
-    collection_name="santok_embeddings",
+    collection_name="soma_embeddings",
     persist_directory="./vector_db"
 )
 
-pipeline = SanTOKInferencePipeline(
+pipeline = SOMAInferencePipeline(
     embedding_generator=embedding_gen,
     vector_store=vector_store,
     tokenizer=tokenizer
@@ -661,7 +661,7 @@ pipeline = SanTOKInferencePipeline(
 documents = [
     "Machine learning is fascinating",
     "Natural language processing enables AI",
-    "SanTOK provides perfect tokenization"
+    "SOMA provides perfect tokenization"
 ]
 
 for doc in documents:
@@ -682,7 +682,7 @@ for result in results:
 
 ```python
 # Use hybrid strategy with semantic understanding
-hybrid_gen = SanTOKEmbeddingGenerator(
+hybrid_gen = SOMAEmbeddingGenerator(
     strategy="hybrid",
     embedding_dim=768,
     text_model="sentence-transformers/all-MiniLM-L6-v2",
@@ -734,9 +734,9 @@ embedding = hybrid_gen.generate(token_record)
 
 ## 11. Conclusion
 
-This design provides a complete path from SanTOK tokens to inference-ready embeddings. The system:
+This design provides a complete path from SOMA tokens to inference-ready embeddings. The system:
 
-- ✅ Preserves SanTOK's mathematical properties
+- ✅ Preserves SOMA's mathematical properties
 - ✅ Enables similarity search and retrieval
 - ✅ Supports multiple embedding strategies
 - ✅ Integrates with vector databases

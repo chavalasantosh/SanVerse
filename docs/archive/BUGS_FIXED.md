@@ -1,4 +1,4 @@
-# Bugs Fixed in santok_cli.py
+# Bugs Fixed in soma_cli.py
 
 ## All Bugs Identified and Fixed
 
@@ -69,7 +69,7 @@
 ### 11. ✅ Missing Error Checks
 **Bug**: Missing checks for None classes before use
 **Fix**:
-- Check TextTokenizer, SanTOKSemanticTrainer, SanTOKEmbeddingGenerator before use
+- Check TextTokenizer, SOMASemanticTrainer, SOMAEmbeddingGenerator before use
 - Clear error messages
 
 ### 12. ✅ Embedding Generation Errors

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Training datasets for the SanTOK tokenization and language models.
+Training datasets for the SOMA tokenization and language models.
 
 ## Contents
 
@@ -19,6 +19,6 @@ Training datasets for the SanTOK tokenization and language models.
 
 Training data is used by:
 
-- `train_santok_complete.py` - Complete model training
+- `train_soma_complete.py` - Complete model training
 - `src/training/vocabulary_builder.py` - Vocabulary building
 - `src/training/language_model_trainer.py` - Language model training

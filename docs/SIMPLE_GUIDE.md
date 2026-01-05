@@ -3,12 +3,12 @@
 ## What You Have
 
 - **Backend code**: `src/` folder
-- **Backend package**: `santok_backend_20251109_213213.zip` (ready to share)
+- **Backend package**: `soma_backend_20251109_213213.zip` (ready to share)
 
 ## How to Share Backend
 
 ### Step 1: Share the ZIP file
-File: `santok_backend_20251109_213213.zip`
+File: `soma_backend_20251109_213213.zip`
 
 ### Step 2: Tell your colleague to:
 1. Extract the ZIP

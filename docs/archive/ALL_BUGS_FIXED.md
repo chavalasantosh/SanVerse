@@ -1,4 +1,4 @@
-# All Bugs Fixed in santok_cli.py
+# All Bugs Fixed in soma_cli.py
 
 ## Complete Bug List and Fixes
 

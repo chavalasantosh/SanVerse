@@ -1,15 +1,15 @@
-# SanTOK Utilities Usage Guide
+# SOMA Utilities Usage Guide
 
 ## Overview
 
-SanTOK provides utility modules for configuration, logging, and validation. This guide shows how to use them.
+SOMA provides utility modules for configuration, logging, and validation. This guide shows how to use them.
 
 ## Configuration Management
 
 ### Basic Usage
 
 ```python
-from santok.utils.config import Config
+from soma.utils.config import Config
 
 # Get server port (reads PORT env var or defaults to 8000)
 port = Config.get_port()
@@ -31,7 +31,7 @@ log_file = Config.get_log_file()
 
 ### Environment Variables
 
-Set these environment variables to configure SanTOK:
+Set these environment variables to configure SOMA:
 
 ```bash
 # Server configuration
@@ -40,7 +40,7 @@ export HOST=0.0.0.0
 
 # Logging
 export LOG_LEVEL=DEBUG
-export LOG_FILE=/path/to/santok.log
+export LOG_FILE=/path/to/soma.log
 
 # Directories
 export DATA_DIR=/path/to/data
@@ -61,7 +61,7 @@ export OUTPUT_DIR=/path/to/outputs
 ### Text Validation
 
 ```python
-from santok.utils.validation import validate_text_input, ValidationError
+from soma.utils.validation import validate_text_input, ValidationError
 
 try:
     text = validate_text_input("Hello world", "text")
@@ -73,7 +73,7 @@ except ValidationError as e:
 ### File Path Validation
 
 ```python
-from santok.utils.validation import validate_file_path
+from soma.utils.validation import validate_file_path
 
 # Validate path (file doesn't need to exist)
 path = validate_file_path("data/file.txt", must_exist=False)
@@ -85,7 +85,7 @@ path = validate_file_path("data/file.txt", must_exist=True)
 ### Port Validation
 
 ```python
-from santok.utils.validation import validate_port
+from soma.utils.validation import validate_port
 
 try:
     port = validate_port(8080, "port")
@@ -97,7 +97,7 @@ except ValidationError as e:
 ### Integer Validation
 
 ```python
-from santok.utils.validation import validate_positive_int
+from soma.utils.validation import validate_positive_int
 
 # Validate positive integer (minimum 1)
 value = validate_positive_int(42, "value")
@@ -109,7 +109,7 @@ value = validate_positive_int(100, "value", min_value=50)
 ### Choice Validation
 
 ```python
-from santok.utils.validation import validate_choice
+from soma.utils.validation import validate_choice
 
 # Validate value is in choices list
 method = validate_choice("word", ["word", "char", "space"], "method")
@@ -122,7 +122,7 @@ method = validate_choice("word", ["word", "char", "space"], "method")
 ### Setup Logging
 
 ```python
-from santok.utils.logging_config import setup_logging, get_logger
+from soma.utils.logging_config import setup_logging, get_logger
 
 # Set up logging with default settings
 setup_logging()
@@ -131,12 +131,12 @@ setup_logging()
 setup_logging(level="DEBUG")
 
 # Set up with log file
-setup_logging(level="INFO", log_file="santok.log")
+setup_logging(level="INFO", log_file="soma.log")
 
 # Set up with custom format
 setup_logging(
     level="INFO",
-    log_file="santok.log",
+    log_file="soma.log",
     format_string="%(levelname)s - %(message)s"
 )
 ```
@@ -144,7 +144,7 @@ setup_logging(
 ### Using Loggers
 
 ```python
-from santok.utils.logging_config import get_logger
+from soma.utils.logging_config import get_logger
 
 # Get logger for your module
 logger = get_logger(__name__)
@@ -164,9 +164,9 @@ logger.error("Failed to process: %s", error_msg)
 ### Complete Example
 
 ```python
-from santok.utils.config import Config
-from santok.utils.logging_config import setup_logging, get_logger
-from santok.utils.validation import validate_text_input, validate_port
+from soma.utils.config import Config
+from soma.utils.logging_config import setup_logging, get_logger
+from soma.utils.validation import validate_text_input, validate_port
 
 # Set up logging from config
 setup_logging(
@@ -197,9 +197,9 @@ except ValidationError as e:
 
 ```python
 # start.py or run.py
-from santok.utils.config import Config
-from santok.utils.logging_config import setup_logging, get_logger
-from santok.utils.validation import validate_port
+from soma.utils.config import Config
+from soma.utils.logging_config import setup_logging, get_logger
+from soma.utils.validation import validate_port
 
 # Set up logging
 setup_logging(
@@ -216,9 +216,9 @@ logger.info("Starting server on port %d", port)
 ### In CLI Commands
 
 ```python
-# santok/cli.py
-from santok.utils.validation import validate_text_input, validate_file_path
-from santok.utils.logging_config import get_logger
+# soma/cli.py
+from soma.utils.validation import validate_text_input, validate_file_path
+from soma.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
@@ -237,10 +237,10 @@ def tokenize(text: str, file: str):
 ### In Training Scripts
 
 ```python
-# train_santok_complete.py
-from santok.utils.config import Config
-from santok.utils.logging_config import setup_logging, get_logger
-from santok.utils.validation import validate_file_path
+# train_soma_complete.py
+from soma.utils.config import Config
+from soma.utils.logging_config import setup_logging, get_logger
+from soma.utils.validation import validate_file_path
 
 setup_logging(level="INFO")
 logger = get_logger(__name__)
@@ -271,7 +271,7 @@ print(f"Error: {error}")
 ### After (Logging)
 
 ```python
-from santok.utils.logging_config import get_logger
+from soma.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
@@ -331,7 +331,7 @@ logger.error("Error: %s", error)
 All validation functions raise `ValidationError` on failure:
 
 ```python
-from santok.utils.validation import ValidationError, validate_text_input
+from soma.utils.validation import ValidationError, validate_text_input
 
 try:
     text = validate_text_input("", "text")

@@ -3,7 +3,7 @@ REM Test setup script for Windows
 REM Runs verification and basic server test
 
 echo ==========================================
-echo SanTOK Setup Test
+echo SOMA Setup Test
 echo ==========================================
 echo.
 

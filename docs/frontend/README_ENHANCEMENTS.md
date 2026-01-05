@@ -1,6 +1,6 @@
-# SanTOK Frontend Enhancements
+# SOMA Frontend Enhancements
 
-This document outlines the production-grade enhancements applied to the SanTOK frontend.
+This document outlines the production-grade enhancements applied to the SOMA frontend.
 
 ## 🚀 New Features
 
@@ -152,7 +152,7 @@ Located in `styles/design-tokens.css`:
 
 ## 📱 PWA Features
 
-- **Installable**: Users can install SanTOK as a PWA
+- **Installable**: Users can install SOMA as a PWA
 - **Offline Support**: Basic functionality works offline
 - **Caching**: Smart caching strategies for performance
 - **Manifest**: Complete app manifest with icons and shortcuts

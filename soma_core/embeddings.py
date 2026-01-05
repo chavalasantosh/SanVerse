@@ -1,5 +1,5 @@
 """
-SanTEK Beginner Embeddings
+SOMA Core Beginner Embeddings
 ==========================
 
 Simple word embeddings (vectors) that represent words as numbers.

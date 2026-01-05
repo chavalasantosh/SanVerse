@@ -1,5 +1,5 @@
 """
-SanTEK Beginner Tokenizer
+SOMA Core Beginner Tokenizer
 =========================
 
 Simple tokenizer that splits text into words.

@@ -23,7 +23,7 @@ scripts\setup\start_main_server.bat
 
 When the server starts successfully, you'll see:
 ```
-🚀 Starting SanTOK API Server...
+🚀 Starting SOMA API Server...
 📡 Server will be available at: http://localhost:8000
 📚 API Documentation at: http://localhost:8000/docs
 ```
@@ -31,7 +31,7 @@ When the server starts successfully, you'll see:
 ## Verify It's Running
 
 1. Open your browser and go to: http://localhost:8000
-2. You should see: `{"message":"SanTOK API is running!","version":"1.0.0",...}`
+2. You should see: `{"message":"SOMA API is running!","version":"1.0.0",...}`
 3. Or check the docs at: http://localhost:8000/docs
 
 ## Troubleshooting

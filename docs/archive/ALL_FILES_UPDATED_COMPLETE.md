@@ -8,9 +8,9 @@ All `vector_store.py` files across the entire codebase have been updated:
 
 1. ✅ `src/embeddings/vector_store.py` - **UPDATED**
 2. ✅ `backend/src/embeddings/vector_store.py` - **UPDATED**
-3. ✅ `demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-4. ✅ `backend/demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-5. ✅ `santok_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
+3. ✅ `demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+4. ✅ `backend/demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+5. ✅ `soma_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
 
 **Fixes Applied:**
 - ✅ ChromaDB telemetry disabled (no more warnings)

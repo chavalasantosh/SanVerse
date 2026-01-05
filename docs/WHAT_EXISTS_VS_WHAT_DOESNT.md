@@ -4,29 +4,29 @@
 
 ### What the Discussion Describes
 
-The discussion outlines methods to make SanTOK **meaningful to models**:
-1. **Vocabulary-to-embedding mapping** (linear map W: e_santok → e_model)
+The discussion outlines methods to make SOMA **meaningful to models**:
+1. **Vocabulary-to-embedding mapping** (linear map W: e_soma → e_model)
 2. **Adapter networks** (small neural networks inside models)
 3. **Teacher-student distillation**
 4. **Subword-aware embedding composition**
-5. **Training from scratch** (SanTOK-native models)
+5. **Training from scratch** (SOMA-native models)
 
 ### What Actually Exists in the Codebase
 
 **What EXISTS**:
-- ✅ Vocabulary adapter that converts SanTOK token **strings** → Model vocabulary **IDs**
+- ✅ Vocabulary adapter that converts SOMA token **strings** → Model vocabulary **IDs**
 - ✅ Text reconstruction (join tokens back to text)
 - ✅ Model tokenizer integration (uses model's tokenizer)
 - ✅ Token alignment mapping (approximate)
 
 **What DOESN'T EXIST**:
-- ❌ No embedding mapping (no W: e_santok → e_model)
+- ❌ No embedding mapping (no W: e_soma → e_model)
 - ❌ No neural network adapters (no torch.nn, no Linear layers)
 - ❌ No training code (no training loops, no optimizers)
 - ❌ No teacher-student distillation
 - ❌ No embedding manipulation (no embedding vectors created)
 - ❌ No model fine-tuning
-- ❌ No SanTOK-native model training
+- ❌ No SOMA-native model training
 
 ---
 
@@ -38,7 +38,7 @@ The discussion outlines methods to make SanTOK **meaningful to models**:
 
 **What it does**:
 ```python
-# Step 1: Extract SanTOK token strings
+# Step 1: Extract SOMA token strings
 tokens = ["Hello", "world"]
 
 # Step 2: Reconstruct text
@@ -52,8 +52,8 @@ return {"input_ids": encoded["input_ids"]}  # Model's IDs
 ```
 
 **Reality**: 
-- We're **not creating embeddings** from SanTOK
-- We're **not mapping SanTOK features to embeddings**
+- We're **not creating embeddings** from SOMA
+- We're **not mapping SOMA features to embeddings**
 - We're **not training anything**
 - We're just **using the model's tokenizer** on reconstructed text
 
@@ -67,15 +67,15 @@ return {"input_ids": encoded["input_ids"]}  # Model's IDs
 
 **What it should do**:
 ```python
-# Create SanTOK embedding e_s
-e_santok = create_santok_embedding(token_text)
+# Create SOMA embedding e_s
+e_soma = create_soma_embedding(token_text)
 
 # Get model embedding e_m
 e_model = model_embeddings[model_id]
 
-# Learn linear map W: e_santok → e_model
+# Learn linear map W: e_soma → e_model
 W = nn.Linear(D_s, D_m)
-loss = ||W(e_santok) - e_model||^2
+loss = ||W(e_soma) - e_model||^2
 # Train W to minimize loss
 ```
 
@@ -90,16 +90,16 @@ loss = ||W(e_santok) - e_model||^2
 **What it should do**:
 ```python
 # Adapter network inside model
-class SanTOKAdapter(nn.Module):
+class SOMAAdapter(nn.Module):
     def __init__(self):
         self.adapter = nn.Sequential(
-            nn.Linear(santok_feature_dim, embedding_dim),
+            nn.Linear(soma_feature_dim, embedding_dim),
             nn.ReLU(),
             nn.Linear(embedding_dim, embedding_dim)
         )
     
-    def forward(self, santok_features):
-        return self.adapter(santok_features)
+    def forward(self, soma_features):
+        return self.adapter(soma_features)
 ```
 
 **Status**: ❌ **DOES NOT EXIST**
@@ -112,8 +112,8 @@ class SanTOKAdapter(nn.Module):
 
 **What it should do**:
 ```python
-# Train teacher model with SanTOK
-teacher = train_model_with_santok()
+# Train teacher model with SOMA
+teacher = train_model_with_soma()
 
 # Distill into student model
 student = distill(teacher, pretrained_model)
@@ -129,7 +129,7 @@ student = distill(teacher, pretrained_model)
 
 **What it should do**:
 ```python
-# For SanTOK token → multiple model subwords
+# For SOMA token → multiple model subwords
 model_subwords = model_tokenizer("tokenization")
 # ["token", "##ization"]
 
@@ -147,8 +147,8 @@ e_composite = weighted_average([e_model[token_id], e_model[ization_id]])
 
 **What it should do**:
 ```python
-# Build SanTOK vocabulary
-vocab = build_santok_vocab(corpus)
+# Build SOMA vocabulary
+vocab = build_soma_vocab(corpus)
 
 # Create embedding matrix
 embeddings = nn.Embedding(len(vocab), embedding_dim)
@@ -170,12 +170,12 @@ model = pretrain_transformer(vocab, embeddings, corpus)
 **Vocabulary Adapter** = **Text Converter**
 
 That's it. It converts:
-- SanTOK token strings → Model tokenizer → Model vocabulary IDs
+- SOMA token strings → Model tokenizer → Model vocabulary IDs
 
 **No embeddings created.**
 **No neural networks.**
 **No training.**
-**No mapping of SanTOK features to model space.**
+**No mapping of SOMA features to model space.**
 
 ### What the Discussion Describes
 
@@ -193,14 +193,14 @@ They are **proposed solutions** that would need to be built.
 
 **What models get**: Their own tokenization (same as if we used model tokenizer directly)
 
-**SanTOK's value**: Lost in conversion (just metadata preserved)
+**SOMA's value**: Lost in conversion (just metadata preserved)
 
 ### What Would Need to Be Built
 
-To make SanTOK meaningful to models, you would need to implement:
+To make SOMA meaningful to models, you would need to implement:
 
-1. **Embedding Creation**: Create embeddings from SanTOK features (UIDs, digits, etc.)
-2. **Mapping Learning**: Learn W: e_santok → e_model
+1. **Embedding Creation**: Create embeddings from SOMA features (UIDs, digits, etc.)
+2. **Mapping Learning**: Learn W: e_soma → e_model
 3. **Adapter Networks**: Build neural network adapters
 4. **Training Infrastructure**: Training loops, optimizers, loss functions
 5. **Evaluation**: Metrics to measure alignment
@@ -221,7 +221,7 @@ To make SanTOK meaningful to models, you would need to implement:
 **What doesn't exist**:
 - Everything in the discussion (embedding mapping, adapters, training, etc.)
 
-**Reality**: The vocabulary adapter is just a fancy text converter. It doesn't make SanTOK meaningful to models. It just makes SanTOK tokens compatible with model tokenizers.
+**Reality**: The vocabulary adapter is just a fancy text converter. It doesn't make SOMA meaningful to models. It just makes SOMA tokens compatible with model tokenizers.
 
 ---
 

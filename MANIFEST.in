@@ -6,7 +6,7 @@ include pyproject.toml
 recursive-include soma *.py
 recursive-include src *.py
 recursive-include cognitive *.py
-recursive-include santek_core *.py
+recursive-include soma_core *.py
 recursive-include semantic_trainer *.py
 recursive-include examples *.py
 

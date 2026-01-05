@@ -1,6 +1,6 @@
 # Using n8n Workflows with Existing n8n Installation
 
-This guide helps you use the SanTOK workflows with your existing n8n installation (not Docker).
+This guide helps you use the SOMA workflows with your existing n8n installation (not Docker).
 
 ## 🚀 Quick Setup
 
@@ -15,16 +15,16 @@ Edit `config.json` with your n8n connection details:
     "username": "your_username",
     "password": "your_password"
   },
-  "santok_api": {
+  "soma_api": {
     "url": "http://localhost:8000",
     "timeout": 1800000
   }
 }
 ```
 
-### Step 2: Ensure SanTOK API is Running
+### Step 2: Ensure SOMA API is Running
 
-Make sure your SanTOK backend is running:
+Make sure your SOMA backend is running:
 ```bash
 python src/servers/main_server.py
 ```
@@ -54,19 +54,19 @@ chmod +x import-workflows-existing-n8n.sh
 
 All workflows are in the `workflows/` directory:
 
-1. **santok-tokenization-workflow.json** - Basic text tokenization
-2. **santok-analysis-workflow.json** - Text analysis with metrics
-3. **santok-batch-processing-workflow.json** - Batch processing for large files
-4. **santok-scheduled-analysis-workflow.json** - Scheduled analysis
-5. **santok-webhook-integration-workflow.json** - Flexible webhook integration
-6. **santok-slack-integration-workflow.json** - Slack integration example
+1. **soma-tokenization-workflow.json** - Basic text tokenization
+2. **soma-analysis-workflow.json** - Text analysis with metrics
+3. **soma-batch-processing-workflow.json** - Batch processing for large files
+4. **soma-scheduled-analysis-workflow.json** - Scheduled analysis
+5. **soma-webhook-integration-workflow.json** - Flexible webhook integration
+6. **soma-slack-integration-workflow.json** - Slack integration example
 
 ## 🔧 Updating Workflows
 
-After importing, you may need to update the SanTOK API URL in workflows:
+After importing, you may need to update the SOMA API URL in workflows:
 
 1. Open workflow in n8n UI
-2. Find the "SanTOK API" HTTP Request node
+2. Find the "SOMA API" HTTP Request node
 3. Update the URL if your API is not on `localhost:8000`
 4. Save and activate the workflow
 
@@ -112,13 +112,13 @@ If your n8n requires authentication:
 
 ## 🛠️ Customization
 
-### Changing SanTOK API URL
+### Changing SOMA API URL
 
-If your SanTOK API is hosted elsewhere:
+If your SOMA API is hosted elsewhere:
 
 1. Update `config.json` with the new API URL
 2. Or manually update each workflow in n8n UI:
-   - Find "SanTOK API" node
+   - Find "SOMA API" node
    - Update URL field
    - Save workflow
 
@@ -141,13 +141,13 @@ If your SanTOK API is hosted elsewhere:
 
 - Activate workflows (toggle switch in n8n UI)
 - Check webhook URLs are correct
-- Verify SanTOK API is running
+- Verify SOMA API is running
 - Check execution logs in n8n
 
 ### API Connection Errors
 
-- Verify SanTOK API is running: `curl http://localhost:8000/health`
-- Check CORS settings in SanTOK API
+- Verify SOMA API is running: `curl http://localhost:8000/health`
+- Check CORS settings in SOMA API
 - Verify API URL in workflow nodes
 
 ## 📚 Next Steps

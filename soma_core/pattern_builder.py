@@ -1,5 +1,5 @@
 """
-SanTEK Pattern Builder
+SOMA Core Pattern Builder
 ======================
 
 Builds patterns from symbol combinations.

@@ -48,7 +48,7 @@
 ## 📂 Folder Structure
 
 ```
-SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770/
+SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770/
 │
 ├── src/
 │   ├── servers/
@@ -91,7 +91,7 @@ SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770/
    - Expand `frontend` folder → `components` → Look for `vscode-editor.tsx` and `code-runner.tsx`
 
 ### All Files Are In The Root Workspace:
-- The workspace root is: `SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770/`
+- The workspace root is: `SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770/`
 - All folders (`src/`, `frontend/`, `examples/`) are directly under this root
 - No files are missing - they're all in the expected locations!
 

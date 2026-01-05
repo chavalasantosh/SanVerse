@@ -1,6 +1,6 @@
 # Testing Vocabulary Adapter in Backend
 
-This guide shows you how to test the vocabulary adapter integration in the SanTOK backend.
+This guide shows you how to test the vocabulary adapter integration in the SOMA backend.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ curl http://localhost:8000/test/vocabulary-adapter/quick
 curl -X POST http://localhost:8000/test/vocabulary-adapter \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "Hello world! SanTOK is amazing.",
+    "text": "Hello world! SOMA is amazing.",
     "model_name": "bert-base-uncased",
     "tokenizer_type": "word"
   }'
@@ -90,13 +90,13 @@ print(response.json())
 response = requests.post(
     "http://localhost:8000/test/vocabulary-adapter",
     json={
-        "text": "Hello world! SanTOK is amazing.",
+        "text": "Hello world! SOMA is amazing.",
         "model_name": "bert-base-uncased",
         "tokenizer_type": "word"
     }
 )
 data = response.json()
-print(f"SanTOK tokens: {data['santok']['tokens']}")
+print(f"SOMA tokens: {data['soma']['tokens']}")
 print(f"Model IDs: {data['model']['input_ids']}")
 ```
 
@@ -107,7 +107,7 @@ print(f"Model IDs: {data['model']['input_ids']}")
 **Request Body:**
 ```json
 {
-  "text": "Hello world! SanTOK is amazing.",
+  "text": "Hello world! SOMA is amazing.",
   "model_name": "bert-base-uncased",
   "tokenizer_type": "word",
   "seed": 42,
@@ -116,9 +116,9 @@ print(f"Model IDs: {data['model']['input_ids']}")
 ```
 
 **Parameters:**
-- `text` (string, optional): Text to tokenize (default: "Hello world! SanTOK is amazing.")
+- `text` (string, optional): Text to tokenize (default: "Hello world! SOMA is amazing.")
 - `model_name` (string, optional): HuggingFace model name (default: "bert-base-uncased")
-- `tokenizer_type` (string, optional): SanTOK tokenizer type (default: "word")
+- `tokenizer_type` (string, optional): SOMA tokenizer type (default: "word")
 - `seed` (int, optional): Random seed (default: 42)
 - `embedding_bit` (bool, optional): Embedding bit flag (default: false)
 
@@ -131,7 +131,7 @@ print(f"Model IDs: {data['model']['input_ids']}")
     "model_name": "bert-base-uncased",
     "tokenizer_type": "word"
   },
-  "santok": {
+  "soma": {
     "tokens": ["Hello", "world", "!", ...],
     "token_count": 5,
     "frontend_digits": [3, 5, 7, ...]
@@ -143,14 +143,14 @@ print(f"Model IDs: {data['model']['input_ids']}")
     "vocab_size": 30522
   },
   "mapping": {
-    "santok_to_model": {
+    "soma_to_model": {
       "0": [1, 2],
       "1": [3],
       ...
     }
   },
   "comparison": {
-    "santok_token_count": 5,
+    "soma_token_count": 5,
     "model_token_count": 6,
     "ratio": 1.2
   }
@@ -185,8 +185,8 @@ When successful, you should see:
 ```json
 {
   "success": true,
-  "santok": {
-    "tokens": ["Hello", "world", "!", "SanTOK", "is", "amazing", "."],
+  "soma": {
+    "tokens": ["Hello", "world", "!", "SOMA", "is", "amazing", "."],
     "token_count": 7
   },
   "model": {
@@ -290,7 +290,7 @@ curl -X POST http://localhost:8000/test/vocabulary-adapter \
 import requests
 
 models = ["bert-base-uncased", "distilbert-base-uncased", "gpt2"]
-text = "SanTOK provides superior tokenization."
+text = "SOMA provides superior tokenization."
 
 for model in models:
     response = requests.post(

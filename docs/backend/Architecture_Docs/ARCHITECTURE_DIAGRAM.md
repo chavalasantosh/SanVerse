@@ -1,4 +1,4 @@
-# SanTOK Architecture - Visual Diagrams
+# SOMA Architecture - Visual Diagrams
 
 ## System Overview
 
@@ -404,7 +404,7 @@ Token Streams
 ## Integration Flow
 
 ```
-SanTOK Tokens
+SOMA Tokens
     │
     ▼
 ┌─────────────────┐
@@ -603,7 +603,7 @@ Pickle File:
 ## Dependencies Tree
 
 ```
-SanTOK
+SOMA
 ├── Core (OWN)
 │   ├── Tokenization (OWN)
 │   ├── UID Generation (OWN)
@@ -632,5 +632,5 @@ SanTOK
 
 ---
 
-**This document provides visual representations of the SanTOK architecture.**
+**This document provides visual representations of the SOMA architecture.**
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Test suite for the SanTOK framework.
+Test suite for the SOMA framework.
 
 ## Running Tests
 

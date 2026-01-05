@@ -88,7 +88,7 @@ from .fluency_understanding import (
 
 from .multi_model import (
     MultiModelOutput,
-    SanTEKMultiModel
+    SOMA CoreMultiModel
 )
 
 __all__ = [
@@ -157,5 +157,5 @@ __all__ = [
     
     # Multi-model
     "MultiModelOutput",
-    "SanTEKMultiModel",
+    "SOMA CoreMultiModel",
 ]

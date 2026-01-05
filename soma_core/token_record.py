@@ -1,5 +1,5 @@
 """
-SanTEK Token Record
+SOMA Core Token Record
 ===================
 
 Keeps track of all tokens (words) we've seen.

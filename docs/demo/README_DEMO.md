@@ -1,4 +1,4 @@
-# SanTOK Demo - Complete Workflow
+# SOMA Demo - Complete Workflow
 
 ## Quick Start for Demo
 
@@ -43,7 +43,7 @@ python src/servers/main_server.py
 ## Project Structure
 
 ```
-demo_santok/
+demo_soma/
 ├── src/                    # Core source code
 │   ├── core/              # Tokenization engine
 │   ├── embeddings/        # Embedding generation
@@ -52,7 +52,7 @@ demo_santok/
 ├── examples/              # Demo scripts
 │   ├── test_full_workflow_500k.py  # Main demo
 │   └── search_examples.py          # Search demo
-├── santok/                # Package code
+├── soma/                # Package code
 ├── main.py                # Entry point
 ├── setup.py               # Setup script
 └── requirements.txt       # Dependencies

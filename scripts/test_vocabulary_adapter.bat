@@ -25,7 +25,7 @@ echo.
 echo 3. Testing custom request...
 curl -s -X POST http://localhost:8000/test/vocabulary-adapter ^
   -H "Content-Type: application/json" ^
-  -d "{\"text\": \"Hello world! SanTOK is amazing.\", \"model_name\": \"bert-base-uncased\", \"tokenizer_type\": \"word\"}"
+  -d "{\"text\": \"Hello world! SOMA is amazing.\", \"model_name\": \"bert-base-uncased\", \"tokenizer_type\": \"word\"}"
 
 echo.
 echo.

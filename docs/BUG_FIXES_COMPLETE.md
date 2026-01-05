@@ -6,7 +6,7 @@
 
 ### Summary
 
-Fixed **all critical and medium priority bugs** in the SanTOK codebase:
+Fixed **all critical and medium priority bugs** in the SOMA codebase:
 
 - ✅ **18 Bare Except Clauses** - Fixed (changed to `except Exception:`)
 - ✅ **4 Wildcard Imports** - Fixed (replaced with explicit imports)
@@ -31,7 +31,7 @@ Fixed **all critical and medium priority bugs** in the SanTOK codebase:
 - `backend/src/performance/comprehensive_performance_test.py` - 1 instance
 - `backend/src/performance/test_accuracy.py` - 1 instance
 - `src/tests/advanced_comprehensive_test.py` - 1 instance
-- `scripts/deployment/create_santok_zip.py` - 1 instance
+- `scripts/deployment/create_soma_zip.py` - 1 instance
 - `scripts/development/detect_bugs.py` - 5 instances
 - `scripts/development/fix_all_bugs.py` - 6 instances
 - `backend/src/servers/api_v2_routes.py` - 2 instances
@@ -77,8 +77,8 @@ from core_tokenizer import (
 #### 4. len() in Boolean (4 fixed)
 
 **Files Fixed:**
-- `santok_cli.py` - 2 instances
-- `train_santok_complete.py` - 2 instances
+- `soma_cli.py` - 2 instances
+- `train_soma_complete.py` - 2 instances
 
 **Change:** Improved code style (added truthiness checks where appropriate)
 
@@ -137,12 +137,12 @@ from core_tokenizer import (
 11. `backend/src/performance/comprehensive_performance_test.py`
 12. `backend/src/performance/test_accuracy.py`
 13. `src/tests/advanced_comprehensive_test.py`
-14. `scripts/deployment/create_santok_zip.py`
+14. `scripts/deployment/create_soma_zip.py`
 15. `scripts/development/detect_bugs.py`
 16. `scripts/development/fix_all_bugs.py`
 17. `backend/src/servers/api_v2_routes.py`
-18. `santok_cli.py`
-19. `train_santok_complete.py`
+18. `soma_cli.py`
+19. `train_soma_complete.py`
 
 ### Testing
 

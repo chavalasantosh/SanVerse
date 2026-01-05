@@ -1,8 +1,8 @@
-# 🔄 SanTOK Decoding Guide
+# 🔄 SOMA Decoding Guide
 
 ## Overview
 
-SanTOK provides **100% reversible tokenization** - you can always decode tokenized text back to its original form with **zero data loss**. This guide shows you how to use SanTOK's decoding capabilities.
+SOMA provides **100% reversible tokenization** - you can always decode tokenized text back to its original form with **zero data loss**. This guide shows you how to use SOMA's decoding capabilities.
 
 ## 🚀 Quick Start
 
@@ -12,19 +12,19 @@ SanTOK provides **100% reversible tokenization** - you can always decode tokeniz
 from core_tokenizer import tokenize_text, reconstruct_from_tokens
 
 # Original text
-text = "Hello, world! This is SanTOK."
+text = "Hello, world! This is SOMA."
 
 # Tokenize
 tokens = tokenize_text(text, 'word')
 
 # Decode back to original
 decoded = reconstruct_from_tokens(tokens, 'word')
-print(decoded)  # "Hello, world! This is SanTOK."
+print(decoded)  # "Hello, world! This is SOMA."
 ```
 
 ### 2. **Web Interface Decoding**
 
-1. **Tokenize your text** using the SanTOK dashboard
+1. **Tokenize your text** using the SOMA dashboard
 2. **Scroll down** to see the "Text Decoder" panel
 3. **Click "Decode Tokens"** to reconstruct the original text
 4. **Copy or export** the decoded text
@@ -46,7 +46,7 @@ curl -X POST "http://localhost:8000/decode" \
 
 ## 🔧 Supported Tokenizers
 
-All SanTOK tokenizers are **fully reversible**:
+All SOMA tokenizers are **fully reversible**:
 
 | Tokenizer | Decoding Method | Perfect Reconstruction |
 |-----------|----------------|----------------------|
@@ -113,11 +113,11 @@ def batch_decode(token_lists, tokenizer_type='word'):
 # Example usage
 token_batches = [
     [{"text": "Hello", "index": 0}, {"text": "world", "index": 1}],
-    [{"text": "SanTOK", "index": 0}, {"text": "is", "index": 1}, {"text": "great", "index": 2}]
+    [{"text": "SOMA", "index": 0}, {"text": "is", "index": 1}, {"text": "great", "index": 2}]
 ]
 
 decoded_texts = batch_decode(token_batches)
-print(decoded_texts)  # ["Hello world", "SanTOK is great"]
+print(decoded_texts)  # ["Hello world", "SOMA is great"]
 ```
 
 ## 🛠️ CLI Decoding
@@ -161,7 +161,7 @@ def test_reconstruction(text, tokenizer_type='word'):
 # Test with various texts
 test_texts = [
     "Hello, world!",
-    "SanTOK is amazing! 🚀",
+    "SOMA is amazing! 🚀",
     "Special chars: @#$%^&*()",
     "Unicode: 你好世界 🌍",
     "Numbers: 12345.67890",
@@ -186,7 +186,7 @@ for text in test_texts:
    - Check token indices are correct
 
 3. **"Imperfect reconstruction"**
-   - This should never happen with SanTOK
+   - This should never happen with SOMA
    - Check if tokens were modified after tokenization
    - Verify tokenizer_type is correct
 
@@ -289,6 +289,6 @@ def decode_tokens(request):
 
 ## 🎉 Conclusion
 
-SanTOK's reversible tokenization ensures you **never lose data** during the tokenization process. Whether you're building NLP pipelines, text processing systems, or data analysis tools, you can always reconstruct the original text with **100% accuracy**.
+SOMA's reversible tokenization ensures you **never lose data** during the tokenization process. Whether you're building NLP pipelines, text processing systems, or data analysis tools, you can always reconstruct the original text with **100% accuracy**.
 
 **Happy Decoding! 🚀**

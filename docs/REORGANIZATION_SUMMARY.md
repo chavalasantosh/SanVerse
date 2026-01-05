@@ -3,7 +3,7 @@
 ## Date: 2025-01-17
 
 ## Overview
-This document summarizes the reorganization of the SanTOK repository to create a clean, professional structure.
+This document summarizes the reorganization of the SOMA repository to create a clean, professional structure.
 
 ## Changes Made
 
@@ -40,17 +40,17 @@ This document summarizes the reorganization of the SanTOK repository to create a
 
 ### 3. Archive Organization
 **Created `archive/backups/`:**
-- Large backup zip files (santok_COMPLETE_BACKUP*.zip, santok_railway.zip)
+- Large backup zip files (soma_COMPLETE_BACKUP*.zip, soma_railway.zip)
 - Duplicate/old backend code
 
 **Created `archive/`:**
-- Large text files (all_files.txt, santok_folder_files_paths.txt, all_python_output_*.txt)
+- Large text files (all_files.txt, soma_folder_files_paths.txt, all_python_output_*.txt)
 - Old code collections
 
 ### 4. Cleanup Actions
 - ✅ Deleted temporary file: `tatus`
 - ✅ Moved large model file to `models/` directory
-- ✅ Renamed and archived problematic directory: `santok_backend_mother ucker` → `archive/santok_backend_archive`
+- ✅ Renamed and archived problematic directory: `soma_backend_mother ucker` → `archive/soma_backend_archive`
 - ✅ Moved duplicate backend code to archive
 - ✅ Cleaned up backend directory (removed temporary docs)
 
@@ -63,7 +63,7 @@ Added entries to ignore:
 ## Current Root Directory Structure
 
 ```
-SanTOK/
+SOMA/
 ├── README.md                    # Main documentation
 ├── requirements.txt             # Python dependencies
 ├── setup.py                     # Package setup
@@ -85,13 +85,13 @@ SanTOK/
 │   ├── main.py
 │   ├── run.py
 │   ├── start.py
-│   ├── santok_cli.py
-│   └── train_santok_complete.py
+│   ├── soma_cli.py
+│   └── train_soma_complete.py
 │
 ├── Core directories:
 │   ├── backend/                 # Backend API server
 │   ├── frontend/                # Frontend application
-│   ├── santok/                  # Core Python package
+│   ├── soma/                  # Core Python package
 │   ├── src/                     # Source code
 │   ├── tests/                   # Test files
 │   ├── examples/                # Example code

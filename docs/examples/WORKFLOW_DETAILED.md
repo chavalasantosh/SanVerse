@@ -24,13 +24,13 @@ IF 'e' in features_to_run:
        - Demonstrates context memory
 
 IF 'b' in features_to_run:
-    → Step 1.5: show_detailed_embeddings("Hello world, this is SanTOK!")
+    → Step 1.5: show_detailed_embeddings("Hello world, this is SOMA!")
        - Display token-by-token embedding details
        - Shows UID, Frontend, Content ID, Prev/Next UID
 
 IF 'a' in features_to_run OR 'c' in features_to_run:
     → Step 2: tokenize_text(text)
-       - Break text into tokens using SanTOK
+       - Break text into tokens using SOMA
        - Store in self.tokens
     
     → Step 3: generate_embeddings(strategy="feature_based")
@@ -153,13 +153,13 @@ IF 'r' in features_to_run:
          use_content_grouping=True,
          min_similarity_threshold=0.3
        )
-    - Build context-aware embeddings using SanTOK's native mechanisms
+    - Build context-aware embeddings using SOMA's native mechanisms
     - Uses prev_uid/next_uid, content_id, global_id
     - Then test with search_with_context_fusion()
 
 IF 'p' in features_to_run:
     → evaluate_semantic_alignment()
-    - Test how well SanTOK embeddings match human semantic judgments
+    - Test how well SOMA embeddings match human semantic judgments
     - Calculate mean error, correlation
     
     IF 'q' in features_to_run AND mean_error > 0.2:

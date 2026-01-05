@@ -2,7 +2,7 @@
 Python File Execution Log
 ================================================================================
 Start Time: 2025-11-10 12:29:09
-Directory: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend
+Directory: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend
 Python: C:\Users\SCHAVALA\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
 Python Version: 3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]
 Total Files: 39
@@ -11,7 +11,7 @@ Total Files: 39
 
 ================================================================================
 File: demo_complete_workflow.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py
 Time: 2025-11-10 12:29:09
 ================================================================================
 
@@ -116,12 +116,12 @@ Text: Natural language processing enables computers to understand text.
   [SAVED] demo_output\1_tokenization_summary.json
 
 === STDERR ===
-C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
+C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
   warnings.warn("sentence-transformers not available. Hybrid embeddings will not work.")
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 538, in main
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 538, in main
     tokenization_results = demo_tokenization()
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 128, in demo_tokenization
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 128, in demo_tokenization
     print("\n\u2705 Tokenization demo complete!")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -132,10 +132,10 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 569, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 569, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 564, in main
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 564, in main
     print(f"\n\u274c Error during demo: {e}")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -148,15 +148,15 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 
 Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
-File: santok\__init__.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\__init__.py
+File: soma\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\soma\__init__.py
 Time: 2025-11-10 12:29:21
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\__init__.py", line 11, in <module>
-    from .santok import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\soma\__init__.py", line 11, in <module>
+    from .soma import (
     ...<4 lines>...
     )
 ImportError: attempted relative import with no known parent package
@@ -166,15 +166,15 @@ ImportError: attempted relative import with no known parent package
 Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
-File: santok\cli.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\cli.py
+File: soma\cli.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\soma\cli.py
 Time: 2025-11-10 12:29:22
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\cli.py", line 9, in <module>
-    from .santok import TextTokenizationEngine
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\soma\cli.py", line 9, in <module>
+    from .soma import TextTokenizationEngine
 ImportError: attempted relative import with no known parent package
 
 
@@ -182,13 +182,13 @@ ImportError: attempted relative import with no known parent package
 Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
-File: santok\santok.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\santok.py
+File: soma\soma.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\soma\soma.py
 Time: 2025-11-10 12:29:22
 ================================================================================
 
 === STDOUT ===
-SanTOK Tokenization Engine Module Example
+SOMA Tokenization Engine Module Example
 ==================================================
 Original: Hello World! This is a test.
 Preprocessed: hello world! this is a test.
@@ -211,13 +211,13 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: setup.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py
 Time: 2025-11-10 12:29:22
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py", line 8, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py", line 8, in <module>
     with open("README.md", "r", encoding="utf-8") as fh:
          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'README.md'
@@ -228,13 +228,13 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\cli\decode_demo.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py
 Time: 2025-11-10 12:29:23
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py", line 15, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py", line 15, in <module>
     from core_tokenizer import tokenize_text, reconstruct_from_tokens
 ModuleNotFoundError: No module named 'core_tokenizer'
 
@@ -244,7 +244,7 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\cli\main.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\main.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\main.py
 Time: 2025-11-10 12:29:24
 ================================================================================
 
@@ -262,7 +262,7 @@ Status: ❌ FAILED (exit code: 2)
 
 ================================================================================
 File: src\compression\compression_algorithms.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\compression\compression_algorithms.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\compression\compression_algorithms.py
 Time: 2025-11-10 12:29:24
 ================================================================================
 
@@ -272,7 +272,7 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\core\base_tokenizer.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\base_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\base_tokenizer.py
 Time: 2025-11-10 12:29:24
 ================================================================================
 
@@ -282,7 +282,7 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\core\core_tokenizer.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py
 Time: 2025-11-10 12:29:25
 ================================================================================
 
@@ -311,10 +311,10 @@ byte: 0 tokens, 0 unique, avg_len=0.00
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 3135, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 3135, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 2736, in main
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 2736, in main
     print(f"{name}: {status} (rev:{reversibility}, ids:{unique_ids}, det:{deterministic}, perf:{performance:.6f}s)")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -328,7 +328,7 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\core\parallel_tokenizer.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\parallel_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\parallel_tokenizer.py
 Time: 2025-11-10 12:30:37
 ================================================================================
 
@@ -338,14 +338,14 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\embeddings\__init__.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py
 Time: 2025-11-10 12:30:37
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py", line 8, in <module>
-    from .embedding_generator import SanTOKEmbeddingGenerator
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py", line 8, in <module>
+    from .embedding_generator import SOMAEmbeddingGenerator
 ImportError: attempted relative import with no known parent package
 
 
@@ -354,12 +354,12 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\embeddings\embedding_generator.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py
 Time: 2025-11-10 12:30:38
 ================================================================================
 
 === STDERR ===
-C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
+C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
   warnings.warn("sentence-transformers not available. Hybrid embeddings will not work.")
 
 
@@ -368,27 +368,27 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\embeddings\inference_pipeline.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py
 Time: 2025-11-10 12:30:49
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 15, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 15, in <module>
     from ..core.core_tokenizer import TextTokenizer
 ImportError: attempted relative import with no known parent package
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 18, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 18, in <module>
     from src.core.core_tokenizer import TextTokenizer
 ModuleNotFoundError: No module named 'src'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 20, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 20, in <module>
     from core.core_tokenizer import TextTokenizer
 ModuleNotFoundError: No module named 'core'
 
@@ -398,7 +398,7 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\embeddings\semantic_trainer.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\semantic_trainer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\semantic_trainer.py
 Time: 2025-11-10 12:30:49
 ================================================================================
 
@@ -408,7 +408,7 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\embeddings\vector_store.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\vector_store.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\vector_store.py
 Time: 2025-11-10 12:30:50
 ================================================================================
 
@@ -418,17 +418,17 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\examples\demo_enhanced_tokenization.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py
 Time: 2025-11-10 12:30:53
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py", line 10, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py", line 10, in <module>
+    from SOMA_tokenizer import (
     ...<3 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -436,17 +436,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\examples\demo_stable_system.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py
 Time: 2025-11-10 12:30:53
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py", line 9, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py", line 9, in <module>
+    from SOMA_tokenizer import (
     ...<3 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -454,12 +454,12 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\examples\demo_universal_files.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py
 Time: 2025-11-10 12:30:53
 ================================================================================
 
 === STDOUT ===
-SanTOK Tokenizer - Universal File Handling Demo
+SOMA Tokenizer - Universal File Handling Demo
 ==================================================
 
 Created test files in 'test_files/' directory:
@@ -473,18 +473,18 @@ Created test files in 'test_files/' directory:
 UNIVERSAL FILE HANDLING DEMONSTRATION
 ============================================================
 
-The SanTOK Tokenizer can now handle:
+The SOMA Tokenizer can now handle:
 
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 174, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 174, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 158, in main
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 158, in main
     demonstrate_universal_handling()
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 72, in demonstrate_universal_handling
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 72, in demonstrate_universal_handling
     print("\U0001f4c1 INPUT FILES (ANY TYPE):")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -498,12 +498,12 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\examples\test_files\sample.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\test_files\sample.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\test_files\sample.py
 Time: 2025-11-10 12:30:54
 ================================================================================
 
 === STDOUT ===
-Hello from SanTOK Tokenizer!
+Hello from SOMA Tokenizer!
 
 
 === EXIT CODE: 0 ===
@@ -511,13 +511,13 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\integration\__init__.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py
 Time: 2025-11-10 12:30:54
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py", line 7, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py", line 7, in <module>
     from .vocabulary_adapter import (
     ...<4 lines>...
     )
@@ -529,7 +529,7 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\integration\vocabulary_adapter.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\vocabulary_adapter.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\vocabulary_adapter.py
 Time: 2025-11-10 12:30:54
 ================================================================================
 
@@ -539,16 +539,16 @@ Status: ✅ SUCCESS
 
 ================================================================================
 File: src\performance\comprehensive_performance_test.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py
 Time: 2025-11-10 12:31:05
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 242, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 242, in <module>
     results = comprehensive_performance_test()
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 158, in comprehensive_performance_test
-    print("\U0001f680 SanTOK Comprehensive Performance Test")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 158, in comprehensive_performance_test
+    print("\U0001f680 SOMA Comprehensive Performance Test")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -561,12 +561,12 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\performance\test_accuracy.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py
 Time: 2025-11-10 12:31:06
 ================================================================================
 
 === STDOUT ===
-Testing SanTOK reconstruction accuracy...
+Testing SOMA reconstruction accuracy...
 ============================================================
 
 Testing SPACE tokenization:
@@ -585,9 +585,9 @@ Testing SPACE tokenization:
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 171, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 171, in <module>
     results = test_reconstruction_accuracy()
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 99, in test_reconstruction_accuracy
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 99, in test_reconstruction_accuracy
     print(f'    - {error["text"]}: {error["error"]}')
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -601,13 +601,13 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\performance\test_organized_outputs.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py
 Time: 2025-11-10 12:31:06
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py", line 8, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py", line 8, in <module>
     from core_tokenizer import tokenize_text
 ModuleNotFoundError: No module named 'core_tokenizer'
 
@@ -617,12 +617,12 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\servers\api_server.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\api_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\api_server.py
 Time: 2025-11-10 12:31:07
 ================================================================================
 
 === STDOUT ===
-Error importing modules: cannot import name 'SanTOKTokenizer' from 'core.core_tokenizer' (C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\..\core\core_tokenizer.py)
+Error importing modules: cannot import name 'SOMATokenizer' from 'core.core_tokenizer' (C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\..\core\core_tokenizer.py)
 Make sure core_tokenizer.py, compression_algorithms.py, and unique_identifier.py are in the same directory
 
 
@@ -631,13 +631,13 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\servers\lightweight_server.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py
 Time: 2025-11-10 12:31:08
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py", line 23, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py", line 23, in <module>
     print("\u2705 Successfully imported engine module")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -651,14 +651,14 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\servers\main_server.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py
 Time: 2025-11-10 12:31:09
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py", line 34, in <module>
-    print("\u2705 Successfully imported engine module with REAL SanTOK engine")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py", line 34, in <module>
+    print("\u2705 Successfully imported engine module with REAL SOMA engine")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -671,13 +671,13 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\servers\simple_server.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py
 Time: 2025-11-10 12:31:10
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py", line 23, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py", line 23, in <module>
     print("\u2705 Successfully imported core modules")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
@@ -691,17 +691,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\advanced_comprehensive_test.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py
 Time: 2025-11-10 12:31:11
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 670, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 670, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 657, in main
-    print("\U0001f680 SanTOK Advanced Comprehensive Testing Framework")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 657, in main
+    print("\U0001f680 SOMA Advanced Comprehensive Testing Framework")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -714,17 +714,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\extreme_stress_test.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py
 Time: 2025-11-10 12:31:11
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 624, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 624, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 598, in main
-    print("\U0001f680 SanTOK Extreme Stress Testing Framework")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 598, in main
+    print("\U0001f680 SOMA Extreme Stress Testing Framework")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -737,13 +737,13 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\real_time_monitor.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py
 Time: 2025-11-10 12:31:12
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py", line 27, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py", line 27, in <module>
     import curses
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\curses\__init__.py", line 13, in <module>
     from _curses import *
@@ -755,17 +755,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\run_tests.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py
 Time: 2025-11-10 12:31:15
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 109, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 109, in <module>
     sys.exit(main())
              ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 39, in main
-    print("\U0001f680 SanTOK TOKENIZER - TEST RUNNER")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 39, in main
+    print("\U0001f680 SOMA TOKENIZER - TEST RUNNER")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -778,17 +778,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\test_multilang_parallel.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py
 Time: 2025-11-10 12:31:15
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 172, in <module>
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 172, in <module>
     main()
     ~~~~^^
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 151, in main
-    print("\U0001f680 SanTOK Multi-language & Parallel Processing Test")
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 151, in main
+    print("\U0001f680 SOMA Multi-language & Parallel Processing Test")
     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
@@ -801,17 +801,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\test_scripts\test_comprehensive.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py
 Time: 2025-11-10 12:31:16
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py", line 23, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py", line 23, in <module>
+    from SOMA_tokenizer import (
     ...<6 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -819,17 +819,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\test_scripts\test_compression_efficiency.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py
 Time: 2025-11-10 12:31:16
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py", line 12, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py", line 12, in <module>
+    from SOMA_tokenizer import (
     ...<3 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -837,17 +837,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\test_scripts\test_full_reversibility.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py
 Time: 2025-11-10 12:31:16
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py", line 12, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py", line 12, in <module>
+    from SOMA_tokenizer import (
     ...<3 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -855,17 +855,17 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\tests\test_scripts\test_stable_tokenization.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py
 Time: 2025-11-10 12:31:17
 ================================================================================
 
 === STDERR ===
 Traceback (most recent call last):
-  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py", line 13, in <module>
-    from SanTOK_tokenizer import (
+  File "C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py", line 13, in <module>
+    from SOMA_tokenizer import (
     ...<3 lines>...
     )
-ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+ModuleNotFoundError: No module named 'SOMA_tokenizer'
 
 
 === EXIT CODE: 1 ===
@@ -873,7 +873,7 @@ Status: ❌ FAILED (exit code: 1)
 
 ================================================================================
 File: src\utils\unique_identifier.py
-Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\utils\unique_identifier.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SOMA_OLD\SOMA-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\utils\unique_identifier.py
 Time: 2025-11-10 12:31:17
 ================================================================================
 

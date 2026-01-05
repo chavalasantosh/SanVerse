@@ -5,7 +5,7 @@
 set -e
 
 echo "=========================================="
-echo "SanTOK Setup Test"
+echo "SOMA Setup Test"
 echo "=========================================="
 echo ""
 

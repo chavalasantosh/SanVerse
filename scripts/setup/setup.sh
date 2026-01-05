@@ -1,11 +1,11 @@
 #!/bin/bash
-# SanTOK Automated Setup Script for Linux/Mac
+# SOMA Automated Setup Script for Linux/Mac
 # This script sets up the development environment and installs all dependencies
 
 set -e  # Exit on error
 
 echo "=========================================="
-echo "SanTOK Setup Script"
+echo "SOMA Setup Script"
 echo "=========================================="
 echo ""
 

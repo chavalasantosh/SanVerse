@@ -17,5 +17,5 @@ Contains trained model files:
 Run training scripts to generate new models:
 
 ```bash
-python train_santok_complete.py
+python train_soma_complete.py
 ```

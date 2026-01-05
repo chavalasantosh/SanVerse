@@ -1,4 +1,4 @@
-# SanTOK Organized Output System
+# SOMA Organized Output System
 
 This folder contains all tokenization outputs organized by tokenizer type and file format.
 
@@ -72,7 +72,7 @@ Files are automatically named with the following pattern:
 
 ## 🔧 Usage
 
-When you download tokenization results from the SanTOK interface:
+When you download tokenization results from the SOMA interface:
 1. Files are automatically saved to the appropriate folder
 2. JSON files go to `{tokenizer_type}/JSON/`
 3. CSV files go to `{tokenizer_type}/CSV/`
@@ -93,7 +93,7 @@ When you download tokenization results from the SanTOK interface:
 
 ## 🚀 Getting Started
 
-1. Run tokenization in the SanTOK interface
+1. Run tokenization in the SOMA interface
 2. Click any download button (JSON, CSV, TEXT, XML)
 3. Files will be automatically saved to the correct folder
 4. Navigate to the appropriate folder to find your files

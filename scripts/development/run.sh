@@ -1,6 +1,6 @@
 #!/bin/bash
-# SanTOK Run Script for Linux/Mac
-# Starts the SanTOK API server
+# SOMA Run Script for Linux/Mac
+# Starts the SOMA API server
 
 set -e  # Exit on error
 
@@ -11,7 +11,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo "=========================================="
-echo "SanTOK API Server"
+echo "SOMA API Server"
 echo "=========================================="
 echo ""
 
@@ -49,7 +49,7 @@ if command -v lsof &> /dev/null; then
     fi
 fi
 
-echo -e "${GREEN}[INFO]${NC} Starting SanTOK API Server..."
+echo -e "${GREEN}[INFO]${NC} Starting SOMA API Server..."
 echo -e "${GREEN}[INFO]${NC} Server will be available at: http://localhost:$PORT"
 echo -e "${GREEN}[INFO]${NC} API Documentation at: http://localhost:$PORT/docs"
 echo ""

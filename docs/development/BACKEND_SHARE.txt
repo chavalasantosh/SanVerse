@@ -6,7 +6,7 @@ STEP 1: Create Package
 ----------------------
 Run: python package_backend.py
 
-This creates: santok_backend_YYYYMMDD_HHMMSS.zip
+This creates: soma_backend_YYYYMMDD_HHMMSS.zip
 
 STEP 2: Share the ZIP File
 ---------------------------

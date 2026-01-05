@@ -1,4 +1,4 @@
-# SanTOK Architecture Documentation - Index
+# SOMA Architecture Documentation - Index
 
 ## 📚 Architecture Documentation Files
 

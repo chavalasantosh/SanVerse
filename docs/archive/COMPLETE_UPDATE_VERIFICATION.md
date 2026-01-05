@@ -7,9 +7,9 @@
 #### Job Manager Files (5 files) - ✅ ALL FIXED
 1. ✅ `src/servers/job_manager.py` - **FIXED** (All 23 bugs)
 2. ✅ `backend/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
-3. ✅ `demo_santok/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
-4. ✅ `backend/demo_santok/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
-5. ✅ `santok_backend_mother ucker/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
+3. ✅ `demo_soma/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
+4. ✅ `backend/demo_soma/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
+5. ✅ `soma_backend_mother ucker/src/servers/job_manager.py` - **FIXED** (All 23 bugs)
 
 **All Have:**
 - ✅ Progress constants (PROGRESS_START, PROGRESS_MAX, PROGRESS_COMPLETE)
@@ -29,9 +29,9 @@
 - ✅ Added descriptive comments
 
 #### Demo Main Server Files (3 files) - ✅ VERIFIED
-1. ✅ `demo_santok/src/servers/main_server.py` - **FIXED** (Empty except blocks)
-2. ✅ `backend/demo_santok/src/servers/main_server.py` - **VERIFIED** (No execute_code, no except blocks)
-3. ✅ `santok_backend_mother ucker/src/servers/main_server.py` - **VERIFIED** (No execute_code, no except blocks)
+1. ✅ `demo_soma/src/servers/main_server.py` - **FIXED** (Empty except blocks)
+2. ✅ `backend/demo_soma/src/servers/main_server.py` - **VERIFIED** (No execute_code, no except blocks)
+3. ✅ `soma_backend_mother ucker/src/servers/main_server.py` - **VERIFIED** (No execute_code, no except blocks)
 
 ---
 
@@ -58,7 +58,7 @@
 ### **Backend:**
 - ✅ **5** job_manager.py files - All bugs fixed
 - ✅ **2** main_server.py files (with execute_code) - Except blocks fixed
-- ✅ **1** demo_santok main_server.py - Except blocks fixed
+- ✅ **1** demo_soma main_server.py - Except blocks fixed
 - ✅ **2** other main_server.py files - Verified (no issues)
 
 ### **Frontend:**

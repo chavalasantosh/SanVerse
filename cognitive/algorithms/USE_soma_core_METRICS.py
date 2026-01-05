@@ -1,8 +1,8 @@
 """
-Use SanTEK Metrics - Quick Start Guide
+Use SOMA Core Metrics - Quick Start Guide
 ======================================
 
-This script shows you how to use SanTEK's custom logical metrics
+This script shows you how to use SOMA Core's custom logical metrics
 to measure performance and guide improvements.
 """
 
@@ -13,23 +13,23 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 print("\n" + "=" * 70)
-print("SanTEK Logical Metrics System")
+print("SOMA Core Logical Metrics System")
 print("=" * 70)
 print()
-print("Custom metrics designed to help SanTEK improve!")
+print("Custom metrics designed to help SOMA Core improve!")
 print()
 
 try:
-    from soma_cognitive.algorithms.santek_metrics import (
-        SanTEKMetrics,
-        measure_santek_performance
+    from soma_cognitive.algorithms.soma_core_metrics import (
+        SOMA CoreMetrics,
+        measure_soma_core_performance
     )
     
-    print("[OK] SanTEK Metrics imported")
+    print("[OK] SOMA Core Metrics imported")
     print()
     
     # Create metrics instance
-    metrics = SanTEKMetrics()
+    metrics = SOMA CoreMetrics()
     
     # Example 1: Measure fluency
     print("=" * 70)
@@ -91,7 +91,7 @@ try:
     
     # Example 5: Overall health score
     print("=" * 70)
-    print("Example 5: Overall SanTEK Health Score")
+    print("Example 5: Overall SOMA Core Health Score")
     print("=" * 70)
     print()
     
@@ -131,7 +131,7 @@ try:
     print("=" * 70)
     print()
     
-    results = measure_santek_performance(
+    results = measure_soma_core_performance(
         generated_text=generated,
         prompt=prompt,
         training_data=["Machine learning is AI", "Deep learning uses neural networks"]
@@ -146,7 +146,7 @@ try:
     
     print()
     print("=" * 70)
-    print("[OK] SanTEK Metrics Demo Complete!")
+    print("[OK] SOMA Core Metrics Demo Complete!")
     print("=" * 70)
     print()
     print("Key Features:")
@@ -157,7 +157,7 @@ try:
     print("  ✅ Track improvements over time")
     print("  ✅ Get actionable recommendations")
     print()
-    print("Use these metrics to guide SanTEK improvements!")
+    print("Use these metrics to guide SOMA Core improvements!")
     print()
     
 except ImportError as e:

@@ -1,7 +1,7 @@
 # Dependencies Analysis
 
 ## Overview
-This document analyzes the dependencies used in the SanTOK project.
+This document analyzes the dependencies used in the SOMA project.
 
 ## Python Dependencies
 

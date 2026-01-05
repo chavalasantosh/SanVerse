@@ -25,12 +25,12 @@ chmod +x quick-import.sh
 2. Click **"Workflows"** in left sidebar
 3. Click **"Import from File"** button
 4. Select ALL files from `n8n/workflows/` folder:
-   - `santok-tokenization-workflow.json`
-   - `santok-analysis-workflow.json`
-   - `santok-batch-processing-workflow.json`
-   - `santok-scheduled-analysis-workflow.json`
-   - `santok-webhook-integration-workflow.json`
-   - `santok-slack-integration-workflow.json`
+   - `soma-tokenization-workflow.json`
+   - `soma-analysis-workflow.json`
+   - `soma-batch-processing-workflow.json`
+   - `soma-scheduled-analysis-workflow.json`
+   - `soma-webhook-integration-workflow.json`
+   - `soma-slack-integration-workflow.json`
 5. Click **"Import"**
 6. **Activate** each workflow (toggle switch)
 7. **Done!** 🎉

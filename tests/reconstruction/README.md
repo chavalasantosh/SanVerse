@@ -1,10 +1,10 @@
 # Reconstruction Test Suite
 
-This directory contains comprehensive tests for verifying perfect reconstruction across all SanTOK algorithms.
+This directory contains comprehensive tests for verifying perfect reconstruction across all SOMA algorithms.
 
 ## Overview
 
-The test suite verifies that all 9 SanTOK tokenization algorithms achieve 100% perfect reconstruction - meaning that for any input text, the tokenized output can be perfectly reconstructed to recover the original text.
+The test suite verifies that all 9 SOMA tokenization algorithms achieve 100% perfect reconstruction - meaning that for any input text, the tokenized output can be perfectly reconstructed to recover the original text.
 
 ## Test Files
 
@@ -37,7 +37,7 @@ The test suite includes:
 
 ### Test Algorithms
 
-All 9 SanTOK algorithms are tested:
+All 9 SOMA algorithms are tested:
 - Space tokenization
 - Word tokenization
 - Character tokenization
@@ -57,7 +57,7 @@ The test corpus is generated deterministically using seed=42 for reproducibility
 
 All tests use:
 - **Deterministic seed**: seed=42 for corpus generation
-- **Deterministic tokenization**: SanTOK algorithms are deterministic
+- **Deterministic tokenization**: SOMA algorithms are deterministic
 - **Exact comparison**: Byte-by-byte comparison of original vs reconstructed
 
 ## Expected Results
@@ -92,7 +92,7 @@ To add new test cases:
 
 - Python 3.8+
 - pytest
-- SanTOK core tokenizer module
+- SOMA core tokenizer module
 
 ## CI Integration
 

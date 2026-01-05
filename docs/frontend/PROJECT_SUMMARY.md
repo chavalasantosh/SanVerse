@@ -1,8 +1,8 @@
-# SanTOK Tokenizer Frontend - Project Summary
+# SOMA Tokenizer Frontend - Project Summary
 
 ## 🎯 **MISSION ACCOMPLISHED!**
 
-I have successfully created a **production-ready, enterprise-grade web frontend** for the SanTOK Tokenizer as requested. The application is built in a **separate folder** (`SanTOK-tokenizer-frontend`) and **does not touch any existing files**.
+I have successfully created a **production-ready, enterprise-grade web frontend** for the SOMA Tokenizer as requested. The application is built in a **separate folder** (`SOMA-tokenizer-frontend`) and **does not touch any existing files**.
 
 ## 🚀 **What Was Built**
 
@@ -56,7 +56,7 @@ I have successfully created a **production-ready, enterprise-grade web frontend*
 
 ### **Clean Code Structure**
 ```
-SanTOK-tokenizer-frontend/
+SOMA-tokenizer-frontend/
 ├── app/                    # Next.js App Router
 ├── components/            # React components
 │   ├── ui/               # Reusable UI components
@@ -125,7 +125,7 @@ SanTOK-tokenizer-frontend/
 ## 🚀 **Getting Started**
 
 ### **Quick Start**
-1. Navigate to `SanTOK-tokenizer-frontend/`
+1. Navigate to `SOMA-tokenizer-frontend/`
 2. Run `npm install` (or `yarn install`)
 3. Run `npm run dev`
 4. Open http://localhost:3000

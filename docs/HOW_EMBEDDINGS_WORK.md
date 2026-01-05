@@ -1,16 +1,16 @@
-# How SanTOK Embeddings Work (Feature-Based Strategy)
+# How SOMA Embeddings Work (Feature-Based Strategy)
 
 ## Overview
 
-SanTOK's **feature-based embeddings** convert mathematical token features into dense vector embeddings through a deterministic mathematical process. **No machine learning or pretrained models are used.**
+SOMA's **feature-based embeddings** convert mathematical token features into dense vector embeddings through a deterministic mathematical process. **No machine learning or pretrained models are used.**
 
 ---
 
 ## Step-by-Step Process
 
-### Step 1: Tokenization with SanTOK
+### Step 1: Tokenization with SOMA
 
-When you tokenize text, SanTOK creates `TokenRecord` objects with mathematical features:
+When you tokenize text, SOMA creates `TokenRecord` objects with mathematical features:
 
 ```python
 TokenRecord(
@@ -131,7 +131,7 @@ embedding = embedding / norm
 ```
 Text: "Hello world"
     ↓
-SanTOK Tokenization
+SOMA Tokenization
     ↓
 TokenRecord {
     text: "Hello",
@@ -165,7 +165,7 @@ Final Embedding (768-dim, unit vector):
 ## Key Points
 
 ### ✅ What It Uses:
-- **SanTOK's mathematical features only**
+- **SOMA's mathematical features only**
 - **Deterministic projection matrix** (random but fixed)
 - **Linear algebra** (matrix multiplication)
 - **No machine learning**
@@ -184,7 +184,7 @@ Final Embedding (768-dim, unit vector):
 
 ## Why This Works
 
-1. **Rich Features**: SanTOK tokens contain ~60 numerical features that capture:
+1. **Rich Features**: SOMA tokens contain ~60 numerical features that capture:
    - Token identity (UID)
    - Content properties (content_id, frontend digit)
    - Context (neighbors, position)
@@ -206,7 +206,7 @@ Final Embedding (768-dim, unit vector):
 
 **Token:** "hello"
 
-**SanTOK Features:**
+**SOMA Features:**
 - UID: `18446744073709551615`
 - Frontend: `7`
 - Backend: `9876543210987654321`
@@ -244,15 +244,15 @@ norm = sqrt(sum(embedding^2))
 embedding = embedding / norm  # Unit vector
 ```
 
-**Result:** 768-dimensional embedding vector, purely from SanTOK math!
+**Result:** 768-dimensional embedding vector, purely from SOMA math!
 
 ---
 
 ## Comparison with Pretrained Models
 
-| Aspect | SanTOK Feature-Based | BERT/sentence-transformers |
+| Aspect | SOMA Feature-Based | BERT/sentence-transformers |
 |--------|---------------------|---------------------------|
-| **Source** | SanTOK math features | Learned from billions of tokens |
+| **Source** | SOMA math features | Learned from billions of tokens |
 | **Training** | None | Extensive pretraining |
 | **Deterministic** | ✅ Yes | ⚠️ Mostly (model weights fixed) |
 | **Semantic** | ❌ No | ✅ Yes |
@@ -264,7 +264,7 @@ embedding = embedding / norm  # Unit vector
 
 ## Summary
 
-**SanTOK embeddings are:**
+**SOMA embeddings are:**
 1. ✅ **Mathematically derived** from token features
 2. ✅ **Deterministic** (same token → same embedding)
 3. ✅ **No pretrained models** (pure math)
@@ -277,5 +277,5 @@ embedding = embedding / norm  # Unit vector
 - ❌ Semantic embeddings
 - ❌ Trained on any corpus
 
-It's a **mathematical transformation** of SanTOK's internal features into dense vectors suitable for similarity search and inference.
+It's a **mathematical transformation** of SOMA's internal features into dense vectors suitable for similarity search and inference.
 

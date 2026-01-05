@@ -1,4 +1,4 @@
-# SanTOK Performance Warnings and Guidelines
+# SOMA Performance Warnings and Guidelines
 
 ## ⚠️ Performance Considerations
 

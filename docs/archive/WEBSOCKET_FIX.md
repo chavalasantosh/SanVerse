@@ -41,7 +41,7 @@ QUICK_START_SERVER.bat
 ### Step 3: Verify WebSocket Endpoint
 
 Once the server is running, you should see:
-- `[START] Starting SanTOK API Server...`
+- `[START] Starting SOMA API Server...`
 - `[INFO] Server will be available at: http://localhost:8000`
 - `[INFO] API Documentation at: http://localhost:8000/docs`
 

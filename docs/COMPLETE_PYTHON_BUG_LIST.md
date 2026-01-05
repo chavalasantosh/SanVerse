@@ -49,7 +49,7 @@
 
 **Files to Check:**
 - Files in `examples/` directory
-- Files in `backend/demo_santok/` directory
+- Files in `backend/demo_soma/` directory
 - Test files
 
 **Example:**
@@ -79,8 +79,8 @@ except Exception:  # Catches exceptions but not system exits
 **Status:** ⚠️ **Partially Fixed** (4 fixed, ~14 remain - mostly intentional)
 
 **Files with Wildcard Imports:**
-- `backend/demo_santok/src/performance/comprehensive_performance_test.py:9`
-- `backend/demo_santok/src/performance/test_accuracy.py:9`
+- `backend/demo_soma/src/performance/comprehensive_performance_test.py:9`
+- `backend/demo_soma/src/performance/test_accuracy.py:9`
 - `src/servers/main_server.py` - Intentional for compatibility
 - `backend/src/servers/main_server.py` - Intentional for compatibility
 

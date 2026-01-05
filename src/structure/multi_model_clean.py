@@ -1,5 +1,5 @@
 """
-SanTEK Multi-Model System - CLEANED VERSION
+SOMA Core Multi-Model System - CLEANED VERSION
 ===========================================
 
 This is the cleaned, production-ready version that:
@@ -42,9 +42,9 @@ class SignalOutput:
     decisions: Dict[str, Any] = field(default_factory=dict)
 
 
-class SanTEKMultiModelClean:
+class SOMA CoreMultiModelClean:
     """
-    SanTEK Multi-Model System - CLEANED.
+    SOMA Core Multi-Model System - CLEANED.
     
     Collapses 8 "models" into 4 core signals:
     1. Structural Signal (how things are built)

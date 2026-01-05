@@ -1,16 +1,16 @@
-# SanTOK Repository Reorganization Plan
+# SOMA Repository Reorganization Plan
 
 ## Current Issues Identified
 1. **Too many temporary/debug markdown files in root** (30+ files)
 2. **Scripts scattered in root** (.bat, .ps1, .sh files)
 3. **Large backup files in root** (zip files ~145MB each)
-4. **Duplicate directories** (backend, python_code_collection, santok)
+4. **Duplicate directories** (backend, python_code_collection, soma)
 5. **Temporary files** (tatus, all_python_output files, etc.)
 
 ## Proposed Clean Structure
 
 ```
-SanTOK/
+SOMA/
 ├── README.md                    # Main readme
 ├── LICENSE
 ├── requirements.txt
@@ -24,7 +24,7 @@ SanTOK/
 │
 ├── backend/                     # Backend API server
 ├── frontend/                    # Frontend application
-├── santok/                      # Core Python package
+├── soma/                      # Core Python package
 ├── src/                         # Source code
 │
 ├── docs/                        # All documentation
@@ -72,5 +72,5 @@ SanTOK/
 ### Temporary Files (delete)
 - tatus
 - all_python_output_*.txt
-- santok_folder_files_paths.txt (if too large)
+- soma_folder_files_paths.txt (if too large)
 

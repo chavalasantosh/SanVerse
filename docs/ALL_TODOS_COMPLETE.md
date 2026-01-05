@@ -6,8 +6,8 @@
 
 ### ✅ 1. Fixed setup.py Entry Point
 - **Status:** Verified and correct
-- **Entry Point:** `santok.cli:main`
-- **Location:** `santok/cli.py`
+- **Entry Point:** `soma.cli:main`
+- **Location:** `soma/cli.py`
 
 ### ✅ 2. Documented Entry Points
 - **Status:** Complete
@@ -16,17 +16,17 @@
 
 ### ✅ 3. Fixed CLI format_results Function
 - **Status:** Verified exists
-- **Location:** `santok/cli.py:115`
+- **Location:** `soma/cli.py:115`
 - **Function:** Properly implemented with type hints
 
 ### ✅ 4. Ensured __init__.py Files Exist
 - **Status:** Verified correct
-- **Package:** `santok/__init__.py` properly exports modules
+- **Package:** `soma/__init__.py` properly exports modules
 - **Structure:** All necessary imports present
 
 ### ✅ 5. Added Input Validation and Edge Case Handling
 - **Status:** Complete
-- **Module:** `santok/utils/validation.py`
+- **Module:** `soma/utils/validation.py`
 - **Features:**
   - `validate_text_input()` - Text validation
   - `validate_file_path()` - File path validation
@@ -37,7 +37,7 @@
 
 ### ✅ 6. Fixed Hardcoded Paths - Made Configurable via Environment Variables
 - **Status:** Complete
-- **Module:** `santok/utils/config.py`
+- **Module:** `soma/utils/config.py`
 - **Environment Variables:**
   - `PORT` / `SANTOK_PORT` - Server port
   - `HOST` / `SANTOK_HOST` - Server host
@@ -49,7 +49,7 @@
 
 ### ✅ 7. Added Logging Configuration Instead of Print Statements
 - **Status:** Complete (Infrastructure Ready)
-- **Module:** `santok/utils/logging_config.py`
+- **Module:** `soma/utils/logging_config.py`
 - **Features:**
   - `setup_logging()` - Configure logging system-wide
   - `get_logger()` - Get logger instance
@@ -61,10 +61,10 @@
 
 ## New Utility Modules Created
 
-### `santok/utils/` Package
+### `soma/utils/` Package
 
 ```
-santok/utils/
+soma/utils/
 ├── __init__.py          # Package exports
 ├── config.py            # Configuration management
 ├── logging_config.py    # Logging setup
@@ -86,7 +86,7 @@ santok/utils/
 
 ### Configuration
 ```python
-from santok.utils.config import Config
+from soma.utils.config import Config
 
 port = Config.get_port()  # Reads PORT env var
 data_dir = Config.get_data_dir()  # Reads DATA_DIR env var
@@ -95,7 +95,7 @@ log_level = Config.get_log_level()  # Reads LOG_LEVEL env var
 
 ### Validation
 ```python
-from santok.utils.validation import validate_text_input, validate_port
+from soma.utils.validation import validate_text_input, validate_port
 
 text = validate_text_input("Hello", "text")
 port = validate_port(8080, "port")
@@ -103,9 +103,9 @@ port = validate_port(8080, "port")
 
 ### Logging
 ```python
-from santok.utils.logging_config import setup_logging, get_logger
+from soma.utils.logging_config import setup_logging, get_logger
 
-setup_logging(level="INFO", log_file="santok.log")
+setup_logging(level="INFO", log_file="soma.log")
 logger = get_logger(__name__)
 logger.info("Server started")
 ```

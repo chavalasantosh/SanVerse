@@ -1,4 +1,4 @@
-# SanTOK Final Status Report
+# SOMA Final Status Report
 
 ## Date: 2025-01-17
 
@@ -33,9 +33,9 @@ All TODOs have been completed, bugs have been fixed, and the codebase is now pro
 - ✅ Utilities usage guide created
 
 ### 4. Infrastructure Improvements
-- ✅ Configuration management module (`santok/utils/config.py`)
-- ✅ Logging infrastructure (`santok/utils/logging_config.py`)
-- ✅ Input validation utilities (`santok/utils/validation.py`)
+- ✅ Configuration management module (`soma/utils/config.py`)
+- ✅ Logging infrastructure (`soma/utils/logging_config.py`)
+- ✅ Input validation utilities (`soma/utils/validation.py`)
 - ✅ Environment variable support for all configurable paths
 
 ### 5. Entry Points
@@ -61,7 +61,7 @@ All TODOs have been completed, bugs have been fixed, and the codebase is now pro
 
 ## 🛠️ New Modules Created
 
-### Utility Modules (`santok/utils/`)
+### Utility Modules (`soma/utils/`)
 
 1. **config.py** - Configuration management
    - Environment variable support
@@ -133,10 +133,10 @@ docs/
 
 ## 🚀 Entry Points
 
-1. **`santok`** (setup.py) - Standard CLI after installation
+1. **`soma`** (setup.py) - Standard CLI after installation
 2. **`main.py`** - Interactive mode selector
 3. **`run.py`** - Production server starter
-4. **`santok_cli.py`** - Full-featured CLI
+4. **`soma_cli.py`** - Full-featured CLI
 5. **`start.py`** - Railway deployment script
 
 All entry points are documented in `docs/ENTRY_POINTS_GUIDE.md`.
@@ -212,9 +212,9 @@ All entry points are documented in `docs/ENTRY_POINTS_GUIDE.md`.
 ## 📦 Package Structure
 
 ```
-santok/
+soma/
 ├── __init__.py           # Package exports
-├── santok.py             # Core tokenization engine
+├── soma.py             # Core tokenization engine
 ├── cli.py                 # CLI interface
 └── utils/                 # Utility modules
     ├── __init__.py

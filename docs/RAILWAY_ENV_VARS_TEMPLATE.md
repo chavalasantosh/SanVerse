@@ -48,7 +48,7 @@ Format: `https://domain1.com,https://domain2.com`
 
 Example:
 ```
-CORS_ORIGINS=https://santok-frontend.up.railway.app,https://www.santok.com
+CORS_ORIGINS=https://soma-frontend.up.railway.app,https://www.soma.com
 ```
 
 **Security:** Never use `*` in production! Always specify exact frontend URLs.

@@ -1,4 +1,4 @@
-# SanTOK Complete Architecture Documentation
+# SOMA Complete Architecture Documentation
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -18,7 +18,7 @@
 
 ## Project Overview
 
-**SanTOK** (Self-contained Advanced Text Tokenization) is a comprehensive text tokenization framework that provides:
+**SOMA** (Self-contained Advanced Text Tokenization) is a comprehensive text tokenization framework that provides:
 
 - **Multiple tokenization strategies** (space, word, char, grammar, subword, byte)
 - **Feature-based embeddings** from token structure
@@ -195,14 +195,14 @@ Input Text
 
 #### B. Semantic Embeddings (OWN - TRAINED)
 - **What:** Trained from token co-occurrence patterns
-- **Training:** `SanTOKSemanticTrainer` (see Semantic Training System)
-- **No pretrained models** - Learns from SanTOK structure
+- **Training:** `SOMASemanticTrainer` (see Semantic Training System)
+- **No pretrained models** - Learns from SOMA structure
 - **Output:** 768-dimensional semantic embedding
 
 #### C. Hybrid Embeddings (OWN + EXTERNAL)
-- **What:** Combines text embeddings with SanTOK features
+- **What:** Combines text embeddings with SOMA features
 - **Text embeddings:** sentence-transformers (EXTERNAL)
-- **Feature embeddings:** SanTOK features (OWN)
+- **Feature embeddings:** SOMA features (OWN)
 - **Combination:** Weighted combination (default: 70% text, 30% features)
 - **Requires:** `sentence-transformers` library
 
@@ -224,7 +224,7 @@ Input Text
 
 **What it is:**
 - **OWN** - Self-supervised semantic training
-- **NO pretrained models** - Learns from SanTOK token structure
+- **NO pretrained models** - Learns from SOMA token structure
 - Trains embeddings from co-occurrence patterns
 
 **How it works:**
@@ -353,18 +353,18 @@ Input Text
 - **EXTERNAL** - HuggingFace transformers
 
 **Purpose:**
-- Maps SanTOK tokens to pretrained model vocabulary IDs
+- Maps SOMA tokens to pretrained model vocabulary IDs
 - Enables integration with BERT, GPT, T5, etc.
-- Converts SanTOK tokenization to model-compatible format
+- Converts SOMA tokenization to model-compatible format
 
 **How it works:**
 1. **Token Mapping:**
-   - Extract token texts from SanTOK tokens
+   - Extract token texts from SOMA tokens
    - Use model tokenizer to convert to model IDs
-   - Create mapping from SanTOK tokens to model tokens
+   - Create mapping from SOMA tokens to model tokens
 
 2. **Conversion:**
-   - SanTOK tokens → Model input IDs
+   - SOMA tokens → Model input IDs
    - Handle subword tokenization differences
    - Preserve attention masks
 
@@ -541,9 +541,9 @@ backend/
 │   └── tests/
 │       └── ...                     # Test files
 │
-├── santok/
+├── soma/
 │   ├── __init__.py
-│   ├── santok.py                  # Main package
+│   ├── soma.py                  # Main package
 │   └── cli.py                     # CLI interface
 │
 ├── requirements.txt               # Dependencies
@@ -768,7 +768,7 @@ numpy.ndarray(
 ### 2. Pretrained Model Integration
 - **Adapter:** `vocabulary_adapter.py`
 - **Models:** BERT, GPT, T5, etc.
-- **Conversion:** SanTOK tokens → Model IDs
+- **Conversion:** SOMA tokens → Model IDs
 
 ### 3. Vector Database Integration
 - **FAISS:** High-performance search
@@ -865,7 +865,7 @@ numpy.ndarray(
 
 ## Conclusion
 
-SanTOK is a comprehensive text tokenization framework with:
+SOMA is a comprehensive text tokenization framework with:
 
 - **OWN/CUSTOM** tokenization system (no external dependencies)
 - **OWN** feature extraction and embedding generation

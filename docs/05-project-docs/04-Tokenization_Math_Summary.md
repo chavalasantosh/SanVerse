@@ -1,5 +1,5 @@
 # Tokenization Mathematics Summary
-## Complete Mathematical Guide for SanTOK Tokenizer
+## Complete Mathematical Guide for SOMA Tokenizer
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 🎯 **PURPOSE**
 
-This document summarizes the **Tokenization Mathematics** guide, which provides complete mathematical coverage of all concepts, formulas, and calculations used in the SanTOK Tokenizer system.
+This document summarizes the **Tokenization Mathematics** guide, which provides complete mathematical coverage of all concepts, formulas, and calculations used in the SOMA Tokenizer system.
 
 ---
 
@@ -18,7 +18,7 @@ This document summarizes the **Tokenization Mathematics** guide, which provides 
 ### **Document:** [TOKENIZATION_MATHEMATICS.md](TOKENIZATION_MATHEMATICS.md)
 
 #### **Purpose**
-Complete mathematical guide for tokenization concepts and calculations used in SanTOK Tokenizer.
+Complete mathematical guide for tokenization concepts and calculations used in SOMA Tokenizer.
 
 #### **Key Features**
 - **Token Counting Mathematics:** Formulas for all tokenization types
@@ -157,7 +157,7 @@ Validation Score = (Passed ÷ Total) × 100
 
 ---
 
-## 🎯 **REAL SanTOK TOKENIZER EXAMPLES**
+## 🎯 **REAL SOMA TOKENIZER EXAMPLES**
 
 ### **System Output Analysis**
 **Input:** "Hello World! This is a test."
@@ -205,7 +205,7 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 
 ### **For Understanding Results**
 1. **Read the formulas** for each calculation type
-2. **Apply the formulas** to your SanTOK Tokenizer results
+2. **Apply the formulas** to your SOMA Tokenizer results
 3. **Analyze the numbers** to understand system performance
 4. **Use the examples** to verify your calculations
 
@@ -269,10 +269,10 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 - ✅ **All tokenization math** covered in detail
 - ✅ **All formulas** explained with examples
 - ✅ **All calculations** shown step-by-step
-- ✅ **All concepts** applied to SanTOK Tokenizer
+- ✅ **All concepts** applied to SOMA Tokenizer
 
 ### **Practical Application**
-- ✅ **Real examples** from SanTOK Tokenizer
+- ✅ **Real examples** from SOMA Tokenizer
 - ✅ **Practice problems** with solutions
 - ✅ **Step-by-step calculations** for every concept
 - ✅ **Quick reference** for all formulas
@@ -291,7 +291,7 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 - **Mathematical questions:** Refer to [Tokenization Mathematics](TOKENIZATION_MATHEMATICS.md)
 - **Formula reference:** Use the formulas reference section
 - **Practice problems:** Work through the practice problems
-- **Real examples:** Study the SanTOK Tokenizer examples
+- **Real examples:** Study the SOMA Tokenizer examples
 
 ### **Using the Math**
 - **Apply formulas** to your own data
@@ -305,5 +305,5 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 **Mathematical Coverage:** ✅ **ALL TOKENIZATION MATH COVERED**  
 **Formula Reference:** ✅ **COMPLETE FORMULA COLLECTION**  
 **Practice Problems:** ✅ **COMPREHENSIVE PRACTICE SET**  
-**Real Examples:** ✅ **SanTOK TOKENIZER EXAMPLES INCLUDED**  
+**Real Examples:** ✅ **SOMA TOKENIZER EXAMPLES INCLUDED**  
 **Target Audience:** ✅ **USERS WHO NEED TOKENIZATION MATH HELP**

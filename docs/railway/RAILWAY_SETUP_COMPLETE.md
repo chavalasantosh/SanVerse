@@ -96,7 +96,7 @@ Check **Backend Service → Logs** after deploy. You should see:
 ```
 [CORS] Configured origins: ['https://sfrontend.up.railway.app']
 [CORS] CORS_ORIGINS env var: https://sfrontend.up.railway.app
-[START] Starting SanTOK API Server...
+[START] Starting SOMA API Server...
 [INFO] Server will be available at: http://0.0.0.0:8000
 [INFO] Health check at: http://0.0.0.0:8000/health
 [INFO] CORS Origins: https://sfrontend.up.railway.app
@@ -111,7 +111,7 @@ Should return:
 ```json
 {
   "status": "ok",
-  "message": "SanTOK API Server is running",
+  "message": "SOMA API Server is running",
   "cors_configured": true,
   "cors_origins": ["https://sfrontend.up.railway.app"],
   "backend_url": "http://0.0.0.0:8000"

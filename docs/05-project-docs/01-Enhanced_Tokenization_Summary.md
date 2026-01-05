@@ -1,8 +1,8 @@
-# Enhanced SanTOK Tokenizer Logic
+# Enhanced SOMA Tokenizer Logic
 
 ## Overview
 
-The SanTOK Tokenizer has been significantly enhanced with sophisticated logic for **space**, **byte**, and **sub-word** tokenization. These enhancements provide multiple strategies and comprehensive analysis capabilities.
+The SOMA Tokenizer has been significantly enhanced with sophisticated logic for **space**, **byte**, and **sub-word** tokenization. These enhancements provide multiple strategies and comprehensive analysis capabilities.
 
 ## Enhanced Features Added
 
@@ -111,7 +111,7 @@ The system now includes **9 tokenization strategies**:
 
 ### Basic Usage
 ```python
-from SanTOK_tokenizer import all_tokenizations, advanced_tokenization_analysis
+from SOMA_tokenizer import all_tokenizations, advanced_tokenization_analysis
 
 text = "The quick brown fox jumps over the lazy dog."
 results = all_tokenizations(text)
@@ -146,7 +146,7 @@ for name, data in comparison['strategies'].items():
 
 ## Integration
 
-All enhancements are fully integrated into the existing SanTOK Tokenizer system:
+All enhancements are fully integrated into the existing SOMA Tokenizer system:
 - Compatible with existing UID generation
 - Works with backend number composition
 - Supports all output modes (DEV, USER, JSON)

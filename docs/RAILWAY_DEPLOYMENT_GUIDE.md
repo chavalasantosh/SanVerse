@@ -255,7 +255,7 @@ project-root/
 
 3. **Security:**
    - ✅ Admin login required for file access
-   - ✅ Regular users cannot access SanTOK files
+   - ✅ Regular users cannot access SOMA files
    - ✅ CORS restricted to frontend URL only
    - ✅ JWT tokens working correctly
 

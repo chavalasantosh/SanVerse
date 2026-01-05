@@ -6,10 +6,10 @@
 
 #### Vector Store Files - ALL 5 FILES VERIFIED ✅
 ```
-[OK] backend\demo_santok\src\embeddings\vector_store.py
+[OK] backend\demo_soma\src\embeddings\vector_store.py
 [OK] backend\src\embeddings\vector_store.py
-[OK] demo_santok\src\embeddings\vector_store.py
-[OK] santok_backend_mother ucker\src\embeddings\vector_store.py
+[OK] demo_soma\src\embeddings\vector_store.py
+[OK] soma_backend_mother ucker\src\embeddings\vector_store.py
 [OK] src\embeddings\vector_store.py
 ```
 
@@ -23,10 +23,10 @@
 
 #### Job Manager Files - ALL 5 FILES VERIFIED ✅
 ```
-[OK] backend\demo_santok\src\servers\job_manager.py
+[OK] backend\demo_soma\src\servers\job_manager.py
 [OK] backend\src\servers\job_manager.py
-[OK] demo_santok\src\servers\job_manager.py
-[OK] santok_backend_mother ucker\src\servers\job_manager.py
+[OK] demo_soma\src\servers\job_manager.py
+[OK] soma_backend_mother ucker\src\servers\job_manager.py
 [OK] src\servers\job_manager.py
 ```
 
@@ -47,16 +47,16 @@
 #### Vector Store Files (ChromaDB Fix) - 5 FILES ✅
 1. ✅ `src/embeddings/vector_store.py` - **UPDATED**
 2. ✅ `backend/src/embeddings/vector_store.py` - **UPDATED**
-3. ✅ `demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-4. ✅ `backend/demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-5. ✅ `santok_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
+3. ✅ `demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+4. ✅ `backend/demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+5. ✅ `soma_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
 
 #### Job Manager Files - 5 FILES ✅
 1. ✅ `src/servers/job_manager.py` - **EXISTS & VERIFIED**
 2. ✅ `backend/src/servers/job_manager.py` - **CREATED & VERIFIED**
-3. ✅ `demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-4. ✅ `backend/demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-5. ✅ `santok_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
+3. ✅ `demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+4. ✅ `backend/demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+5. ✅ `soma_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
 
 #### Main Server Files (Async Job Support) - 2 FILES ✅
 1. ✅ `src/servers/main_server.py` - **HAS FULL ASYNC SUPPORT**
@@ -107,7 +107,7 @@
    - ✅ Imports from `vector_store` (will use updated version)
 
 2. ✅ `src/embeddings/inference_pipeline.py` - **VERIFIED**
-   - ✅ Line 29: `from .vector_store import SanTOKVectorStore` - Verified
+   - ✅ Line 29: `from .vector_store import SOMAVectorStore` - Verified
 
 3. ✅ `src/embeddings/semantic_trainer.py` - **VERIFIED**
    - ✅ Does not directly use ChromaDB, uses vector_store interface

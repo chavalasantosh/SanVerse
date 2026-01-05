@@ -1,4 +1,4 @@
-# SanTOK Tokenization Logic - Detailed Step-by-Step Mathematical Calculations
+# SOMA Tokenization Logic - Detailed Step-by-Step Mathematical Calculations
 
 ## Example Sentence
 ```

@@ -1,4 +1,4 @@
-# SanTOK Installation Guide
+# SOMA Installation Guide
 
 Complete step-by-step installation instructions for Windows, Linux, and macOS.
 
@@ -45,7 +45,7 @@ If Python is not installed or version is below 3.11:
 **Using Git:**
 ```cmd
 git clone <repository-url>
-cd SanTOK
+cd SOMA
 ```
 
 **Or download ZIP:**
@@ -118,14 +118,14 @@ The server will start on `http://localhost:8000`
 **Using Git:**
 ```bash
 git clone <repository-url>
-cd SanTOK
+cd SOMA
 ```
 
 **Or download ZIP:**
 ```bash
 wget <repository-url>/archive/main.zip
 unzip main.zip
-cd SanTOK-main
+cd SOMA-main
 ```
 
 ### Step 2: Automated Setup (Recommended)
@@ -213,7 +213,7 @@ brew install python@3.11
 **Using Git:**
 ```bash
 git clone <repository-url>
-cd SanTOK
+cd SOMA
 ```
 
 **Or download ZIP:**
@@ -401,7 +401,7 @@ After successful installation:
 
 1. **Start the server**: Use `run.sh`/`run.bat` or `python start.py`
 2. **Access API docs**: Open `http://localhost:8000/docs` in browser
-3. **Try CLI**: `python santok_cli.py tokenize --text "Hello world"`
+3. **Try CLI**: `python soma_cli.py tokenize --text "Hello world"`
 4. **Read documentation**: Check [QUICK_START.md](QUICK_START.md) for usage examples
 
 ## Getting Help
@@ -415,7 +415,7 @@ If you encounter issues not covered here:
 
 ## Uninstallation
 
-To remove SanTOK:
+To remove SOMA:
 
 1. Deactivate virtual environment: `deactivate` (or close terminal)
 2. Delete project directory

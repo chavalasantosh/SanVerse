@@ -1,6 +1,6 @@
-# n8n Quick Start Guide for SanTOK
+# n8n Quick Start Guide for SOMA
 
-Get up and running with n8n workflows for SanTOK in minutes!
+Get up and running with n8n workflows for SOMA in minutes!
 
 ## ⚡ FASTEST Setup (30 seconds) - Existing n8n
 
@@ -23,9 +23,9 @@ Then open `http://localhost:5678` and activate your workflows! Done! 🎉
 
 ## ⚡ Quick Setup (5 minutes) - New Installation
 
-### Step 1: Start SanTOK Backend
+### Step 1: Start SOMA Backend
 ```bash
-# Make sure SanTOK API is running
+# Make sure SOMA API is running
 python src/servers/main_server.py
 # Or use the provided script
 python scripts/setup/start_main_server.py
@@ -106,11 +106,11 @@ curl -X POST http://localhost:5678/webhook/batch-process \
 
 ## 🔧 Configuration
 
-### Update SanTOK API URL
-If your SanTOK API is not on `localhost:8000`, update the workflows:
+### Update SOMA API URL
+If your SOMA API is not on `localhost:8000`, update the workflows:
 
 1. Open workflow in n8n UI
-2. Find "SanTOK API" HTTP Request node
+2. Find "SOMA API" HTTP Request node
 3. Update URL field
 4. Save workflow
 
@@ -137,12 +137,12 @@ docker ps
 docker-compose logs n8n
 ```
 
-**Can't connect to SanTOK API?**
+**Can't connect to SOMA API?**
 ```bash
-# Check if SanTOK is running
+# Check if SOMA is running
 curl http://localhost:8000/health
 
-# Start SanTOK if needed
+# Start SOMA if needed
 python src/servers/main_server.py
 ```
 
@@ -154,8 +154,8 @@ python src/servers/main_server.py
 ## 🎓 Learn More
 
 - [n8n Documentation](https://docs.n8n.io/)
-- [SanTOK Documentation](../README.md)
-- [SanTOK API Docs](http://localhost:8000/docs)
+- [SOMA Documentation](../README.md)
+- [SOMA API Docs](http://localhost:8000/docs)
 
 ---
 

@@ -1,6 +1,6 @@
 # 🚀 START - 3 Simple Steps
 
-## Step 1: Start SanTOK Backend
+## Step 1: Start SOMA Backend
 
 **Option A - Double-click:**
 ```
@@ -12,7 +12,7 @@ Double-click: START.bat
 python src/servers/main_server.py
 ```
 
-✅ Wait until you see: "SanTOK API Server... running"
+✅ Wait until you see: "SOMA API Server... running"
 
 ---
 
@@ -27,12 +27,12 @@ python src/servers/main_server.py
 4. **Go to this folder:** `n8n\workflows\`
 
 5. **Select ALL 6 files:**
-   - santok-tokenization-workflow.json
-   - santok-analysis-workflow.json
-   - santok-batch-processing-workflow.json
-   - santok-scheduled-analysis-workflow.json
-   - santok-webhook-integration-workflow.json
-   - santok-slack-integration-workflow.json
+   - soma-tokenization-workflow.json
+   - soma-analysis-workflow.json
+   - soma-batch-processing-workflow.json
+   - soma-scheduled-analysis-workflow.json
+   - soma-webhook-integration-workflow.json
+   - soma-slack-integration-workflow.json
 
 6. **Click "Import"**
 

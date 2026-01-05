@@ -1,28 +1,28 @@
-# SanTOK Entry Points Guide
+# SOMA Entry Points Guide
 
 ## Overview
 
-SanTOK provides multiple entry points for different use cases. This guide explains when to use each one.
+SOMA provides multiple entry points for different use cases. This guide explains when to use each one.
 
 ## Entry Points
 
-### 1. `santok.cli:main` (setup.py entry point)
+### 1. `soma.cli:main` (setup.py entry point)
 
 **Location:** Defined in `setup.py`  
-**Command:** `santok` (after installation via `pip install -e .`)  
+**Command:** `soma` (after installation via `pip install -e .`)  
 **Purpose:** Primary CLI entry point after package installation
 
 **Usage:**
 ```bash
 # After installation
 pip install -e .
-santok --help
+soma --help
 ```
 
 **Features:**
 - Standard package entry point
 - Available after installation
-- Uses `santok/cli.py`
+- Uses `soma/cli.py`
 
 ---
 
@@ -30,7 +30,7 @@ santok --help
 
 **Location:** `main.py` (root directory)  
 **Command:** `python main.py`  
-**Purpose:** Interactive mode selector for different SanTOK modes
+**Purpose:** Interactive mode selector for different SOMA modes
 
 **Usage:**
 ```bash
@@ -54,7 +54,7 @@ python main.py
 
 **Location:** `run.py` (root directory)  
 **Command:** `python run.py`  
-**Purpose:** Cross-platform script to start the SanTOK API server
+**Purpose:** Cross-platform script to start the SOMA API server
 
 **Usage:**
 ```bash
@@ -77,28 +77,28 @@ python run.py --port 8080
 
 ---
 
-### 4. `santok_cli.py` (Full-Featured CLI)
+### 4. `soma_cli.py` (Full-Featured CLI)
 
-**Location:** `santok_cli.py` (root directory)  
-**Command:** `python santok_cli.py <command>`  
+**Location:** `soma_cli.py` (root directory)  
+**Command:** `python soma_cli.py <command>`  
 **Purpose:** Comprehensive CLI with tokenization, training, embedding, and testing
 
 **Usage:**
 ```bash
 # Tokenize
-python santok_cli.py tokenize --text "Hello world" --method word
+python soma_cli.py tokenize --text "Hello world" --method word
 
 # Train
-python santok_cli.py train --file data.txt --model-path model.pkl
+python soma_cli.py train --file data.txt --model-path model.pkl
 
 # Generate embeddings
-python santok_cli.py embed --text "Hello" --model-path model.pkl
+python soma_cli.py embed --text "Hello" --model-path model.pkl
 
 # Run tests
-python santok_cli.py test
+python soma_cli.py test
 
 # Show info
-python santok_cli.py info
+python soma_cli.py info
 ```
 
 **Commands:**
@@ -137,26 +137,26 @@ python santok_cli.py info
 
 | Entry Point | Use Case | Installation Required | Interactive | Server | CLI |
 |------------|----------|---------------------|-------------|--------|-----|
-| `santok` (setup.py) | Standard CLI | Yes | No | No | Yes |
+| `soma` (setup.py) | Standard CLI | Yes | No | No | Yes |
 | `main.py` | Mode selector | No | Yes | Yes | Yes |
 | `run.py` | Server startup | No | No | Yes | No |
-| `santok_cli.py` | Full CLI features | No | No | No | Yes |
+| `soma_cli.py` | Full CLI features | No | No | No | Yes |
 | `start.py` | Railway deployment | No | No | Yes | No |
 
 ## Recommendations
 
 ### For Package Installation
-Use: `santok` (setup.py entry point)
+Use: `soma` (setup.py entry point)
 ```bash
 pip install -e .
-santok --help
+soma --help
 ```
 
 ### For Development/Testing
-Use: `main.py` or `santok_cli.py`
+Use: `main.py` or `soma_cli.py`
 ```bash
 python main.py  # Interactive mode selector
-python santok_cli.py tokenize --text "Hello"
+python soma_cli.py tokenize --text "Hello"
 ```
 
 ### For Production Server
@@ -167,23 +167,23 @@ python run.py  # Cross-platform
 ```
 
 ### For Training/Embeddings
-Use: `santok_cli.py`
+Use: `soma_cli.py`
 ```bash
-python santok_cli.py train --file data.txt
-python santok_cli.py embed --text "Hello"
+python soma_cli.py train --file data.txt
+python soma_cli.py embed --text "Hello"
 ```
 
 ## Quick Start
 
 **New Users:**
 1. Start with `python main.py` for interactive mode selection
-2. Try `python santok_cli.py info` to see available features
+2. Try `python soma_cli.py info` to see available features
 3. Use `python run.py` to start the API server
 
 **Developers:**
 1. Install package: `pip install -e .`
-2. Use `santok` command after installation
-3. Use `python santok_cli.py` for advanced features
+2. Use `soma` command after installation
+3. Use `python soma_cli.py` for advanced features
 
 **Production:**
 1. Use `python run.py` for standalone deployment

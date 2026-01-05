@@ -17,7 +17,7 @@ npm run dev
 
 ### 3. Test Backend Directly
 Open in browser: `http://localhost:8000/health`
-Should return: `{"status": "ok", "message": "SanTOK API Server is running"}`
+Should return: `{"status": "ok", "message": "SOMA API Server is running"}`
 
 ### 4. Check CORS Settings
 - Backend CORS is now set to allow all origins (`allow_origins=["*"]`)
@@ -79,5 +79,5 @@ Frontend uses: `http://localhost:8000` (from `NEXT_PUBLIC_API_URL`)
 
 Added `/health` endpoint to test if backend is accessible:
 - URL: `http://localhost:8000/health`
-- Response: `{"status": "ok", "message": "SanTOK API Server is running"}`
+- Response: `{"status": "ok", "message": "SOMA API Server is running"}`
 

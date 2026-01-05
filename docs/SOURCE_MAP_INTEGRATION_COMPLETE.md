@@ -2,7 +2,7 @@
 
 ## 🎯 Integration Summary
 
-The SanTOK Source Map has been successfully integrated into both the **tokenization workflow** and **embedding generator**.
+The SOMA Source Map has been successfully integrated into both the **tokenization workflow** and **embedding generator**.
 
 ## 📋 Changes Made
 
@@ -38,7 +38,7 @@ tokens = tokenize_text(
 
 ### 2. **Embedding Generator Integration** (`src/embeddings/embedding_generator.py`)
 
-#### ✅ Updated `SanTOKEmbeddingGenerator.__init__()`
+#### ✅ Updated `SOMAEmbeddingGenerator.__init__()`
 - Added `source_tag` parameter
 - Added `enable_source_tagging` parameter (default: True)
 - Automatically initializes source map when source tagging is enabled
@@ -59,10 +59,10 @@ tokens = tokenize_text(
 
 **Usage Example:**
 ```python
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import SOMAEmbeddingGenerator
 
 # Initialize with source tagging
-generator = SanTOKEmbeddingGenerator(
+generator = SOMAEmbeddingGenerator(
     strategy="feature_based",
     embedding_dim=768,
     source_tag="wikipedia",  # Optional: enables source tagging
@@ -97,7 +97,7 @@ result = generator.generate_batch(token_records, return_metadata=True)
 
 ```python
 from src.core.core_tokenizer import tokenize_text
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import SOMAEmbeddingGenerator
 
 # 1. Tokenize with source tagging
 tokens = tokenize_text(
@@ -107,7 +107,7 @@ tokens = tokenize_text(
 )
 
 # 2. Generate embeddings with source tagging
-generator = SanTOKEmbeddingGenerator(
+generator = SOMAEmbeddingGenerator(
     strategy="feature_based",
     source_tag="wikipedia"
 )

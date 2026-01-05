@@ -1,20 +1,20 @@
-# SanTOK: A Text Tokenization Framework with Perfect Reconstruction
+# SOMA: A Text Tokenization Framework with Perfect Reconstruction
 
 ## Abstract
 
-This paper presents SanTOK, a text tokenization framework that achieves 100% perfect reconstruction across 9 tokenization algorithms. The framework supports space, word, character, grammar, subword, BPE, syllable, frequency, and byte tokenization strategies. Performance testing shows processing speeds ranging from 136K to 1.42M characters per second. The system includes a web interface, API server, and command-line tools.
+This paper presents SOMA, a text tokenization framework that achieves 100% perfect reconstruction across 9 tokenization algorithms. The framework supports space, word, character, grammar, subword, BPE, syllable, frequency, and byte tokenization strategies. Performance testing shows processing speeds ranging from 136K to 1.42M characters per second. The system includes a web interface, API server, and command-line tools.
 
 **Keywords:** Text tokenization, perfect reconstruction, reversible algorithms, performance optimization
 
 ## 1. Introduction
 
-Text tokenization converts raw text into discrete tokens for processing. Most existing systems do not guarantee perfect reconstruction. SanTOK addresses this by providing 100% accurate text reconstruction across all supported algorithms.
+Text tokenization converts raw text into discrete tokens for processing. Most existing systems do not guarantee perfect reconstruction. SOMA addresses this by providing 100% accurate text reconstruction across all supported algorithms.
 
 ## 2. Implementation
 
 ### 2.1 Supported Algorithms
 
-SanTOK implements 9 tokenization strategies:
+SOMA implements 9 tokenization strategies:
 
 1. **Space Tokenization**: Splits on whitespace
 2. **Word Tokenization**: Uses linguistic boundaries  
@@ -127,7 +127,7 @@ Performance measured across different text sizes:
 
 ## 8. Conclusion
 
-SanTOK provides a complete tokenization solution with guaranteed perfect reconstruction across all 9 supported algorithms. The framework includes production-ready tools and achieves competitive performance while maintaining data integrity.
+SOMA provides a complete tokenization solution with guaranteed perfect reconstruction across all 9 supported algorithms. The framework includes production-ready tools and achieves competitive performance while maintaining data integrity.
 
 ## References
 

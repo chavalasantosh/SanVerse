@@ -20,7 +20,7 @@ python src/servers/main_server.py
 You should see output like:
 ```
 ✅ Successfully imported vocabulary adapter
-🚀 Starting SanTOK API Server...
+🚀 Starting SOMA API Server...
 📡 Server will be available at: http://localhost:8000
 ```
 

@@ -1,5 +1,5 @@
 """
-SanTEK Scoring Utilities - Clean, Bounded, Honest
+SOMA Core Scoring Utilities - Clean, Bounded, Honest
 ================================================
 
 Provides bounded scoring (0.0-1.0) with coarse buckets.

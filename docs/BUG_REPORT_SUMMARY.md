@@ -4,7 +4,7 @@
 
 ## Overview
 
-Comprehensive bug detection scan completed across all Python files in the SanTOK codebase.
+Comprehensive bug detection scan completed across all Python files in the SOMA codebase.
 
 ## Summary Statistics
 
@@ -192,7 +192,7 @@ These can be safely ignored as they are not actual bugs.
 ## Bug-Free Files
 
 The following categories are relatively bug-free:
-- ✅ Core package (`santok/`) - Already improved
+- ✅ Core package (`soma/`) - Already improved
 - ✅ Entry point scripts - Already improved
 - ✅ Most utility scripts - Clean code
 

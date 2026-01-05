@@ -8,7 +8,7 @@
 
 **Status:** Completed  
 **Files Created:**
-- `santok/utils/validation.py` - Comprehensive validation utilities
+- `soma/utils/validation.py` - Comprehensive validation utilities
 
 **Features Added:**
 - `validate_text_input()` - Validates text input (non-empty strings)
@@ -20,7 +20,7 @@
 
 **Integration:**
 - Validation utilities available for use across the codebase
-- Can be imported: `from santok.utils.validation import validate_text_input, validate_port, etc.`
+- Can be imported: `from soma.utils.validation import validate_text_input, validate_port, etc.`
 
 ---
 
@@ -28,7 +28,7 @@
 
 **Status:** Completed  
 **Files Created:**
-- `santok/utils/config.py` - Configuration management module
+- `soma/utils/config.py` - Configuration management module
 
 **Environment Variables Supported:**
 - `PORT` / `SANTOK_PORT` - Server port (default: 8000)
@@ -41,7 +41,7 @@
 
 **Usage:**
 ```python
-from santok.utils.config import Config
+from soma.utils.config import Config
 
 # Get port
 port = Config.get_port()  # Uses PORT env var or default
@@ -62,7 +62,7 @@ models_dir = Config.get_models_dir()  # Uses MODELS_DIR env var or default
 
 **Status:** Completed (Infrastructure Ready)  
 **Files Created:**
-- `santok/utils/logging_config.py` - Logging configuration module
+- `soma/utils/logging_config.py` - Logging configuration module
 
 **Features Added:**
 - `setup_logging()` - Configure logging system-wide
@@ -73,10 +73,10 @@ models_dir = Config.get_models_dir()  # Uses MODELS_DIR env var or default
 
 **Usage:**
 ```python
-from santok.utils.logging_config import setup_logging, get_logger
+from soma.utils.logging_config import setup_logging, get_logger
 
 # Set up logging
-setup_logging(level="INFO", log_file="santok.log")
+setup_logging(level="INFO", log_file="soma.log")
 
 # Get logger for your module
 logger = get_logger(__name__)
@@ -100,10 +100,10 @@ logger.error("Error occurred: %s", error_msg)
 
 ## New Utility Modules Created
 
-### `santok/utils/` Package Structure
+### `soma/utils/` Package Structure
 
 ```
-santok/utils/
+soma/utils/
 ├── __init__.py          # Package exports
 ├── config.py            # Configuration management
 ├── logging_config.py    # Logging setup
@@ -146,20 +146,20 @@ santok/utils/
 **Recommended Approach:**
 1. **New Code:** Use logging from the start
    ```python
-   from santok.utils.logging_config import get_logger
+   from soma.utils.logging_config import get_logger
    logger = get_logger(__name__)
    logger.info("Message")
    ```
 
 2. **Critical Modules:** Migrate gradually
-   - Start with core modules (`santok/santok.py`, `santok/cli.py`)
+   - Start with core modules (`soma/soma.py`, `soma/cli.py`)
    - Move to server modules
    - Finally, update examples and scripts
 
 3. **Configuration:** Set up logging at application startup
    ```python
-   from santok.utils.config import Config
-   from santok.utils.logging_config import setup_logging
+   from soma.utils.config import Config
+   from soma.utils.logging_config import setup_logging
    
    setup_logging(
        level=Config.get_log_level(),
@@ -175,17 +175,17 @@ santok/utils/
 
 ```python
 # Test validation
-from santok.utils.validation import validate_text_input, validate_port
+from soma.utils.validation import validate_text_input, validate_port
 text = validate_text_input("Hello", "text")
 port = validate_port(8080, "port")
 
 # Test config
-from santok.utils.config import Config
+from soma.utils.config import Config
 port = Config.get_port()  # Reads from PORT env var or defaults to 8000
 data_dir = Config.get_data_dir()  # Reads from DATA_DIR env var
 
 # Test logging
-from santok.utils.logging_config import setup_logging, get_logger
+from soma.utils.logging_config import setup_logging, get_logger
 setup_logging(level="DEBUG")
 logger = get_logger(__name__)
 logger.info("Test message")

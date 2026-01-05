@@ -1,5 +1,5 @@
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$zip = [System.IO.Compression.ZipFile]::OpenRead("santok_railway.zip")
+$zip = [System.IO.Compression.ZipFile]::OpenRead("soma_railway.zip")
 
 Write-Host ""
 Write-Host "=== ZIP STRUCTURE CHECK ===" -ForegroundColor Green

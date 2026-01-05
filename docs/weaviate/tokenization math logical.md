@@ -1,4 +1,4 @@
-# How SanTOK Tokenization Was Built
+# How SOMA Tokenization Was Built
 ## Complete Technical Documentation
 
 ---
@@ -20,7 +20,7 @@
 
 ### Design Philosophy
 
-SanTOK tokenization was built with these core principles:
+SOMA tokenization was built with these core principles:
 
 1. **Zero Dependencies**: Pure Python implementation, no external libraries required for core functionality
 2. **Perfect Reconstruction**: Every token stores original text, enabling 100% reconstruction
@@ -960,7 +960,7 @@ src/core/
 
 ## Summary
 
-SanTOK tokenization was built with:
+SOMA tokenization was built with:
 
 1. **9 Tokenization Algorithms**: Space, Word, Character, Grammar, and 4 Subword strategies (Fixed, BPE-like, Syllable, Frequency), plus Byte
 2. **Perfect Reconstruction**: Every token stores original text, enabling 100% reconstruction

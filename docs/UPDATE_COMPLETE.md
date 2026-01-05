@@ -19,7 +19,7 @@
    ```
 
 ### 2. **Source Map System Integration**
-   - ✅ Created `src/santok_sources.py` - Core source map system
+   - ✅ Created `src/soma_sources.py` - Core source map system
    - ✅ Created `src/integration/source_map_integration.py` - Integration layer
    - ✅ Added backend API endpoints (`/api/sources`, `/api/sources/{tag}`, `/api/sources/profile/performance`)
    - ✅ Added frontend API client functions
@@ -53,7 +53,7 @@ python examples/test_full_workflow_500k.py workflow_output y
 
 ### Use Source Map System
 ```python
-from src.santok_sources import get_source_map
+from src.soma_sources import get_source_map
 from src.integration.source_map_integration import create_source_aware_workflow
 
 # Process text with source tagging
@@ -68,10 +68,10 @@ result = create_source_aware_workflow(
 ## 📝 Files Updated
 
 **New Files:**
-- `src/santok_sources.py`
+- `src/soma_sources.py`
 - `src/integration/source_map_integration.py`
 - `docs/SANTOK_SOURCE_MAP.md`
-- `examples/test_santok_source_map.py`
+- `examples/test_soma_source_map.py`
 - `examples/integrate_source_map_workflow.py`
 - `PROJECT_UPDATE_SUMMARY.md`
 - `UPDATE_COMPLETE.md`

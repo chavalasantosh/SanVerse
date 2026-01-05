@@ -8,7 +8,7 @@ __author__ = "Santosh Chavala"
 __email__ = "chavalasantosh@example.com"
 
 # Import the main class and convenience functions
-from .SOMA import (
+from .soma import (
     TextTokenizationEngine, 
     tokenize_text, 
     analyze_text_comprehensive, 

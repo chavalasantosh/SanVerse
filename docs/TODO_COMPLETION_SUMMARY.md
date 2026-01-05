@@ -6,11 +6,11 @@
 
 ### ✅ 1. Fixed setup.py Entry Point
 **Status:** Verified correct  
-**Details:** Entry point `santok.cli:main` is correctly configured in `setup.py` and points to the correct function in `santok/cli.py`.
+**Details:** Entry point `soma.cli:main` is correctly configured in `setup.py` and points to the correct function in `soma/cli.py`.
 
 **Verification:**
-- Entry point path: `santok.cli:main`
-- Function exists: `santok/cli.py` contains `main()` function
+- Entry point path: `soma.cli:main`
+- Function exists: `soma/cli.py` contains `main()` function
 - Function is callable: Verified
 
 ---
@@ -27,24 +27,24 @@
 - Quick start guide
 
 **Entry Points Documented:**
-1. `santok` (setup.py entry point)
+1. `soma` (setup.py entry point)
 2. `main.py` (Interactive mode selector)
 3. `run.py` (Production server starter)
-4. `santok_cli.py` (Full-featured CLI)
+4. `soma_cli.py` (Full-featured CLI)
 5. `start.py` (Railway deployment)
 
 ---
 
 ### ✅ 3. CLI format_results Function
 **Status:** Already Exists  
-**Details:** The `format_results` function exists in `santok/cli.py` at line 115. No fix needed.
+**Details:** The `format_results` function exists in `soma/cli.py` at line 115. No fix needed.
 
 ---
 
 ### ✅ 4. __init__.py Files
 **Status:** Verified  
 **Details:** 
-- `santok/__init__.py` exists and properly exports modules
+- `soma/__init__.py` exists and properly exports modules
 - Main package structure is correct
 - All necessary imports are present
 
@@ -61,7 +61,7 @@
 ### ⏳ 5. Add Input Validation and Edge Case Handling
 **Status:** Partially Complete  
 **Notes:** 
-- Core modules (`santok/santok.py`, `santok/cli.py`) already have input validation
+- Core modules (`soma/soma.py`, `soma/cli.py`) already have input validation
 - Additional validation can be added incrementally as needed
 - Not a blocker for production use
 

@@ -13,7 +13,7 @@ Algorithms:
 - SOMAGraphWalker: Custom graph traversal with decay
 - SOMASimilarity: Semantic similarity without neural embeddings
 - SOMAQueryParser: Natural language to structured query
-- SanTEKMetrics: Custom logical metrics for SanTEK improvement
+- SOMA CoreMetrics: Custom logical metrics for SOMA Core improvement
 """
 
 from .SOMA_ranker import somaRanker, RankingResult
@@ -22,7 +22,7 @@ from .nine_scorer import soma9Scorer
 from .graph_walker import somaGraphWalker, WalkResult, WalkMode, WalkStep
 from .semantic_similarity import somaSimilarity, SimilarityResult
 from .query_parser import somaQueryParser, ParsedQuery, QueryType
-from .santek_metrics import SanTEKMetrics, MetricResult, measure_santek_performance
+from .soma_core_metrics import SOMA CoreMetrics, MetricResult, measure_soma_core_performance
 
 __all__ = [
     # Ranking
@@ -51,9 +51,9 @@ __all__ = [
     "ParsedQuery",
     "QueryType",
     
-    # SanTEK Metrics
-    "SanTEKMetrics",
+    # SOMA Core Metrics
+    "SOMA CoreMetrics",
     "MetricResult",
-    "measure_santek_performance",
+    "measure_soma_core_performance",
 ]
 

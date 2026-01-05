@@ -1,4 +1,4 @@
-# SanTOK Tokenization Logic - Mathematical Documentation
+# SOMA Tokenization Logic - Mathematical Documentation
 
 ## Example Sentence
 ```
@@ -924,7 +924,7 @@ global_id = uid XOR content_id XOR (index << 17) XOR stream_id XOR session_id
 
 ## CONCLUSION
 
-SanTOK tokenization is:
+SOMA tokenization is:
 - **Mathematical**: All operations are pure math (no ML models)
 - **Deterministic**: Same input → same output
 - **Reversible**: Perfect reconstruction guaranteed

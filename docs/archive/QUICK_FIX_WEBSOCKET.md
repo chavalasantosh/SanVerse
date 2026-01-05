@@ -32,7 +32,7 @@ QUICK_START_SERVER.bat
 
 You should see:
 ```
-[START] Starting SanTOK API Server...
+[START] Starting SOMA API Server...
 [INFO] Server will be available at: http://localhost:8000
 [INFO] API Documentation at: http://localhost:8000/docs
 ```

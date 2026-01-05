@@ -6,10 +6,10 @@
 
 - `main.py` (93 lines)
 - `run.py` (173 lines)
-- `santok_cli.py` (703 lines)
+- `soma_cli.py` (703 lines)
 - `setup.py` (53 lines)
 - `start.py` (94 lines)
-- `train_santok_complete.py` (729 lines)
+- `train_soma_complete.py` (729 lines)
 
 ## Directory Structure
 
@@ -36,18 +36,18 @@
 - `search_examples.py` (681 lines)
 - `test_data_interpreter.py` (135 lines)
 - `test_full_workflow_500k.py` (1195 lines)
-- `test_santok_source_map.py` (308 lines)
-- `train_santok_60k_vocab.py` (109 lines)
+- `test_soma_source_map.py` (308 lines)
+- `train_soma_60k_vocab.py` (109 lines)
 - `train_semantic_embeddings.py` (145 lines)
 - `use_semantic_embeddings.py` (144 lines)
 - `use_vector_store.py` (345 lines)
 
-### `santok/` (3 files)
+### `soma/` (3 files)
 - `__init__.py` (23 lines)
 - `cli.py` (159 lines)
-- `santok.py` (557 lines)
+- `soma.py` (557 lines)
 
-### `santok/utils/` (4 files)
+### `soma/utils/` (4 files)
 - `__init__.py` (28 lines)
 - `config.py` (149 lines)
 - `logging_config.py` (66 lines)
@@ -56,7 +56,7 @@
 ### `src/` (3 files)
 - `__init__.py` (1 lines)
 - `demo_complete_workflow.py` (561 lines)
-- `santok_sources.py` (666 lines)
+- `soma_sources.py` (666 lines)
 
 ### `src/cli/` (3 files)
 - `__init__.py` (1 lines)
@@ -132,7 +132,7 @@
 - **Total Python files:** 87
 - **Total lines of code:** ~33,000
 - **Main directories:** 
-  - `santok/` - Core package (pip installable)
+  - `soma/` - Core package (pip installable)
   - `src/` - Source code modules
   - `examples/` - Example scripts
   - `enhanced_semantic_trainer/` - Enhanced trainer
@@ -141,7 +141,7 @@
 ## Notes
 
 This structure follows Python packaging best practices:
-- `santok/` is the main package that can be installed via `pip install`
+- `soma/` is the main package that can be installed via `pip install`
 - `src/` contains modular source code organized by functionality
 - `examples/` provides usage examples
 - Each directory has a clear, single purpose

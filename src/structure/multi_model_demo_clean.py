@@ -1,5 +1,5 @@
 """
-SanTEK Multi-Model System - CLEANED DEMO
+SOMA Core Multi-Model System - CLEANED DEMO
 =========================================
 
 This demo shows the cleaned, production-ready version:
@@ -18,7 +18,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 print("=" * 70)
-print("SanTEK Multi-Model System - CLEANED VERSION")
+print("SOMA Core Multi-Model System - CLEANED VERSION")
 print("=" * 70)
 print()
 print("This is the cleaned, production-ready version:")
@@ -30,7 +30,7 @@ print("  [OK] Honest naming (Confidence, not 'Understanding')")
 print()
 
 try:
-    from src.structure.multi_model_clean import SanTEKMultiModelClean
+    from src.structure.multi_model_clean import SOMA CoreMultiModelClean
     from src.structure.scoring_utils import confidence_to_string, ConfidenceLevel, to_confidence_bucket
     
     print("[OK] Cleaned multi-model system imported")
@@ -41,11 +41,11 @@ try:
     # ========================================================================
     
     print("=" * 70)
-    print("PART 1: SanTEK Multi-Signal System (4 Signals)")
+    print("PART 1: SOMA Core Multi-Signal System (4 Signals)")
     print("=" * 70)
     print()
     
-    multi_model = SanTEKMultiModelClean(
+    multi_model = SOMA CoreMultiModelClean(
         max_relationships_per_node=20,  # Prune to top 20
         min_relationship_strength=0.6   # Only strong relationships
     )
@@ -156,7 +156,7 @@ try:
     # ========================================================================
     
     print("\n" + "=" * 70)
-    print("[OK] SanTEK Multi-Model System - CLEANED!")
+    print("[OK] SOMA Core Multi-Model System - CLEANED!")
     print("=" * 70)
     print()
     print("What we cleaned:")
@@ -169,7 +169,7 @@ try:
     print("Core principle:")
     print("  'If a number does not change a decision, it does not deserve to exist.'")
     print()
-    print("SanTEK is now CLEAN, SHARP, and REAL!")
+    print("SOMA Core is now CLEAN, SHARP, and REAL!")
     print()
     
 except ImportError as e:

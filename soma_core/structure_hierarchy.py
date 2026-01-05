@@ -1,5 +1,5 @@
 """
-SanTEK Structure Hierarchy
+SOMA Core Structure Hierarchy
 ==========================
 
 Hierarchical structure system: symbols → patterns → units → meaning

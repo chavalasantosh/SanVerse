@@ -4,7 +4,7 @@
 
 ## Executive Summary
 
-This document provides a comprehensive analysis of all Python files in the SanTOK codebase.
+This document provides a comprehensive analysis of all Python files in the SOMA codebase.
 
 ## Scan Overview
 
@@ -20,7 +20,7 @@ This document provides a comprehensive analysis of all Python files in the SanTO
 - **Status:** Moderate - Needs improvement
 - **Target:** 80%+ for production code
 - **Current:** ~47.5% of functions have type hints
-- **Note:** Core modules (`santok/`) have 100% coverage (already improved)
+- **Note:** Core modules (`soma/`) have 100% coverage (already improved)
 
 ### Docstring Coverage: 73.3%
 - **Status:** Good
@@ -70,7 +70,7 @@ The following files are the largest in the codebase:
    - API v2 routes
    - **Status:** Reasonable size
 
-9. **train_santok_complete.py** - 729 lines
+9. **train_soma_complete.py** - 729 lines
    - Training script
    - **Status:** Reasonable size (already improved)
 
@@ -93,7 +93,7 @@ The following files are the largest in the codebase:
    - Clear separation of concerns
 
 3. **Core Modules Improved**
-   - `santok/` package has 100% type hint coverage
+   - `soma/` package has 100% type hint coverage
    - Entry points have comprehensive type hints
    - Improved error handling
 
@@ -121,7 +121,7 @@ The following files are the largest in the codebase:
 
 ## File Categories
 
-### Core Package (`santok/`)
+### Core Package (`soma/`)
 - ✅ **Status:** Excellent (100% type hints)
 - ✅ **Quality:** Production-ready
 - ✅ **Documentation:** Complete
@@ -231,7 +231,7 @@ The following files are the largest in the codebase:
 
 ## Conclusion
 
-The SanTOK codebase is in **good condition** with:
+The SOMA codebase is in **good condition** with:
 - ✅ Clean, parsable code (no syntax errors)
 - ✅ Good documentation (73.3% docstring coverage)
 - ✅ Well-organized structure

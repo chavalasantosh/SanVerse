@@ -1,6 +1,6 @@
-# Welcome to SanTOK - Team Onboarding Guide
+# Welcome to SOMA - Team Onboarding Guide
 
-Welcome to the SanTOK project! This guide will help you get started quickly.
+Welcome to the SOMA project! This guide will help you get started quickly.
 
 ## 🚀 Quick Start (5 Minutes)
 
@@ -8,13 +8,13 @@ Welcome to the SanTOK project! This guide will help you get started quickly.
 
 **Option A: Using Git (Recommended)**
 ```bash
-git clone https://github.com/chavalasantosh/SanTOK.git
-cd SanTOK
+git clone https://github.com/chavalasantosh/SOMA.git
+cd SOMA
 git checkout backup
 ```
 
 **Option B: Download ZIP**
-1. Go to: https://github.com/chavalasantosh/SanTOK
+1. Go to: https://github.com/chavalasantosh/SOMA
 2. Click "Code" → "Download ZIP"
 3. Extract the ZIP file
 4. Open terminal/command prompt in the extracted folder
@@ -169,7 +169,7 @@ Before you start, make sure you have:
 
 2. **Navigate to Project**
    ```bash
-   cd /path/to/SanTOK
+   cd /path/to/SOMA
    ```
 
 3. **Make Scripts Executable**
@@ -223,9 +223,9 @@ The server will be available at http://localhost:8000
 
 ---
 
-## 📚 What is SanTOK?
+## 📚 What is SOMA?
 
-SanTOK is an **Advanced Text Tokenization Framework** with both **Backend API** and **Frontend Web Interface**:
+SOMA is an **Advanced Text Tokenization Framework** with both **Backend API** and **Frontend Web Interface**:
 
 ### Backend (Python/FastAPI)
 - **Multiple Tokenization Methods**: Word, character, subword, byte-level, grammar-based
@@ -297,13 +297,13 @@ python verify_installation.py
 ### Use the CLI
 ```bash
 # Tokenize text
-python santok_cli.py tokenize --text "Hello world" --method word
+python soma_cli.py tokenize --text "Hello world" --method word
 
 # Train a model
-python santok_cli.py train --file corpus.txt --model-path model.pkl
+python soma_cli.py train --file corpus.txt --model-path model.pkl
 
 # Generate embeddings
-python santok_cli.py embed --text "Hello" --model-path model.pkl
+python soma_cli.py embed --text "Hello" --model-path model.pkl
 ```
 
 ---
@@ -389,7 +389,7 @@ Or use Command Prompt instead of PowerShell.
 
 ## 🔗 Useful Links
 
-- **Repository**: https://github.com/chavalasantosh/SanTOK
+- **Repository**: https://github.com/chavalasantosh/SOMA
 - **Branch**: `backup`
 - **API Documentation**: http://localhost:8000/docs (when server is running)
 
@@ -447,14 +447,14 @@ Once you have everything running:
 
 1. **Explore the Frontend**: Visit http://localhost:3000 - Try tokenizing some text!
 2. **Explore the API**: Visit http://localhost:8000/docs - See all available endpoints
-3. **Try the CLI**: Run `python santok_cli.py --help`
+3. **Try the CLI**: Run `python soma_cli.py --help`
 4. **Read the docs**: Check README.md and other documentation files
 5. **Start coding**: The codebase is ready for development!
 
 ## 🏗️ Project Structure
 
 ```
-SanTOK/
+SOMA/
 ├── backend/              # Backend Python code
 │   └── src/             # Source code
 ├── frontend/            # Frontend Next.js application

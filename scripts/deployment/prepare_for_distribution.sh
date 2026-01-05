@@ -1,11 +1,11 @@
 #!/bin/bash
-# Prepare SanTOK for distribution
+# Prepare SOMA for distribution
 # Cleans unnecessary files and creates a distribution-ready package
 
 set -e
 
 echo "=========================================="
-echo "SanTOK Distribution Preparation"
+echo "SOMA Distribution Preparation"
 echo "=========================================="
 echo ""
 
@@ -29,7 +29,7 @@ print_error() {
 
 # Create backup
 print_info "Creating backup..."
-BACKUP_DIR="santok_backup_$(date +%Y%m%d_%H%M%S)"
+BACKUP_DIR="soma_backup_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 print_success "Backup directory created: $BACKUP_DIR"
 
@@ -141,7 +141,7 @@ fi
 # Create distribution checklist
 print_info "Creating distribution checklist..."
 cat > DISTRIBUTION_CHECKLIST.md << 'EOF'
-# SanTOK Distribution Checklist
+# SOMA Distribution Checklist
 
 ## Pre-Distribution Checks
 
@@ -201,7 +201,7 @@ cat > DISTRIBUTION_CHECKLIST.md << 'EOF'
    - Team extracts and runs setup
 
 3. **Docker Image**
-   - Build: `docker build -t santok .`
+   - Build: `docker build -t soma .`
    - Push to registry
    - Team pulls: `docker pull <image>`
 EOF

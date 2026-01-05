@@ -1,5 +1,5 @@
 """
-SanTEK Simple Metrics
+SOMA Core Simple Metrics
 =====================
 
 Simple metrics to measure:

@@ -3,7 +3,7 @@
 ## Architecture
 
 ```
-EnhancedSanTOKSemanticTrainer
+EnhancedSOMASemanticTrainer
 ├── Base embeddings (token_embeddings, context_embeddings)
 ├── Multi-stream embeddings (one per stream)
 ├── Temporal embeddings (position-dependent)
@@ -55,7 +55,7 @@ When getting an embedding for a token:
 All features can be enabled/disabled:
 
 ```python
-trainer = EnhancedSanTOKSemanticTrainer(
+trainer = EnhancedSOMASemanticTrainer(
     use_multi_stream=True,           # Multi-stream embeddings
     use_temporal=True,                # Position-dependent
     use_content_id_clustering=True,   # Content-ID clustering

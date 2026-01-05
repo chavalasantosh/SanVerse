@@ -1,8 +1,8 @@
-# SanTOK Inference-Ready Implementation Plan
+# SOMA Inference-Ready Implementation Plan
 
 ## Overview
 
-This document provides a step-by-step implementation plan to make SanTOK inference-ready with embeddings and vector database support.
+This document provides a step-by-step implementation plan to make SOMA inference-ready with embeddings and vector database support.
 
 ---
 
@@ -25,7 +25,7 @@ src/embeddings/
 
 ### 1.2 Implementation Tasks
 
-- [x] Create `SanTOKEmbeddingGenerator` class
+- [x] Create `SOMAEmbeddingGenerator` class
 - [x] Implement feature extraction from TokenRecord
 - [x] Implement feature-based embedding strategy
 - [x] Add hash-based embedding strategy
@@ -84,7 +84,7 @@ def test_batch_generation():
 
 ### 2.3 Unified Interface
 
-- [x] Create `SanTOKVectorStore` base class
+- [x] Create `SOMAVectorStore` base class
 - [x] Implement common interface
 - [ ] Add backend switching
 - [ ] Add migration tools
@@ -115,7 +115,7 @@ embedding:
 
 vector_store:
   backend: "chroma"  # chroma, faiss
-  collection_name: "santok_embeddings"
+  collection_name: "soma_embeddings"
   persist_directory: "./vector_db"
 ```
 
@@ -125,7 +125,7 @@ vector_store:
 
 ### 4.1 Pipeline Implementation
 
-- [x] Create `SanTOKInferencePipeline` class
+- [x] Create `SOMAInferencePipeline` class
 - [x] Implement text processing
 - [x] Implement similarity search
 - [ ] Add batch processing optimization
@@ -203,28 +203,28 @@ pip install faiss-cpu
 
 ```python
 from src.core.core_tokenizer import TextTokenizer
-from src.embeddings import SanTOKEmbeddingGenerator, ChromaVectorStore, SanTOKInferencePipeline
+from src.embeddings import SOMAEmbeddingGenerator, ChromaVectorStore, SOMAInferencePipeline
 
 # Initialize components
 tokenizer = TextTokenizer(seed=42, embedding_bit=False)
-embedding_gen = SanTOKEmbeddingGenerator(
+embedding_gen = SOMAEmbeddingGenerator(
     strategy="feature_based",
     embedding_dim=768
 )
 vector_store = ChromaVectorStore(
-    collection_name="santok_embeddings",
+    collection_name="soma_embeddings",
     persist_directory="./vector_db"
 )
 
 # Create pipeline
-pipeline = SanTOKInferencePipeline(
+pipeline = SOMAInferencePipeline(
     embedding_generator=embedding_gen,
     vector_store=vector_store,
     tokenizer=tokenizer
 )
 
 # Process text
-result = pipeline.process_text("Hello world, this is SanTOK!")
+result = pipeline.process_text("Hello world, this is SOMA!")
 print(f"Generated {len(result['tokens'])} tokens")
 print(f"Embedding shape: {result['embeddings'].shape}")
 

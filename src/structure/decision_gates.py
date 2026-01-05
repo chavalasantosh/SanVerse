@@ -1,5 +1,5 @@
 """
-SanTEK Decision Gates - What Actually Matters
+SOMA Core Decision Gates - What Actually Matters
 ==============================================
 
 Every signal must feed into a decision gate.

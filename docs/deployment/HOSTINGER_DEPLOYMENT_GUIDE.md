@@ -2,7 +2,7 @@
 
 ## ⚠️ **IMPORTANT: Challenges with Shared Hosting**
 
-Your SanTOK project has specific requirements that may be **challenging** on standard shared hosting:
+Your SOMA project has specific requirements that may be **challenging** on standard shared hosting:
 
 ### **Project Requirements:**
 - ✅ Python 3.x with FastAPI/uvicorn (needs long-running process)
@@ -81,15 +81,15 @@ npm run build
 
 #### **Step 2: Deploy Backend to Railway/Render**
 
-- Use your existing `santok_railway.zip`
+- Use your existing `soma_railway.zip`
 - Deploy backend separately
-- Get backend URL (e.g., `https://santok-backend.railway.app`)
+- Get backend URL (e.g., `https://soma-backend.railway.app`)
 
 #### **Step 3: Update Frontend API URL**
 
 In `frontend/.env.production`:
 ```
-NEXT_PUBLIC_API_URL=https://santok-backend.railway.app
+NEXT_PUBLIC_API_URL=https://soma-backend.railway.app
 ```
 
 #### **Step 4: Upload to Hostinger**
@@ -193,7 +193,7 @@ npm run build
 
 ### **Part 2: Deploy Backend to Railway**
 
-1. **Use `santok_railway.zip`** (already created!)
+1. **Use `soma_railway.zip`** (already created!)
 2. **Upload to Railway:**
    - Create new project
    - Upload ZIP or connect GitHub
@@ -250,11 +250,11 @@ npm run build
 
 # 8. Start backend with PM2
 cd /path/to/project
-pm2 start backend/src/servers/main_server.py --name santok-backend --interpreter python3
+pm2 start backend/src/servers/main_server.py --name soma-backend --interpreter python3
 
 # 9. Start frontend with PM2
 cd frontend
-pm2 start npm --name santok-frontend -- start
+pm2 start npm --name soma-frontend -- start
 
 # 10. Save PM2 config
 pm2 save

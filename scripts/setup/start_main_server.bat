@@ -1,5 +1,5 @@
 @echo off
-echo 🎯 Starting SanTOK Main Server...
+echo 🎯 Starting SOMA Main Server...
 echo ================================================
 
 REM Check if Python is available

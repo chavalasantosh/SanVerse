@@ -24,7 +24,7 @@ The more data, the better the semantic understanding.
 # Train
 train_semantic_embeddings(
     text_corpus=corpus,
-    output_model_path="santok_semantic_model.pkl",
+    output_model_path="soma_semantic_model.pkl",
     embedding_dim=768,
     epochs=10
 )
@@ -41,13 +41,13 @@ python examples/use_semantic_embeddings.py
 Or in your code:
 
 ```python
-from embeddings import SanTOKEmbeddingGenerator
+from embeddings import SOMAEmbeddingGenerator
 from core.core_tokenizer import TextTokenizer
 
 # Load trained model
-generator = SanTOKEmbeddingGenerator(
+generator = SOMAEmbeddingGenerator(
     strategy="semantic",
-    semantic_model_path="santok_semantic_model.pkl"
+    semantic_model_path="soma_semantic_model.pkl"
 )
 
 # Tokenize and generate embeddings
@@ -64,7 +64,7 @@ for token in streams["word"].tokens:
 ### Option 1: Train Model First
 
 1. Train model using the script above
-2. Place model file in project root: `santok_semantic_model.pkl`
+2. Place model file in project root: `soma_semantic_model.pkl`
 3. Use semantic strategy in API requests
 
 ### Option 2: Add Training Endpoint
@@ -75,7 +75,7 @@ Add to `main_server.py`:
 @app.post("/embeddings/train")
 async def train_semantic_model(request: TrainingRequest):
     """Train semantic embeddings from provided corpus."""
-    from embeddings.semantic_trainer import SanTOKSemanticTrainer
+    from embeddings.semantic_trainer import SOMASemanticTrainer
     from core.core_tokenizer import TextTokenizer
     
     # Tokenize corpus
@@ -88,7 +88,7 @@ async def train_semantic_model(request: TrainingRequest):
         all_tokens.extend(stream.tokens)
     
     # Train
-    trainer = SanTOKSemanticTrainer(
+    trainer = SOMASemanticTrainer(
         embedding_dim=request.embedding_dim,
         epochs=request.epochs
     )
@@ -155,7 +155,7 @@ const response = await api.post('/embeddings/generate', {
 
 ```
 project/
-├── santok_semantic_model.pkl  # Trained model (create by training)
+├── soma_semantic_model.pkl  # Trained model (create by training)
 ├── examples/
 │   ├── train_semantic_embeddings.py  # Training script
 │   └── use_semantic_embeddings.py    # Usage script
@@ -184,7 +184,7 @@ project/
 ## Summary
 
 1. **Train**: `python examples/train_semantic_embeddings.py`
-2. **Use**: Load model in `SanTOKEmbeddingGenerator(strategy="semantic")`
+2. **Use**: Load model in `SOMAEmbeddingGenerator(strategy="semantic")`
 3. **Generate**: Call `generator.generate(token)`
 
 **Result**: NLP-understandable embeddings without pretrained models! 🎉

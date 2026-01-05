@@ -1,5 +1,5 @@
 """
-SanTEK Guided Training Demo
+SOMA Core Guided Training Demo
 ===========================
 
 Demonstrates the guided training pipeline that uses multi-model signals
@@ -16,7 +16,7 @@ from src.training.guided_training_pipeline import GuidedTrainingPipeline
 def main():
     """Demo guided training."""
     print("="*70)
-    print("SanTEK Guided Training Demo")
+    print("SOMA Core Guided Training Demo")
     print("="*70)
     print()
     print("This demo shows how the multi-model system guides training:")

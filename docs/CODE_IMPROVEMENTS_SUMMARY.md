@@ -5,7 +5,7 @@
 ## Completed Improvements
 
 ### 1. Type Hints Addition ✅
-**File: `santok/santok.py`**
+**File: `soma/soma.py`**
 - Added comprehensive type hints to all methods and functions
 - Added type annotations for return types
 - Used `typing` module for Python 3.7+ compatibility
@@ -18,7 +18,7 @@
 - Convenience functions: Added type hints
 
 ### 2. Input Validation & Error Handling ✅
-**File: `santok/santok.py`**
+**File: `soma/soma.py`**
 - Added comprehensive input validation for all methods
 - Added proper exception handling with descriptive error messages
 - Added type checking with `isinstance()` checks
@@ -32,7 +32,7 @@
 - Better error messages for unsupported methods
 
 ### 3. Type Hints for CLI ✅
-**File: `santok/cli.py`**
+**File: `soma/cli.py`**
 - Added type hints to `main()` function
 - Added type hints to `format_results()` function
 - Improved function documentation
@@ -68,8 +68,8 @@
 
 ## Files Modified
 
-1. `santok/santok.py` - Complete type hints and validation
-2. `santok/cli.py` - Type hints for CLI functions
+1. `soma/soma.py` - Complete type hints and validation
+2. `soma/cli.py` - Type hints for CLI functions
 3. `docs/CODE_IMPROVEMENTS_SUMMARY.md` - This file
 
 ## Next Steps

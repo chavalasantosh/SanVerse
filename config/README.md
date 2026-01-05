@@ -2,7 +2,7 @@
 
 ## Overview
 
-Configuration files for the SanTOK system.
+Configuration files for the SOMA system.
 
 ## Contents
 

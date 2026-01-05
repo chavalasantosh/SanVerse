@@ -5,9 +5,9 @@
 1. ✅ `setup.py` - Setup configuration file exists
 2. ✅ `README.md` - Project README exists
 3. ✅ `requirements.txt` - Dependencies file exists
-4. ✅ `santok/` package directory - Package structure exists
-5. ✅ `santok/__init__.py` - Package initialization exists
-6. ✅ GitHub repository - https://github.com/chavalasantosh/SanTOK/
+4. ✅ `soma/` package directory - Package structure exists
+5. ✅ `soma/__init__.py` - Package initialization exists
+6. ✅ GitHub repository - https://github.com/chavalasantosh/SOMA/
 
 ---
 
@@ -132,9 +132,9 @@ password = pypi-your-test-api-token-here
 
 **Current Structure**:
 ```
-santok/
+soma/
 ├── __init__.py
-├── santok.py
+├── soma.py
 └── cli.py
 ```
 
@@ -145,11 +145,11 @@ santok/
 
 **Action**: Decide what to include:
 - **Option A**: Include everything (core + integration)
-- **Option B**: Only include `santok/` package (current)
+- **Option B**: Only include `soma/` package (current)
 
 **If including src/**, update `setup.py`:
 ```python
-packages=find_packages(include=['santok', 'src.*']),
+packages=find_packages(include=['soma', 'src.*']),
 ```
 
 ---
@@ -219,7 +219,7 @@ pip install --upgrade build twine
 
 **Action**: 
 - Update version in `setup.py`
-- Update version in `santok/__init__.py` (currently `__version__ = "1.0.0"`)
+- Update version in `soma/__init__.py` (currently `__version__ = "1.0.0"`)
 - Keep them in sync
 
 **Versioning Strategy**:
@@ -277,7 +277,7 @@ build/
 - [ ] Update `setup.py` with real email
 - [ ] Update `setup.py` dependencies (if needed)
 - [ ] Create `MANIFEST.in` (optional)
-- [ ] Sync version numbers in `setup.py` and `santok/__init__.py`
+- [ ] Sync version numbers in `setup.py` and `soma/__init__.py`
 - [ ] Create PyPI account
 - [ ] Create Test PyPI account
 - [ ] Get API tokens from PyPI
@@ -291,20 +291,20 @@ build/
 - [ ] Clean previous builds: `rm -rf dist/ build/ *.egg-info`
 - [ ] Build package: `python -m build`
 - [ ] Check build: `twine check dist/*`
-- [ ] Test installation locally: `pip install dist/santok-1.0.0.tar.gz`
+- [ ] Test installation locally: `pip install dist/soma-1.0.0.tar.gz`
 
 ### Test PyPI Upload
 
 - [ ] Upload to Test PyPI: `twine upload --repository testpypi dist/*`
-- [ ] Test install from Test PyPI: `pip install -i https://test.pypi.org/simple/ santok`
+- [ ] Test install from Test PyPI: `pip install -i https://test.pypi.org/simple/ soma`
 - [ ] Verify functionality
 - [ ] Fix any issues
 
 ### Production PyPI Upload
 
 - [ ] Upload to PyPI: `twine upload dist/*`
-- [ ] Verify on https://pypi.org/project/santok/
-- [ ] Test installation: `pip install santok`
+- [ ] Verify on https://pypi.org/project/soma/
+- [ ] Test installation: `pip install soma`
 - [ ] Verify functionality
 
 ---
@@ -339,10 +339,10 @@ twine upload dist/*
 ### Test Installation
 ```bash
 # From Test PyPI
-pip install -i https://test.pypi.org/simple/ santok
+pip install -i https://test.pypi.org/simple/ soma
 
 # From PyPI (after upload)
-pip install santok
+pip install soma
 ```
 
 ---
@@ -361,7 +361,7 @@ pip install santok
 
 ### What TO Include
 
-- ✅ `santok/` package directory
+- ✅ `soma/` package directory
 - ✅ `src/` (if you want vocabulary adapter accessible)
 - ✅ `LICENSE` file
 - ✅ `README.md`
@@ -372,22 +372,22 @@ pip install santok
 
 ## 📦 Package Structure Decision
 
-**Current**: Only `santok/` package included
+**Current**: Only `soma/` package included
 
 **Decision Needed**: Should vocabulary adapter be included?
 
 **Option A: Core only**
 ```python
 # setup.py
-packages=find_packages(include=['santok']),
+packages=find_packages(include=['soma']),
 ```
 
 **Option B: Include integration**
 ```python
 # setup.py
-packages=find_packages(include=['santok', 'src.integration']),
+packages=find_packages(include=['soma', 'src.integration']),
 # or
-packages=['santok', 'src.integration'],
+packages=['soma', 'src.integration'],
 ```
 
 **Option C: Include everything**
@@ -400,7 +400,7 @@ packages=find_packages(exclude=['tests', 'frontend', 'node_modules']),
 
 ## 🎯 Recommended Approach
 
-1. **Start Simple**: Include only `santok/` package (core tokenization)
+1. **Start Simple**: Include only `soma/` package (core tokenization)
 2. **Make vocabulary adapter optional**: Install separately if needed
 3. **Keep dependencies minimal**: Core package has no dependencies
 

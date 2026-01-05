@@ -1,6 +1,6 @@
-# SanTOK Complete Module Package
+# SOMA Complete Module Package
 
-This zip file contains the complete SanTOK (Universal Text Tokenization Framework) module, including:
+This zip file contains the complete SOMA (Universal Text Tokenization Framework) module, including:
 
 ## 📦 Contents
 
@@ -16,8 +16,8 @@ This zip file contains the complete SanTOK (Universal Text Tokenization Framewor
   - `tests/`: Test suites
   - `performance/`: Performance testing tools
 
-- **santok/**: Python package directory
-  - `santok.py`: Main package module
+- **soma/**: Python package directory
+  - `soma.py`: Main package module
   - `cli.py`: CLI entry point
   - `__init__.py`: Package initialization
 
@@ -144,25 +144,25 @@ The frontend will be available at: `http://localhost:3000`
 1. **Multi-Perspective Tokenization**: 9 different tokenization strategies
 2. **Mathematical Analysis**: Weighted sums, digital roots, hash-based IDs
 3. **Perfect Reconstruction**: Lossless tokenization with perfect decode
-4. **Vocabulary Adapter**: Bridge SanTOK with pretrained transformer models
+4. **Vocabulary Adapter**: Bridge SOMA with pretrained transformer models
 5. **REST API**: Complete FastAPI backend for integration
 6. **Modern Web UI**: React/Next.js frontend dashboard
 7. **Comprehensive Documentation**: Extensive guides and technical papers
 
 ## 🔗 Integration with Pretrained Models
 
-SanTOK can be integrated with HuggingFace transformers using the vocabulary adapter:
+SOMA can be integrated with HuggingFace transformers using the vocabulary adapter:
 
 ```python
 from src.core.core_tokenizer import run_once
-from src.integration.vocabulary_adapter import quick_convert_santok_to_model_ids
+from src.integration.vocabulary_adapter import quick_convert_soma_to_model_ids
 
-# Tokenize with SanTOK
+# Tokenize with SOMA
 result = run_once("Hello world!", seed=42)
 tokens = [rec["text"] for rec in result["word"]["records"]]
 
 # Convert to model vocabulary IDs
-model_ids = quick_convert_santok_to_model_ids(tokens, model_name="bert-base-uncased")
+model_ids = quick_convert_soma_to_model_ids(tokens, model_name="bert-base-uncased")
 ```
 
 See `docs/VOCABULARY_ADAPTER_COMPLETE_GUIDE.md` for detailed documentation.
@@ -197,5 +197,5 @@ For issues, questions, or contributions, refer to the main project documentation
 
 ---
 
-**Note**: This is a complete module package. After extraction, you have everything needed to run SanTOK as a standalone application or integrate it into other projects.
+**Note**: This is a complete module package. After extraction, you have everything needed to run SOMA as a standalone application or integrate it into other projects.
 

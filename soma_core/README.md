@@ -1,8 +1,8 @@
-# santek_core/ - Structure Metrics System
+# soma_core_core/ - Structure Metrics System
 
 ## Overview
 
-SanTEK structure metrics system for pattern analysis, symbol structures, and hierarchical processing.
+SOMA Core structure metrics system for pattern analysis, symbol structures, and hierarchical processing.
 
 ## Files
 

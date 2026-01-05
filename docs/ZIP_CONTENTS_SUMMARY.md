@@ -1,8 +1,8 @@
-# SanTOK Complete Module Zip - Contents Summary
+# SOMA Complete Module Zip - Contents Summary
 
 ## ✅ Successfully Created Zip File
 
-**File**: `santok_complete_module_20251106_120425.zip`  
+**File**: `soma_complete_module_20251106_120425.zip`  
 **Size**: 0.68 MB (compressed)  
 **Total Files**: 232 files (including ZIP_README.md)
 
@@ -30,9 +30,9 @@
 - ✅ `src/performance/`: Performance testing
 
 ### 2. Python Package (3 files)
-- ✅ `santok/__init__.py` - Package initialization
-- ✅ `santok/santok.py` - Main package module
-- ✅ `santok/cli.py` - CLI entry point
+- ✅ `soma/__init__.py` - Package initialization
+- ✅ `soma/soma.py` - Main package module
+- ✅ `soma/cli.py` - CLI entry point
 
 ### 3. Frontend Source Code (52 files)
 - ✅ `frontend/app/`: Next.js app pages
@@ -59,7 +59,7 @@
 - ✅ Root markdown files:
   - `README.md` - Main project documentation
   - `HONEST_IEEE_PAPER.md` - Academic paper
-  - `SanTOK_Universal_Tokenization_Framework.md` - Framework documentation
+  - `SOMA_Universal_Tokenization_Framework.md` - Framework documentation
   - And many more...
 
 ### 5. Examples & Integration (2 files)
@@ -71,7 +71,7 @@
 - ✅ `tests/reconstruction/` - Reconstruction tests
 
 ### 7. Benchmarks (3 files)
-- ✅ `benchmarks/benchmark_santok.py` - Performance benchmarks
+- ✅ `benchmarks/benchmark_soma.py` - Performance benchmarks
 - ✅ `benchmarks/README.md` - Benchmark documentation
 
 ### 8. Scripts (7 files)
@@ -143,7 +143,7 @@ After extraction, users should be able to:
 ## 🎯 Module Completeness
 
 The zip file contains **everything needed** to:
-- ✅ Use SanTOK as a Python module
+- ✅ Use SOMA as a Python module
 - ✅ Run the complete application (backend + frontend)
 - ✅ Integrate with pretrained models
 - ✅ Run tests and benchmarks

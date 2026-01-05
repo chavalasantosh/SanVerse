@@ -1,11 +1,11 @@
 """
-SanTEK Logical Metrics System
+SOMA Core Logical Metrics System
 =============================
 
-Custom logical metrics designed specifically for SanTEK to measure
+Custom logical metrics designed specifically for SOMA Core to measure
 performance and guide continuous improvement.
 
-These metrics are UNIQUE to SanTEK and help identify:
+These metrics are UNIQUE to SOMA Core and help identify:
 - What's working well
 - What needs improvement
 - Where to focus optimization efforts
@@ -76,11 +76,11 @@ class MetricResult:
         return "\n".join(lines)
 
 
-class SanTEKMetrics:
+class SOMA CoreMetrics:
     """
-    SanTEK Logical Metrics System.
+    SOMA Core Logical Metrics System.
     
-    Measures various aspects of SanTEK performance:
+    Measures various aspects of SOMA Core performance:
     - Generation Quality
     - Training Effectiveness
     - System Efficiency
@@ -89,7 +89,7 @@ class SanTEKMetrics:
     - Improvement Potential
     
     Example:
-        metrics = SanTEKMetrics()
+        metrics = SOMA CoreMetrics()
         
         # Measure generation quality
         result = metrics.measure_generation_quality(
@@ -101,7 +101,7 @@ class SanTEKMetrics:
         
         # Get overall health score
         health = metrics.calculate_health_score()
-        print(f"SanTEK Health: {health:.2f}")
+        print(f"SOMA Core Health: {health:.2f}")
     """
     
     # Status thresholds
@@ -114,7 +114,7 @@ class SanTEKMetrics:
     }
     
     def __init__(self):
-        """Initialize SanTEK metrics system."""
+        """Initialize SOMA Core metrics system."""
         self.metric_history: Dict[str, List[MetricValue]] = {}
     
     # ========================================================================
@@ -471,7 +471,7 @@ class SanTEKMetrics:
         speed_result: Optional[MetricResult] = None
     ) -> MetricResult:
         """
-        Calculate overall SanTEK health score.
+        Calculate overall SOMA Core health score.
         
         Combines multiple metrics into a single health indicator.
         """
@@ -524,7 +524,7 @@ class SanTEKMetrics:
         status = self._get_status(health_score)
         
         return MetricResult(
-            name="SanTEK Health Score",
+            name="SOMA Core Health Score",
             value=health_score,
             score=health_score,
             status=status,
@@ -579,7 +579,7 @@ class SanTEKMetrics:
     
     def get_improvement_report(self) -> str:
         """Generate improvement report from tracked metrics."""
-        lines = ["=== SanTEK Improvement Report ===", ""]
+        lines = ["=== SOMA Core Improvement Report ===", ""]
         
         for metric_name, history in self.metric_history.items():
             if len(history) < 2:
@@ -653,18 +653,18 @@ class SanTEKMetrics:
 
 
 # Convenience function for quick measurement
-def measure_santek_performance(
+def measure_soma_core_performance(
     generated_text: str,
     prompt: str,
     training_data: Optional[List[str]] = None
 ) -> Dict[str, MetricResult]:
     """
-    Quick function to measure multiple SanTEK metrics at once.
+    Quick function to measure multiple SOMA Core metrics at once.
     
     Returns:
         Dictionary of metric results
     """
-    metrics = SanTEKMetrics()
+    metrics = SOMA CoreMetrics()
     
     results = {}
     

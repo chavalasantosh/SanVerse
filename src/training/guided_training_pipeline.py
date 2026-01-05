@@ -1,5 +1,5 @@
 """
-SanTEK Guided Training Pipeline
+SOMA Core Guided Training Pipeline
 ================================
 
 Unified training pipeline that uses the cleaned multi-model system
@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 from src.training.vocabulary_builder import somaVocabularyBuilder
 from src.training.language_model_trainer import somaLanguageModel, SOMALanguageModelTrainer
-from src.structure.multi_model_clean import SanTEKMultiModelClean
+from src.structure.multi_model_clean import SOMA CoreMultiModelClean
 from src.structure.decision_gates import PromotionDecision, TrustLevel, GenerationDecision
 from src.structure.scoring_utils import bound_score
 
@@ -42,7 +42,7 @@ class GuidedVocabularyBuilder:
     
     def __init__(
         self,
-        multi_model: SanTEKMultiModelClean,
+        multi_model: SOMA CoreMultiModelClean,
         vocab_size: int = 60000,
         min_frequency: int = 2,
         promote_threshold: float = 0.7  # Minimum confidence to promote
@@ -242,7 +242,7 @@ class GuidedTrainingPipeline:
             trust_threshold: Minimum confidence to trust embedding
         """
         # Create multi-model system
-        self.multi_model = SanTEKMultiModelClean(
+        self.multi_model = SOMA CoreMultiModelClean(
             max_relationships_per_node=20,
             min_relationship_strength=0.6
         )
@@ -284,7 +284,7 @@ class GuidedTrainingPipeline:
         output_dir.mkdir(parents=True, exist_ok=True)
         
         print("\n" + "="*70)
-        print("SanTEK Guided Training Pipeline")
+        print("SOMA Core Guided Training Pipeline")
         print("="*70)
         print("Using multi-model system to guide training:")
         print("  - Vocabulary: Promote/Demote gate")
@@ -360,7 +360,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(
-        description="SanTEK Guided Training Pipeline"
+        description="SOMA Core Guided Training Pipeline"
     )
     parser.add_argument(
         "--data",

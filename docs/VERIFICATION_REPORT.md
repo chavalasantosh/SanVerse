@@ -1,4 +1,4 @@
-# SanTOK_EXPLAINED_SIMPLE.md Verification Report
+# SOMA_EXPLAINED_SIMPLE.md Verification Report
 ## Comprehensive Accuracy Check
 
 **Date:** Verification completed
@@ -112,7 +112,7 @@
 
 **Verification:**
 - ✅ Code verified: `src/embeddings/embedding_generator.py` lines 131-229
-- ✅ Class `SanTOKEmbeddingGenerator` supports all 4 strategies
+- ✅ Class `SOMAEmbeddingGenerator` supports all 4 strategies
 - ✅ Strategies: "feature_based", "semantic", "hybrid", "hash"
 - ✅ All strategies implemented in code
 
@@ -128,7 +128,7 @@
 - ✅ Code verified: `src/embeddings/vector_store.py`
 - ✅ `ChromaVectorStore` class exists (lines 69-182)
 - ✅ `FAISSVectorStore` class exists (lines 184-330)
-- ✅ Both implement `SanTOKVectorStore` base class
+- ✅ Both implement `SOMAVectorStore` base class
 
 **Status:** ✅ **100% ACCURATE**
 
@@ -140,8 +140,8 @@
 
 **Verification:**
 - ✅ Code verified: `src/embeddings/semantic_trainer.py`
-- ✅ Class `SanTOKSemanticTrainer` exists
-- ✅ Code comment: "Trains semantic embeddings from SanTOK tokens WITHOUT using pretrained models"
+- ✅ Class `SOMASemanticTrainer` exists
+- ✅ Code comment: "Trains semantic embeddings from SOMA tokens WITHOUT using pretrained models"
 - ✅ Uses co-occurrence patterns and Skip-gram style training
 
 **Status:** ✅ **100% ACCURATE**
@@ -150,7 +150,7 @@
 
 ### 9. Vocabulary Adapter Limitations (VERIFIED ✅)
 
-**Claim:** "The adapter just reconstructs text and uses model's tokenizer, losing SanTOK's benefits"
+**Claim:** "The adapter just reconstructs text and uses model's tokenizer, losing SOMA's benefits"
 
 **Verification:**
 - ✅ Code verified: `src/integration/vocabulary_adapter.py` lines 78-80

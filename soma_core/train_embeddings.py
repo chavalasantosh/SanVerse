@@ -1,5 +1,5 @@
 """
-SanTEK Train Embeddings
+SOMA Core Train Embeddings
 =======================
 
 Train embeddings so similar words end up closer together.

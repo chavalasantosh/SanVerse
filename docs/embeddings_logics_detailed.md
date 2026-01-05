@@ -1,4 +1,4 @@
-# SanTOK Embeddings Logic - Detailed Step-by-Step Mathematical Calculations
+# SOMA Embeddings Logic - Detailed Step-by-Step Mathematical Calculations
 
 ## Example Token
 ```
@@ -25,7 +25,7 @@ Token Record:
 
 ## PART 1: FEATURE-BASED EMBEDDINGS - DETAILED CALCULATION
 
-### Strategy: Feature-Based (Deterministic from SanTOK Features)
+### Strategy: Feature-Based (Deterministic from SOMA Features)
 
 ### Step 1: Feature Extraction
 

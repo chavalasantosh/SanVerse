@@ -10,7 +10,7 @@ Deep reasoning about structure, patterns, and relationships from ALL angles:
 - Temporal perspective (how things change over time)
 - Relational perspective (how things connect)
 
-This makes SanTEK a REAL multi-model system!
+This makes SOMA Core a REAL multi-model system!
 """
 
 import sys

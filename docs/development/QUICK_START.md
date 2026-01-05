@@ -1,4 +1,4 @@
-# SanTOK Quick Start Guide
+# SOMA Quick Start Guide
 
 Get up and running in 5 minutes!
 
@@ -58,7 +58,7 @@ curl -X POST "http://localhost:8000/api/v1/tokenize" \
 
 **Or use CLI:**
 ```bash
-python santok_cli.py tokenize --text "Hello world" --method word
+python soma_cli.py tokenize --text "Hello world" --method word
 ```
 
 ## Common Commands
@@ -67,9 +67,9 @@ python santok_cli.py tokenize --text "Hello world" --method word
 |------|---------|
 | Start server | `./run.sh` (Linux/Mac) or `run.bat` (Windows) |
 | Verify setup | `python verify_installation.py` |
-| Tokenize text | `python santok_cli.py tokenize --text "text" --method word` |
-| Train model | `python santok_cli.py train --file data.txt --model-path model.pkl` |
-| Generate embeddings | `python santok_cli.py embed --text "text" --model-path model.pkl` |
+| Tokenize text | `python soma_cli.py tokenize --text "text" --method word` |
+| Train model | `python soma_cli.py train --file data.txt --model-path model.pkl` |
+| Generate embeddings | `python soma_cli.py embed --text "text" --model-path model.pkl` |
 
 ## Change Port
 

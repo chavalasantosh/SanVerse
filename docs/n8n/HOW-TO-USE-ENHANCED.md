@@ -1,4 +1,4 @@
-# 🚀 How to Use Enhanced SanTOK Workflow
+# 🚀 How to Use Enhanced SOMA Workflow
 
 ## Quick Start
 
@@ -12,7 +12,7 @@
 
 2. **Open n8n**: `http://localhost:5678`
 
-3. **Open "SanTOK Enhanced Execution" workflow**
+3. **Open "SOMA Enhanced Execution" workflow**
 
 4. **Click on "Get User Input" node** (second node)
 

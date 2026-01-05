@@ -6,7 +6,7 @@
 
 ## What Actually Exists
 
-### 1. SanTOK Technical Paper
+### 1. SOMA Technical Paper
 
 **Primary Technical Paper** (Most Relevant):
 - **File**: `docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`
@@ -17,7 +17,7 @@
 - **Includes**: Mathematical proofs, algorithm documentation, implementation details, honest limitations
 
 **Alternative Papers** (Also Available):
-- `docs/papers/PROFESSIONAL_IEEE_PAPER.md` - General SanTOK paper
+- `docs/papers/PROFESSIONAL_IEEE_PAPER.md` - General SOMA paper
 - `docs/papers/HONEST_IEEE_PAPER.md` - Honest assessment paper
 - `SANTOK_ACADEMIC_PAPER.md` - Academic paper format
 - `SANTOK_PROFESSIONAL_PAPER.md` - Professional paper format
@@ -39,7 +39,7 @@
 
 **Technical Documentation**:
 - `docs/HONEST_ASSESSMENT.md` - Honest assessment of what works and doesn't
-- `docs/THE_BRUTAL_TRUTH.md` - Brutal truth about what SanTOK actually is
+- `docs/THE_BRUTAL_TRUTH.md` - Brutal truth about what SOMA actually is
 - `docs/SANTOK_FOUNDATIONAL_VISION.md` - Foundational vision document
 - `docs/guides/BACKEND_INTEGRATION_GUIDE.md` - Backend integration guide
 
@@ -62,9 +62,9 @@
 ### 3. Code Repository Link
 
 **GitHub Repository**:
-- **URL**: https://github.com/chavalasantosh/SanTOK/
+- **URL**: https://github.com/chavalasantosh/SOMA/
 - **Status**: ✅ Public repository exists
-- **Description**: "SanTOK a new logical tokenizer number system"
+- **Description**: "SOMA a new logical tokenizer number system"
 - **License**: MIT
 - **Language Breakdown** (from GitHub):
   - Python: 50.5%
@@ -92,7 +92,7 @@
 
 **Attachments**:
 
-1. **SanTOK Technical Paper**: `docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`
+1. **SOMA Technical Paper**: `docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`
    - Complete technical analysis of vocabulary compatibility issue and solution
    - Based entirely on actual implementation code
    - Includes mathematical proofs, algorithm documentation, and honest limitations
@@ -100,10 +100,10 @@
 2. **Project Documentation**:
    - **Complete Guide**: `docs/VOCABULARY_ADAPTER_COMPLETE_GUIDE.md` (comprehensive end-to-end guide)
    - **Honest Assessment**: `docs/HONEST_ASSESSMENT.md` (transparent evaluation)
-   - **Brutal Truth**: `docs/THE_BRUTAL_TRUTH.md` (complete understanding of what SanTOK is)
+   - **Brutal Truth**: `docs/THE_BRUTAL_TRUTH.md` (complete understanding of what SOMA is)
    - **Foundational Vision**: `docs/SANTOK_FOUNDATIONAL_VISION.md` (vision and positioning)
 
-3. **Code Repository**: https://github.com/chavalasantosh/SanTOK/
+3. **Code Repository**: https://github.com/chavalasantosh/SOMA/
    - Public repository with full source code
    - Complete implementation including vocabulary adapter
    - Frontend and backend code
@@ -117,7 +117,7 @@
 
 "I have attached the following documentation for your review:
 
-1. **SanTOK Technical Paper** (`docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`): A comprehensive technical analysis documenting the vocabulary compatibility challenge and our adapter solution. This paper is based entirely on the actual implementation code and includes mathematical proofs, algorithm documentation, and honest assessment of limitations.
+1. **SOMA Technical Paper** (`docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`): A comprehensive technical analysis documenting the vocabulary compatibility challenge and our adapter solution. This paper is based entirely on the actual implementation code and includes mathematical proofs, algorithm documentation, and honest assessment of limitations.
 
 2. **Project Documentation**: Several key documents including:
    - Complete guide to the vocabulary adapter system
@@ -125,7 +125,7 @@
    - Foundational vision document
    - Technical implementation details
 
-3. **Code Repository**: https://github.com/chavalasantosh/SanTOK/ - The complete public repository with all source code, including the vocabulary adapter implementation, frontend interface, backend API, and comprehensive documentation.
+3. **Code Repository**: https://github.com/chavalasantosh/SOMA/ - The complete public repository with all source code, including the vocabulary adapter implementation, frontend interface, backend API, and comprehensive documentation.
 
 All documentation has been created with complete honesty about what works, what doesn't, and what the real value of the system is."
 

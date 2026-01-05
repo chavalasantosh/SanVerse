@@ -2,7 +2,7 @@
 
 ## 📁 Location
 ```
-demo_santok/
+demo_soma/
 ```
 
 ## 📊 Summary
@@ -16,7 +16,7 @@ demo_santok/
 ### Core Components
 - ✅ `src/` - Complete source code (tokenization, embeddings, servers, etc.)
 - ✅ `examples/` - 6 essential demo scripts
-- ✅ `santok/` - Package code
+- ✅ `soma/` - Package code
 - ✅ `main.py` - Main entry point
 - ✅ `setup.py` - Setup script
 - ✅ `requirements.txt` - Essential dependencies only
@@ -46,7 +46,7 @@ demo_santok/
 
 ### Step 1: Install Dependencies
 ```bash
-cd demo_santok
+cd demo_soma
 pip install -r requirements.txt
 ```
 
@@ -100,7 +100,7 @@ python main.py
 
 ## 🎉 You're Ready!
 
-The `demo_santok/` folder is clean, organized, and contains everything you need for a successful demo tomorrow!
+The `demo_soma/` folder is clean, organized, and contains everything you need for a successful demo tomorrow!
 
 ## 📞 Quick Reference
 

@@ -1,8 +1,8 @@
-# Honest Assessment: What SanTOK Actually Does (And Doesn't)
+# Honest Assessment: What SOMA Actually Does (And Doesn't)
 
 ## The Hard Truth
 
-### What SanTOK Doesn't Do
+### What SOMA Doesn't Do
 
 ❌ **Doesn't improve inference accuracy** - Models still use their own embeddings  
 ❌ **Doesn't speed up transformers** - Same tokenization overhead  
@@ -13,7 +13,7 @@
 ### The Reality Check
 
 When you use the vocabulary adapter:
-1. SanTOK tokenizes: "Hello" → SanTOK token "Hello"
+1. SOMA tokenizes: "Hello" → SOMA token "Hello"
 2. Adapter converts: "Hello" → Model tokenizer processes "Hello"
 3. Model uses: Model's own tokenization anyway
 
@@ -21,11 +21,11 @@ When you use the vocabulary adapter:
 
 The mathematical properties (UIDs, frontend digits, backend numbers) are preserved as **metadata**, but they don't affect model inference. The model sees the same tokens it would have seen with its own tokenizer.
 
-**Bottom line**: For practical use with existing pretrained models, SanTOK doesn't change outcomes.
+**Bottom line**: For practical use with existing pretrained models, SOMA doesn't change outcomes.
 
 ---
 
-## What SanTOK Actually Provides
+## What SOMA Actually Provides
 
 ### 1. Standalone Analysis (No Models Needed)
 
@@ -51,10 +51,10 @@ The mathematical properties (UIDs, frontend digits, backend numbers) are preserv
 ### 2. Future Model Training
 
 **What it could do**:
-- Train new models on SanTOK vocabulary
+- Train new models on SOMA vocabulary
 - Perfect alignment (no adapter needed)
 - Leverage mathematical properties in model architecture
-- Build SanTOK-native models
+- Build SOMA-native models
 
 **The catch**:
 - Requires full model training (expensive)
@@ -95,7 +95,7 @@ If you're:
 - Wanting to improve model performance
 - Looking for practical production benefits
 
-**SanTOK doesn't help you.** The vocabulary adapter just converts to model tokens anyway, so you end up with the same result.
+**SOMA doesn't help you.** The vocabulary adapter just converts to model tokens anyway, so you end up with the same result.
 
 ### For Specific Use Cases: Maybe Something
 
@@ -105,7 +105,7 @@ If you're:
 - Researching tokenization effects
 - Planning to train new models
 
-**SanTOK might provide value**, but it's niche and unproven.
+**SOMA might provide value**, but it's niche and unproven.
 
 ---
 
@@ -129,7 +129,7 @@ The vocabulary adapter is technically correct and works, but:
 
 ### Option 1: Accept the Limitation
 
-SanTOK is:
+SOMA is:
 - A research tool for tokenization analysis
 - A verification framework for data integrity
 - A potential foundation for future models
@@ -139,19 +139,19 @@ That's okay. Not every innovation needs to be immediately practical.
 
 ### Option 2: Focus on Real Use Cases
 
-SanTOK's value is in:
+SOMA's value is in:
 - **Standalone tokenization analysis** (no models needed)
 - **Verification and auditing** (mathematical checksums)
 - **Research** (understanding tokenization effects)
-- **Future models** (if someone trains on SanTOK vocab)
+- **Future models** (if someone trains on SOMA vocab)
 
 ### Option 3: Be Honest About the Gap
 
 The vocabulary adapter solves a technical problem (compatibility), but it doesn't solve the practical problem (no real benefit for existing models).
 
 The real value requires:
-- Training new models on SanTOK vocabulary, OR
-- Using SanTOK for non-model tasks (analysis, verification)
+- Training new models on SOMA vocabulary, OR
+- Using SOMA for non-model tasks (analysis, verification)
 
 Both require significant investment and unproven benefits.
 
@@ -159,13 +159,13 @@ Both require significant investment and unproven benefits.
 
 ## The Bottom Line
 
-**For existing pretrained models**: SanTOK doesn't make a practical difference. The adapter converts to model tokens anyway.
+**For existing pretrained models**: SOMA doesn't make a practical difference. The adapter converts to model tokens anyway.
 
-**For analysis/verification**: SanTOK provides mathematical foundation that could be useful.
+**For analysis/verification**: SOMA provides mathematical foundation that could be useful.
 
 **For future models**: Theoretical potential, but unproven and expensive.
 
-**The honest truth**: The vocabulary compatibility work was technically correct, but it doesn't change the fundamental reality that for most practical use cases, SanTOK doesn't provide immediate value.
+**The honest truth**: The vocabulary compatibility work was technically correct, but it doesn't change the fundamental reality that for most practical use cases, SOMA doesn't provide immediate value.
 
 ---
 
@@ -176,7 +176,7 @@ You're right. By the end, we're still using model tokenization. The mathematical
 **What we built**:
 - ✅ Technically correct vocabulary adapter
 - ✅ Works with any HuggingFace model
-- ✅ Preserves SanTOK metadata
+- ✅ Preserves SOMA metadata
 - ✅ Enables compatibility
 
 **What it doesn't do**:

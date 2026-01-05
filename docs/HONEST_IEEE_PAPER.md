@@ -1,8 +1,8 @@
-# SanTOK: A Unified Text Tokenization Framework with Perfect Reconstruction
+# SOMA: A Unified Text Tokenization Framework with Perfect Reconstruction
 
 ## Abstract
 
-This paper presents SanTOK, a text tokenization framework implementing nine deterministic algorithms with guaranteed perfect reconstruction. Unlike existing tokenization systems that suffer from reconstruction errors and require extensive training, SanTOK provides immediate deployment across any language without corpus preparation. Comprehensive evaluation on datasets ranging from 1MB to 500MB demonstrates 100% reconstruction accuracy across all algorithms. Performance benchmarks show processing speeds from 24,936 to 1,037,812 characters per second, with the framework successfully processing 524,288,342 characters across 929,819 texts without reconstruction errors. The system includes a complete implementation with web interface, API server, and command-line tools suitable for production deployment.
+This paper presents SOMA, a text tokenization framework implementing nine deterministic algorithms with guaranteed perfect reconstruction. Unlike existing tokenization systems that suffer from reconstruction errors and require extensive training, SOMA provides immediate deployment across any language without corpus preparation. Comprehensive evaluation on datasets ranging from 1MB to 500MB demonstrates 100% reconstruction accuracy across all algorithms. Performance benchmarks show processing speeds from 24,936 to 1,037,812 characters per second, with the framework successfully processing 524,288,342 characters across 929,819 texts without reconstruction errors. The system includes a complete implementation with web interface, API server, and command-line tools suitable for production deployment.
 
 **Keywords:** Text tokenization, perfect reconstruction, deterministic algorithms, natural language processing
 
@@ -15,7 +15,7 @@ Text tokenization is a fundamental preprocessing step in natural language proces
 3. **Training Dependencies**: Current approaches require extensive corpus training
 4. **Language Specificity**: Most tokenizers are limited to specific languages or domains
 
-This paper presents SanTOK (Stable and Novel Tokenization), a unified framework that addresses these limitations by providing nine distinct tokenization algorithms with mathematically guaranteed perfect reconstruction.
+This paper presents SOMA (Stable and Novel Tokenization), a unified framework that addresses these limitations by providing nine distinct tokenization algorithms with mathematically guaranteed perfect reconstruction.
 
 ## 2. Related Work
 
@@ -38,11 +38,11 @@ Existing tokenization systems suffer from:
 - **Training requirements**: Need extensive corpus preparation
 - **Single algorithm limitation**: Each system implements only one approach
 
-## 3. SanTOK Framework
+## 3. SOMA Framework
 
 ### 3.1 System Architecture
 
-SanTOK implements nine deterministic tokenization algorithms:
+SOMA implements nine deterministic tokenization algorithms:
 
 1. **Space Tokenization**: Splits on whitespace boundaries
 2. **Word Tokenization**: Uses linguistic word boundaries
@@ -152,11 +152,11 @@ Reconstruction is achieved by:
 
 ### 4.6 Comparative Analysis
 
-**Table 4**: SanTOK vs. existing tokenization frameworks.
+**Table 4**: SOMA vs. existing tokenization frameworks.
 
 | Framework | Algorithms | Reconstruction | Training | Speed Range | Languages |
 |-----------|------------|----------------|----------|-------------|-----------|
-| **SanTOK** | **9** | **100%** | **None** | **25K-1M** | **Universal** |
+| **SOMA** | **9** | **100%** | **None** | **25K-1M** | **Universal** |
 | WordPiece | 1 | ~95% | Required | 500K-1.5M | Specific |
 | BPE | 1 | ~90% | Required | 300K-1M | Specific |
 | SentencePiece | 1 | ~95% | Required | 300K-1.2M | Specific |
@@ -215,7 +215,7 @@ Reconstruction is achieved by:
 
 ## 7. Conclusion
 
-This paper presents SanTOK, a unified framework for deterministic text tokenization with guaranteed perfect reconstruction. Comprehensive evaluation demonstrates:
+This paper presents SOMA, a unified framework for deterministic text tokenization with guaranteed perfect reconstruction. Comprehensive evaluation demonstrates:
 
 1. **Perfect Reconstruction**: 100% accuracy across all nine algorithms and dataset sizes up to 500MB
 2. **Superior Performance**: Processing speeds from 24K to 1.04M characters per second
@@ -223,7 +223,7 @@ This paper presents SanTOK, a unified framework for deterministic text tokenizat
 4. **Universal Applicability**: Zero-training deployment across any language or domain
 5. **Production Readiness**: Complete implementation with web interface, API server, and CLI tools
 
-SanTOK represents a significant advancement in tokenization technology, providing superior accuracy, algorithmic diversity, and scalability compared to existing solutions. The framework eliminates reconstruction uncertainty, making it suitable for critical applications requiring data integrity.
+SOMA represents a significant advancement in tokenization technology, providing superior accuracy, algorithmic diversity, and scalability compared to existing solutions. The framework eliminates reconstruction uncertainty, making it suitable for critical applications requiring data integrity.
 
 ## References
 

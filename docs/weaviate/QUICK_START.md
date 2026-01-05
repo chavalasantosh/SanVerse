@@ -1,4 +1,4 @@
-# Quick Start: Weaviate + SanTOK
+# Quick Start: Weaviate + SOMA
 
 ## 1. Install Dependencies
 
@@ -35,7 +35,7 @@ python weaviate/example_usage.py
 ```
 
 This will:
-- Tokenize text with SanTOK
+- Tokenize text with SOMA
 - Generate embeddings
 - Store in Weaviate
 - Search for similar tokens
@@ -45,11 +45,11 @@ This will:
 ```python
 from weaviate.weaviate_vector_store import WeaviateVectorStore
 from src.tokenization.text_tokenizer import TextTokenizer
-from src.embeddings.embedding_generator import SanTOKEmbeddingGenerator
+from src.embeddings.embedding_generator import SOMAEmbeddingGenerator
 
 # Initialize
 tokenizer = TextTokenizer()
-embedding_gen = SanTOKEmbeddingGenerator()
+embedding_gen = SOMAEmbeddingGenerator()
 vector_store = WeaviateVectorStore()
 
 # Tokenize and embed

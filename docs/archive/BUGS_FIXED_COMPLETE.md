@@ -90,9 +90,9 @@ All bugs from smallest to largest have been fixed and verified. No linter errors
 ### **Backend Python Files:**
 1. ✅ `src/servers/job_manager.py` - **FIXED**
 2. ✅ `backend/src/servers/job_manager.py` - **FIXED**
-3. ✅ `demo_santok/src/servers/job_manager.py` - **FIXED**
-4. ✅ `backend/demo_santok/src/servers/job_manager.py` - **FIXED**
-5. ✅ `santok_backend_mother ucker/src/servers/job_manager.py` - **FIXED**
+3. ✅ `demo_soma/src/servers/job_manager.py` - **FIXED**
+4. ✅ `backend/demo_soma/src/servers/job_manager.py` - **FIXED**
+5. ✅ `soma_backend_mother ucker/src/servers/job_manager.py` - **FIXED**
 6. ✅ `src/servers/main_server.py` - **FIXED** (empty except blocks)
 7. ✅ `backend/src/servers/main_server.py` - **FIXED** (empty except blocks)
 

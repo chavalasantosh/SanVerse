@@ -1,16 +1,16 @@
 # Code Quality Checklist
 
 ## Overview
-This document provides a comprehensive checklist for maintaining code quality in the SanTOK project.
+This document provides a comprehensive checklist for maintaining code quality in the SOMA project.
 
 ## Type Safety ✅
 
 ### Type Hints
-- [x] Core package (`santok/santok.py`) - 100% coverage
-- [x] CLI module (`santok/cli.py`) - Complete
+- [x] Core package (`soma/soma.py`) - 100% coverage
+- [x] CLI module (`soma/cli.py`) - Complete
 - [x] Entry points (`main.py`, `run.py`, `start.py`) - Complete
-- [x] CLI script (`santok_cli.py`) - Complete
-- [x] Training script (`train_santok_complete.py`) - Partial (in progress)
+- [x] CLI script (`soma_cli.py`) - Complete
+- [x] Training script (`train_soma_complete.py`) - Partial (in progress)
 - [ ] Backend server files - Needs improvement
 - [ ] Core tokenizer (`backend/src/core/core_tokenizer.py`) - Needs type hints
 
@@ -63,8 +63,8 @@ This document provides a comprehensive checklist for maintaining code quality in
 - [x] `main.py` - Interactive entry point
 - [x] `run.py` - Cross-platform runner
 - [x] `start.py` - Production server starter
-- [x] `santok_cli.py` - Full-featured CLI
-- [x] `santok/cli.py` - Package CLI
+- [x] `soma_cli.py` - Full-featured CLI
+- [x] `soma/cli.py` - Package CLI
 
 ## Documentation ✅
 
@@ -180,7 +180,7 @@ python scripts/development/check_code_quality.py backend/src
 pip install mypy
 
 # Check types
-mypy santok/
+mypy soma/
 mypy backend/src/
 ```
 
@@ -190,7 +190,7 @@ mypy backend/src/
 pip install black
 
 # Format code
-black santok/
+black soma/
 black backend/src/
 ```
 

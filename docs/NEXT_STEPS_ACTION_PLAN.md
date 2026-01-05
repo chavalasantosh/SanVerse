@@ -1,4 +1,4 @@
-# SanTOK: Next Steps Action Plan
+# SOMA: Next Steps Action Plan
 
 ## Current Status ✅
 
@@ -14,7 +14,7 @@
 
 ### PATH 1: Create & Deliver Presentation
 
-**If you need to present SanTOK:**
+**If you need to present SOMA:**
 
 1. **Create PowerPoint** (30-60 minutes)
    - Open `SANTOK_PPT_CONTENT.md`
@@ -50,22 +50,22 @@
 ```python
 # Create: src/integration/embedding_mapper.py
 
-class SanTOKEmbeddingMapper:
+class SOMAEmbeddingMapper:
     """
-    Maps SanTOK embeddings to model embedding space.
+    Maps SOMA embeddings to model embedding space.
     """
     def __init__(self, model_name: str):
         self.model = AutoModel.from_pretrained(model_name)
-        self.mapping_layer = nn.Linear(santok_dim, model_embedding_dim)
+        self.mapping_layer = nn.Linear(soma_dim, model_embedding_dim)
         # Train this mapping layer
     
-    def map_santok_to_model(self, santok_embedding):
-        return self.mapping_layer(santok_embedding)
+    def map_soma_to_model(self, soma_embedding):
+        return self.mapping_layer(soma_embedding)
 ```
 
 **Steps:**
 1. Create embedding mapper class
-2. Design training procedure (align SanTOK embeddings with model embeddings)
+2. Design training procedure (align SOMA embeddings with model embeddings)
 3. Implement training loop
 4. Test with BERT/GPT/T5
 5. Integrate into vocabulary adapter
@@ -81,21 +81,21 @@ class SanTOKEmbeddingMapper:
 ```python
 # Create: src/integration/neural_adapter.py
 
-class SanTOKNeuralAdapter(nn.Module):
+class SOMANeuralAdapter(nn.Module):
     """
-    Neural network adapter between SanTOK features and model embeddings.
+    Neural network adapter between SOMA features and model embeddings.
     """
-    def __init__(self, santok_feature_dim, model_embedding_dim):
+    def __init__(self, soma_feature_dim, model_embedding_dim):
         super().__init__()
         self.adapter = nn.Sequential(
-            nn.Linear(santok_feature_dim, 512),
+            nn.Linear(soma_feature_dim, 512),
             nn.ReLU(),
             nn.Dropout(0.1),
             nn.Linear(512, model_embedding_dim)
         )
     
-    def forward(self, santok_features):
-        return self.adapter(santok_features)
+    def forward(self, soma_features):
+        return self.adapter(soma_features)
 ```
 
 **Steps:**
@@ -118,11 +118,11 @@ class SanTOKNeuralAdapter(nn.Module):
 
 class SubwordComposer:
     """
-    Composes model subword embeddings into SanTOK token embeddings.
+    Composes model subword embeddings into SOMA token embeddings.
     """
-    def compose(self, santok_token, model_subwords, model_embeddings):
+    def compose(self, soma_token, model_subwords, model_embeddings):
         # Weighted average or attention-based composition
-        weights = self.compute_weights(santok_token, model_subwords)
+        weights = self.compute_weights(soma_token, model_subwords)
         composed = weighted_average(model_embeddings, weights)
         return composed
 ```
@@ -150,7 +150,7 @@ class SubwordComposer:
 
 **Steps:**
 1. Choose model architecture (BERT-like, GPT-like, etc.)
-2. Create vocabulary builder from SanTOK
+2. Create vocabulary builder from SOMA
 3. Implement training pipeline
 4. Set up data processing
 5. Train initial model
@@ -160,13 +160,13 @@ class SubwordComposer:
 
 ---
 
-### PATH 3: Reframe SanTOK's Value Proposition
+### PATH 3: Reframe SOMA's Value Proposition
 
 **If you want to pivot the messaging:**
 
-**Current Problem:** SanTOK doesn't work well with existing models
+**Current Problem:** SOMA doesn't work well with existing models
 
-**New Positioning:** SanTOK as Verification & Analysis Tool
+**New Positioning:** SOMA as Verification & Analysis Tool
 
 **Key Messages:**
 1. **Text Integrity Layer** - Mathematical verification of tokenization
@@ -254,7 +254,7 @@ class SubwordComposer:
 
 ---
 
-### Option C: I Want to Reposition SanTOK
+### Option C: I Want to Reposition SOMA
 **Do This:**
 1. Update README to emphasize verification use cases
 2. Create verification examples
@@ -282,7 +282,7 @@ class SubwordComposer:
 **Before proceeding, clarify:**
 
 1. **What's your primary goal?**
-   - [ ] Present SanTOK to stakeholders
+   - [ ] Present SOMA to stakeholders
    - [ ] Fix model integration issues
    - [ ] Find practical use cases
    - [ ] Academic/research purposes
@@ -318,11 +318,11 @@ class SubwordComposer:
 ### Short Term (Next Month):
 1. **Build verification/comparison tools** - Quick wins, practical value
 2. **Create demos** - Show tokenization comparison capabilities
-3. **Document use cases** - Where SanTOK actually helps
+3. **Document use cases** - Where SOMA actually helps
 
 ### Long Term (If Resources Available):
 1. **Start embedding mapper** - If you have ML expertise
-2. **Build training infrastructure** - If you want SanTOK-native models
+2. **Build training infrastructure** - If you want SOMA-native models
 3. **Partner with researchers** - If you want academic validation
 
 ---

@@ -2,7 +2,7 @@
 # This script starts the FastAPI server that supports WebSocket connections
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "Starting SanTOK Backend Server" -ForegroundColor Cyan
+Write-Host "Starting SOMA Backend Server" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 

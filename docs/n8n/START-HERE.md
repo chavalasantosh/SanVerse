@@ -1,4 +1,4 @@
-# 🚀 START HERE - Import SanTOK Workflows
+# 🚀 START HERE - Import SOMA Workflows
 
 ## Quick Steps:
 

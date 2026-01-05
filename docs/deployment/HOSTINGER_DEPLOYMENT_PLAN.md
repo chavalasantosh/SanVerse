@@ -152,7 +152,7 @@ This creates `frontend/out/` folder with static files.
 
 #### Step 1: Use Your Existing ZIP
 
-You already have `santok_railway.zip` - perfect!
+You already have `soma_railway.zip` - perfect!
 
 #### Step 2: Deploy to Railway
 
@@ -160,7 +160,7 @@ You already have `santok_railway.zip` - perfect!
 2. Sign up/login (free tier available)
 3. Click "New Project"
 4. Choose "Deploy from GitHub" OR "Upload ZIP"
-5. Upload `santok_railway.zip`
+5. Upload `soma_railway.zip`
 6. Railway auto-detects and deploys
 
 #### Step 3: Get Backend URL

@@ -2,7 +2,7 @@
 
 ## What Makes This "God-Tier"
 
-This enhanced trainer uses **ALL** of SanTOK's unique features that no other system has.
+This enhanced trainer uses **ALL** of SOMA's unique features that no other system has.
 
 ## 1. Multi-Stream Hierarchical Semantics
 
@@ -13,7 +13,7 @@ This enhanced trainer uses **ALL** of SanTOK's unique features that no other sys
 
 **Why it's unique:**
 - Other systems use ONE tokenization (word OR char OR subword)
-- SanTOK uses ALL simultaneously
+- SOMA uses ALL simultaneously
 - Can understand meaning at multiple levels at once
 
 ## 2. Deterministic UID Semantic Graph
@@ -49,7 +49,7 @@ This enhanced trainer uses **ALL** of SanTOK's unique features that no other sys
 
 **Why it's unique:**
 - Other systems don't compute mathematical properties
-- SanTOK has frontend/backend on every token
+- SOMA has frontend/backend on every token
 - Can learn math-semantic relationships
 
 ## 5. Temporal/Sequential Semantics
@@ -106,6 +106,6 @@ This enhanced trainer uses **ALL** of SanTOK's unique features that no other sys
 Enhanced trainer is:
 - **Slower** (uses more features)
 - **More memory** (stores more embeddings)
-- **Better quality** (uses all SanTOK features)
+- **Better quality** (uses all SOMA features)
 - **More powerful** (unique capabilities)
 

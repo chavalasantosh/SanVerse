@@ -1,8 +1,8 @@
-# SanTOK Architecture - START HERE
+# SOMA Architecture - START HERE
 
-## 🎯 Quick Answer: What is SanTOK?
+## 🎯 Quick Answer: What is SOMA?
 
-**SanTOK** = Text Tokenization → Embeddings → Vector Store → Similarity Search
+**SOMA** = Text Tokenization → Embeddings → Vector Store → Similarity Search
 
 ### Complete Flow:
 ```

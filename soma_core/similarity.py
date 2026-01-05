@@ -1,5 +1,5 @@
 """
-SanTEK Similarity
+SOMA Core Similarity
 =================
 
 Measure how similar two words are.

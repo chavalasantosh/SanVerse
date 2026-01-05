@@ -24,7 +24,7 @@ python soma_cli.py --help
 | `src/`              | Core tokenization engine, embeddings, servers, training |
 | `cognitive/`        | Architecture reasoning, SLM models, algorithms, graphs  |
 | `soma/`             | High-level wrapper module                               |
-| `santek_core/`      | Structure metrics system                                |
+| `soma_core_core/`      | Structure metrics system                                |
 | `semantic_trainer/` | Enhanced semantic embeddings                            |
 | `examples/`         | Usage examples                                          |
 | `docs/`             | Documentation                                           |
@@ -41,7 +41,7 @@ python soma_cli.py --help
 | `run.py`                   | Start the API server       |
 | `start.py`                 | Alternative startup script |
 | `soma_cli.py`              | Command-line interface     |
-| `train_santok_complete.py` | Train the complete model   |
+| `train_soma_complete.py` | Train the complete model   |
 
 ## Key Features
 

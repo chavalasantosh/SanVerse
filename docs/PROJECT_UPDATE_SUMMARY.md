@@ -1,10 +1,10 @@
-# SanTOK Project Update Summary
+# SOMA Project Update Summary
 
 ## 🎯 Major Update: Source Map System Integration
 
 ### ✅ What's Been Added
 
-#### 1. **Core Source Map System** (`src/santok_sources.py`)
+#### 1. **Core Source Map System** (`src/soma_sources.py`)
 - **50+ Knowledge Sources** across 6 categories:
   - Core Knowledge: Wikipedia, Wikidata, ArXiv, PubMed, Project Gutenberg, StackExchange, Reddit, CommonCrawl
   - Technical: HuggingFace Datasets, GitHub Corpus, Papers with Code, OpenAI Cookbook, PyTorch/TensorFlow Docs
@@ -18,7 +18,7 @@
   - Token source tagging: `{source_id, algorithm_id, timestamp, weight, priority}`
   - Weighted embedding merging from multiple sources
   - Hierarchical performance profiling per category
-  - Persistent registry (saved to `data/santok_sources_registry.json`)
+  - Persistent registry (saved to `data/soma_sources_registry.json`)
   - Railway compute ready (cloud-friendly, no local dependencies)
 
 #### 2. **Integration Layer** (`src/integration/source_map_integration.py`)
@@ -40,7 +40,7 @@
 
 #### 5. **Documentation**
 - `docs/SANTOK_SOURCE_MAP.md` - Complete source map documentation
-- `examples/test_santok_source_map.py` - Test suite
+- `examples/test_soma_source_map.py` - Test suite
 - `examples/integrate_source_map_workflow.py` - Integration examples
 - Updated `README.md` with source map section
 
@@ -79,7 +79,7 @@ merged = generator.merge_embeddings_from_sources(embeddings_list)
 
 ### 🚀 Railway Compute Ready
 
-- **Persistent Registry**: Auto-saves to `data/santok_sources_registry.json`
+- **Persistent Registry**: Auto-saves to `data/soma_sources_registry.json`
 - **Deterministic UIDs**: Same source always generates same UID (important for distributed systems)
 - **Cloud-Friendly**: No local file dependencies, works with Railway's filesystem
 - **Lightweight**: Minimal dependencies, fast initialization
@@ -102,10 +102,10 @@ merged = generator.merge_embeddings_from_sources(embeddings_list)
 ### 📝 Files Created/Updated
 
 **New Files:**
-- `src/santok_sources.py` - Core source map system
+- `src/soma_sources.py` - Core source map system
 - `src/integration/source_map_integration.py` - Integration layer
 - `docs/SANTOK_SOURCE_MAP.md` - Documentation
-- `examples/test_santok_source_map.py` - Test suite
+- `examples/test_soma_source_map.py` - Test suite
 - `examples/integrate_source_map_workflow.py` - Integration examples
 - `PROJECT_UPDATE_SUMMARY.md` - This file
 

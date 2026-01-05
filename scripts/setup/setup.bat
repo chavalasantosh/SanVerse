@@ -1,9 +1,9 @@
 @echo off
-REM SanTOK Automated Setup Script for Windows
+REM SOMA Automated Setup Script for Windows
 REM This script sets up the development environment and installs all dependencies
 
 echo ==========================================
-echo SanTOK Setup Script
+echo SOMA Setup Script
 echo ==========================================
 echo.
 

@@ -12,7 +12,7 @@ REAL multi-model architecture that integrates ALL perspectives:
 - Understanding model (comprehensive understanding)
 - Fluency model (generation quality)
 
-This makes SanTEK a REAL multi-model system!
+This makes SOMA Core a REAL multi-model system!
 """
 
 import sys
@@ -44,9 +44,9 @@ class MultiModelOutput:
     integrated: Dict[str, Any] = field(default_factory=dict)
 
 
-class SanTEKMultiModel:
+class SOMA CoreMultiModel:
     """
-    SanTEK Multi-Model System.
+    SOMA Core Multi-Model System.
     
     Integrates ALL models for comprehensive understanding:
     1. Structural Model - How things are built
@@ -371,10 +371,10 @@ class SanTEKMultiModel:
 
 # Test it works
 if __name__ == "__main__":
-    print("Testing SanTEK Multi-Model System...")
+    print("Testing SOMA Core Multi-Model System...")
     print("=" * 70)
     
-    multi_model = SanTEKMultiModel()
+    multi_model = SOMA CoreMultiModel()
     
     text = "cat cat dog cat mouse python java python machine learning"
     print(f"\nLearning from: '{text}'")

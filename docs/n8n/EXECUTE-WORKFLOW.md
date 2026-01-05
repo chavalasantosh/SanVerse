@@ -1,10 +1,10 @@
-# 🚀 How to Execute SanTOK Advanced Workflow - Complete Guide
+# 🚀 How to Execute SOMA Advanced Workflow - Complete Guide
 
 ## Quick Start
 
 ### Step 1: Make Sure Everything is Running
 
-1. **SanTOK API must be running:**
+1. **SOMA API must be running:**
    ```powershell
    # Check if it's running
    curl.exe http://127.0.0.1:8000/
@@ -30,7 +30,7 @@
 
 2. **In n8n:**
    - Click "Workflows" in left sidebar
-   - Find "SanTOK Advanced Execution" workflow
+   - Find "SOMA Advanced Execution" workflow
    - Click to open it
 
 ---
@@ -45,7 +45,7 @@
 
    ```javascript
    // INPUT: Single string OR array of strings
-   let userText = 'Hello World! This is advanced SanTOK processing.';
+   let userText = 'Hello World! This is advanced SOMA processing.';
    
    // PROCESSING OPTIONS
    const config = {
@@ -129,10 +129,10 @@
 ### Check Each Node Output:
 
 1. **Click on any node** to see its output:
-   - **"SanTOK Tokenize"** - Shows tokenization results
-   - **"SanTOK Analyze"** - Shows analysis results (if enabled)
-   - **"SanTOK Compress"** - Shows compression results (if enabled)
-   - **"SanTOK Validate"** - Shows validation results (if enabled)
+   - **"SOMA Tokenize"** - Shows tokenization results
+   - **"SOMA Analyze"** - Shows analysis results (if enabled)
+   - **"SOMA Compress"** - Shows compression results (if enabled)
+   - **"SOMA Validate"** - Shows validation results (if enabled)
    - **"Format Comprehensive Output"** - Shows formatted results
    - **"Compare Tokenizer Types"** - Shows comparison between tokenizers
    - **"Final Summary"** - Shows complete summary
@@ -170,18 +170,18 @@ The workflow executes in this order:
 1. **Manual Trigger** → Starts the workflow
 2. **Configure Input & Options** → Prepares your input
 3. **Prepare Tokenize Body** → Creates JSON for tokenize API
-4. **SanTOK Tokenize** → Calls `/tokenize` endpoint
+4. **SOMA Tokenize** → Calls `/tokenize` endpoint
 5. **Check Analysis Enabled** → Decides if analysis should run
    - If `true` → Runs analysis
    - If `false` → Skips to merge
-6. **SanTOK Analyze** → Calls `/analyze` endpoint (if enabled)
+6. **SOMA Analyze** → Calls `/analyze` endpoint (if enabled)
 7. **Check Compression Enabled** → Decides if compression should run
    - If `true` → Runs compression
    - If `false` → Skips to merge
-8. **SanTOK Compress** → Calls `/compress` endpoint (if enabled)
+8. **SOMA Compress** → Calls `/compress` endpoint (if enabled)
 9. **Merge All Results** → Combines all results
 10. **Check Validation Enabled** → Decides if validation should run
-11. **SanTOK Validate** → Calls `/validate` endpoint (if enabled)
+11. **SOMA Validate** → Calls `/validate` endpoint (if enabled)
 12. **Format Comprehensive Output** → Formats all data nicely
 13. **Compare Tokenizer Types** → Compares different tokenizers
 14. **Final Summary** → Creates complete summary
@@ -193,7 +193,7 @@ The workflow executes in this order:
 ### ❌ Error: "The service was not able to process your request"
 
 **Solution:**
-- Make sure SanTOK API is running: `curl.exe http://127.0.0.1:8000/`
+- Make sure SOMA API is running: `curl.exe http://127.0.0.1:8000/`
 - If not running, start it: `cd n8n && .\start.bat`
 
 ### ❌ Error: "JSON parameter needs to be valid JSON"
@@ -290,9 +290,9 @@ const config = {
 
 | Step | Action | Location |
 |------|--------|----------|
-| 1 | Start SanTOK API | Run `.\start.bat` |
+| 1 | Start SOMA API | Run `.\start.bat` |
 | 2 | Open n8n | `http://localhost:5678` |
-| 3 | Open workflow | Workflows → SanTOK Advanced Execution |
+| 3 | Open workflow | Workflows → SOMA Advanced Execution |
 | 4 | Configure input | Click "Configure Input & Options" node |
 | 5 | Edit code | Change `userText` and `config` |
 | 6 | Execute | Click red "Execute workflow" button |

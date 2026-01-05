@@ -1,18 +1,18 @@
-# Email Draft: SanTOK Project Summary
+# Email Draft: SOMA Project Summary
 
-**Subject**: SanTOK Project: Research Journey and Key Discoveries
+**Subject**: SOMA Project: Research Journey and Key Discoveries
 
 ---
 
 Dear [Manager's Name],
 
-I hope this email finds you well. I am writing to provide a comprehensive summary of the SanTOK project, which I have been working on over the past period. I wanted to document the complete journey, key discoveries, and current state of the project for your review.
+I hope this email finds you well. I am writing to provide a comprehensive summary of the SOMA project, which I have been working on over the past period. I wanted to document the complete journey, key discoveries, and current state of the project for your review.
 
 ---
 
 ## Project Overview
 
-**SanTOK** (Stable and Novel Tokenization) began as an initiative to address fundamental limitations in existing NLP tokenization systems. The project aimed to create a mathematically deterministic, fully reversible, and universally applicable tokenization framework.
+**SOMA** (Stable and Novel Tokenization) began as an initiative to address fundamental limitations in existing NLP tokenization systems. The project aimed to create a mathematically deterministic, fully reversible, and universally applicable tokenization framework.
 
 **Initial Objective**: Develop a tokenization system that could replace or improve upon existing methods (BPE, WordPiece, SentencePiece) by introducing mathematical determinism and perfect reversibility.
 
@@ -38,40 +38,40 @@ I hope this email finds you well. I am writing to provide a comprehensive summar
 **The Challenge Discovered**:
 During integration testing with pretrained transformer models (BERT, GPT, T5), we identified a fundamental incompatibility:
 
-- SanTOK generates its own identifier system (UIDs, frontend digits, backend numbers)
+- SOMA generates its own identifier system (UIDs, frontend digits, backend numbers)
 - Pretrained models use fixed vocabulary indices (0 to vocab_size-1)
 - These systems operate in completely different namespaces
-- Direct use of SanTOK IDs with models would cause errors or invalid behavior
+- Direct use of SOMA IDs with models would cause errors or invalid behavior
 
 **The Problem**: This is not a bug—it's a systemic boundary between tokenization (representation layer) and model embeddings (semantic layer).
 
 **What We Built to Address This**:
-- Vocabulary Adapter Layer: Maps SanTOK token strings to model vocabulary IDs
+- Vocabulary Adapter Layer: Maps SOMA token strings to model vocabulary IDs
 - Backend API endpoints for testing and integration
 - Frontend interface for testing vocabulary compatibility
 - Comprehensive documentation of the compatibility issue and solutions
 
-**Technical Achievement**: Successfully created a bridge between SanTOK's mathematical tokenization and pretrained model vocabularies.
+**Technical Achievement**: Successfully created a bridge between SOMA's mathematical tokenization and pretrained model vocabularies.
 
 ### Phase 3: Honest Assessment (Current Understanding)
 
 **The Discovery**:
 Through rigorous testing and analysis, we discovered that:
 
-**What SanTOK Does Well**:
+**What SOMA Does Well**:
 - ✅ Provides mathematically deterministic tokenization
 - ✅ Enables perfect text reconstruction
 - ✅ Creates verifiable token signatures
 - ✅ Works as a universal tokenization protocol
 
-**What SanTOK Doesn't Do**:
+**What SOMA Doesn't Do**:
 - ❌ Doesn't improve model inference accuracy (models still use their own embeddings)
 - ❌ Doesn't speed up transformers (same tokenization overhead)
 - ❌ Doesn't change model behavior (adapter converts to model tokens anyway)
 - ❌ Doesn't provide practical benefit for existing pretrained models
 
 **The Reframing**:
-Through this research, we discovered that SanTOK's true value isn't as a replacement tokenizer, but as a **verification and audit system** for tokenization integrity—a capability that doesn't exist in current NLP pipelines.
+Through this research, we discovered that SOMA's true value isn't as a replacement tokenizer, but as a **verification and audit system** for tokenization integrity—a capability that doesn't exist in current NLP pipelines.
 
 ---
 
@@ -87,7 +87,7 @@ Through this research, we discovered that SanTOK's true value isn't as a replace
 
 ### 2. Verification Infrastructure
 
-**Discovery**: SanTOK provides mathematical verification capabilities that current tokenization systems lack:
+**Discovery**: SOMA provides mathematical verification capabilities that current tokenization systems lack:
 - Token-level checksums
 - Integrity verification
 - Drift detection
@@ -109,7 +109,7 @@ Through this research, we discovered that SanTOK's true value isn't as a replace
 
 ---
 
-## Current State of SanTOK
+## Current State of SOMA
 
 ### What Exists
 
@@ -236,7 +236,7 @@ Best regards,
 
 **Attachments**:
 
-1. **SanTOK Technical Paper**: 
+1. **SOMA Technical Paper**: 
    - Primary: `docs/VOCABULARY_ADAPTER_TECHNICAL_PAPER.md`
    - Complete technical analysis of vocabulary compatibility issue and adapter solution
    - Based entirely on actual implementation code
@@ -246,14 +246,14 @@ Best regards,
 2. **Project Documentation**:
    - **Complete Guide**: `docs/VOCABULARY_ADAPTER_COMPLETE_GUIDE.md` (comprehensive end-to-end guide)
    - **Honest Assessment**: `docs/HONEST_ASSESSMENT.md` (transparent evaluation of capabilities and limitations)
-   - **Brutal Truth**: `docs/THE_BRUTAL_TRUTH.md` (complete understanding of what SanTOK actually is)
+   - **Brutal Truth**: `docs/THE_BRUTAL_TRUTH.md` (complete understanding of what SOMA actually is)
    - **Foundational Vision**: `docs/SANTOK_FOUNDATIONAL_VISION.md` (vision and research positioning)
    - **Compatibility Issue**: `docs/VOCABULARY_COMPATIBILITY_ISSUE.md` (detailed explanation)
    - **Testing Guide**: `docs/TESTING_VOCABULARY_ADAPTER.md` (testing documentation)
    - Additional documentation in `docs/` folder
 
 3. **Code Repository**: 
-   - **URL**: https://github.com/chavalasantosh/SanTOK/
+   - **URL**: https://github.com/chavalasantosh/SOMA/
    - Public repository with complete source code
    - Includes vocabulary adapter implementation (`src/integration/`)
    - Frontend interface (`frontend/`)

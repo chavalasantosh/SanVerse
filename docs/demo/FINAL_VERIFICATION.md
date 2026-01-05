@@ -82,9 +82,9 @@
 
 ## ✅ Package Files
 
-- ✅ `santok/__init__.py` - Package init
-- ✅ `santok/cli.py` - CLI interface
-- ✅ `santok/santok.py` - Main package
+- ✅ `soma/__init__.py` - Package init
+- ✅ `soma/cli.py` - CLI interface
+- ✅ `soma/soma.py` - Main package
 
 ## ✅ Documentation
 

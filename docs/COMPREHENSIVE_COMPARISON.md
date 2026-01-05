@@ -27,9 +27,9 @@
 ```
 ✅ src/                    - Core source code
 ✅ examples/               - Demo scripts
-✅ santok/                 - Package code
+✅ soma/                 - Package code
 ❌ backend/                - Duplicate backend (REMOVED from demo)
-❌ santok_backend/         - Duplicate backend (REMOVED from demo)
+❌ soma_backend/         - Duplicate backend (REMOVED from demo)
 ❌ frontend/               - Frontend code (REMOVED from demo)
 ❌ n8n/                    - n8n workflows (REMOVED from demo)
 ❌ docs/                   - Documentation (REMOVED from demo)
@@ -43,7 +43,7 @@
 ❌ scripts/                - Scripts (PARTIALLY REMOVED from demo)
 ❌ .github/                - GitHub config (REMOVED from demo)
 ❌ .pytest_cache/          - Test cache (REMOVED from demo)
-❌ demo_santok/            - Demo folder (NEW)
+❌ demo_soma/            - Demo folder (NEW)
 ```
 
 #### Top-Level Files (40+ files)
@@ -60,17 +60,17 @@
 ❌ package-lock.json       - Node lock file (REMOVED from demo)
 ❌ run_all_python.py       - Test script (REMOVED from demo)
 ❌ package_backend.py      - Packaging script (REMOVED from demo)
-❌ create_santok_zip*.py   - ZIP creation scripts (REMOVED from demo)
+❌ create_soma_zip*.py   - ZIP creation scripts (REMOVED from demo)
 ❌ all_python_output*.txt  - Output files (REMOVED from demo)
 ```
 
-### 2. Demo Folder (`demo_santok/`)
+### 2. Demo Folder (`demo_soma/`)
 
 #### Directories (3 core directories)
 ```
 ✅ src/                    - Core source code (cleaned, no __pycache__)
 ✅ examples/               - Essential demo scripts only (6 scripts)
-✅ santok/                 - Package code (complete)
+✅ soma/                 - Package code (complete)
 ```
 
 #### Top-Level Files (13 files)
@@ -96,10 +96,10 @@
 ```
 backend/
 ├── src/                   - Source code (same as root src/)
-├── santok/                - Package code (same as root santok/)
+├── soma/                - Package code (same as root soma/)
 ├── Architecture_Docs/     - Architecture documentation (6 files)
 ├── demo_output/           - Demo output files
-├── demo_santok/           - Another demo folder (nested)
+├── demo_soma/           - Another demo folder (nested)
 ├── requirements.txt       - Dependencies
 ├── setup.py               - Setup script
 ├── ENTRY_POINT.md         - Entry point documentation
@@ -114,16 +114,16 @@ backend/
 - **Documentation files** (entry points, bugs, etc.)
 
 #### Status: ❌ NOT in Demo Folder
-- Duplicate of root `src/` and `santok/`
-- Not needed for demo (demo uses root `src/` and `santok/`)
+- Duplicate of root `src/` and `soma/`
+- Not needed for demo (demo uses root `src/` and `soma/`)
 
-### 4. Santok_Backend Folder (`santok_backend/`)
+### 4. Soma_Backend Folder (`soma_backend/`)
 
 #### Structure
 ```
-santok_backend/
+soma_backend/
 ├── src/                   - Source code (same as root src/)
-├── santok/                - Package code (same as root santok/)
+├── soma/                - Package code (same as root soma/)
 ├── requirements.txt       - Dependencies
 ├── setup.py               - Setup script
 └── README.md              - README
@@ -135,8 +135,8 @@ santok_backend/
 - **Used for creating ZIP packages**
 
 #### Status: ❌ NOT in Demo Folder
-- Duplicate of root `src/` and `santok/`
-- Not needed for demo (demo uses root `src/` and `santok/`)
+- Duplicate of root `src/` and `soma/`
+- Not needed for demo (demo uses root `src/` and `soma/`)
 
 ## 🔍 Key Differences
 
@@ -144,15 +144,15 @@ santok_backend/
 
 #### 1. Large Files/Folders
 - ❌ **ZIP files** (5 files, ~4.8 GB total)
-  - `santok_complete_module_20251110_123643.zip` (4.8 GB)
-  - `santok_backend_20251109_213213.zip` (141 MB)
-  - `santok_backend_20251110_124814.zip` (140 MB)
-  - `santok_complete_module_20251106_120142.zip` (706 MB)
-  - `santok_complete_module_20251106_120425.zip` (712 MB)
+  - `soma_complete_module_20251110_123643.zip` (4.8 GB)
+  - `soma_backend_20251109_213213.zip` (141 MB)
+  - `soma_backend_20251110_124814.zip` (140 MB)
+  - `soma_complete_module_20251106_120142.zip` (706 MB)
+  - `soma_complete_module_20251106_120425.zip` (712 MB)
 
 #### 2. Duplicate Backend Folders
 - ❌ **backend/** - Duplicate backend code
-- ❌ **santok_backend/** - Another duplicate backend
+- ❌ **soma_backend/** - Another duplicate backend
 
 #### 3. Frontend Code
 - ❌ **frontend/** - React/Next.js frontend (54 files)
@@ -208,7 +208,7 @@ santok_backend/
 #### Core Code
 - ✅ **src/** - Core source code (same functionality)
 - ✅ **examples/** - Demo scripts (subset in demo)
-- ✅ **santok/** - Package code (same)
+- ✅ **soma/** - Package code (same)
 - ✅ **main.py** - Entry point (same)
 - ✅ **setup.py** - Setup script (same)
 - ✅ **requirements.txt** - Dependencies (simplified in demo)
@@ -248,7 +248,7 @@ Config files:           ~0.01 MB
 - **Clean and organized**
 
 ### 3. Backend Folders are Duplicates
-- **backend/** and **santok_backend/** are duplicates of root `src/` and `santok/`
+- **backend/** and **soma_backend/** are duplicates of root `src/` and `soma/`
 - **Not needed** for demo (demo uses root code)
 - **Used for packaging** and sharing
 
@@ -261,7 +261,7 @@ Config files:           ~0.01 MB
 ## ✅ Recommendations
 
 ### For Demo
-✅ **Use `demo_santok/` folder**
+✅ **Use `demo_soma/` folder**
 - Clean and organized
 - Only essentials
 - Ready for presentation
@@ -275,14 +275,14 @@ Config files:           ~0.01 MB
 - Full development environment
 
 ### For Sharing Backend
-✅ **Use `backend/` or `santok_backend/` folder**
+✅ **Use `backend/` or `soma_backend/` folder**
 - Contains backend code
 - Has documentation
 - Ready for packaging
 
 ## 📝 Summary
 
-| Aspect | Original | Demo | Backend | Santok_Backend |
+| Aspect | Original | Demo | Backend | Soma_Backend |
 |--------|----------|------|---------|----------------|
 | **Size** | 40.4 GB | 0.61 MB | ~10 MB | ~10 MB |
 | **Files** | 27,672 | 69 | ~100 | ~100 |

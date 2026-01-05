@@ -2,7 +2,7 @@
 
 ## Overview
 
-Usage examples demonstrating SanTOK capabilities.
+Usage examples demonstrating SOMA capabilities.
 
 ## Examples
 
@@ -14,7 +14,7 @@ Usage examples demonstrating SanTOK capabilities.
 | `use_vector_store.py`                   | Vector store usage              |
 | `comprehensive_vector_store_example.py` | Comprehensive vector store demo |
 | `integration_with_transformers.py`      | Transformers integration        |
-| `train_santok_60k_vocab.py`             | 60K vocabulary training         |
+| `train_soma_60k_vocab.py`             | 60K vocabulary training         |
 
 ## Running Examples
 

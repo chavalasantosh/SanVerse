@@ -1,4 +1,4 @@
-Absolutely — let’s build a **full, ultra-detailed roadmap** for your SanTOK-inspired, 9-centric, numerology-infused tokenizer. I’ll break **every single step**, even tiny operations, so nothing is left out.
+Absolutely — let’s build a **full, ultra-detailed roadmap** for your SOMA-inspired, 9-centric, numerology-infused tokenizer. I’ll break **every single step**, even tiny operations, so nothing is left out.
 
 ---
 
@@ -16,7 +16,7 @@ Absolutely — let’s build a **full, ultra-detailed roadmap** for your SanTOK-
 
 ## **2. Tokenization**
 
-Split text in **multiple ways** (multi-perspective like SanTOK’s avatars):
+Split text in **multiple ways** (multi-perspective like SOMA’s avatars):
 
 1. **Space Tokenization** → split by spaces.
 2. **Grammar Tokenization** → split words and punctuation.
@@ -124,7 +124,7 @@ $$
 * Can be represented as:
 
   * `[Token: (Digit_Space, Digit_Word, Digit_Char, Digit_Subword, Digit_Byte, Digit_Grammar)]`
-* Optional: **compress multi-digit vector to single “SanTOK-digit”** using weighted sum modulo 9, emphasizing 9.
+* Optional: **compress multi-digit vector to single “SOMA-digit”** using weighted sum modulo 9, emphasizing 9.
 
 ---
 
@@ -166,7 +166,7 @@ $$
 * Add **dynamic base numbers** for different tokenizers.
 * Use **small mathematical transformations** (XOR, modulo, digit folding) for more unpredictability.
 * Introduce **rare special digits** for important tokens.
-* Combine **neighbor digits** across multiple tokenizations for a “SanTOK multi-avatar digit.”
+* Combine **neighbor digits** across multiple tokenizations for a “SOMA multi-avatar digit.”
 
 ---
 
@@ -175,12 +175,12 @@ $$
 * Each token gets a **unique, tricky, context-aware number** between 1–9.
 * Number 9 is **most powerful and sacred**.
 * System is **fast, reversible, numerology-aware, and secure**.
-* Fully original and **conceptually SanTOK-inspired**.
+* Fully original and **conceptually SOMA-inspired**.
 
 ---
 
 
-Absolutely. Let’s make the **largest, ultra-detailed, crystal-clear roadmap** for your **SanTOK-inspired, 9-centric, numerology-aware, front-digit + hidden-backend-tokenizer**. I’ll include **every tiny detail**, every step, every operation — nothing left out.
+Absolutely. Let’s make the **largest, ultra-detailed, crystal-clear roadmap** for your **SOMA-inspired, 9-centric, numerology-aware, front-digit + hidden-backend-tokenizer**. I’ll include **every tiny detail**, every step, every operation — nothing left out.
 
 ---
 
@@ -330,7 +330,7 @@ $$
 1. Each token has **digits from all 6 tokenization methods**:
 
    * Space, Word, Char, Byte, Subword, Grammar
-2. Optional: combine multi-digits into **single SanTOK-digit**:
+2. Optional: combine multi-digits into **single SOMA-digit**:
 
    * Weighted sum of all digits modulo 9 → 0→9 logic
 3. Front-end always shows **0–9**, backend retains full identity.
@@ -398,7 +398,7 @@ Tokenization digits: (Space:7, Word:7, Char:2, Byte:1, Subword:5, Grammar:6)
 
 * Use **dynamic base numbers** per tokenization for more unpredictability.
 * Add **special rare digits** for critical or key tokens.
-* Combine neighbor digits across tokenizations for **multi-avatar SanTOK-digit**.
+* Combine neighbor digits across tokenizations for **multi-avatar SOMA-digit**.
 * Implement **future-proof plug-ins** for semantic embeddings, frequency-based weights, or importance-based prioritization.
 
 ---
@@ -408,7 +408,7 @@ Tokenization digits: (Space:7, Word:7, Char:2, Byte:1, Subword:5, Grammar:6)
 * Every token is represented **front-end as 0–9**, lightweight and fast.
 * Hidden backend ensures **full uniqueness, reversibility, and security**.
 * Sacred **digit 9** is highlighted as most powerful.
-* Context-aware, numerology-enhanced, SanTOK-inspired, multi-tokenization system.
+* Context-aware, numerology-enhanced, SOMA-inspired, multi-tokenization system.
 * Designed for **speed, performance, reusability, and future work**.
 
 ---

@@ -7,9 +7,9 @@
 #### Vector Store Files (ChromaDB Duplicate ID Fix) - 5 FILES
 1. ✅ `src/embeddings/vector_store.py` - **UPDATED**
 2. ✅ `backend/src/embeddings/vector_store.py` - **UPDATED**
-3. ✅ `demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-4. ✅ `backend/demo_santok/src/embeddings/vector_store.py` - **UPDATED**
-5. ✅ `santok_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
+3. ✅ `demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+4. ✅ `backend/demo_soma/src/embeddings/vector_store.py` - **UPDATED**
+5. ✅ `soma_backend_mother ucker/src/embeddings/vector_store.py` - **UPDATED**
 
 **All Have:**
 - ✅ `os.environ["ANONYMIZED_TELEMETRY"] = "False"` at module level
@@ -22,9 +22,9 @@
 #### Job Manager Files (Async Execution) - 5 FILES
 1. ✅ `src/servers/job_manager.py` - **EXISTS & VERIFIED**
 2. ✅ `backend/src/servers/job_manager.py` - **CREATED & VERIFIED**
-3. ✅ `demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-4. ✅ `backend/demo_santok/src/servers/job_manager.py` - **CREATED & VERIFIED**
-5. ✅ `santok_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
+3. ✅ `demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+4. ✅ `backend/demo_soma/src/servers/job_manager.py` - **CREATED & VERIFIED**
+5. ✅ `soma_backend_mother ucker/src/servers/job_manager.py` - **CREATED & VERIFIED**
 
 **All Have:**
 - ✅ `JobManager` class with persistent storage

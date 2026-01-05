@@ -2,8 +2,8 @@
 
 ## 📁 Folder Locations
 
-1. **Original Folder**: Root directory (SanTOK project)
-2. **Demo Folder**: `demo_santok/`
+1. **Original Folder**: Root directory (SOMA project)
+2. **Demo Folder**: `demo_soma/`
 3. **Backup Folder**: Check if exists
 
 ## 🔍 Comparison Analysis
@@ -14,9 +14,9 @@
 Original/
 ├── src/                    ✅ Core source code
 ├── examples/               ✅ Demo scripts
-├── santok/                 ✅ Package code
+├── soma/                 ✅ Package code
 ├── backend/                ❌ REMOVED from demo
-├── santok_backend/         ❌ REMOVED from demo
+├── soma_backend/         ❌ REMOVED from demo
 ├── frontend/               ❌ REMOVED from demo
 ├── n8n/                    ❌ REMOVED from demo
 ├── docs/                   ❌ REMOVED from demo
@@ -37,10 +37,10 @@ Original/
 ### Demo Folder Structure
 
 ```
-demo_santok/
+demo_soma/
 ├── src/                    ✅ Core source code (cleaned)
 ├── examples/               ✅ Essential demo scripts only
-├── santok/                 ✅ Package code
+├── soma/                 ✅ Package code
 ├── main.py                 ✅ Entry point
 ├── setup.py                ✅ Setup script
 ├── requirements.txt        ✅ Minimal dependencies
@@ -79,7 +79,7 @@ demo_santok/
    - ❌ Removed: Output files
    - ❌ Removed: Test data files
 
-3. **Package Code** (`santok/`)
+3. **Package Code** (`soma/`)
    - ✅ All package files
    - ✅ CLI interface
    - ✅ Package initialization
@@ -107,7 +107,7 @@ demo_santok/
 
 1. **Removed Folders**
    - ❌ `backend/` - Duplicate backend code
-   - ❌ `santok_backend/` - Duplicate backend code
+   - ❌ `soma_backend/` - Duplicate backend code
    - ❌ `frontend/` - Frontend code (not needed for backend demo)
    - ❌ `n8n/` - n8n workflows (not essential)
    - ❌ `docs/` - Documentation files (too many)
@@ -199,7 +199,7 @@ Let me check if there's a backup folder...
 
 ## 🎯 Recommendation
 
-**For Demo**: Use `demo_santok/` folder
+**For Demo**: Use `demo_soma/` folder
 - Clean and organized
 - Only essentials
 - Ready for presentation

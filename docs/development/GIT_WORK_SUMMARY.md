@@ -1,7 +1,7 @@
-# Complete Git Work Summary - SanTOK Project
+# Complete Git Work Summary - SOMA Project
 
 ## Repository Information
-- **Repository URL**: https://github.com/chavalasantosh/SanTOK.git
+- **Repository URL**: https://github.com/chavalasantosh/SOMA.git
 - **Current Branch**: `backup`
 - **Status**: All commits pushed to `origin/backup`
 - **Last Commit**: `6695b76` - "all done"
@@ -73,7 +73,7 @@ Fixed critical bugs in the frontend codebase:
 1. **6695b76** (HEAD, origin/backup) - "all done"
    - Final commit with all fixes and distribution setup
 
-2. **2a76cd3** - "Add all remaining files - complete SanTOK codebase with everything"
+2. **2a76cd3** - "Add all remaining files - complete SOMA codebase with everything"
    - Added all remaining untracked files
    - Complete codebase push
 
@@ -85,7 +85,7 @@ Fixed critical bugs in the frontend codebase:
    - All distribution setup files
    - Setup scripts, run scripts, documentation
 
-5. **376925f** - "SanTOK - Complete codebase with all files including distribution setup"
+5. **376925f** - "SOMA - Complete codebase with all files including distribution setup"
    - Initial distribution setup commit
 
 ### Merge Commits:
@@ -134,8 +134,8 @@ These files remain untracked (some due to Windows path length limits):
 Your team can now:
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/chavalasantosh/SanTOK.git
-   cd SanTOK
+   git clone https://github.com/chavalasantosh/SOMA.git
+   cd SOMA
    git checkout backup
    ```
 

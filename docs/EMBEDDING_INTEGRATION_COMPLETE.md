@@ -1,4 +1,4 @@
-# SanTOK Embedding Integration - Complete ✅
+# SOMA Embedding Integration - Complete ✅
 
 ## What Was Done
 
@@ -179,7 +179,7 @@ curl -X POST http://localhost:8000/embeddings/generate \
 
 ## Summary
 
-✅ **Complete integration** of embeddings into SanTOK
+✅ **Complete integration** of embeddings into SOMA
 ✅ **Full-stack implementation** (backend + frontend)
 ✅ **Production-ready** with error handling
 ✅ **Well-documented** with examples

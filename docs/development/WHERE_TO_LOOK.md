@@ -1,4 +1,4 @@
-# 🎯 WHERE TO LOOK - SanTOK Codebase Guide
+# 🎯 WHERE TO LOOK - SOMA Codebase Guide
 
 ## 📂 **MAIN DIRECTORIES (Focus Here!)**
 
@@ -55,7 +55,7 @@
 → Key files: `core_tokenizer.py`, `embedding_generator.py`, `vector_store.py`
 
 ### Deploy to Railway:
-→ Use: `santok_railway.zip` (already created!)
+→ Use: `soma_railway.zip` (already created!)
 → Or check: `railway/` folder for deployment scripts
 
 ---
@@ -63,7 +63,7 @@
 ## 📝 **IGNORE THESE (Not Critical):**
 
 - `docs/` - Documentation
-- `demo_santok/` - Demo folder
+- `demo_soma/` - Demo folder
 - `*.bat`, `*.sh`, `*.ps1` - Development scripts
 - `*.zip` - Old ZIP files
 - `*.md` - Documentation files (except README.md)

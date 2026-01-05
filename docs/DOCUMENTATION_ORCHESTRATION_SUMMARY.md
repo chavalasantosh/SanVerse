@@ -21,9 +21,9 @@ docs/
 ├── FSR_Full_System_Requirements.md
 ├── TSR_Technical_System_Requirements.md
 ├── DOCUMENTATION_INDEX.md
-├── SanTOK_Tokenizer_Documentation.md
-├── SanTOK_Tokenizer_Simple_Guide.md
-├── SanTOK_TOKENIZER_FOR_BEGINNERS.md
+├── SOMA_Tokenizer_Documentation.md
+├── SOMA_Tokenizer_Simple_Guide.md
+├── SOMA_TOKENIZER_FOR_BEGINNERS.md
 ├── MATHEMATICS_FOR_BEGINNERS.md
 ├── TOKENIZATION_MATHEMATICS.md
 ├── MATH_REFERENCE_CARD.md

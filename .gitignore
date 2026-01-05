@@ -151,9 +151,9 @@ comprehensive_scan_report.txt
 
 # Archive directories (old backups, not active code)
 archive/
-demo_santok/
+demo_soma/
 python_code_collection/
-santok_backend_mother ucker/
+soma_backend_mother ucker/
 
 # Non-core directories (not essential for tokenization library)
 frontend_v2/
@@ -195,14 +195,14 @@ examples/*.parquet
 
 # Duplicate backend code (src/ is the main source - backend/ was duplicate)
 backend/src/
-backend/santok/
+backend/soma/
 backend/demo_complete_workflow.py
 backend/run_all_python.py
 backend/setup.py
 
 # Development utility scripts (not production code)
 collect_python_files.py
-create_santok_zip.py
+create_soma_zip.py
 package_backend.py
 run_all_python.py
 verify_installation.py

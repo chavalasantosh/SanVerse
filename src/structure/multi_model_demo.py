@@ -1,5 +1,5 @@
 """
-SanTEK Multi-Model System - Complete Demo
+SOMA Core Multi-Model System - Complete Demo
 ==========================================
 
 Demonstrates the REAL multi-model system with:
@@ -8,7 +8,7 @@ Demonstrates the REAL multi-model system with:
 - Fluency and understanding
 - Multi-model integration
 
-This shows SanTEK as a REAL multi-model system!
+This shows SOMA Core as a REAL multi-model system!
 """
 
 import sys
@@ -17,7 +17,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 print("=" * 70)
-print("SanTEK Multi-Model System - COMPLETE DEMO")
+print("SOMA Core Multi-Model System - COMPLETE DEMO")
 print("=" * 70)
 print()
 print("REAL Multi-Model System with Deep Understanding from ALL Angles!")
@@ -25,7 +25,7 @@ print()
 
 try:
     from src.structure import (
-        SanTEKMultiModel,
+        SOMA CoreMultiModel,
         DeepStructuralReasoner,
         RelationshipGraph,
         DataUnderstanding
@@ -39,11 +39,11 @@ try:
     # ========================================================================
     
     print("=" * 70)
-    print("PART 1: SanTEK Multi-Model System")
+    print("PART 1: SOMA Core Multi-Model System")
     print("=" * 70)
     print()
     
-    multi_model = SanTEKMultiModel()
+    multi_model = SOMA CoreMultiModel()
     
     text = "cat cat dog cat mouse python java python machine learning artificial intelligence"
     print(f"Learning from: '{text}'")
@@ -213,7 +213,7 @@ try:
     # ========================================================================
     
     print("\n" + "=" * 70)
-    print("✅ SanTEK Multi-Model System - COMPLETE!")
+    print("✅ SOMA Core Multi-Model System - COMPLETE!")
     print("=" * 70)
     print()
     print("What we built:")
@@ -233,7 +233,7 @@ try:
     print("  ✓ Temporal (how things change)")
     print("  ✓ Relational (how things connect)")
     print()
-    print("SanTEK is now a REAL Multi-Model System! 🚀")
+    print("SOMA Core is now a REAL Multi-Model System! 🚀")
     print()
     
 except ImportError as e:

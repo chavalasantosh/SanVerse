@@ -1,8 +1,8 @@
-# SanTOK Architecture - Quick Reference
+# SOMA Architecture - Quick Reference
 
-## 🎯 What is SanTOK?
+## 🎯 What is SOMA?
 
-**SanTOK** = Self-contained Advanced Text Tokenization Framework
+**SOMA** = Self-contained Advanced Text Tokenization Framework
 
 - **Tokenization** - Breaks text into tokens
 - **Embeddings** - Converts tokens to vectors
@@ -30,7 +30,7 @@
 - **File:** `src/embeddings/semantic_trainer.py`
 - **Type:** OWN
 - **Method:** Co-occurrence-based learning
-- **No pretrained models** - Learns from SanTOK structure
+- **No pretrained models** - Learns from SOMA structure
 
 ### 4. Vector Store (OWN + EXTERNAL)
 - **File:** `src/embeddings/vector_store.py`
@@ -45,7 +45,7 @@
 ### 6. Integration (OWN + EXTERNAL)
 - **File:** `src/integration/vocabulary_adapter.py`
 - **Type:** OWN (adapter) + EXTERNAL (transformers)
-- **Purpose:** Maps SanTOK tokens to model vocabularies
+- **Purpose:** Maps SOMA tokens to model vocabularies
 
 ---
 
@@ -101,7 +101,7 @@ backend/
 │   ├── integration/       # Model Integration
 │   ├── compression/       # Compression Algorithms (OWN)
 │   └── utils/             # Utilities (OWN)
-├── santok/                # Main Package
+├── soma/                # Main Package
 ├── requirements.txt       # Dependencies
 └── setup.py              # Package Setup
 ```

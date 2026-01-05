@@ -1,4 +1,4 @@
-# 🚀 SanTOK Advanced Execution Workflow - Guide
+# 🚀 SOMA Advanced Execution Workflow - Guide
 
 ## 🌟 Features
 
@@ -29,7 +29,7 @@ cd n8n
 ### Step 1: Open the Workflow
 
 1. Open n8n: `http://localhost:5678`
-2. Find **"SanTOK Advanced Execution"** workflow
+2. Find **"SOMA Advanced Execution"** workflow
 
 ### Step 2: Configure Input
 
@@ -235,7 +235,7 @@ Available options:
 ### Analysis/Compression not showing
 
 - Check `enableAnalysis` and `enableCompression` flags
-- Verify SanTOK API is running on port 8000
+- Verify SOMA API is running on port 8000
 - Check if endpoints `/analyze` and `/compress` are available
 
 ### Validation failing
@@ -265,5 +265,5 @@ Available options:
 
 ---
 
-Enjoy your advanced SanTOK processing! 🚀
+Enjoy your advanced SOMA processing! 🚀
 
