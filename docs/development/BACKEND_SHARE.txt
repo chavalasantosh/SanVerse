@@ -1,0 +1,39 @@
+================================================================================
+SIMPLE GUIDE - SHARE BACKEND WITH COLLEAGUE
+================================================================================
+
+STEP 1: Create Package
+----------------------
+Run: python package_backend.py
+
+This creates: santok_backend_YYYYMMDD_HHMMSS.zip
+
+STEP 2: Share the ZIP File
+---------------------------
+- Email it
+- Upload to Google Drive
+- Any method you prefer
+
+STEP 3: Tell Your Colleague
+----------------------------
+1. Extract the ZIP file
+2. Run: pip install -r requirements.txt
+3. Run: python src/servers/main_server.py
+4. Open: http://localhost:8000/docs
+
+WHAT'S IN THE PACKAGE?
+----------------------
+- Backend code (src/)
+- Dependencies (requirements.txt)
+- Setup (setup.py)
+- Documentation (backend/)
+- NO frontend
+- NO examples
+- NO output data
+
+THAT'S IT!
+----------
+Just share the ZIP file. Your colleague has everything they need.
+
+================================================================================
+

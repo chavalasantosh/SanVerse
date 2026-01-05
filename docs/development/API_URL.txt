@@ -1,0 +1,10 @@
+🚀 SanTOK API is Live!
+
+Base URL: https://keen-happiness-production.up.railway.app
+
+Quick Links:
+- API Docs: https://keen-happiness-production.up.railway.app/docs
+- Health Check: https://keen-happiness-production.up.railway.app/health
+
+Share this URL with anyone who needs to use the API!
+

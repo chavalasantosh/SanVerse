@@ -1,0 +1,892 @@
+================================================================================
+Python File Execution Log
+================================================================================
+Start Time: 2025-11-10 12:29:09
+Directory: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend
+Python: C:\Users\SCHAVALA\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\python.exe
+Python Version: 3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]
+Total Files: 39
+================================================================================
+
+
+================================================================================
+File: demo_complete_workflow.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py
+Time: 2025-11-10 12:29:09
+================================================================================
+
+=== STDOUT ===
+================================================================================
+ SANTOK COMPLETE DEMO - Tokenization to Semantic Embeddings
+================================================================================
+
+Output directory: demo_output
+Timestamp: 2025-11-10T12:29:20.820005
+
+
+================================================================================
+ DEMO 1: TOKENIZATION
+================================================================================
+
+
+Text: Hello world! This is a test.
+------------------------------------------------------------
+
+  Tokenizer: space
+    Tokens: 11
+    Reconstructed: Hello world! This is a test.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: word
+    Tokens: 13
+    Reconstructed: Hello world! This is a test.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: char
+    Tokens: 28
+    Reconstructed: Hello world! This is a test.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+Text: Artificial intelligence is transforming technology.
+------------------------------------------------------------
+
+  Tokenizer: space
+    Tokens: 9
+    Reconstructed: Artificial intelligence is transforming technology.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: word
+    Tokens: 10
+    Reconstructed: Artificial intelligence is transforming technology.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: char
+    Tokens: 51
+    Reconstructed: Artificial intelligence is transforming technology.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+Text: Machine learning and deep learning are powerful tools.
+------------------------------------------------------------
+
+  Tokenizer: space
+    Tokens: 15
+    Reconstructed: Machine learning and deep learning are powerful tools.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: word
+    Tokens: 16
+    Reconstructed: Machine learning and deep learning are powerful tools.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: char
+    Tokens: 54
+    Reconstructed: Machine learning and deep learning are powerful tools.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+Text: Natural language processing enables computers to understand text.
+------------------------------------------------------------
+
+  Tokenizer: space
+    Tokens: 15
+    Reconstructed: Natural language processing enables computers to understand text.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: word
+    Tokens: 16
+    Reconstructed: Natural language processing enables computers to understand text.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+
+  Tokenizer: char
+    Tokens: 65
+    Reconstructed: Natural language processing enables computers to understand text.
+    Perfect: Yes
+    Sample tokens: ['', '', '', '', '']
+  [SAVED] demo_output\1_tokenization_results.json
+  [SAVED] demo_output\1_tokenization_summary.json
+
+=== STDERR ===
+C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
+  warnings.warn("sentence-transformers not available. Hybrid embeddings will not work.")
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 538, in main
+    tokenization_results = demo_tokenization()
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 128, in demo_tokenization
+    print("\n\u2705 Tokenization demo complete!")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 569, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\demo_complete_workflow.py", line 564, in main
+    print(f"\n\u274c Error during demo: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: santok\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\__init__.py
+Time: 2025-11-10 12:29:21
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\__init__.py", line 11, in <module>
+    from .santok import (
+    ...<4 lines>...
+    )
+ImportError: attempted relative import with no known parent package
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: santok\cli.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\cli.py
+Time: 2025-11-10 12:29:22
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\cli.py", line 9, in <module>
+    from .santok import TextTokenizationEngine
+ImportError: attempted relative import with no known parent package
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: santok\santok.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\santok\santok.py
+Time: 2025-11-10 12:29:22
+================================================================================
+
+=== STDOUT ===
+SanTOK Tokenization Engine Module Example
+==================================================
+Original: Hello World! This is a test.
+Preprocessed: hello world! this is a test.
+Tokens: ['hello', 'world!', 'this', 'is', 'a', 'test.']
+Frontend Digits: [3, 6, 1, 1, 8, 5]
+Features: {'length_factor': 6, 'balance_index': 4, 'entropy_index': 6, 'mean': 4.0, 'variance': 6.666666666666667}
+
+==================================================
+whitespace: 6 tokens
+word: 6 tokens
+character: 28 tokens
+subword: 10 tokens
+
+==================================================
+Summary: {'text_length': 28, 'token_count': 6, 'unique_tokens': 6, 'frontend_digits': [3, 6, 1, 1, 8, 5], 'statistical_features': {'length_factor': 6, 'balance_index': 4, 'entropy_index': 6, 'mean': 4.0, 'variance': 6.666666666666667}}
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: setup.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py
+Time: 2025-11-10 12:29:22
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\setup.py", line 8, in <module>
+    with open("README.md", "r", encoding="utf-8") as fh:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'README.md'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\cli\decode_demo.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py
+Time: 2025-11-10 12:29:23
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\decode_demo.py", line 15, in <module>
+    from core_tokenizer import tokenize_text, reconstruct_from_tokens
+ModuleNotFoundError: No module named 'core_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\cli\main.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\cli\main.py
+Time: 2025-11-10 12:29:24
+================================================================================
+
+=== STDERR ===
+usage: main.py [-h]
+               [-t {space,word,char,grammar,subword,subword_bpe,subword_syllable,subword_frequency,byte}]
+               [-o OUTPUT] [-f {json,csv,txt,xml}] [--decode]
+               [--tokens TOKENS]
+               text
+main.py: error: the following arguments are required: text
+
+
+=== EXIT CODE: 2 ===
+Status: ❌ FAILED (exit code: 2)
+
+================================================================================
+File: src\compression\compression_algorithms.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\compression\compression_algorithms.py
+Time: 2025-11-10 12:29:24
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\core\base_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\base_tokenizer.py
+Time: 2025-11-10 12:29:24
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\core\core_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py
+Time: 2025-11-10 12:29:25
+================================================================================
+
+=== STDOUT ===
+Input mode? 1=text, 2=file path:
+Enter text:
+final_text: 
+sanitization_math: {'lower': True, 'drop_specials': False, 'collapse_repeats_to': 1}
+text_value: {'weighted_sum': 0, 'alphabetic_sum': 0, 'signature_digit': 1, 'compat_digit': 3, 'final_digit': 3}
+Enter integer seed (e.g., 12345):
+Use embedding bit? (0/1):
+text_value_with_embedding: {'weighted_sum': 0, 'alphabetic_sum': 0, 'signature_digit': 1, 'compat_digit': 3, 'final_digit': 3}
+
+=== ENHANCED TOKENIZATION ANALYSIS ===
+space: 0 tokens, 0 unique, avg_len=0.00
+word: 0 tokens, 0 unique, avg_len=0.00
+char: 0 tokens, 0 unique, avg_len=0.00
+grammar: 0 tokens, 0 unique, avg_len=0.00
+subword: 0 tokens, 0 unique, avg_len=0.00
+subword_bpe: 0 tokens, 0 unique, avg_len=0.00
+subword_syllable: 0 tokens, 0 unique, avg_len=0.00
+subword_frequency: 0 tokens, 0 unique, avg_len=0.00
+byte: 0 tokens, 0 unique, avg_len=0.00
+
+=== STABILITY & REVERSIBILITY VALIDATION ===
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 3135, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\core_tokenizer.py", line 2736, in main
+    print(f"{name}: {status} (rev:{reversibility}, ids:{unique_ids}, det:{deterministic}, perf:{performance:.6f}s)")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 7: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\core\parallel_tokenizer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\core\parallel_tokenizer.py
+Time: 2025-11-10 12:30:37
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\embeddings\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py
+Time: 2025-11-10 12:30:37
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\__init__.py", line 8, in <module>
+    from .embedding_generator import SanTOKEmbeddingGenerator
+ImportError: attempted relative import with no known parent package
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\embeddings\embedding_generator.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py
+Time: 2025-11-10 12:30:38
+================================================================================
+
+=== STDERR ===
+C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\embedding_generator.py:21: UserWarning: sentence-transformers not available. Hybrid embeddings will not work.
+  warnings.warn("sentence-transformers not available. Hybrid embeddings will not work.")
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\embeddings\inference_pipeline.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py
+Time: 2025-11-10 12:30:49
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 15, in <module>
+    from ..core.core_tokenizer import TextTokenizer
+ImportError: attempted relative import with no known parent package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 18, in <module>
+    from src.core.core_tokenizer import TextTokenizer
+ModuleNotFoundError: No module named 'src'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\inference_pipeline.py", line 20, in <module>
+    from core.core_tokenizer import TextTokenizer
+ModuleNotFoundError: No module named 'core'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\embeddings\semantic_trainer.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\semantic_trainer.py
+Time: 2025-11-10 12:30:49
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\embeddings\vector_store.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\embeddings\vector_store.py
+Time: 2025-11-10 12:30:50
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\examples\demo_enhanced_tokenization.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py
+Time: 2025-11-10 12:30:53
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_enhanced_tokenization.py", line 10, in <module>
+    from SanTOK_tokenizer import (
+    ...<3 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\examples\demo_stable_system.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py
+Time: 2025-11-10 12:30:53
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_stable_system.py", line 9, in <module>
+    from SanTOK_tokenizer import (
+    ...<3 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\examples\demo_universal_files.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py
+Time: 2025-11-10 12:30:53
+================================================================================
+
+=== STDOUT ===
+SanTOK Tokenizer - Universal File Handling Demo
+==================================================
+
+Created test files in 'test_files/' directory:
+- sample.txt (text file)
+- sample.json (JSON file)
+- sample.csv (CSV file)
+- sample.bin (binary file)
+- sample.py (Python code file)
+
+============================================================
+UNIVERSAL FILE HANDLING DEMONSTRATION
+============================================================
+
+The SanTOK Tokenizer can now handle:
+
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 174, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 158, in main
+    demonstrate_universal_handling()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\demo_universal_files.py", line 72, in demonstrate_universal_handling
+    print("\U0001f4c1 INPUT FILES (ANY TYPE):")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c1' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\examples\test_files\sample.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\examples\test_files\sample.py
+Time: 2025-11-10 12:30:54
+================================================================================
+
+=== STDOUT ===
+Hello from SanTOK Tokenizer!
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\integration\__init__.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py
+Time: 2025-11-10 12:30:54
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\__init__.py", line 7, in <module>
+    from .vocabulary_adapter import (
+    ...<4 lines>...
+    )
+ImportError: attempted relative import with no known parent package
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\integration\vocabulary_adapter.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\integration\vocabulary_adapter.py
+Time: 2025-11-10 12:30:54
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+File: src\performance\comprehensive_performance_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py
+Time: 2025-11-10 12:31:05
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 242, in <module>
+    results = comprehensive_performance_test()
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\comprehensive_performance_test.py", line 158, in comprehensive_performance_test
+    print("\U0001f680 SanTOK Comprehensive Performance Test")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\performance\test_accuracy.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py
+Time: 2025-11-10 12:31:06
+================================================================================
+
+=== STDOUT ===
+Testing SanTOK reconstruction accuracy...
+============================================================
+
+Testing SPACE tokenization:
+------------------------------
+  1. ERROR: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+  2. ERROR: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+  3. ERROR: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+  4. ERROR: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+  5. ERROR: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+  Accuracy: 100.0% (5/5)
+  Errors found:
+    - Hello, world!: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+    - This is a test.: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+    - Special chars: @#$%^&*(): 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+    - Numbers: 12345.67890: 'charmap' codec can't encode character '\u2705' in position 5: character maps to <undefined>
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 171, in <module>
+    results = test_reconstruction_accuracy()
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_accuracy.py", line 99, in test_reconstruction_accuracy
+    print(f'    - {error["text"]}: {error["error"]}')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 15-18: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\performance\test_organized_outputs.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py
+Time: 2025-11-10 12:31:06
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\performance\test_organized_outputs.py", line 8, in <module>
+    from core_tokenizer import tokenize_text
+ModuleNotFoundError: No module named 'core_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\servers\api_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\api_server.py
+Time: 2025-11-10 12:31:07
+================================================================================
+
+=== STDOUT ===
+Error importing modules: cannot import name 'SanTOKTokenizer' from 'core.core_tokenizer' (C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\..\core\core_tokenizer.py)
+Make sure core_tokenizer.py, compression_algorithms.py, and unique_identifier.py are in the same directory
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\servers\lightweight_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py
+Time: 2025-11-10 12:31:08
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\lightweight_server.py", line 23, in <module>
+    print("\u2705 Successfully imported engine module")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\servers\main_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py
+Time: 2025-11-10 12:31:09
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\main_server.py", line 34, in <module>
+    print("\u2705 Successfully imported engine module with REAL SanTOK engine")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\servers\simple_server.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py
+Time: 2025-11-10 12:31:10
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\servers\simple_server.py", line 23, in <module>
+    print("\u2705 Successfully imported core modules")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\advanced_comprehensive_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py
+Time: 2025-11-10 12:31:11
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 670, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\advanced_comprehensive_test.py", line 657, in main
+    print("\U0001f680 SanTOK Advanced Comprehensive Testing Framework")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\extreme_stress_test.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py
+Time: 2025-11-10 12:31:11
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 624, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\extreme_stress_test.py", line 598, in main
+    print("\U0001f680 SanTOK Extreme Stress Testing Framework")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\real_time_monitor.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py
+Time: 2025-11-10 12:31:12
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\real_time_monitor.py", line 27, in <module>
+    import curses
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\curses\__init__.py", line 13, in <module>
+    from _curses import *
+ModuleNotFoundError: No module named '_curses'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\run_tests.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py
+Time: 2025-11-10 12:31:15
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 109, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\run_tests.py", line 39, in main
+    print("\U0001f680 SanTOK TOKENIZER - TEST RUNNER")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\test_multilang_parallel.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py
+Time: 2025-11-10 12:31:15
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 172, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_multilang_parallel.py", line 151, in main
+    print("\U0001f680 SanTOK Multi-language & Parallel Processing Test")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\test_scripts\test_comprehensive.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py
+Time: 2025-11-10 12:31:16
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_comprehensive.py", line 23, in <module>
+    from SanTOK_tokenizer import (
+    ...<6 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\test_scripts\test_compression_efficiency.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py
+Time: 2025-11-10 12:31:16
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_compression_efficiency.py", line 12, in <module>
+    from SanTOK_tokenizer import (
+    ...<3 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\test_scripts\test_full_reversibility.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py
+Time: 2025-11-10 12:31:16
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_full_reversibility.py", line 12, in <module>
+    from SanTOK_tokenizer import (
+    ...<3 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\tests\test_scripts\test_stable_tokenization.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py
+Time: 2025-11-10 12:31:17
+================================================================================
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\tests\test_scripts\test_stable_tokenization.py", line 13, in <module>
+    from SanTOK_tokenizer import (
+    ...<3 lines>...
+    )
+ModuleNotFoundError: No module named 'SanTOK_tokenizer'
+
+
+=== EXIT CODE: 1 ===
+Status: ❌ FAILED (exit code: 1)
+
+================================================================================
+File: src\utils\unique_identifier.py
+Full Path: C:\Users\SCHAVALA\Downloads\TOK\SanTOK_OLD\SanTOK-9a284bcf1b497d32e2041726fa2bba1e662d2770\backend\src\utils\unique_identifier.py
+Time: 2025-11-10 12:31:17
+================================================================================
+
+
+=== EXIT CODE: 0 ===
+Status: ✅ SUCCESS
+
+================================================================================
+EXECUTION SUMMARY
+================================================================================
+End Time: 2025-11-10 12:31:17
+Total Files: 39
+✅ Successful: 10
+❌ Failed: 29
+⏭️  Skipped: 0
+================================================================================
