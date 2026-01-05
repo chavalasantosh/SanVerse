@@ -8,7 +8,7 @@ version = "1.0.0"
 authors = [
     { name = "Santosh Chavala", email = "chavalasantosh@gmail.com" }
 ]
-description = "SOMA - Advanced AI Tokenization & Intelligence Framework (Shiva's Moon)"
+description = "SOMA - Advanced Tokenization & Intelligence Framework"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.8"
@@ -22,7 +22,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Text Processing :: Linguistic",
 ]
-keywords = ["soma", "tokenization", "ai", "nlp", "embeddings", "intelligence"]
+keywords = ["soma", "tokenization", "nlp", "embeddings", "intelligence"]
 dependencies = []
 
 [project.scripts]

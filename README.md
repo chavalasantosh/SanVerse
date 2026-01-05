@@ -1,10 +1,8 @@
-# SOMA - Shiva's Moon AI Framework
+# SOMA - Advanced Tokenization & Intelligence Framework
 
 ## Overview
 
-**SOMA** (formerly SanTOK) is an advanced AI tokenization and intelligence framework symbolizing the perfect balance of power and calm intelligence. It provides comprehensive text analysis, semantic embeddings, and Small Language Models (SLMs).
-
-_"Soma" represents the divine nectar and the moon that adorns Lord Shiva, signifying enhanced perception and enlightenment._
+**SOMA** is a comprehensive text tokenization system with mathematical analysis, semantic embeddings, and Small Language Models (SLMs). It provides multiple tokenization methods, embedding generation, training pipelines, and a full-featured API server.
 
 ## Quick Start
 
@@ -24,7 +22,7 @@ python soma_cli.py --help
 | Folder              | Description                                             |
 | ------------------- | ------------------------------------------------------- |
 | `src/`              | Core tokenization engine, embeddings, servers, training |
-| `cognitive/`        | AI/ML: reasoning, SLM models, algorithms, graphs        |
+| `cognitive/`        | Architecture reasoning, SLM models, algorithms, graphs  |
 | `soma/`             | High-level wrapper module                               |
 | `santek_core/`      | Structure metrics system                                |
 | `semantic_trainer/` | Enhanced semantic embeddings                            |

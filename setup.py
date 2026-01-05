@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script for SOMA (formerly SOMA) package
+Setup script for SOMA package
 """
 
 from setuptools import setup, find_packages
@@ -13,7 +13,7 @@ setup(
     version="1.0.0",
     author="Santosh Chavala",
     author_email="chavalasantosh@gmail.com",
-    description="SOMA - Advanced AI Tokenization & Intelligence Framework (formerly SOMA)",
+    description="SOMA - Advanced Tokenization & Intelligence Framework",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/chavalasantosh/SanVerse",
