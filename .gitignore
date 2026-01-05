@@ -1,0 +1,247 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+!frontend/lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+frontend/node_modules/
+**/node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Temporary folders
+tmp/
+temp/
+
+# Build artifacts
+build/
+dist/
+
+# Large data files (for Railway deployment and distribution)
+workflow_output/
+vector_db/
+*.npy
+*.bin
+*.sqlite3
+*.db
+*.zip
+*.pkl
+*.pickle
+# Keep .env.example but ignore actual .env files
+.env
+.env.local
+.env.*.local
+
+# Frontend build
+frontend/.next/
+frontend/build/
+frontend/dist/
+
+# Examples and tests
+# examples/  # Commented out to include in Railway deployment
+tests/
+benchmarks/
+
+# Documentation - INCLUDED FOR BACKUP
+# docs/
+# *.md
+# !README.md
+
+# Development scripts - INCLUDED FOR BACKUP
+# *.bat
+# *.sh
+# *.ps1
+
+# Archive and backup directories
+archive/
+*.backup
+
+# Temporary files
+tatus
+*_output_*.txt
+*_files_paths.txt
+all_files.txt
+all_python_files.txt
+important_python_files.txt
+bug_detection_output.txt
+bug_fixing_output.txt
+bug_report.txt
+code_quality_report.txt
+comprehensive_bug_check.txt
+comprehensive_scan_output.txt
+comprehensive_scan_report.json
+comprehensive_scan_report.txt
+
+# Archive directories (old backups, not active code)
+archive/
+demo_santok/
+python_code_collection/
+santok_backend_mother ucker/
+
+# Non-core directories (not essential for tokenization library)
+frontend_v2/
+railway/
+node_modules/
+training_data/
+user_datasets/
+config/
+data/
+tests/
+scripts/
+.github/
+
+# Deployment/config files (not code)
+*.ps1
+*.sh
+*.tex
+.railwayignore
+.gitignore.backup
+.dockerignore
+Dockerfile
+Dockerfile.unified
+docker-compose.yml
+Procfile
+railway.json
+package.json
+!frontend/package.json
+package-lock.json
+!frontend/package-lock.json
+env.example
+
+# Demo output and job files
+backend/demo_output/
+backend/jobs/
+
+# Data files in examples
+examples/*.csv
+examples/*.parquet
+
+# Duplicate backend code (src/ is the main source - backend/ was duplicate)
+backend/src/
+backend/santok/
+backend/demo_complete_workflow.py
+backend/run_all_python.py
+backend/setup.py
+
+# Development utility scripts (not production code)
+collect_python_files.py
+create_santok_zip.py
+package_backend.py
+run_all_python.py
+verify_installation.py
+
+# Temporary files in examples
+examples/tmp*.py
+
+# Temporary Python files (runtime generated)
+*.pyc
+*.pyo
+
+# Exclude ALL markdown files EXCEPT README.md
+*.md
+!README.md
+
+# Exclude ALL text files
+*.txt
+
+# Exclude ALL dot files (hidden files)
+.*
+!.gitignore
+!.gitattributes
+
+# Exclude batch files
+*.bat
+
+# Exclude JSON report files
+*_report.json
+*_scan_report.json
+comprehensive_scan_report.json
+
+# Temporary output files and dumps (trash files - NOT code)
+all_files.txt
+all_python_output_*.txt
+backend/all_python_output_*.txt
+*_output_*.txt
+*_files_paths.txt
+bug_detection_output.txt
+bug_fixing_output.txt
+code_quality_report.txt
+comprehensive_scan_output.txt
+comprehensive_scan_report.txt
